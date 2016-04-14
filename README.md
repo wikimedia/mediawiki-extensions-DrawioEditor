@@ -43,7 +43,8 @@ This is a MediaWiki plugin that integrates the draw.io flow chart editor.
    ```
   
    `ChartName` must be unique and will be used as the basename for the backing file.
-2. Since no chart exists at this point, a placeholder will be shown. Click on Edit at the top right of it.
+2. Save the wiki page.
+2. Since no chart exists at this point, a placeholder will be shown where you've put the drawio tag. Click on the Edit link at the top right of it.
 3. Draw your chart, click Save to save and Exit to leave Edit mode.
 
 ## Edit a chart
