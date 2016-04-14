@@ -18,7 +18,6 @@ This is a MediaWiki plugin that integrates the draw.io flow chart editor.
 - Multiple charts per page
 
 # Installation
-
 1. Install the NativeSvgHandler MediaWiki plugin:
 
    https://www.mediawiki.org/wiki/Extension:NativeSvgHandler
@@ -36,6 +35,8 @@ This is a MediaWiki plugin that integrates the draw.io flow chart editor.
   ```
 
 # Usage
+Please note: While displaying charts may work in older browsers, especially when using PNG (SVG is default and recommended), editing and saving chart requires a fairly recent browser.
+
 ## Add a chart
 1. Add the following tag to any wiki page to insert a draw.io chart:
    ```wiki
