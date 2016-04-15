@@ -5,7 +5,7 @@ $wgExtensionCredits['parserhook'][] = array(
    'version' => "1.0",
    'description' => 'draw.io flow chart creation and inline editing',
    'author' => 'Markus Gebert',
-   'url' => 'http://www.github.com/mgeb/mediawiki-drawio-editor'
+   'url' => 'https://github.com/mgeb/mediawiki-drawio-editor'
 );
 
 $wgHooks['ParserFirstCallInit'][] = 'DrawioEditor::onParserSetup';
@@ -47,21 +47,34 @@ class DrawioEditor {
 	    $opts[trim($opt[0])] = count($opt) === 2 ? trim($opt[1]) : true;
 	}
        
-        $height = array_key_exists('height', $opts) ? $opts['height'] : null;
-        $width = array_key_exists('width', $opts) ? $opts['width'] : null;
-        $type = array_key_exists('type', $opts) ? $opts['type'] : $wgDrawioEditorImageType;
+        $opt_type = array_key_exists('type', $opts) ? $opts['type'] : $wgDrawioEditorImageType;
+        $opt_height = array_key_exists('height', $opts) ? $opts['height'] : 'auto';
+        $opt_width = array_key_exists('width', $opts) ? $opts['width'] : '100%';
+        $opt_max_width = array_key_exists('max-width', $opts) ? $opts['max-width'] : false;
 
-        /* input validation */
+        /* process input */
         if ($name == null || !strlen($name))
             return self::errorMessage('Usage Error');
-        if ($width && (!is_numeric($width) || $width < 1))
-            return self::errorMessage('Invalid width');
-        if ($height && (!is_numeric($height) || $height < 1))
-            return self::errorMessage('Invalid height');
-	if (!in_array($type, ['svg', 'png']))
+        if (!in_array($opt_type, ['svg', 'png']))
             return self::errorMessage('Invalid type');
 
-        /* input processing */
+        $len_regex = '/^((0|auto|chart)|[0-9]+(\.[0-9]+)?(px|%|mm|cm|in|em|ex|pt|pc))$/';
+        $len_regex_max = '/^((0|none|chart)|[0-9]+(\.[0-9]+)?(px|%|mm|cm|in|em|ex|pt|pc))$/';
+
+        if (!preg_match($len_regex, $opt_height))
+            return self::errorMessage('Invalid height');
+        if (!preg_match($len_regex, $opt_width))
+            return self::errorMessage('Invalid width');
+
+	if ($opt_max_width) {
+            if (!preg_match('/%$/', $opt_width))
+                return self::errorMessage('max-width is only allowed when width is relative');
+            if (!preg_match($len_regex_max, $opt_max_width))
+                return self::errorMessage('Invalid max-width');
+        } else {
+            $opt_max_width = 'chart';
+        }
+
 	$name = wfStripIllegalFilenameChars($name);
 	$dispname = htmlspecialchars($name, ENT_QUOTES);
 
@@ -69,22 +82,26 @@ class DrawioEditor {
         $id = mt_rand();
 
         /* prepare image information */
-        $img_name = $name.".drawio.".$type;
+        $img_name = $name.".drawio.".$opt_type;
         $img = wfFindFile($img_name);
         if ($img) {
             $img_url = $img->getViewUrl();
             $img_url_ts = $img_url.'?ts='.$img->nextHistoryLine()->img_timestamp;
             $img_desc_url = $img->getDescriptionUrl();
-	    $img_height = $height ? $height : $img->getHeight();
-	    $img_width = $width ? $width : $img->getWidth();
+	    $img_height = $img->getHeight().'px';
+	    $img_width = $img->getWidth().'px';
         } else {
             $img_url = '';
             $img_url_ts = '';
             $img_desc_url = '';
-	    $img_height = $height ? $height : 0;
-	    $img_width = $width ? $width : 0;
+	    $img_height = 0;
+	    $img_width = 0;
         }
-        
+
+        $css_img_height = $opt_height === 'chart' ? $img_height : $opt_height;
+        $css_img_width = $opt_width === 'chart' ? $img_width : $opt_width;
+        $css_img_max_width = $opt_max_width === 'chart' ? $img_width : $opt_max_width;
+
         /* check for conditions that should or will prevent an edit of the chart */
         $readonly = (!$wgEnableUploads
             || (!$img && !$wgUser->isAllowed('upload'))
@@ -93,9 +110,11 @@ class DrawioEditor {
             );
 
         /* prepare edit href */
-        $edit_ahref = sprintf("<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s)'>",
+        $edit_ahref = sprintf("<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s)'>",
             $id, json_encode($img_name, JSON_HEX_QUOT | JSON_HEX_APOS),
-	    $type, $height ? 'true' : 'false', $width ? 'true' : 'false');
+            $opt_type, $opt_height === 'chart' ? 'true' : 'false',
+            $opt_width === 'chart' ? 'true' : 'false',
+	    $opt_max_width === 'chart' ? 'true': 'false');
         
         /* output begin */
         $output = '<div>';
@@ -116,12 +135,14 @@ class DrawioEditor {
         }
 
         /* prepare image */
-        $img_fmt  = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" height="%s" width="%s"';
+        $img_style = sprintf('height: %s; width: %s; max-width: %s;',
+                $css_img_height, $css_img_width, $css_img_max_width);
         if (!$img) {
-           $img_fmt .= ' style="display:none;"';
+            $img_style .= ' display:none;';
         }
-        $img_fmt .= '></img>';
-        $img_html = sprintf($img_fmt, $id, $img_url_ts, 'drawio: '.$dispname, 'drawio: '.$dispname, $img_height, $img_width);
+
+        $img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
+        $img_html = sprintf($img_fmt, $id, $img_url_ts, 'drawio: '.$dispname, 'drawio: '.$dispname, $img_style);
 
         /* output image and optionally a placeholder if the image does not exist yet */
         if (!$img) {

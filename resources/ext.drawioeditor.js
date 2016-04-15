@@ -1,12 +1,13 @@
 
-function DrawioEditor(id, filename, type, fixedHeight, fixedWidth) {
+function DrawioEditor(id, filename, type, updateHeight, updateWidth, updateMaxWidth) {
     var that = this;
     
     this.id = id;
     this.filename = filename;
     this.imgType = type;
-    this.imgFixedHeight = fixedHeight;
-    this.imgFixedWidth = fixedWidth;
+    this.updateHeight = updateHeight;
+    this.updateWidth = updateWidth;
+    this.updateMaxWidth = updateMaxWidth;
 
     if (this.imgType == 'svg') {
         this.imgMimeType = 'image/svg+xml';
@@ -78,11 +79,12 @@ DrawioEditor.prototype.updateImage = function (imageinfo) {
     this.imageURL = imageinfo.url + '?ts=' + imageinfo.timestamp;
     this.image.attr("src", this.imageURL);
     this.imageHref.attr("href", imageinfo.descriptionurl);
-    console.log(imageinfo);
-    if (!this.imgFixedHeight)
-        this.image.attr('height', imageinfo.height);
-    if (!this.imgFixedWidth)
-        this.image.attr('width', imageinfo.width);
+    if (this.updateHeight)
+        this.image.css('height', imageinfo.height);
+    if (this.updateWidth)
+        this.image.css('width', imageinfo.width);
+    if (this.updateMaxWidth)
+        this.image.css('max-width', imageinfo.width);
     if (this.placeholder) {
         this.placeholder.hide();
         this.image.show();
@@ -283,9 +285,9 @@ DrawioEditor.prototype.initCallback = function () {
 
 var editor;
 
-window.editDrawio = function(id, filename, type, fixedHeight, fixedWidth) {
+window.editDrawio = function(id, filename, type, updateHeight, updateWidth, updateMaxWidth) {
     if (!editor) {
-        editor = new DrawioEditor(id, filename, type, fixedHeight, fixedWidth);
+        editor = new DrawioEditor(id, filename, type, updateHeight, updateWidth, updateMaxWidth);
     } else {
         alert("Only one DrawioEditor can be open at the same time!");
     }

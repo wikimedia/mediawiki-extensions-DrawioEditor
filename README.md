@@ -55,30 +55,81 @@ Each chart will have an Edit lilnk at it's top right. Click it to get back into 
 On each save, a new version of the backing file will be added to the wiki file store. You can get there by clicking the chart while you're not editing. There you can look at and revert to old versions like with any file uploaded to the wiki.
 
 ## Options ##
-The drawio tag supports the following options. They are not recommended to be used under normal circumstances.
+Options are appended to the tag separated by `|`. For example:
 
-* _type_: Set the image type to either svg or png. svg is default unless you set $wgDrawioEditorImageType to png in LocalSettings.php.
-  
-  ```wiki
-  {{#drawio:ChartName|type=png}}
-  ```
-  
-  This example will create a png instead of a svg, which is not recommended.
-* _width_: Set a fixed width for the image. Must be a positive integer.
-  
-  ```wiki
-  {{#drawio:ChartName|width=200}}
-  ```
-* _height_: Set a fixed height for the image. Must be a positive integer.
-  
-  ```wiki
-  {{#drawio:ChartName|height=400}}
-  ```  
-
-You may combine options by separating them with additional pipe characters, e.g.:
 ```wiki
-{{#drawio:ChartName|type=png|height=400}}
-``` 
+{{#drawio:ChartName|type=svg|max-width=500px}}
+```
+
+### Chart dimensions
+While the defaults are good under most circumstances, it may be necessary to control how your chart is displayed. The following options can be used for that:
+  
+* _width_: Sets the chart width. Defaults to `100%`.
+* _max_width_: Set the maximum chart width if _width_ is relative. Defaults to `chart`. Can only be set when _width_ is absolute.
+* _height_: Sets the chart height. Defaults to `auto`. Usually not used.
+
+These option take any absolute CSS length value as argument, for example:
+* `400px`
+* `80%`
+* `auto`
+
+The keyword `chart` has a special meaning and stands for the actual size of the chart. When the chart is saved, the image dimensions are automatically adjusted. Usually it's preferable to use `chart` instead of a fixed pixel value.
+
+The default behaviour is the let the chart scale (`width=100%` and `height=auto`) until it reaches its actual width stored in the chart (`max-width=chart`).
+
+If you want it to scale further or less, you can adjust _max_width_ manually. Use `none` to allow infinite scaling.
+
+If you just want a fixed width, set _width_ to `chart` or some fixed CSS value and leave _height_ on `auto`. Unless you need a fixed sized image area before the image is actually loaded or really need to scale based on height, there is usually no point in setting _height_. If you set it you probably should set _width_ to `auto`, or when setting both use `chart` so you don't need to update the values manually every time your image changes.
+
+#### Examples
+* Let the chart scale until it reaches its actual width (default):
+  
+  ```wiki
+  {{#drawio:ChartName}}
+  ```
+  Same as:
+  
+  ```wiki
+  {{#drawio:ChartName|width=100%|max-width=chart|height=auto}}
+  ```
+  
+* Let the chart scale until it's 800 px wide:
+
+  ```wiki
+  {{#drawio:ChartName|max-width=800px}}
+  ```
+
+* Let the chart scale infinitely:
+
+  ```wiki
+  {{#drawio:ChartName|max-width=none}}
+  ```
+
+* Fixed width:
+  
+  ```wiki
+  {{#drawio:ChartName|width=600px}}
+  ```
+  
+* Fixed width using the actual chart width:
+  
+  ```wiki
+  {{#drawio:ChartName|width=chart}}
+  ```
+  
+* Fixed height and width using the actual chart dimensions:
+
+  ```wiki
+  {{#drawio:ChartName|width=chart|height=chart}}
+  ```
+
+### File type
+The file type to be used can be set to either `png` or `svg`. The default is `svg` unless you set $wgDrawioEditorImageType to png in LocalSettings.php.
+  
+```wiki
+{{#drawio:ChartName|type=png}}
+```
+
 
 # Privacy
 As mentioned in the Warnings Section above, **there are some privacy concerns when using this plugin (or draw.io in general)**. Carefully read the information below, especially when you're running a wiki in a private environment.
