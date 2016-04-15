@@ -9,14 +9,14 @@ This is a MediaWiki extension that integrates the draw.io flow chart editor and 
 - This plugin is quite new and probably still has bugs, so it may or may not work with your installation.
 
 # Features
-- draw.io chart creation and editing
-- Inline Editing and javascript uploads on save, you never leave the wiki page
-- Image files are stored in the standard wiki file store
-- Versioning is provided by the file store
-- Draw.io original XML data is stored within the image files, so only one file must be stored per chart
-- SVG and PNG support, type can be configured globally and changed on a per-image basis
-- Multiple charts per 
-- Supports relative and fixed chart dimensions
+- **draw.io chart creation and editing**.
+- **SVG** and PNG support. The file type can be configured globally and changed on a per-image basis.
+- **Inline Editing** and javascript uploads on save, you never leave or reload the wiki page.
+- Image files are transparently **stored in the standard wiki file store**, you don't need to worry about them.
+- **Versioning** is provided by the file store.
+- Draw.io original XML data is stored within the image files, so only one file must be stored per chart.
+- Supports multiple charts per page.
+- Supports relative and fixed chart dimensions.
 
 # Requirements
 - When you intend to use SVG which is recommended, you might want to install Extension:NativeSvgHandler too. Also you need a browser that supports SVG.
