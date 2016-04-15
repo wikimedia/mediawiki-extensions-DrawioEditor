@@ -1,6 +1,6 @@
-# MediaWiki draw.io editor plugin
+# MediaWiki draw.io editor extension
 
-This is a MediaWiki plugin that integrates the draw.io flow chart editor.
+This is a MediaWiki extension that integrates the draw.io flow chart editor and allows inline editing of charts.
 
 # Warnings
 **Please read these warnings carefully before use**:
@@ -9,34 +9,33 @@ This is a MediaWiki plugin that integrates the draw.io flow chart editor.
 - This plugin is quite new and probably still has bugs, so it may or may not work with your installation.
 
 # Features
-- Chart creation and editing
+- draw.io chart creation and editing
 - Inline Editing and javascript uploads on save, you never leave the wiki page
 - Image files are stored in the standard wiki file store
 - Versioning is provided by the file store
 - Draw.io original XML data is stored within the image files, so only one file must be stored per chart
 - SVG and PNG support, type can be configured globally and changed on a per-image basis
-- Multiple charts per page
+- Multiple charts per 
+- Supports relative and fixed chart dimensions
+
+# Requirements
+- When you intend to use SVG which is recommended, you might want to install Extension:NativeSvgHandler too. Also you need a browser that supports SVG.
+- While displaying charts may work in older browsers, especially when using PNG (SVG is default and recommended), saving charts requires a fairly recent browser.
 
 # Installation
-1. Install the NativeSvgHandler MediaWiki plugin:
-
-   https://www.mediawiki.org/wiki/Extension:NativeSvgHandler
-
-2. Clone this plugin into a folder named DrawioEditor within your wiki's extensions folder:
+1. Clone this plugin into a folder named DrawioEditor within your wiki's extensions folder:
    ```shell
    cd /where/your/wiki/is/extensions
    git clone https://github.com/mgeb/mediawiki-drawio-editor DrawioEditor
    ```
 
-3. Activate the plugin in LocalSettings.php:
+2. Activate the plugin in LocalSettings.php:
 
   ```
   require_once "$IP/extensions/DrawioEditor/DrawioEditor.php";
   ```
 
 # Usage
-Please note: While displaying charts may work in older browsers, especially when using PNG (SVG is default and recommended), editing and saving charts require a fairly recent browser.
-
 ## Add a chart
 1. Add the following tag to any wiki page to insert a draw.io chart:
    ```wiki
@@ -145,3 +144,6 @@ Obviously the chart data must be passed to the draw.io application. The plugin u
 One example is when you are using the Safari browser and save a chart which uses type png (see Options above). That process does not seem to be entirely implemented in javascript and needs the draw.io servers to generate the PNG data. This means your chart data leaves the browser. It is sent SSL encrypted and the draw.io folks probably don't care about your chart, but of course it's up to you to decide wether you can accept his or not. SVG does not seem to have that problem, at least in Chrome, Firefox and Safari, so I recommend using that. There may be other circumstances under which data leaves the browser. If this is a concern, you should check wether your use cases trigger such uploads, or not use this plugin and draw.io at all.
 
 Again, be aware that the draw.io code running in the iframe may change its behavior at any time without you noticing. While that code has no access to your wiki, it may cause your chart data to be leaked. If this is a concern, don't use this plugin.
+
+# Links
+https://www.mediawiki.org/wiki/Extension:DrawioEditor
