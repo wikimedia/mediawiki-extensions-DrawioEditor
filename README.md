@@ -35,7 +35,7 @@ This is a MediaWiki plugin that integrates the draw.io flow chart editor.
   ```
 
 # Usage
-Please note: While displaying charts may work in older browsers, especially when using PNG (SVG is default and recommended), editing and saving chart requires a fairly recent browser.
+Please note: While displaying charts may work in older browsers, especially when using PNG (SVG is default and recommended), editing and saving charts require a fairly recent browser.
 
 ## Add a chart
 1. Add the following tag to any wiki page to insert a draw.io chart:
@@ -49,7 +49,7 @@ Please note: While displaying charts may work in older browsers, especially when
 3. Draw your chart, click Save to save and Exit to leave Edit mode.
 
 ## Edit a chart
-Each chart will have an Edit button at it's top right. Click it to get back into the editor. Click save to save and Exit to get out of the editor. If a wiki page has multiple charts, only one can be edited at the same time.
+Each chart will have an Edit lilnk at it's top right. Click it to get back into the editor. Click Save to save and Exit to get out of the editor. If a wiki page has multiple charts, only one can be edited at the same time.
 
 ## View or revert to old versions
 On each save, a new version of the backing file will be added to the wiki file store. You can get there by clicking the chart while you're not editing. There you can look at and revert to old versions like with any file uploaded to the wiki.
@@ -86,11 +86,11 @@ As mentioned in the Warnings Section above, **there are some privacy concerns wh
 **draw.io may change it's code at any time, so the everything below could be outdated by the time you read it.**
 
 ## Referrer Leak
-The draw.io editor is loaded within an iframe when you click the Edit link for a chart. At this point your browser loads all draw.io code from draw.io servers. While running in the iframe it has no access to your wiki page contents or any other resources your browser may still send a referrer containing the current wiki page's URL to the draw.io servers, which may or may not be a problem in your environment. The wiki setting $wgReferrerPolicy may help you with this, but only for modern browsers.
+The draw.io editor is loaded within an iframe when you click the Edit link for a chart. At this point your browser loads all draw.io code from draw.io servers. While it is running in an iframe and has no access to your wiki page contents or any other resources, your browser may still send a referrer containing the current wiki page's URL to the draw.io servers, which may or may not be a problem in your environment. The wiki setting $wgReferrerPolicy may help you with this, but only for modern browsers.
 
 ## Chart Data Privacy
-Obviously the chart data must be passed to the draw.io application. The plugin uses the draw.io embed mode and passes the chart data to draw.io running in an iframe using javascript's postMessage. This part happens locally, the data does not leave your browser. Currently, there does not seem to be any interaction with the draw.io servers while editing, which is good but of course could change at any time without you or your wiki's users noticing. When saving, the file data is prepared (exported) by the iframe and passed back to this plugin (again) using postMessage(). The plugin the safely uploads the new version to the wiki file store. While the data passing happens locally and uploading is safe because it's done by this plugin in the main window context, the draw.io data export code running in the iframe seems to require interaction with draw.io servers in some cases.
+Obviously the chart data must be passed to the draw.io application. The plugin uses the draw.io embed mode and passes the  data to draw.io running in an iframe using javascript's postMessage(). This part happens locally, the data does not leave your browser. Currently, there does not seem to be any interaction with the draw.io servers while editing, which is good but of course this could change at any time without you or your wiki's users noticing. When saving, the file data is prepared (exported) by the iframe and passed back to this plugin (again) using postMessage(). The plugin then safely uploads the new version to the wiki file store. While the data passing happens locally and uploading is safe because it's done by this plugin in the main window context, the draw.io data export code running in the iframe seems to require interaction with draw.io servers in some cases.
 
-One example is when you are using the Safari browser and save a chart which uses type png (see Options above). That process does not seem to be entirely implemented in javascript and needs the draw.io servers to generate the PNG data. This means your chart data leaves the browser. The data sent is SSL-encrypted and the draw.io folks probably don't care about your chart, but of course it's up to you to decide wether you can accept his or not. SVG does not seem to have that problem, at least in Chrome, Firefox and Safari, so I recommend against using that. There may be other circumstances under which data leaves the browser. If this is a concern, you should check wether your use cases trigger this behaviour, or not use this plugin and draw.io at all.
+One example is when you are using the Safari browser and save a chart which uses type png (see Options above). That process does not seem to be entirely implemented in javascript and needs the draw.io servers to generate the PNG data. This means your chart data leaves the browser. It is sent SSL encrypted and the draw.io folks probably don't care about your chart, but of course it's up to you to decide wether you can accept his or not. SVG does not seem to have that problem, at least in Chrome, Firefox and Safari, so I recommend using that. There may be other circumstances under which data leaves the browser. If this is a concern, you should check wether your use cases trigger such uploads, or not use this plugin and draw.io at all.
 
 Again, be aware that the draw.io code running in the iframe may change its behavior at any time without you noticing. While that code has no access to your wiki, it may cause your chart data to be leaked. If this is a concern, don't use this plugin.
