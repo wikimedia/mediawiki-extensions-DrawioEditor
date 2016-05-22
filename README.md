@@ -64,7 +64,7 @@ Options are appended to the tag separated by `|`. For example:
 While the defaults are good under most circumstances, it may be necessary to control how your chart is displayed. The following options can be used for that:
   
 * _width_: Sets the chart width. Defaults to `100%`.
-* _max_width_: Set the maximum chart width if _width_ is relative. Defaults to `chart`. Can only be set when _width_ is absolute.
+* _max-width_: Set the maximum chart width if _width_ is relative. Defaults to `chart`.
 * _height_: Sets the chart height. Defaults to `auto`. Usually not used.
 
 These option take any absolute CSS length value as argument, for example:
