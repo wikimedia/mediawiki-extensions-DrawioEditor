@@ -21,6 +21,7 @@ This is a MediaWiki extension that integrates the draw.io flow chart editor and 
 # Requirements
 - When you intend to use SVG which is recommended, you might want to install Extension:NativeSvgHandler too. Also you need a browser that supports SVG.
 - While displaying charts may work in older browsers, especially when using PNG (SVG is default and recommended), saving charts requires a fairly recent browser.
+- The drawings produced by the draw.io editor make use of the xhtml namespace in SVG files. This namespace is not allowed for file uploads in MediaWiki 1.26 and later. So if you want to use SVG with this extension, you need to use a MediaWiki that is older or you need to patch it (see Installation). Hopefully this requirement is only temporary. She this [issue](https://www.github.com/mgeb/mediawiki-drawio-editor/issues/1) and the [one on Wikimedia's phabricator](https://phabricator.wikimedia.org/T138783).
 
 # Installation
 1. Clone this plugin into a folder named DrawioEditor within your wiki's extensions folder:
@@ -34,6 +35,7 @@ This is a MediaWiki extension that integrates the draw.io flow chart editor and 
   ```
   require_once "$IP/extensions/DrawioEditor/DrawioEditor.php";
   ```
+3. If you want so use SVG (recommended) and the version of your MediaWiki is 1.26 or newer, you need to add the namespace ```http://www.w3.org/1999/xhtml``` to ```$validNamespaces```in  ```includes/upload/UploadBase.php```. See Requirements for more information on why this is currently needed.
 
 # Usage
 ## Add a chart
