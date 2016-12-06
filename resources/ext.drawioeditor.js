@@ -1,10 +1,11 @@
 
-function DrawioEditor(id, filename, type, updateHeight, updateWidth, updateMaxWidth) {
+function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth) {
     var that = this;
     
     this.id = id;
     this.filename = filename;
     this.imgType = type;
+    this.interactive = interactive;
     this.updateHeight = updateHeight;
     this.updateWidth = updateWidth;
     this.updateMaxWidth = updateMaxWidth;
@@ -19,7 +20,11 @@ function DrawioEditor(id, filename, type, updateHeight, updateWidth, updateMaxWi
 
     this.imageBox = $("#drawio-img-box-" + id);
     this.image = $("#drawio-img-" + id);
-    this.imageURL = this.image.attr('src');
+    if (interactive) {
+        this.imageURL = this.image.attr('data');
+    } else {
+        this.imageURL = this.image.attr('src');
+    }
     this.imageHref = $("#drawio-img-href-" + id);
     this.placeholder = $("#drawio-placeholder-" + id);
 
@@ -77,7 +82,11 @@ DrawioEditor.prototype.hideOverlay = function() {
 
 DrawioEditor.prototype.updateImage = function (imageinfo) {
     this.imageURL = imageinfo.url + '?ts=' + imageinfo.timestamp;
-    this.image.attr("src", this.imageURL);
+    if (this.interactive) {
+        this.image.attr("data", this.imageURL);
+    } else {
+        this.image.attr("src", this.imageURL);
+    }
     this.imageHref.attr("href", imageinfo.descriptionurl);
     if (this.updateHeight)
         this.image.css('height', imageinfo.height);

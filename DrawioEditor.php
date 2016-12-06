@@ -23,6 +23,7 @@ $wgResourceModules['ext.drawioeditor'] = array(
 
 /* Config Defaults */
 $wgDrawioEditorImageType = 'svg';
+$wgDrawioEditorImageInteractive = false;
 
 class DrawioEditor {
     public static function onParserSetup(&$parser) {
@@ -36,6 +37,7 @@ class DrawioEditor {
     public static function parse(&$parser, $name=null) {
         global $wgUser, $wgEnableUploads;
         global $wgDrawioEditorImageType;
+        global $wgDrawioEditorImageInteractive;
         
         /* disable caching before any output is generated */
         $parser->disableCache();
@@ -48,6 +50,7 @@ class DrawioEditor {
 	}
        
         $opt_type = array_key_exists('type', $opts) ? $opts['type'] : $wgDrawioEditorImageType;
+        $opt_interactive = array_key_exists('interactive', $opts) ? true : $wgDrawioEditorImageInteractive;
         $opt_height = array_key_exists('height', $opts) ? $opts['height'] : 'auto';
         $opt_width = array_key_exists('width', $opts) ? $opts['width'] : '100%';
         $opt_max_width = array_key_exists('max-width', $opts) ? $opts['max-width'] : false;
@@ -110,9 +113,12 @@ class DrawioEditor {
             );
 
         /* prepare edit href */
-        $edit_ahref = sprintf("<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s)'>",
-            $id, json_encode($img_name, JSON_HEX_QUOT | JSON_HEX_APOS),
-            $opt_type, $opt_height === 'chart' ? 'true' : 'false',
+        $edit_ahref = sprintf("<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s)'>",
+            $id,
+            json_encode($img_name, JSON_HEX_QUOT | JSON_HEX_APOS),
+            $opt_type,
+            $opt_interactive ? 'true' : 'false',
+            $opt_height === 'chart' ? 'true' : 'false',
             $opt_width === 'chart' ? 'true' : 'false',
 	    $opt_max_width === 'chart' ? 'true': 'false');
         
@@ -141,8 +147,16 @@ class DrawioEditor {
             $img_style .= ' display:none;';
         }
 
-        $img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
-        $img_html = sprintf($img_fmt, $id, $img_url_ts, 'drawio: '.$dispname, 'drawio: '.$dispname, $img_style);
+	if ($opt_interactive)
+        {
+            $img_fmt = '<object id="drawio-img-%s" data="%s" type="text/svg+xml" style="%s"></object>';
+            $img_html = sprintf($img_fmt, $id, $img_url_ts, $img_style);
+        } else {
+            $img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
+            $img_html = '<a id="drawio-img-href-'.$id.'" href="'.$img_desc_url.'">';
+            $img_html .= sprintf($img_fmt, $id, $img_url_ts, 'drawio: '.$dispname, 'drawio: '.$dispname, $img_style);
+            $img_html .= '</a>';
+        }
 
         /* output image and optionally a placeholder if the image does not exist yet */
         if (!$img) {
@@ -151,10 +165,8 @@ class DrawioEditor {
                 '<b>%s</b><br/>empty draw.io chart</div> ',
                 $id, $dispname);
         }
-        // the image element must be there in any case (it's hidden as long as there is no content.
-        $output .= '<a id="drawio-img-href-'.$id.'" href="'.$img_desc_url.'">';
+        // the image or object element must be there' in any case (it's hidden as long as there is no content.
         $output .= $img_html;
-        $output .= '</a>';
         $output .= '</div>';
         
         /* editor and overlay divs, iframe is added by javascript on demand */
