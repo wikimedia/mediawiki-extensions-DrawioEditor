@@ -131,6 +131,13 @@ The file type to be used can be set to either `png` or `svg`. The default is `sv
 {{#drawio:ChartName|type=png}}
 ```
 
+### Use an Object Tag
+MediaWiki normally embeds images inside `<img>` tags and links them to their description page. If you want to use SVG multimedia functions (e.g. links) it has to be embedded as `<object>`. This can be set using the interactive attribute or generally by enabling `$wgDrawioEditorImageInteractive = true` in LocalSettings.php.
+
+```wiki
+{{#drawio:ChartName|interactive}}
+```
+
 
 # Privacy
 As mentioned in the Warnings Section above, **there are some privacy concerns when using this plugin (or draw.io in general)**. Carefully read the information below, especially when you're running a wiki in a private environment.
