@@ -16,7 +16,7 @@ $wgExtensionMessagesFiles['DrawioEditor'] = __DIR__ . '/DrawioEditor.i18n.php';
 $wgResourceModules['ext.drawioeditor'] = array(
     'scripts' => 'ext.drawioeditor.js',
     'styles' => 'ext.drawioeditor.css',
-    'dependencies' => array('jquery.ui.resizable'),
+    'dependencies' => array('jquery.ui.resizable', 'mediawiki.api.upload'),
     'localBasePath' => __DIR__ . '/resources',
     'remoteExtPath' => 'DrawioEditor/resources',
 );
