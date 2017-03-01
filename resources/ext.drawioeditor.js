@@ -187,46 +187,38 @@ DrawioEditor.prototype.loadImage = function() {
 DrawioEditor.prototype.uploadToWiki = function(blob) {
     var that = this;
 
-    formdata = new FormData();
-    formdata.append("format", "json");
-    formdata.append("action", "upload");
-    formdata.append("ignorewarnings", "true");
-    formdata.append("filename", this.filename);
-    formdata.append("token", mw.user.tokens.get('editToken') );
-    formdata.append("file", blob, this.filename);
-
-    $.ajax({
-        url: mw.util.wikiScript('api'),
-	// contentType and processData must be false when using FormData
-        contentType: false,
-        processData: false,
-	type: "POST",
-	data: formdata,
-        success: function(data) {
-	    if (!data.upload) {
-	        if (data.error) {
-                    that.showDialog('Save failed',
-		       'The wiki returned the follwing error when uploading:<br>' +
-		       data.error.info);
-		} else {
-                    that.showDialog('Save failed',
-		       'The upload to the wiki failed.' +
-		       '<br>Check javascript console for details.');
-		}
-		console.log('upload to wiki failed');
-		console.log(data);
-	    } else {
-	        that.updateImage(data.upload.imageinfo);
-	        that.hideSpinner();
-	    }
-        },
-        error: function(xhr, status, error) {
-	    that.showDialog('Save failed', 
-	        'Upload to wiki failed!' +
-		'<br>Error: ' + error +
-		'<br>Check javascript console for details.');
-        },
-    });
+	var api = new mw.Api();
+    api.upload(blob, { filename: this.filename, ignorewarnings: true, format: 'json' } )
+        .done( function(data) {
+			if (!data.upload) {
+				if (data.error) {
+						that.showDialog('Save failed',
+				   'The wiki returned the follwing error when uploading:<br>' +
+				   data.error.info);
+			} else {
+						that.showDialog('Save failed',
+				   'The upload to the wiki failed.' +
+				   '<br>Check javascript console for details.');
+			}
+			console.log('upload to wiki failed');
+			console.log(data);
+			} else {
+				that.updateImage(data.upload.imageinfo);
+				that.hideSpinner();
+			}
+        })
+		.fail( function(retStatus, data) {
+			if( retStatus == "exists" ){
+				that.updateImage(data.upload.imageinfo);
+				that.hideSpinner();
+			} else {
+				that.showDialog('Save failed', 
+					'Upload to wiki failed!' +
+				'<br>Error: ' + error +
+				'<br>Check javascript console for details.');
+			}
+        });
+    
 }
 
 DrawioEditor.prototype.save = function(datauri) {
@@ -339,4 +331,3 @@ function drawioHandleMessage(e) {
 };
 
 window.addEventListener('message', drawioHandleMessage);
-
