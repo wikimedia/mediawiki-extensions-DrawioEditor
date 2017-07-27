@@ -177,6 +177,16 @@ class DrawioEditor {
         /* output end */
         $output .= '</div>';
 
+        /* 
+         * link the image to the ParserOutput, so that the mediawiki knows that
+         * it is used by the hosting page (through the DrawioEditor extension).
+         * Note: This only works if the page is edited after the image has been
+         * created (i.e. saved in the DrawioEditor for the first time).
+         */
+        if ($img) {
+            $parser->getOutput()->addImage($img->getTitle()->getDBkey());
+        }
+
         return array($output, 'isHTML'=>true, 'noparse'=>true);
     }
 
