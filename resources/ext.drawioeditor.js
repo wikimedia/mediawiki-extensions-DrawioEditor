@@ -239,7 +239,7 @@ DrawioEditor.prototype.save = function(datauri) {
 
     // convert base64 to uint8 array
     datastr = atob(parts[4]);
-    var expr = /"http:\/\/[^"]*?1999\S*?"/gmi;
+    var expr = /"http:\/\/[^"]*?1999[^"]*?"/gmi;
     datastr = datastr.replace( expr, '"http://www.w3.org/2000/svg"' );
     data = new Uint8Array(datastr.length)
     for (i = 0; i < datastr.length; i++) {
