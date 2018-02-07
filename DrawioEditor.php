@@ -141,8 +141,9 @@ class DrawioEditor {
         }
 
         /* prepare image */
-        $img_style = sprintf('height: %s; width: %s; max-width: %s;',
-                $css_img_height, $css_img_width, $css_img_max_width);
+//        $img_style = sprintf('height: %s; width: %s; max-width: %s;',
+//                $css_img_height, $css_img_width, $css_img_max_width);
+            $img_style = $css_img_width;
         if (!$img) {
             $img_style .= ' display:none;';
         }
@@ -152,10 +153,14 @@ class DrawioEditor {
             $img_fmt = '<object id="drawio-img-%s" data="%s" type="text/svg+xml" style="%s"></object>';
             $img_html = sprintf($img_fmt, $id, $img_url_ts, $img_style);
         } else {
-            $img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
-            $img_html = '<a id="drawio-img-href-'.$id.'" href="'.$img_desc_url.'">';
-            $img_html .= sprintf($img_fmt, $id, $img_url_ts, 'drawio: '.$dispname, 'drawio: '.$dispname, $img_style);
-            $img_html .= '</a>';
+            // Hack to use FlaggedRevs
+//            $img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
+//            $img_html = '<a id="drawio-img-href-'.$id.'" href="'.$img_desc_url.'">';
+//            $img_html .= sprintf($img_fmt, $id, $img_url_ts, 'drawio: '.$dispname, 'drawio: '.$dispname, $img_style);
+//            $img_html .= '</a>';
+
+            /** @var Parser $parser */
+            $img_html = $parser->recursiveTagParse( "[[File:$name.drawio.png|$img_style|drawio: $dispname]]");
         }
 
         /* output image and optionally a placeholder if the image does not exist yet */

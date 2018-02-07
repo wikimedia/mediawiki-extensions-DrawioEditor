@@ -1,7 +1,7 @@
 
 function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth) {
     var that = this;
-    
+
     this.id = id;
     this.filename = filename;
     this.imgType = type;
@@ -19,13 +19,19 @@ function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth
     }
 
     this.imageBox = $("#drawio-img-box-" + id);
-    this.image = $("#drawio-img-" + id);
+
+    // Hack to use FlaggedRevs
+    this.image = $( 'img', this.imageBox );
+    // this.image = $("#drawio-img-" + id);
     if (interactive) {
         this.imageURL = this.image.attr('data');
     } else {
         this.imageURL = this.image.attr('src');
     }
-    this.imageHref = $("#drawio-img-href-" + id);
+
+    // Hack to use FlaggedRevs
+    this.imageHref = $('a[data-bs-title="[[File:' + this.filename + ']]"]');
+    // this.imageHref = $("#drawio-img-href-" + id);
     this.placeholder = $("#drawio-placeholder-" + id);
 
     this.iframeBox = $("#drawio-iframe-box-" + id);
@@ -44,14 +50,14 @@ function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth
 
     this.iframeOverlay = $("#drawio-iframe-overlay-" + id);
     this.iframeOverlay.hide();
- 
+
     this.iframe = $('<iframe>', {
         src: 'https://www.draw.io/?embed=1&proto=json&spin=1&analytics=0&db=0&gapi=0&od=0&picker=0',
 	id: 'drawio-iframe-' + id,
 	class: 'DrawioEditorIframe'
     })
     this.iframe.appendTo(this.iframeBox);
-    
+
     this.iframeWindow = this.iframe.prop('contentWindow');
 
     this.show();
@@ -183,7 +189,7 @@ DrawioEditor.prototype.loadImage = function() {
     // draw.io xml data. see DrawioEditor.saveCallback()
     this.downloadFromWiki();
 }
- 
+
 DrawioEditor.prototype.uploadToWiki = function(blob) {
     var that = this;
 
@@ -212,13 +218,13 @@ DrawioEditor.prototype.uploadToWiki = function(blob) {
 				that.updateImage(data.upload.imageinfo);
 				that.hideSpinner();
 			} else {
-				that.showDialog('Save failed', 
+				that.showDialog('Save failed',
 					'Upload to wiki failed!' +
 				'<br>Error: ' + error +
 				'<br>Check javascript console for details.');
 			}
         });
-    
+
 }
 
 DrawioEditor.prototype.save = function(datauri) {
@@ -226,7 +232,7 @@ DrawioEditor.prototype.save = function(datauri) {
     // this.saveCallback()
 
     parts = /^data:([^;,=]+\/[^;,=]+)?((?:;[^;,=]+=[^;,=]+)+)?(?:;(base64))?,(.+)$/.exec(datauri);
-    
+
     // currently this save/upload to wiki code assumes that drawio passes data
     // URIs with base64 encoded data. this is currently the case but may not be
     // true forever. the check below errors out if the URI data is not base64
@@ -243,7 +249,7 @@ DrawioEditor.prototype.save = function(datauri) {
     for (i = 0; i < datastr.length; i++) {
         data[i] = datastr.charCodeAt(i);
     }
-    
+
     this.uploadToWiki(new Blob([data], {type: this.imgMimeType}));
 }
 
@@ -298,10 +304,10 @@ function drawioHandleMessage(e) {
     // we only act on event coming from draw.io iframes
     if (e.origin != 'https://www.draw.io')
         return;
-    
+
     if (!editor)
         return;
-       
+
     evdata = JSON.parse(e.data);
 
     switch(evdata['event']) {
