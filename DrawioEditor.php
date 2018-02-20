@@ -148,19 +148,21 @@ class DrawioEditor {
             $img_style .= ' display:none;';
         }
 
-	if ($opt_interactive)
+        if ($opt_interactive)
         {
             $img_fmt = '<object id="drawio-img-%s" data="%s" type="text/svg+xml" style="%s"></object>';
             $img_html = sprintf($img_fmt, $id, $img_url_ts, $img_style);
         } else {
             // Hack to use FlaggedRevs
-//            $img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
-//            $img_html = '<a id="drawio-img-href-'.$id.'" href="'.$img_desc_url.'">';
-//            $img_html .= sprintf($img_fmt, $id, $img_url_ts, 'drawio: '.$dispname, 'drawio: '.$dispname, $img_style);
-//            $img_html .= '</a>';
-
-            /** @var Parser $parser */
-            $img_html = $parser->recursiveTagParse( "[[File:$name.drawio.png|$img_style|drawio: $dispname]]");
+            if( $img ) {
+                /** @var Parser $parser */
+                $img_html = $parser->recursiveTagParse( "[[File:$name.drawio.png|$img_style|drawio: $dispname]]");
+            } else {
+                $img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
+                $img_html = '<a id="drawio-img-href-'.$id.'" href="'.$img_desc_url.'">';
+                $img_html .= sprintf($img_fmt, $id, $img_url_ts, 'drawio: '.$dispname, 'drawio: '.$dispname, $img_style);
+                $img_html .= '</a>';
+            }
         }
 
         /* output image and optionally a placeholder if the image does not exist yet */
