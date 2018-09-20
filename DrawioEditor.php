@@ -6,6 +6,7 @@ $wgExtensionCredits['parserhook'][] = array(
    'description' => 'draw.io flow chart creation and inline editing',
    'author' => 'Markus Gebert',
    'url' => 'https://github.com/mgeb/mediawiki-drawio-editor'
+   'license-name' => 'GPL-3.0-only',,
 );
 
 $wgHooks['ParserFirstCallInit'][] = 'DrawioEditor::onParserSetup';
