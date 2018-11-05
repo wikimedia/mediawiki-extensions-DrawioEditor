@@ -132,7 +132,7 @@ class DrawioEditor {
         /* display edit link */
         if (!$readonly) {
             $output .= '<div align="right">';
-	    $output .= '<span class="mw-editsection">';
+	    $output .= '<span class="mw-editdrawio">';
 	    $output .= '<span class="mw-editsection-bracket">[</span>';
             $output .= $edit_ahref;
             $output .= wfMessage('edit')->text().'</a>';
