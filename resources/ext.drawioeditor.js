@@ -81,6 +81,8 @@ DrawioEditor.prototype.hideOverlay = function() {
 }
 
 DrawioEditor.prototype.updateImage = function (imageinfo) {
+	console.log( imageinfo );
+	console.log( this.updateMaxWidth );
     this.imageURL = imageinfo.url + '?ts=' + imageinfo.timestamp;
     if (this.interactive) {
         this.image.attr("data", this.imageURL);
@@ -288,9 +290,9 @@ DrawioEditor.prototype.initCallback = function () {
 
 var editor;
 
-window.editDrawio = function(id, filename, type, updateHeight, updateWidth, updateMaxWidth) {
+window.editDrawio = function(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth) {
     if (!editor) {
-        editor = new DrawioEditor(id, filename, type, updateHeight, updateWidth, updateMaxWidth);
+        editor = new DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth);
     } else {
         alert("Only one DrawioEditor can be open at the same time!");
     }
