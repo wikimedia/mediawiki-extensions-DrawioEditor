@@ -81,8 +81,6 @@ DrawioEditor.prototype.hideOverlay = function() {
 }
 
 DrawioEditor.prototype.updateImage = function (imageinfo) {
-	console.log( imageinfo );
-	console.log( this.updateMaxWidth );
     this.imageURL = imageinfo.url + '?ts=' + imageinfo.timestamp;
     if (this.interactive) {
         this.image.attr("data", this.imageURL);
