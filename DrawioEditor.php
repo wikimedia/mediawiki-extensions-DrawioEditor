@@ -57,7 +57,7 @@ class DrawioEditor {
         $opt_width = array_key_exists('width', $opts) ? $opts['width'] : '100%';
         $opt_max_width = array_key_exists('max-width', $opts) ? $opts['max-width'] : false;
         $opt_url = array_key_exists('url', $opts) ? $opts['url'] : $wgDrawioEditorBackendUrl;
-        $opt_local = ($wgDrawioEditorBackendUrl === "https://www.draw.io");
+        $opt_local = ($wgDrawioEditorBackendUrl !== "https://www.draw.io");
 
         /* process input */
         if ($name == null || !strlen($name))
