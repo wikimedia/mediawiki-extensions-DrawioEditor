@@ -24,6 +24,7 @@ $wgResourceModules['ext.drawioeditor'] = array(
 /* Config Defaults */
 $wgDrawioEditorImageType = 'svg';
 $wgDrawioEditorImageInteractive = false;
+$wgDrawioEditorBackendUrl = "https://www.draw.io";
 
 class DrawioEditor {
     public static function onParserSetup(&$parser) {
@@ -38,7 +39,8 @@ class DrawioEditor {
         global $wgUser, $wgEnableUploads;
         global $wgDrawioEditorImageType;
         global $wgDrawioEditorImageInteractive;
-        
+        global $wgDrawioEditorBackendUrl;
+
         /* disable caching before any output is generated */
         $parser->disableCache();
 
@@ -48,12 +50,14 @@ class DrawioEditor {
             $opt = explode('=', $rawopt, 2);
 	    $opts[trim($opt[0])] = count($opt) === 2 ? trim($opt[1]) : true;
 	}
-       
+
         $opt_type = array_key_exists('type', $opts) ? $opts['type'] : $wgDrawioEditorImageType;
         $opt_interactive = array_key_exists('interactive', $opts) ? true : $wgDrawioEditorImageInteractive;
         $opt_height = array_key_exists('height', $opts) ? $opts['height'] : 'auto';
         $opt_width = array_key_exists('width', $opts) ? $opts['width'] : '100%';
         $opt_max_width = array_key_exists('max-width', $opts) ? $opts['max-width'] : false;
+        $opt_url = array_key_exists('url', $opts) ? $opts['url'] : $wgDrawioEditorBackendUrl;
+        $opt_local = ($wgDrawioEditorBackendUrl !== "https://www.draw.io");
 
         /* process input */
         if ($name == null || !strlen($name))
@@ -110,18 +114,22 @@ class DrawioEditor {
             || (!$img && !$wgUser->isAllowed('upload'))
             || ($img && !$wgUser->isAllowed('reupload'))
             || $parser->getTitle()->isProtected('edit')
+            || !$parser->getTitle()->userCan('edit')
             );
 
         /* prepare edit href */
-        $edit_ahref = sprintf("<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s)'>",
+        $edit_ahref = sprintf("<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s, \"%s\", %s)'>",
             $id,
             json_encode($img_name, JSON_HEX_QUOT | JSON_HEX_APOS),
             $opt_type,
             $opt_interactive ? 'true' : 'false',
             $opt_height === 'chart' ? 'true' : 'false',
             $opt_width === 'chart' ? 'true' : 'false',
-	    $opt_max_width === 'chart' ? 'true': 'false');
-        
+            $opt_max_width === 'chart' ? 'true': 'false',
+            $opt_url,
+            $opt_local ? 'true' : 'false'
+        );
+
         /* output begin */
         $output = '<div>';
 
@@ -168,7 +176,7 @@ class DrawioEditor {
         // the image or object element must be there' in any case (it's hidden as long as there is no content.
         $output .= $img_html;
         $output .= '</div>';
-        
+
         /* editor and overlay divs, iframe is added by javascript on demand */
         $output .= '<div id="drawio-iframe-box-'.$id.'" style="display:none;">';
 	$output .= '<div id="drawio-iframe-overlay-'.$id.'" class="DrawioEditorOverlay" style="display:none;"></div>';
@@ -177,7 +185,7 @@ class DrawioEditor {
         /* output end */
         $output .= '</div>';
 
-        /* 
+        /*
          * link the image to the ParserOutput, so that the mediawiki knows that
          * it is used by the hosting page (through the DrawioEditor extension).
          * Note: This only works if the page is edited after the image has been
@@ -198,4 +206,3 @@ class DrawioEditor {
         return array($output, 'isHTML'=>true, 'noparse'=>true);
     }
 }
-?>
