@@ -1,7 +1,6 @@
-
-function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth) {
+function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth, url, local) {
     var that = this;
-    
+
     this.id = id;
     this.filename = filename;
     this.imgType = type;
@@ -9,6 +8,8 @@ function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth
     this.updateHeight = updateHeight;
     this.updateWidth = updateWidth;
     this.updateMaxWidth = updateMaxWidth;
+    this.url = url;
+    this.local = local;
 
     if (this.imgType == 'svg') {
         this.imgMimeType = 'image/svg+xml';
@@ -44,14 +45,16 @@ function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth
 
     this.iframeOverlay = $("#drawio-iframe-overlay-" + id);
     this.iframeOverlay.hide();
- 
+
+    var localAttr = this.local ? "&local=1" : "";
+
     this.iframe = $('<iframe>', {
-        src: 'https://www.draw.io/?embed=1&proto=json&spin=1&analytics=0&db=0&gapi=0&od=0&picker=0',
+        src: this.url + '/?embed=1&proto=json&spin=1&analytics=0&db=0&gapi=0&od=0&picker=0' + localAttr,
 	id: 'drawio-iframe-' + id,
 	class: 'DrawioEditorIframe'
     })
     this.iframe.appendTo(this.iframeBox);
-    
+
     this.iframeWindow = this.iframe.prop('contentWindow');
 
     this.show();
@@ -101,7 +104,7 @@ DrawioEditor.prototype.updateImage = function (imageinfo) {
 }
 
 DrawioEditor.prototype.sendMsgToIframe = function(data) {
-    this.iframeWindow.postMessage(JSON.stringify(data), 'https://www.draw.io');
+    this.iframeWindow.postMessage(JSON.stringify(data), this.url);
 }
 
 DrawioEditor.prototype.showDialog = function(title, message) {
@@ -183,7 +186,7 @@ DrawioEditor.prototype.loadImage = function() {
     // draw.io xml data. see DrawioEditor.saveCallback()
     this.downloadFromWiki();
 }
- 
+
 DrawioEditor.prototype.uploadToWiki = function(blob) {
     var that = this;
 
@@ -218,7 +221,7 @@ DrawioEditor.prototype.uploadToWiki = function(blob) {
 				'<br>Check javascript console for details.');
 			}
         });
-    
+
 }
 
 DrawioEditor.prototype.save = function(datauri) {
@@ -226,7 +229,7 @@ DrawioEditor.prototype.save = function(datauri) {
     // this.saveCallback()
 
     parts = /^data:([^;,=]+\/[^;,=]+)?((?:;[^;,=]+=[^;,=]+)+)?(?:;(base64))?,(.+)$/.exec(datauri);
-    
+
     // currently this save/upload to wiki code assumes that drawio passes data
     // URIs with base64 encoded data. this is currently the case but may not be
     // true forever. the check below errors out if the URI data is not base64
@@ -245,7 +248,7 @@ DrawioEditor.prototype.save = function(datauri) {
     for (i = 0; i < datastr.length; i++) {
         data[i] = datastr.charCodeAt(i);
     }
-    
+
     this.uploadToWiki(new Blob([data], {type: this.imgMimeType}));
 }
 
@@ -287,10 +290,12 @@ DrawioEditor.prototype.initCallback = function () {
 
 
 var editor;
+var drawioUrl;
 
-window.editDrawio = function(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth) {
+window.editDrawio = function(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth, url, local) {
     if (!editor) {
-        editor = new DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth);
+        editor = new DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth, url, local);
+	drawioUrl = url;
     } else {
         alert("Only one DrawioEditor can be open at the same time!");
     }
@@ -298,12 +303,12 @@ window.editDrawio = function(id, filename, type, interactive, updateHeight, upda
 
 function drawioHandleMessage(e) {
     // we only act on event coming from draw.io iframes
-    if (e.origin != 'https://www.draw.io')
+    if (e.origin != drawioUrl)
         return;
-    
+
     if (!editor)
         return;
-       
+
     evdata = JSON.parse(e.data);
 
     switch(evdata['event']) {
