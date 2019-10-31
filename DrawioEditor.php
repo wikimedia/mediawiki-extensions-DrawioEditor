@@ -24,8 +24,7 @@ $wgResourceModules['ext.drawioeditor'] = array(
 /* Config Defaults */
 $wgDrawioEditorImageType = 'svg';
 $wgDrawioEditorImageInteractive = false;
-$wgDrawioEditorUrl = "https://www.draw.io";
-$wgDrawioEditorLocal = false;
+$wgDrawioEditorBackendUrl = "https://www.draw.io";
 
 class DrawioEditor {
     public static function onParserSetup(&$parser) {
@@ -37,11 +36,10 @@ class DrawioEditor {
     }
 
     public static function parse(&$parser, $name=null) {
-        global $wgUser, $wgEnableUploads, $wgTitle;
+        global $wgUser, $wgEnableUploads;
         global $wgDrawioEditorImageType;
         global $wgDrawioEditorImageInteractive;
-        global $wgDrawioEditorUrl;
-        global $wgDrawioEditorLocal;
+        global $wgDrawioEditorBackendUrl;
 
         /* disable caching before any output is generated */
         $parser->disableCache();
@@ -58,8 +56,8 @@ class DrawioEditor {
         $opt_height = array_key_exists('height', $opts) ? $opts['height'] : 'auto';
         $opt_width = array_key_exists('width', $opts) ? $opts['width'] : '100%';
         $opt_max_width = array_key_exists('max-width', $opts) ? $opts['max-width'] : false;
-	$opt_url =  array_key_exists('url', $opts) ? $opts['url'] : $wgDrawioEditorUrl;
-	$opt_local =  array_key_exists('local', $opts) ? $opts['local'] : $wgDrawioEditorLocal;
+        $opt_url = array_key_exists('url', $opts) ? $opts['url'] : $wgDrawioEditorBackendUrl;
+        $opt_local = ($wgDrawioEditorBackendUrl === "https://www.draw.io");
 
         /* process input */
         if ($name == null || !strlen($name))
@@ -116,6 +114,7 @@ class DrawioEditor {
             || (!$img && !$wgUser->isAllowed('upload'))
             || ($img && !$wgUser->isAllowed('reupload'))
             || $parser->getTitle()->isProtected('edit')
+            || !$parser->getTitle()->userCan('edit')
             );
 
         /* prepare edit href */
@@ -126,10 +125,10 @@ class DrawioEditor {
             $opt_interactive ? 'true' : 'false',
             $opt_height === 'chart' ? 'true' : 'false',
             $opt_width === 'chart' ? 'true' : 'false',
-	    $opt_max_width === 'chart' ? 'true': 'false',
-	    $opt_url,
-	    $opt_local ? 'true' : 'false'
-	);
+            $opt_max_width === 'chart' ? 'true': 'false',
+            $opt_url,
+            $opt_local ? 'true' : 'false'
+        );
 
         /* output begin */
         $output = '<div>';
@@ -138,7 +137,7 @@ class DrawioEditor {
         $output .= '<div id="drawio-img-box-'.$id.'">';
 
         /* display edit link */
-        if (!$readonly && $wgTitle->userCan( 'edit' )) {
+        if (!$readonly) {
             $output .= '<div align="right">';
 	    $output .= '<span class="mw-editdrawio">';
 	    $output .= '<span class="mw-editsection-bracket">[</span>';
