@@ -303,7 +303,7 @@ window.editDrawio = function(id, filename, type, interactive, updateHeight, upda
 
 function drawioHandleMessage(e) {
     // we only act on event coming from draw.io iframes
-    if (e.origin != drawioUrl)
+    if (!drawioUrl.startsWith(e.origin))
         return;
 
     if (!editor)
