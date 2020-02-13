@@ -1,0 +1,47 @@
+{
+	"name": "DrawioEditor",
+	"license-name": "GPL-3.0-only",
+	"version": "1.0",
+	"author": [
+		"Markus Gebert"
+	],
+	"description": "draw.io flow chart creation and inline editing",
+	"type": "parserhook",
+	"SpecialPages": {
+		"UserManager": "SpecialUserManager"
+	},
+	"ExtensionMessagesFiles": {
+		"DrawioEditorMagic": "DrawioEditor.magic.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\DrawioEditor\\": "src/"
+	},
+	"ResourceModules": {
+		"ext.drawioeditor": {
+			"scripts": "ext.drawioeditor.js",
+			"styles": "ext.drawioeditor.css",
+			"dependencies": [
+			 	"jquery.ui",
+			 	"mediawiki.api"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "DrawioEditor/resources"
+	},
+	"Hooks": {
+		"OutputPageParserOutput": "MediaWiki\\Extension\\DrawioEditor\\Hook\\OutputPageParserOutput\\AddModules::callback",
+		"ParserFirstCallInit": "MediaWiki\\Extension\\DrawioEditor\\Hook\\ParserFirstCallInit\\SetFunctionHook::callback"
+	},
+	"config": {
+		"DrawioEditorImageType": {
+			"value": "svg"
+		},
+		"DrawioEditorImageInteractive": {
+			"value": false
+		}
+	},
+	"load_composer_autoloader" : true,
+	"manifest_version": 2
+}
