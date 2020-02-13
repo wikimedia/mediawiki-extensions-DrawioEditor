@@ -7,9 +7,6 @@
 	],
 	"description": "draw.io flow chart creation and inline editing",
 	"type": "parserhook",
-	"SpecialPages": {
-		"UserManager": "SpecialUserManager"
-	},
 	"ExtensionMessagesFiles": {
 		"DrawioEditorMagic": "DrawioEditor.magic.php"
 	},
