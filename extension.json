@@ -5,10 +5,15 @@
 	"author": [
 		"Markus Gebert"
 	],
-	"description": "draw.io flow chart creation and inline editing",
+	"descriptionmsg": "drawioeditor-desc",
 	"type": "parserhook",
 	"ExtensionMessagesFiles": {
 		"DrawioEditorMagic": "DrawioEditor.magic.php"
+	},
+	"MessagesDirs": {
+		"DrawioEditor": [
+			"i18n"
+		]
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\DrawioEditor\\": "src/"
