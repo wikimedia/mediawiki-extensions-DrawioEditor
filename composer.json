@@ -1,8 +1,22 @@
 {
-  "name": "mediawiki/drawio-editor",
-  "type": "mediawiki-extension",
-  "description": "This is a MediaWiki extension that integrates the draw.io flow chart editor and allows inline editing of charts.",
-  "require": {
-    "composer/installers": "~1.0"
-  }
+	"name": "mediawiki/drawio-editor",
+	"type": "mediawiki-extension",
+	"description": "This is a MediaWiki extension that integrates the draw.io flow chart editor and allows inline editing of charts.",
+	"require": {
+		"composer/installers": "~1.0"
+	},
+	"require-dev": {
+		"mediawiki/minus-x": "1.1.0",
+		"php-parallel-lint/php-parallel-lint": "1.2.0",
+		"php-parallel-lint/php-console-highlighter": "0.5.0"
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor --exclude node_modules",
+			"minus-x check ."
+		],
+		"fix": [
+			"minus-x fix ."
+		]
+	}
 }
