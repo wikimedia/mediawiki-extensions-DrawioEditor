@@ -7,6 +7,9 @@
 	],
 	"descriptionmsg": "drawioeditor-desc",
 	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.31.0"
+	},
 	"ExtensionMessagesFiles": {
 		"DrawioEditorMagic": "DrawioEditor.magic.php"
 	},
@@ -23,8 +26,8 @@
 			"scripts": "ext.drawioeditor.js",
 			"styles": "ext.drawioeditor.css",
 			"dependencies": [
-			 	"jquery.ui",
-			 	"mediawiki.api"
+				"jquery.ui",
+				"mediawiki.api"
 			]
 		}
 	},
