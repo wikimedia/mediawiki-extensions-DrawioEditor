@@ -8,7 +8,7 @@ use ParserOutput;
 class AddModules {
 
 	/**
-	 * @param OutputPage $outputPage
+	 * @param OutputPage &$outputPage
 	 * @param ParserOutput $parseroutput
 	 * @return bool
 	 */

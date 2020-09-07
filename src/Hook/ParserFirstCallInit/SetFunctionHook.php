@@ -9,7 +9,7 @@ use Parser;
 class SetFunctionHook {
 
 	/**
-	 * @param Parser $parser
+	 * @param Parser &$parser
 	 * @return bool
 	 * @throws MWException
 	 */
