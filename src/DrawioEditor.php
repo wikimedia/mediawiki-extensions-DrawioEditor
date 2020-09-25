@@ -148,7 +148,7 @@ class DrawioEditor {
 		if ( !$img ) {
 			// show placeholder
 			$output .= sprintf( '<div id="drawio-placeholder-%s" class="DrawioEditorInfoBox">' .
-				'<b>%s</b><br/>empty draw.io chart</div> ',
+				'<b>%s</b><br/>empty app.diagrams.net chart</div> ',
 				$id, $dispname );
 		}
 		// the image or object element must be there' in any case (it's hidden as long as there is no content.
