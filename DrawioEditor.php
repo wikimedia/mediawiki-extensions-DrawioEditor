@@ -24,7 +24,7 @@ $wgResourceModules['ext.drawioeditor'] = array(
 /* Config Defaults */
 $wgDrawioEditorImageType = 'svg';
 $wgDrawioEditorImageInteractive = false;
-$wgDrawioEditorBackendUrl = "https://www.draw.io";
+$wgDrawioEditorBackendUrl = "https://embed.diagrams.net";
 
 class DrawioEditor {
     public static function onParserSetup(&$parser) {

@@ -49,7 +49,7 @@ function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth
     var localAttr = this.local ? "&local=1" : "";
 
     this.iframe = $('<iframe>', {
-        src: this.url + '/?embed=1&proto=json&spin=1&analytics=0&db=0&gapi=0&od=0&picker=0' + localAttr,
+        src: this.url + '/?embed=1&ui=atlas&spin=1&modified=unsavedChanges&proto=json' + localAttr,
 	id: 'drawio-iframe-' + id,
 	class: 'DrawioEditorIframe'
     })
