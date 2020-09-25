@@ -41,8 +41,12 @@ class DrawioEditor {
 			$opts[ trim( $opt[ 0 ] ) ] = count( $opt ) === 2 ? trim( $opt[ 1 ] ) : true;
 		}
 
-		$opt_type = array_key_exists( 'type', $opts ) ? $opts[ 'type' ] : $this->config->get( 'DrawioEditorImageType' );
-		$opt_interactive = array_key_exists( 'interactive', $opts ) ? true : $this->config->get( 'DrawioEditorImageInteractive' );
+		$opt_type = array_key_exists( 'type', $opts )
+			? $opts[ 'type' ]
+			: $this->config->get( 'DrawioEditorImageType' );
+		$opt_interactive = array_key_exists( 'interactive', $opts )
+			? true
+			: $this->config->get( 'DrawioEditorImageInteractive' );
 		$opt_height = array_key_exists( 'height', $opts ) ? $opts[ 'height' ] : 'auto';
 		$opt_width = array_key_exists( 'width', $opts ) ? $opts[ 'width' ] : '100%';
 		$opt_max_width = array_key_exists( 'max-width', $opts ) ? $opts[ 'max-width' ] : false;
@@ -145,7 +149,10 @@ class DrawioEditor {
 		} else {
 			$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
 			$img_html = '<a id="drawio-img-href-' . $id . '" href="' . $img_desc_url . '">';
-			$img_html .= sprintf( $img_fmt, $id, $img_url_ts, 'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style );
+			$img_html .= sprintf(
+				$img_fmt, $id, $img_url_ts,
+				'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style
+			);
 			$img_html .= '</a>';
 		}
 
@@ -156,13 +163,15 @@ class DrawioEditor {
 				'<b>%s</b><br/>empty app.diagrams.net chart</div> ',
 				$id, $dispname );
 		}
-		// the image or object element must be there' in any case (it's hidden as long as there is no content.
+		// the image or object element must be there in any case
+		// (it's hidden as long as there is no content.)
 		$output .= $img_html;
 		$output .= '</div>';
 
 		/* editor and overlay divs, iframe is added by javascript on demand */
 		$output .= '<div id="drawio-iframe-box-' . $id . '" style="display:none;">';
-		$output .= '<div id="drawio-iframe-overlay-' . $id . '" class="DrawioEditorOverlay" style="display:none;"></div>';
+		$output .= '<div id="drawio-iframe-overlay-' . $id
+			. '" class="DrawioEditorOverlay" style="display:none;"></div>';
 		$output .= '</div>';
 
 		/* output end */
@@ -187,7 +196,8 @@ class DrawioEditor {
 	 */
 	private function errorMessage( $msg ) {
 		$output = '<div class="DrawioEditorInfoBox" style="border-color:red;">';
-		$output .= '<p style="color: red;">DrawioEditor Usage Error:<br/>' . htmlspecialchars( $msg ) . '</p>';
+		$output .= '<p style="color: red;">DrawioEditor Usage Error:<br/>'
+			. htmlspecialchars( $msg ) . '</p>';
 		$output .= '</div>';
 
 		return [ $output, 'isHTML' => true, 'noparse' => true ];
