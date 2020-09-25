@@ -26,12 +26,11 @@ class DrawioEditor {
 	}
 
 	/**
-	 * @param Parser $parser
+	 * @param Parser &$parser
 	 * @param string|null $name
 	 * @return array
 	 */
 	public function parse( &$parser, $name = null ) {
-
 		/* disable caching before any output is generated */
 		$parser->getOutput()->updateCacheExpiry( 0 );
 
@@ -42,31 +41,41 @@ class DrawioEditor {
 			$opts[ trim( $opt[ 0 ] ) ] = count( $opt ) === 2 ? trim( $opt[ 1 ] ) : true;
 		}
 
-		$opt_type = array_key_exists( 'type', $opts ) ? $opts[ 'type' ] : $this->config->get( 'DrawioEditorImageType' );
-		$opt_interactive = array_key_exists( 'interactive', $opts ) ? true : $this->config->get( 'DrawioEditorImageInteractive' );
+		$opt_type = array_key_exists( 'type', $opts )
+			? $opts[ 'type' ]
+			: $this->config->get( 'DrawioEditorImageType' );
+		$opt_interactive = array_key_exists( 'interactive', $opts )
+			? true
+			: $this->config->get( 'DrawioEditorImageInteractive' );
 		$opt_height = array_key_exists( 'height', $opts ) ? $opts[ 'height' ] : 'auto';
 		$opt_width = array_key_exists( 'width', $opts ) ? $opts[ 'width' ] : '100%';
 		$opt_max_width = array_key_exists( 'max-width', $opts ) ? $opts[ 'max-width' ] : false;
 
 		/* process input */
-		if ( $name == null || !strlen( $name ) )
+		if ( $name == null || !strlen( $name ) ) {
 			return $this->errorMessage( 'Usage Error' );
-		if ( !in_array( $opt_type, [ 'svg', 'png' ] ) )
+		}
+		if ( !in_array( $opt_type, [ 'svg', 'png' ] ) ) {
 			return $this->errorMessage( 'Invalid type' );
+		}
 
 		$len_regex = '/^((0|auto|chart)|[0-9]+(\.[0-9]+)?(px|%|mm|cm|in|em|ex|pt|pc))$/';
 		$len_regex_max = '/^((0|none|chart)|[0-9]+(\.[0-9]+)?(px|%|mm|cm|in|em|ex|pt|pc))$/';
 
-		if ( !preg_match( $len_regex, $opt_height ) )
+		if ( !preg_match( $len_regex, $opt_height ) ) {
 			return $this->errorMessage( 'Invalid height' );
-		if ( !preg_match( $len_regex, $opt_width ) )
+		}
+		if ( !preg_match( $len_regex, $opt_width ) ) {
 			return self::errorMessage( 'Invalid width' );
+		}
 
 		if ( $opt_max_width ) {
-			if ( !preg_match( '/%$/', $opt_width ) )
+			if ( !preg_match( '/%$/', $opt_width ) ) {
 				return $this->errorMessage( 'max-width is only allowed when width is relative' );
-			if ( !preg_match( $len_regex_max, $opt_max_width ) )
+			}
+			if ( !preg_match( $len_regex_max, $opt_max_width ) ) {
 				return $this->errorMessage( 'Invalid max-width' );
+			}
 		} else {
 			$opt_max_width = 'chart';
 		}
@@ -140,7 +149,10 @@ class DrawioEditor {
 		} else {
 			$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
 			$img_html = '<a id="drawio-img-href-' . $id . '" href="' . $img_desc_url . '">';
-			$img_html .= sprintf( $img_fmt, $id, $img_url_ts, 'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style );
+			$img_html .= sprintf(
+				$img_fmt, $id, $img_url_ts,
+				'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style
+			);
 			$img_html .= '</a>';
 		}
 
@@ -151,13 +163,15 @@ class DrawioEditor {
 				'<b>%s</b><br/>empty app.diagrams.net chart</div> ',
 				$id, $dispname );
 		}
-		// the image or object element must be there' in any case (it's hidden as long as there is no content.
+		// the image or object element must be there in any case
+		// (it's hidden as long as there is no content.)
 		$output .= $img_html;
 		$output .= '</div>';
 
 		/* editor and overlay divs, iframe is added by javascript on demand */
 		$output .= '<div id="drawio-iframe-box-' . $id . '" style="display:none;">';
-		$output .= '<div id="drawio-iframe-overlay-' . $id . '" class="DrawioEditorOverlay" style="display:none;"></div>';
+		$output .= '<div id="drawio-iframe-overlay-' . $id
+			. '" class="DrawioEditorOverlay" style="display:none;"></div>';
 		$output .= '</div>';
 
 		/* output end */
@@ -176,9 +190,10 @@ class DrawioEditor {
 		return [ $output, 'isHTML' => true, 'noparse' => true ];
 	}
 
-	private function errorMessage( $msg ){
+	private function errorMessage( $msg ) {
 		$output = '<div class="DrawioEditorInfoBox" style="border-color:red;">';
-		$output .= '<p style="color: red;">DrawioEditor Usage Error:<br/>' . htmlspecialchars( $msg ) . '</p>';
+		$output .= '<p style="color: red;">DrawioEditor Usage Error:<br/>'
+			. htmlspecialchars( $msg ) . '</p>';
 		$output .= '</div>';
 
 		return [ $output, 'isHTML' => true, 'noparse' => true ];
@@ -195,6 +210,6 @@ class DrawioEditor {
 		return !$this->config->get( 'EnableUploads' ) ||
 			( !$img && !$this->services->getPermissionManager()->userHasRight( $user, 'upload' ) ) ||
 			( !$img && !$this->services->getPermissionManager()->userHasRight( $user, 'reupload' ) ) ||
-			( $parser->getTitle() ?  $parser->getTitle()->isProtected( 'edit' ) : false );
+			( $parser->getTitle() ? $parser->getTitle()->isProtected( 'edit' ) : false );
 	}
 }

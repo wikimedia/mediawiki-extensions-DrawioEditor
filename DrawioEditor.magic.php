@@ -2,8 +2,6 @@
 
 $magicWords = [];
 
-
 $magicWords['en'] = [
-    'drawio' => [ 0, 'drawio' ],
+	'drawio' => [ 0, 'drawio' ],
 ];
-
