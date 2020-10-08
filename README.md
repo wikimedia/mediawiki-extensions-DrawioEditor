@@ -32,8 +32,8 @@ This is a MediaWiki extension that integrates the draw.io flow chart editor and 
 
 2. Activate the plugin in LocalSettings.php:
 
-  ```
-  require_once "$IP/extensions/DrawioEditor/DrawioEditor.php";
+  ```php
+  wfLoadExtension( 'DrawioEditor' );
   ```
 3. If you want so use SVG (recommended) and the version of your MediaWiki is 1.26 or newer, you need to add the namespace ```http://www.w3.org/1999/xhtml``` to ```$validNamespaces```in  ```includes/upload/UploadBase.php```. See Requirements for more information on why this is currently needed.
 
