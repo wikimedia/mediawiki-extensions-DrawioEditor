@@ -90,6 +90,9 @@ class DrawioEditor {
 		$img_name = $name . ".drawio." . $opt_type;
 		$img = $this->services->getRepoGroup()->findFile( $img_name );
 		if ( $img ) {
+			/* Resets file history to newest if there is more than one instance of same chart on a page */
+			$img->resetHistory();
+
 			$historyLine = $img->nextHistoryLine();
 			$img_url = $img->getViewUrl();
 			$img_url_ts = $img_url . '?ts=' . ( $historyLine !== false ? $historyLine->img_timestamp : '' );
