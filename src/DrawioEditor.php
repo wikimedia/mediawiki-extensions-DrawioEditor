@@ -6,6 +6,7 @@ use Config;
 use File;
 use MediaWiki\MediaWikiServices;
 use Parser;
+use PPFrame;
 use RequestContext;
 
 class DrawioEditor {
@@ -26,20 +27,63 @@ class DrawioEditor {
 	}
 
 	/**
-	 * @param Parser &$parser
-	 * @param string|null $name
-	 * @return array
+	 * Parser hook handler for <drawio>
+	 *
+	 * @param string|null $data A string with the content of the tag, or null.
+	 * @param array $attribs The attributes of the tag.
+	 * @param Parser $parser Parser instance available to render
+	 *                             wikitext into html, or parser methods.
+	 * @param PPFrame $frame Can be used to see what template
+	 *                             arguments ({{{1}}}) this hook was used with.
+	 *
+	 * @return string HTML to insert in the page.
 	 */
-	public function parse( &$parser, $name = null ) {
-		/* disable caching before any output is generated */
-		$parser->getOutput()->updateCacheExpiry( 0 );
+	public function parseExtension( $data, array $attribs, Parser $parser, PPFrame $frame ) {
+		// Extract name as option from tag <drawio name=FileName .../>
+		$name = array_key_exists( 'filename', $attribs )
+			? $attribs[ 'filename' ]
+			: null;
 
+		// Call general parse-generator routine
+		return $this->parse( $parser, $name, $attribs );
+	}
+
+	/**
+	 * Parser hook handler for {{drawio}}
+	 *
+	 * @param Parser &$parser Parser instance available to render
+	 *                             wikitext into html, or parser methods.
+	 * @param string|null $name File name of chart.
+	 *
+	 * @return array HTML to insert in the page.
+	 */
+	public function parseLegacyParserFunc( Parser &$parser, $name = null ) {
 		/* parse named arguments */
 		$opts = [];
 		foreach ( array_slice( func_get_args(), 2 ) as $rawopt ) {
 			$opt = explode( '=', $rawopt, 2 );
 			$opts[ trim( $opt[ 0 ] ) ] = count( $opt ) === 2 ? trim( $opt[ 1 ] ) : true;
 		}
+
+		// Call general parse-generator routine
+		return $this->parse( $parser, $name, $opts );
+	}
+
+	/**
+	 * Generates the HTML required to embed a SVG/PNG DrawIO diagram, supports
+	 * a few formatting options to control with width/height, and image format.
+	 *
+	 * @param Parser &$parser Parser instance available to render
+	 *                             wikitext into html, or parser methods.
+	 * @param string|null $name File name of chart.
+	 * @param array $opts Further attributes as associative array:
+	 *                             width, height, max-height, type, interactive.
+	 *
+	 * @return array HTML to insert in the page.
+	 */
+	public function parse( &$parser, $name, $opts ) {
+		/* disable caching before any output is generated */
+		$parser->getOutput()->updateCacheExpiry( 0 );
 
 		$opt_type = array_key_exists( 'type', $opts )
 			? $opts[ 'type' ]
