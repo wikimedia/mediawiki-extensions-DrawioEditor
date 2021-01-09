@@ -214,7 +214,7 @@ DrawioEditor.prototype.uploadToWiki = function(blob) {
 			} else {
 				that.showDialog('Save failed', 
 					'Upload to wiki failed!' +
-				'<br>Error: ' + error +
+				'<br>Error: ' + data.error.info +
 				'<br>Check javascript console for details.');
 			}
         });
