@@ -1,25 +1,25 @@
 <?php
 
-$wgExtensionCredits['parserhook'][] = array(
+$wgExtensionCredits['parserhook'][] = [
    'name' => 'DrawioEditor',
-   'version' => "1.0",
+   'version' => "1.1",
    'description' => 'draw.io flow chart creation and inline editing',
    'author' => 'Markus Gebert',
    'url' => 'https://github.com/mgeb/mediawiki-drawio-editor'
-);
+];
 
 $wgHooks['ParserFirstCallInit'][] = 'DrawioEditor::onParserSetup';
 $wgHooks['OutputPageParserOutput'][] = 'DrawioEditor::onOutputPageParserOutput';
 
 $wgExtensionMessagesFiles['DrawioEditor'] = __DIR__ . '/DrawioEditor.i18n.php';
 
-$wgResourceModules['ext.drawioeditor'] = array(
-    'scripts' => 'ext.drawioeditor.js',
-    'styles' => 'ext.drawioeditor.css',
-    'dependencies' => array('jquery.ui.resizable', 'mediawiki.api.upload'),
-    'localBasePath' => __DIR__ . '/resources',
-    'remoteExtPath' => 'DrawioEditor/resources',
-);
+$wgResourceModules['ext.drawioeditor'] = [
+	'scripts' => 'ext.drawioeditor.js',
+	'styles' => 'ext.drawioeditor.css',
+	'dependencies' => [ 'jquery.ui.resizable', 'mediawiki.api.upload' ],
+	'localBasePath' => __DIR__ . '/resources',
+	'remoteExtPath' => 'DrawioEditor/resources',
+];
 
 /* Config Defaults */
 $wgDrawioEditorImageType = 'svg';
@@ -27,182 +27,213 @@ $wgDrawioEditorImageInteractive = false;
 $wgDrawioEditorBackendUrl = "https://embed.diagrams.net";
 
 class DrawioEditor {
-    public static function onParserSetup(&$parser) {
-        $parser->setFunctionHook( 'drawio', 'DrawioEditor::parse' );
-    }
-
-    public static function onOutputPageParserOutput(&$outputPage, $parseroutput) {
-        $outputPage->addModules('ext.drawioeditor');
-    }
-
-    public static function parse(&$parser, $name=null) {
-        global $wgUser, $wgEnableUploads;
-        global $wgDrawioEditorImageType;
-        global $wgDrawioEditorImageInteractive;
-        global $wgDrawioEditorBackendUrl;
-
-        /* disable caching before any output is generated */
-        $parser->disableCache();
-
-	/* parse named arguments */
-	$opts = array();
-        foreach (array_slice(func_get_args(), 2) as $rawopt) {
-            $opt = explode('=', $rawopt, 2);
-	    $opts[trim($opt[0])] = count($opt) === 2 ? trim($opt[1]) : true;
+	/**
+	 *
+	 * @param Parser &$parser
+	 * @return void
+	 */
+	public static function onParserSetup( &$parser ) {
+		$parser->setFunctionHook( 'drawio', 'DrawioEditor::parse' );
 	}
 
-        $opt_type = array_key_exists('type', $opts) ? $opts['type'] : $wgDrawioEditorImageType;
-        $opt_interactive = array_key_exists('interactive', $opts) ? true : $wgDrawioEditorImageInteractive;
-        $opt_height = array_key_exists('height', $opts) ? $opts['height'] : 'auto';
-        $opt_width = array_key_exists('width', $opts) ? $opts['width'] : '100%';
-        $opt_max_width = array_key_exists('max-width', $opts) ? $opts['max-width'] : false;
-        $opt_url = array_key_exists('url', $opts) ? $opts['url'] : $wgDrawioEditorBackendUrl;
-        $opt_local = ($wgDrawioEditorBackendUrl !== "https://www.draw.io");
+	/**
+	 *
+	 * @param OutputPage &$outputPage
+	 * @param ParserOutput $parseroutput
+	 * @return void
+	 */
+	public static function onOutputPageParserOutput( &$outputPage, $parseroutput ) {
+		$outputPage->addModules( 'ext.drawioeditor' );
+	}
 
-        /* process input */
-        if ($name == null || !strlen($name))
-            return self::errorMessage('Usage Error');
-        if (!in_array($opt_type, ['svg', 'png']))
-            return self::errorMessage('Invalid type');
+	/**
+	 *
+	 * @param Parser &$parser
+	 * @param string|null $name
+	 * @return void
+	 */
+	public static function parse( &$parser, $name = null ) {
+		global $wgUser, $wgEnableUploads;
+		global $wgDrawioEditorImageType;
+		global $wgDrawioEditorImageInteractive;
+		global $wgDrawioEditorBackendUrl;
 
-        $len_regex = '/^((0|auto|chart)|[0-9]+(\.[0-9]+)?(px|%|mm|cm|in|em|ex|pt|pc))$/';
-        $len_regex_max = '/^((0|none|chart)|[0-9]+(\.[0-9]+)?(px|%|mm|cm|in|em|ex|pt|pc))$/';
+		/* disable caching before any output is generated */
+		$parser->disableCache();
 
-        if (!preg_match($len_regex, $opt_height))
-            return self::errorMessage('Invalid height');
-        if (!preg_match($len_regex, $opt_width))
-            return self::errorMessage('Invalid width');
+	/* parse named arguments */
+	$opts = [];
+		foreach ( array_slice( func_get_args(), 2 ) as $rawopt ) {
+			$opt = explode( '=', $rawopt, 2 );
+		$opts[trim( $opt[0] )] = count( $opt ) === 2 ? trim( $opt[1] ) : true;
+		}
 
-	if ($opt_max_width) {
-            if (!preg_match('/%$/', $opt_width))
-                return self::errorMessage('max-width is only allowed when width is relative');
-            if (!preg_match($len_regex_max, $opt_max_width))
-                return self::errorMessage('Invalid max-width');
-        } else {
-            $opt_max_width = 'chart';
-        }
+		$opt_type = array_key_exists( 'type', $opts ) ? $opts['type'] : $wgDrawioEditorImageType;
+		$opt_interactive = array_key_exists( 'interactive', $opts )
+			? true
+			: $wgDrawioEditorImageInteractive;
+		$opt_height = array_key_exists( 'height', $opts ) ? $opts['height'] : 'auto';
+		$opt_width = array_key_exists( 'width', $opts ) ? $opts['width'] : '100%';
+		$opt_max_width = array_key_exists( 'max-width', $opts ) ? $opts['max-width'] : false;
+		$opt_url = array_key_exists( 'url', $opts ) ? $opts['url'] : $wgDrawioEditorBackendUrl;
+		$opt_local = ( $wgDrawioEditorBackendUrl !== "https://www.draw.io" );
 
-	$name = wfStripIllegalFilenameChars($name);
-	$dispname = htmlspecialchars($name, ENT_QUOTES);
+		/* process input */
+		if ( $name == null || !strlen( $name ) ) {
+			return self::errorMessage( 'Usage Error' );
+		}
+		if ( !in_array( $opt_type, [ 'svg', 'png' ] ) ) {
+			return self::errorMessage( 'Invalid type' );
+		}
 
-        /* random id to reference html elements */
-        $id = mt_rand();
+		$len_regex = '/^((0|auto|chart)|[0-9]+(\.[0-9]+)?(px|%|mm|cm|in|em|ex|pt|pc))$/';
+		$len_regex_max = '/^((0|none|chart)|[0-9]+(\.[0-9]+)?(px|%|mm|cm|in|em|ex|pt|pc))$/';
 
-        /* prepare image information */
-        $img_name = $name.".drawio.".$opt_type;
-        $img = wfFindFile($img_name);
-        if ($img) {
-            $img_url = $img->getViewUrl();
-            $img_url_ts = $img_url.'?ts='.$img->nextHistoryLine()->img_timestamp;
-            $img_desc_url = $img->getDescriptionUrl();
-	    $img_height = $img->getHeight().'px';
-	    $img_width = $img->getWidth().'px';
-        } else {
-            $img_url = '';
-            $img_url_ts = '';
-            $img_desc_url = '';
-	    $img_height = 0;
-	    $img_width = 0;
-        }
+		if ( !preg_match( $len_regex, $opt_height ) ) {
+			return self::errorMessage( 'Invalid height' );
+		}
+		if ( !preg_match( $len_regex, $opt_width ) ) {
+			return self::errorMessage( 'Invalid width' );
+		}
 
-        $css_img_height = $opt_height === 'chart' ? $img_height : $opt_height;
-        $css_img_width = $opt_width === 'chart' ? $img_width : $opt_width;
-        $css_img_max_width = $opt_max_width === 'chart' ? $img_width : $opt_max_width;
+	if ( $opt_max_width ) {
+			if ( !preg_match( '/%$/', $opt_width ) ) {
+				return self::errorMessage( 'max-width is only allowed when width is relative' );
+			}
+			if ( !preg_match( $len_regex_max, $opt_max_width ) ) {
+				return self::errorMessage( 'Invalid max-width' );
+			}
+	} else {
+			$opt_max_width = 'chart';
+	}
 
-        /* check for conditions that should or will prevent an edit of the chart */
-        $readonly = (!$wgEnableUploads
-            || (!$img && !$wgUser->isAllowed('upload'))
-            || ($img && !$wgUser->isAllowed('reupload'))
-            || $parser->getTitle()->isProtected('edit')
-            || !$parser->getTitle()->userCan('edit')
-            );
+	$name = wfStripIllegalFilenameChars( $name );
+	$dispname = htmlspecialchars( $name, ENT_QUOTES );
 
-        /* prepare edit href */
-        $edit_ahref = sprintf("<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s, \"%s\", %s)'>",
-            $id,
-            json_encode($img_name, JSON_HEX_QUOT | JSON_HEX_APOS),
-            $opt_type,
-            $opt_interactive ? 'true' : 'false',
-            $opt_height === 'chart' ? 'true' : 'false',
-            $opt_width === 'chart' ? 'true' : 'false',
-            $opt_max_width === 'chart' ? 'true': 'false',
-            $opt_url,
-            $opt_local ? 'true' : 'false'
-        );
+		/* random id to reference html elements */
+		$id = mt_rand();
 
-        /* output begin */
-        $output = '<div>';
+		/* prepare image information */
+		$img_name = $name . ".drawio." . $opt_type;
+		$img = wfFindFile( $img_name );
+		if ( $img ) {
+			$img_url = $img->getViewUrl();
+			$img_url_ts = $img_url . '?ts=' . $img->nextHistoryLine()->img_timestamp;
+			$img_desc_url = $img->getDescriptionUrl();
+		$img_height = $img->getHeight() . 'px';
+		$img_width = $img->getWidth() . 'px';
+		} else {
+			$img_url = '';
+			$img_url_ts = '';
+			$img_desc_url = '';
+		$img_height = 0;
+		$img_width = 0;
+		}
 
-        /* div around the image */
-        $output .= '<div id="drawio-img-box-'.$id.'">';
+		$css_img_height = $opt_height === 'chart' ? $img_height : $opt_height;
+		$css_img_width = $opt_width === 'chart' ? $img_width : $opt_width;
+		$css_img_max_width = $opt_max_width === 'chart' ? $img_width : $opt_max_width;
 
-        /* display edit link */
-        if (!$readonly) {
-            $output .= '<div align="right">';
-	    $output .= '<span class="mw-editdrawio">';
-	    $output .= '<span class="mw-editsection-bracket">[</span>';
-            $output .= $edit_ahref;
-            $output .= wfMessage('edit')->text().'</a>';
-	    $output .= '<span class="mw-editsection-bracket">]</span>';
-	    $output .= '</span>';
-	    $output .= '</div>';
-        }
+		/* check for conditions that should or will prevent an edit of the chart */
+		$readonly = ( !$wgEnableUploads
+			|| ( !$img && !$wgUser->isAllowed( 'upload' ) )
+			|| ( $img && !$wgUser->isAllowed( 'reupload' ) )
+			|| $parser->getTitle()->isProtected( 'edit' )
+			|| !$parser->getTitle()->userCan( 'edit' )
+			);
 
-        /* prepare image */
-        $img_style = sprintf('height: %s; width: %s; max-width: %s;',
-                $css_img_height, $css_img_width, $css_img_max_width);
-        if (!$img) {
-            $img_style .= ' display:none;';
-        }
+		/* prepare edit href */
+		$edit_ahref = sprintf(
+			"<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s, \"%s\", %s)'>",
+			$id,
+			json_encode( $img_name, JSON_HEX_QUOT | JSON_HEX_APOS ),
+			$opt_type,
+			$opt_interactive ? 'true' : 'false',
+			$opt_height === 'chart' ? 'true' : 'false',
+			$opt_width === 'chart' ? 'true' : 'false',
+			$opt_max_width === 'chart' ? 'true' : 'false',
+			$opt_url,
+			$opt_local ? 'true' : 'false'
+		);
 
-	if ($opt_interactive)
-        {
-            $img_fmt = '<object id="drawio-img-%s" data="%s" type="text/svg+xml" style="%s"></object>';
-            $img_html = sprintf($img_fmt, $id, $img_url_ts, $img_style);
-        } else {
-            $img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
-            $img_html = '<a id="drawio-img-href-'.$id.'" href="'.$img_desc_url.'">';
-            $img_html .= sprintf($img_fmt, $id, $img_url_ts, 'drawio: '.$dispname, 'drawio: '.$dispname, $img_style);
-            $img_html .= '</a>';
-        }
+		/* output begin */
+		$output = '<div>';
 
-        /* output image and optionally a placeholder if the image does not exist yet */
-        if (!$img) {
-            // show placeholder
-            $output .= sprintf('<div id="drawio-placeholder-%s" class="DrawioEditorInfoBox">'.
-                '<b>%s</b><br/>empty draw.io chart</div> ',
-                $id, $dispname);
-        }
-        // the image or object element must be there' in any case (it's hidden as long as there is no content.
-        $output .= $img_html;
-        $output .= '</div>';
+		/* div around the image */
+		$output .= '<div id="drawio-img-box-' . $id . '">';
 
-        /* editor and overlay divs, iframe is added by javascript on demand */
-        $output .= '<div id="drawio-iframe-box-'.$id.'" style="display:none;">';
-	$output .= '<div id="drawio-iframe-overlay-'.$id.'" class="DrawioEditorOverlay" style="display:none;"></div>';
-	$output .= '</div>';
+		/* display edit link */
+		if ( !$readonly ) {
+			$output .= '<div align="right">';
+		$output .= '<span class="mw-editdrawio">';
+		$output .= '<span class="mw-editsection-bracket">[</span>';
+			$output .= $edit_ahref;
+			$output .= wfMessage( 'edit' )->text() . '</a>';
+		$output .= '<span class="mw-editsection-bracket">]</span>';
+		$output .= '</span>';
+		$output .= '</div>';
+		}
 
-        /* output end */
-        $output .= '</div>';
+		/* prepare image */
+		$img_style = sprintf( 'height: %s; width: %s; max-width: %s;',
+				$css_img_height, $css_img_width, $css_img_max_width );
+		if ( !$img ) {
+			$img_style .= ' display:none;';
+		}
 
-        /*
-         * link the image to the ParserOutput, so that the mediawiki knows that
-         * it is used by the hosting page (through the DrawioEditor extension).
-         * Note: This only works if the page is edited after the image has been
-         * created (i.e. saved in the DrawioEditor for the first time).
-         */
-        if ($img) {
-            $parser->getOutput()->addImage($img->getTitle()->getDBkey());
-        }
+	if ( $opt_interactive ) {
+			$img_fmt = '<object id="drawio-img-%s" data="%s" type="text/svg+xml" style="%s"></object>';
+			$img_html = sprintf( $img_fmt, $id, $img_url_ts, $img_style );
+	} else {
+			$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
+			$img_html = '<a id="drawio-img-href-' . $id . '" href="' . $img_desc_url . '">';
+			$img_html .= sprintf(
+				$img_fmt, $id, $img_url_ts,
+				'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style
+			);
+			$img_html .= '</a>';
+	}
 
-        return array($output, 'isHTML'=>true, 'noparse'=>true);
-    }
+		/* output image and optionally a placeholder if the image does not exist yet */
+		if ( !$img ) {
+			// show placeholder
+			$output .= sprintf( '<div id="drawio-placeholder-%s" class="DrawioEditorInfoBox">' .
+				'<b>%s</b><br/>empty draw.io chart</div> ',
+				$id, $dispname );
+		}
+		// the image or object element must be there in any case
+		// (it's hidden as long as there is no content.)
+		$output .= $img_html;
+		$output .= '</div>';
 
-    private static function errorMessage($msg) {
-        $output  = '<div class="DrawioEditorInfoBox" style="border-color:red;">';
-        $output .= '<p style="color: red;">DrawioEditor Usage Error:<br/>'.htmlspecialchars($msg).'</p>';
-	$output .= '</div>';
+		/* editor and overlay divs, iframe is added by javascript on demand */
+		$output .= '<div id="drawio-iframe-box-' . $id . '" style="display:none;">';
+		$output .= '<div id="drawio-iframe-overlay-'
+			. $id . '" class="DrawioEditorOverlay" style="display:none;"></div>';
+		$output .= '</div>';
 
-        return array($output, 'isHTML'=>true, 'noparse'=>true);
-    }
+		/* output end */
+		$output .= '</div>';
+
+		/*
+		 * link the image to the ParserOutput, so that the mediawiki knows that
+		 * it is used by the hosting page (through the DrawioEditor extension).
+		 * Note: This only works if the page is edited after the image has been
+		 * created (i.e. saved in the DrawioEditor for the first time).
+		 */
+		if ( $img ) {
+			$parser->getOutput()->addImage( $img->getTitle()->getDBkey() );
+		}
+
+		return [ $output, 'isHTML' => true, 'noparse' => true ];
+	}
+
+	private static function errorMessage( $msg ) {
+		$output  = '<div class="DrawioEditorInfoBox" style="border-color:red;">';
+		$output .= '<p style="color: red;">DrawioEditor Usage Error:<br/>'
+			. htmlspecialchars( $msg ) . '</p>';
+		$output .= '</div>';
+
+		return [ $output, 'isHTML' => true, 'noparse' => true ];
+	}
 }

@@ -1,16 +1,13 @@
 <?php
 
-$magicWords = array();
+$magicWords = [];
 
-$magicWords['en'] = array(
-    'drawio' => array( 0, 'drawio' ),
-);
+$magicWords['en'] = [
+	'drawio' => [ 0, 'drawio' ],
+];
 
 /*
 $magicWords['de'] = array(
-    'drawio' => array( 0, 'drawio' ),
+	'drawio' => array( 0, 'drawio' ),
 );
 */
-
-
-?>
