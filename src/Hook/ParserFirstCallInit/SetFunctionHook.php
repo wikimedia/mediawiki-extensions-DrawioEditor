@@ -19,7 +19,7 @@ class SetFunctionHook {
 		// Add hook for Legacy Parser Function {{#drawio:filename|param=...}}
 		$parser->setFunctionHook( 'drawio', [ $drawioEditor, 'parseLegacyParserFunc' ] );
 
-		// Add hook for Tag Extension; <drawio name=filename param=..../>
+		// Add hook for Tag Extension; <drawio filename=filename param=..../>
 		$parser->setHook( 'drawio', [ $drawioEditor, 'parseExtension' ] );
 
 		return true;
