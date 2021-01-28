@@ -39,7 +39,7 @@ class DrawioEditor {
 	 * @return string HTML to insert in the page.
 	 */
 	public function parseExtension( $data, array $attribs, Parser $parser, PPFrame $frame ) {
-		// Extract name as option from tag <drawio name=FileName .../>
+		// Extract name as option from tag <drawio filename=FileName .../>
 		$name = array_key_exists( 'filename', $attribs )
 			? $attribs[ 'filename' ]
 			: null;
@@ -155,15 +155,26 @@ class DrawioEditor {
 		$css_img_width = $opt_width === 'chart' ? $img_width : $opt_width;
 		$css_img_max_width = $opt_max_width === 'chart' ? $img_width : $opt_max_width;
 
+		/* get and check base url */
+		$base_url = filter_var( $this->config->get( 'DrawioEditorBackendUrl' ),
+			FILTER_VALIDATE_URL,
+			FILTER_FLAG_SCHEME_REQUIRED & FILTER_FLAG_HOST_REQUIRED );
+		if ( !$base_url ) {
+			return $this->errorMessage( 'Invalid base url' );
+		}
+
 		/* prepare edit href */
-		$edit_ahref = sprintf( "<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s)'>",
+		$edit_ahref = sprintf(
+			"<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s, \"%s\")'>",
 			$id,
 			json_encode( $img_name, JSON_HEX_QUOT | JSON_HEX_APOS ),
 			$opt_type,
 			$opt_interactive ? 'true' : 'false',
 			$opt_height === 'chart' ? 'true' : 'false',
 			$opt_width === 'chart' ? 'true' : 'false',
-			$opt_max_width === 'chart' ? 'true' : 'false' );
+			$opt_max_width === 'chart' ? 'true' : 'false',
+			$base_url
+		);
 
 		/* output begin */
 		$output = '<div>';
