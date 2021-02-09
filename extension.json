@@ -45,6 +45,9 @@
 		},
 		"DrawioEditorImageInteractive": {
 			"value": false
+		},
+		"DrawioEditorBackendUrl": {
+			"value": "https://embed.diagrams.net"
 		}
 	},
 	"load_composer_autoloader" : true,
