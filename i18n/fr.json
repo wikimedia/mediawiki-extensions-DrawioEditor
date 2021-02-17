@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Gomoko"
+			"Gomoko",
+			"Verdy p"
 		]
 	},
-	"drawioeditor-desc": "création du diagramme de flux draw.io et modification en ligne"
+	"drawioeditor-desc": "Création et modification en ligne de diagrammes de flux pour draw.io"
 }
