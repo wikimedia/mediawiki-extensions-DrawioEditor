@@ -164,8 +164,7 @@ class DrawioEditor {
 		}
 
 		/* prepare edit href */
-		$edit_ahref = sprintf(
-			"<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s, \"%s\")'>",
+		$edit_ahref = sprintf( "<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s, \"%s\")'>",
 			$id,
 			json_encode( $img_name, JSON_HEX_QUOT | JSON_HEX_APOS ),
 			$opt_type,
@@ -248,6 +247,10 @@ class DrawioEditor {
 		return [ $output, 'isHTML' => true, 'noparse' => true ];
 	}
 
+	/**
+	 * @param string $msg
+	 * @return array
+	 */
 	private function errorMessage( $msg ) {
 		$output = '<div class="DrawioEditorInfoBox" style="border-color:red;">';
 		$output .= '<p style="color: red;">DrawioEditor Usage Error:<br/>'

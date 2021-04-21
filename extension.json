@@ -5,10 +5,18 @@
 	"author": [
 		"Markus Gebert"
 	],
-	"description": "draw.io flow chart creation and inline editing",
+	"descriptionmsg": "drawioeditor-desc",
 	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.31.0"
+	},
 	"ExtensionMessagesFiles": {
 		"DrawioEditorMagic": "DrawioEditor.magic.php"
+	},
+	"MessagesDirs": {
+		"DrawioEditor": [
+			"i18n"
+		]
 	},
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\DrawioEditor\\": "src/"
@@ -18,8 +26,8 @@
 			"scripts": "ext.drawioeditor.js",
 			"styles": "ext.drawioeditor.css",
 			"dependencies": [
-			 	"jquery.ui",
-			 	"mediawiki.api"
+				"jquery.ui",
+				"mediawiki.api"
 			]
 		}
 	},
@@ -42,6 +50,6 @@
 			"value": "https://embed.diagrams.net"
 		}
 	},
-	"load_composer_autoloader" : true,
+	"load_composer_autoloader": true,
 	"manifest_version": 2
 }
