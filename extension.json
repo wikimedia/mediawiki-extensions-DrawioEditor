@@ -1,0 +1,58 @@
+{
+	"name": "DrawioEditor",
+	"license-name": "GPL-3.0-only",
+	"version": "1.1",
+	"author": [
+		"Markus Gebert"
+	],
+	"descriptionmsg": "drawioeditor-desc",
+	"type": "parserhook",
+	"requires": {
+		"MediaWiki": ">= 1.31.0"
+	},
+	"ExtensionMessagesFiles": {
+		"DrawioEditorMagic": "DrawioEditor.magic.php"
+	},
+	"MessagesDirs": {
+		"DrawioEditor": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"DrawioEditor": "includes/DrawioEditor.php"
+	},
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\DrawioEditor\\": "src/"
+	},
+	"ResourceModules": {
+		"ext.drawioeditor": {
+			"scripts": "ext.drawioeditor.js",
+			"styles": "ext.drawioeditor.css",
+			"dependencies": [
+				"jquery.ui.resizable",
+				"mediawiki.api"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "DrawioEditor/resources"
+	},
+	"Hooks": {
+		"OutputPageParserOutput": "MediaWiki\\Extension\\DrawioEditor\\Hook\\OutputPageParserOutput\\AddModules::callback",
+		"ParserFirstCallInit": "MediaWiki\\Extension\\DrawioEditor\\Hook\\ParserFirstCallInit\\SetFunctionHook::callback"
+	},
+	"config": {
+		"DrawioEditorImageType": {
+			"value": "svg"
+		},
+		"DrawioEditorImageInteractive": {
+			"value": false
+		},
+		"DrawioEditorBackendUrl": {
+			"value": "https://embed.diagrams.net"
+		}
+	},
+	"load_composer_autoloader": true,
+	"manifest_version": 2
+}

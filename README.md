@@ -4,7 +4,7 @@ This is a MediaWiki extension that integrates the draw.io flow chart editor and 
 
 # Warnings
 **Please read these warnings carefully before use**:
-- The actual editor functionality is loaded from draw.io. This code only provides integration.
+- The default editor functionality is loaded from draw.io (for configuration options [see below](#Configuration)). This code only provides integration.
 - Be aware that draw.io is an online service and while this plugin integrates the editor using an iframe and communicates with it only locally in your browser (javascript postMessage), it cannot guarantee that the code loaded from draw.io will not upload any data to foreign servers. **This may be a privacy concern. Read the Privacy section for more information. When in doubt, don't use draw.io or this module. You have been warned!**
 - This plugin is quite new and probably still has bugs, so it may or may not work with your installation.
 
@@ -32,10 +32,17 @@ This is a MediaWiki extension that integrates the draw.io flow chart editor and 
 
 2. Activate the plugin in LocalSettings.php:
 
-  ```
-  require_once "$IP/extensions/DrawioEditor/DrawioEditor.php";
+  ```php
+  wfLoadExtension( 'DrawioEditor' );
   ```
 3. If you want so use SVG (recommended) and the version of your MediaWiki is 1.26 or newer, you need to add the namespace ```http://www.w3.org/1999/xhtml``` to ```$validNamespaces```in  ```includes/upload/UploadBase.php```. See Requirements for more information on why this is currently needed.
+
+# Configuration
+
+  ```php
+  $wgDrawioEditorBackendUrl
+  ```
+To avoid the mentioned privacy concerns, you can change the URL of the editor using this setting in LocalSettings.php (i.e. use the officially provided docker image from [jgraph/docker-drawio](https://github.com/jgraph/docker-drawio) as server). The URL given here is used to load the draw.io/diagrams.net editor components embedded in an iframe, **WARNING: changing this URL is officially not supported, but works, only change this for testing purpose or if know what you are doing!** The default value is `https://embed.diagrams.net`.
 
 # Usage
 ## Add a chart
