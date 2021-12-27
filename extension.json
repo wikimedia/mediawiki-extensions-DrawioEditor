@@ -28,6 +28,13 @@
 			"dependencies": [
 				"jquery.ui",
 				"mediawiki.api"
+			],
+			"messages": [
+				"drawioeditor-approved-editwarning",
+				"drawioeditor-approved-displaywarning",
+				"drawioeditor-noapproved",
+				"drawioeditor-approve-link",
+				"drawioeditor-changeapprove-link"
 			]
 		}
 	},
