@@ -1,5 +1,6 @@
 
-function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth, baseUrl) {
+function DrawioEditor( id, filename, type, interactive, updateHeight, updateWidth,
+	updateMaxWidth, baseUrl, latestIsApproved, imageURL ) {
 	var that = this;
 
 	this.id = id;
@@ -10,6 +11,7 @@ function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth
 	this.updateWidth = updateWidth;
 	this.updateMaxWidth = updateMaxWidth;
 	this.baseUrl = baseUrl;
+	this.latestIsApproved = latestIsApproved;
 
 	//Could be 'en', 'fr', 'de-formal', 'zh-hant', ...
 	var currentUserLanguage = mw.user.options.get( 'language', 'en' ).split( '-' );
@@ -26,9 +28,9 @@ function DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth
 	this.imageBox = $("#drawio-img-box-" + id);
 	this.image = $("#drawio-img-" + id);
 	if (interactive) {
-		this.imageURL = this.image.attr('data');
+		this.imageURL = this.image.attr('data-editurl');
 	} else {
-		this.imageURL = this.image.attr('src');
+		this.imageURL = imageURL;
 	}
 	this.imageHref = $("#drawio-img-href-" + id);
 	this.placeholder = $("#drawio-placeholder-" + id);
@@ -71,6 +73,11 @@ DrawioEditor.prototype.show = function() {
 	this.imageBox.hide();
 	this.iframeBox.height(Math.max(this.imageBox.height()+100, 800));
 	this.iframeBox.show();
+	$( '#approved-displaywarning' ).remove();
+	if ( !this.latestIsApproved ) {
+		$msg = mw.message( "drawioeditor-approved-editwarning" ).text();
+		$('#bodyContent').before("<p id=\"warningmsg\" class=\"successbox\">" + $msg + "</p>");
+	}
 }
 
 DrawioEditor.prototype.hide = function() {
@@ -89,7 +96,7 @@ DrawioEditor.prototype.hideOverlay = function() {
 DrawioEditor.prototype.updateImage = function (imageinfo) {
 	this.imageURL = imageinfo.url + '?ts=' + imageinfo.timestamp;
 	if (this.interactive) {
-		this.image.attr("data", this.imageURL);
+		this.image.attr("data-editurl", this.imageURL);
 	} else {
 		this.image.attr("src", this.imageURL);
 	}
@@ -180,7 +187,7 @@ DrawioEditor.prototype.loadImageFromDataURL = function(type, dataurl) {
 }
 
 DrawioEditor.prototype.loadImage = function() {
-	if (!this.imageURL.length) {
+	if (this.imageURL == undefined) {
 		// just load without data if there's no current image
 		this.sendMsgToIframe({ action: 'load' });
 	return;
@@ -214,14 +221,16 @@ DrawioEditor.prototype.uploadToWiki = function(blob) {
 			}
 		})
 		.fail( function(retStatus, data) {
+			that.hideSpinner();
 			if( retStatus == "exists" ){
 				that.updateImage(data.upload.imageinfo);
-				that.hideSpinner();
 			} else {
-				that.showDialog('Save failed',
+				if ( data.error ) {
+					that.showDialog('Save failed',
 					'Upload to wiki failed!' +
 				'<br>Error: ' + data.error.info +
 				'<br>Check javascript console for details.');
+				}
 			}
 		});
 
@@ -258,6 +267,7 @@ DrawioEditor.prototype.save = function(datauri) {
 DrawioEditor.prototype.exit = function() {
 	this.hide();
 	editor = null;
+	$('#warningmsg').hide();
 	this.destroy();
 }
 
@@ -294,10 +304,10 @@ DrawioEditor.prototype.initCallback = function () {
 
 var editor;
 
-window.editDrawio = function(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth, baseUrl) {
+window.editDrawio = function(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL) {
 	if (!editor) {
 		window.drawioEditorBaseUrl = baseUrl;
-		editor = new DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth, baseUrl);
+		editor = new DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL);
 	} else {
 		alert("Only one DrawioEditor can be open at the same time!");
 	}

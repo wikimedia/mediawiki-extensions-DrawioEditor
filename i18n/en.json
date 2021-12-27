@@ -1,4 +1,9 @@
 {
 	"@metadata": {},
-	"drawioeditor-desc": "draw.io flow chart creation and inline editing"
+	"drawioeditor-desc": "draw.io flow chart creation and inline editing",
+	"drawioeditor-approved-editwarning": "Please note that you are now editing the latest revision of this diagram, which is not the approved one shown by default.",
+	"drawioeditor-approved-displaywarning": "This is the approved revision of the diagram and not the latest revision.",
+	"drawioeditor-noapproved": "The diagram $1 has no approved revision.",
+	"drawioeditor-approve-link": "Click here to approve a revision",
+	"drawioeditor-changeapprove-link": "Click here to change the approved revision for this diagram"
 }
