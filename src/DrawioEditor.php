@@ -133,19 +133,25 @@ class DrawioEditor {
 
 		/* prepare image information */
 		$img_name = $name . ".drawio." . $opt_type;
-		$img = RepoGroup::singleton()->findFile( $img_name );
+		$repo = RepoGroup::singleton();
+		$img = $repo->findFile( $img_name );
+		$noApproved = false;
+		$latest_is_approved = true;
 		if ( $img ) {
 			/* Resets file history to newest if there is more than one instance of same chart on a page */
 			$img->resetHistory();
-
-			$historyLine = $img->nextHistoryLine();
-			$img_url = $img->getViewUrl();
-			$img_url_ts = $img_url . '?ts=' . ( $historyLine !== false ? $historyLine->img_timestamp : '' );
+			$img_url_ts = null;
+			if ( class_exists( 'ApprovedRevs' ) ) {
+				$img_url_ts = $this->fetchApprovedTimestampURL( $img, $repo, $latest_is_approved );
+				$noApproved = ( $img_url_ts === null );
+			}
+			if ( $img_url_ts == null ) {
+				$img_url_ts = $img->getUrl();
+			}
 			$img_desc_url = $img->getDescriptionUrl();
 			$img_height = $img->getHeight() . 'px';
 			$img_width = $img->getWidth() . 'px';
 		} else {
-			$img_url = '';
 			$img_url_ts = '';
 			$img_desc_url = '';
 			$img_height = 0;
@@ -165,8 +171,8 @@ class DrawioEditor {
 		}
 
 		/* prepare edit href */
-		// phpcs:disable Generic.Files.LineLength.TooLong
-		$edit_ahref = sprintf( "<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s, \"%s\")'>",
+		$edit_ahref = sprintf( "<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s,
+		\"%s\", %s, \"%s\")'>",
 			$id,
 			json_encode( $img_name, JSON_HEX_QUOT | JSON_HEX_APOS ),
 			$opt_type,
@@ -174,12 +180,37 @@ class DrawioEditor {
 			$opt_height === 'chart' ? 'true' : 'false',
 			$opt_width === 'chart' ? 'true' : 'false',
 			$opt_max_width === 'chart' ? 'true' : 'false',
-			$base_url
+			$base_url,
+			$latest_is_approved ? 'true' : 'false',
+			$img ? $img->getUrl() : ""
 		);
 
 		/* output begin */
 		$output = '<div>';
-
+		$user = RequestContext::getMain()->getUser();
+		if ( $noApproved ) {
+			$output .= '<p class="successbox">' .
+			wfMessage( "drawioeditor-noapproved", $name )->text();
+			if ( $user->isAllowed( 'approverevisions' ) ) {
+				$output .= ' <a href="' . $img_desc_url . '">'
+				. wfMessage( "drawioeditor-approve-link" ) . '</a>';
+			}
+			global $egApprovedRevsBlankFileIfUnapproved;
+			if ( $egApprovedRevsBlankFileIfUnapproved ) {
+				$img = null;
+			}
+		} else {
+			if ( $img ) {
+				if ( !$latest_is_approved ) {
+					$output .= '<p class="successbox" id="approved-displaywarning">' .
+				wfMessage( "drawioeditor-approved-displaywarning" )->text();
+				}
+				if ( $user->isAllowed( 'approverevisions' ) ) {
+					$output .= ' <a href="' . $img_desc_url . '">'
+					. wfMessage( "drawioeditor-changeapprove-link" ) . '</a>';
+				}
+			}
+		}
 		/* div around the image */
 		$output .= '<div id="drawio-img-box-' . $id . '">';
 
@@ -203,8 +234,14 @@ class DrawioEditor {
 		}
 
 		if ( $opt_interactive ) {
-			$img_fmt = '<object id="drawio-img-%s" data="%s" type="text/svg+xml" style="%s"></object>';
-			$img_html = sprintf( $img_fmt, $id, $img_url_ts, $img_style );
+			if ( !$img ) {
+				$img = $repo->findFile( $img_name );
+			}
+			if ( $img ) {
+				$img_fmt = '<object id="drawio-img-%s" data="%s" data-editurl="%s" type="text/svg+xml"
+				style="%s"></object>';
+				$img_html = sprintf( $img_fmt, $id, $img_url_ts, $img->getUrl(),  $img_style );
+			}
 		} else {
 			$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
 			$img_html = '<a id="drawio-img-href-' . $id . '" href="' . $img_desc_url . '">';
@@ -221,10 +258,11 @@ class DrawioEditor {
 			$output .= sprintf( '<div id="drawio-placeholder-%s" class="DrawioEditorInfoBox">' .
 				'<b>%s</b><br/>empty app.diagrams.net chart</div> ',
 				$id, $dispname );
+		} else {
+			// the image or object element must be there in any case
+			// (it's hidden as long as there is no content.)
+			$output .= $img_html;
 		}
-		// the image or object element must be there in any case
-		// (it's hidden as long as there is no content.)
-		$output .= $img_html;
 		$output .= '</div>';
 
 		/* editor and overlay divs, iframe is added by javascript on demand */
@@ -274,5 +312,65 @@ class DrawioEditor {
 			( !$img && !$user->isAllowed( 'upload' ) ) ||
 			( !$img && !$user->isAllowed( 'reupload' ) ) ||
 			( $parser->getTitle() ? $parser->getTitle()->isProtected( 'edit' ) : false );
+	}
+
+	/**
+	 * @param File $img
+	 * @param RepoGroup $repo
+	 * @param bool &$latest_is_approved
+	 * @return string|null $img_url_ts
+	 */
+	private function fetchApprovedTimestampURL( $img, $repo, &$latest_is_approved ) {
+		list( $approvedRevTimestamp, $approvedRevSha1 ) = $this->getApprovedFileInfo( $img->getTitle() );
+		$img_url_ts = null;
+		if ( ( !$approvedRevTimestamp ) || ( !$approvedRevSha1 ) ) {
+			return $img_url_ts;
+		} else {
+			$title = $img->getTitle();
+			$displayFile = $repo->findFile(
+				$title, [ 'time' => $approvedRevTimestamp ]
+			);
+			# If none found, try current
+			if ( !$displayFile ) {
+				wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: " .
+					"$approvedRevTimestamp not found, using current\n" );
+				$displayFile = $repo->findFile( $title );
+				if ( !$displayFile ) {
+					$displayFile = $repo->getLocalRepo()->newFile( $title );
+				}
+				$normalFile = $displayFile;
+			# If found, set $normalFile
+			} else {
+				wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: " .
+					"using timestamp $approvedRevTimestamp\n" );
+				$normalFile = $displayFile;
+			}
+			$img_url_ts = $normalFile->getUrl();
+			if ( $img->getTimestamp() !== $approvedRevTimestamp ) {
+				$latest_is_approved = false;
+			}
+			return $img_url_ts;
+		}
+	}
+
+	/**
+	 * @param Title $fileTitle
+	 * @return array $return
+	 */
+	private function getApprovedFileInfo( $fileTitle ) {
+		$dbr = wfGetDB( DB_REPLICA );
+		$row = $dbr->selectRow(
+			'approved_revs_files',
+			[ 'approved_timestamp', 'approved_sha1' ],
+			[ 'file_title' => $fileTitle->getDBkey() ],
+			__METHOD__
+		);
+		if ( $row ) {
+			$return = [ $row->approved_timestamp, $row->approved_sha1 ];
+		} else {
+			$return = [ false, false ];
+		}
+
+		return $return;
 	}
 }
