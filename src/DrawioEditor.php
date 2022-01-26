@@ -269,6 +269,8 @@ class DrawioEditor {
 		$parser = $this->services->getParser();
 
 		return !$this->config->get( 'EnableUploads' ) ||
+				!$this->services->getPermissionManager()->userHasRight( $user, 'upload' ) ||
+				!$this->services->getPermissionManager()->userHasRight( $user, 'reupload' ) ||
 			( !$img && !$this->services->getPermissionManager()->userHasRight( $user, 'upload' ) ) ||
 			( !$img && !$this->services->getPermissionManager()->userHasRight( $user, 'reupload' ) ) ||
 			( $parser->getTitle() ? $parser->getTitle()->isProtected( 'edit' ) : false );
