@@ -5,5 +5,10 @@
 			"Verdy p"
 		]
 	},
-	"drawioeditor-desc": "Création et modification en ligne de diagrammes de flux pour draw.io"
+	"drawioeditor-desc": "Création et modification en ligne de diagrammes de flux pour draw.io",
+	"drawioeditor-approved-editwarning": "Veuillez noter que vous modifiez actuellement la dernière version de ce diagramme, qui n’est pas cellle approuvée et affichée par défaut.",
+	"drawioeditor-approved-displaywarning": "Ceci est la version approuvée du diagramme mais pas la dernière version.",
+	"drawioeditor-noapproved": "Le diagramme $1 n’a pas de version approuvée.",
+	"drawioeditor-approve-link": "Cliquez ici pour approuver une version",
+	"drawioeditor-changeapprove-link": "Cliquer ici pour modifier la version approuvée de ce diagramme"
 }
