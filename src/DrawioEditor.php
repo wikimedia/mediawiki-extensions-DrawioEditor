@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\DrawioEditor;
 
 use Config;
 use File;
+use Hooks;
 use MediaWiki\MediaWikiServices;
 use Parser;
 use PPFrame;
@@ -138,16 +139,11 @@ class DrawioEditor {
 		$noApproved = false;
 		$latest_is_approved = true;
 		if ( $img ) {
-			/* Resets file history to newest if there is more than one instance of same chart on a page */
-			$img->resetHistory();
 			$img_url_ts = null;
-			if ( class_exists( 'ApprovedRevs' ) ) {
-				$img_url_ts = $this->fetchApprovedTimestampURL( $img, $repo, $latest_is_approved );
-				$noApproved = ( $img_url_ts === null );
-			}
-			if ( $img_url_ts == null ) {
-				$img_url_ts = $img->getUrl();
-			}
+			Hooks::run( 'DrawioGetFile', [ &$img, &$latest_is_approved, $parser->getUser() ] );
+			$noApproved = $img === null;
+
+			$img_url_ts = $img->getUrl();
 			$img_desc_url = $img->getDescriptionUrl();
 			$img_height = $img->getHeight() . 'px';
 			$img_width = $img->getWidth() . 'px';
@@ -312,65 +308,5 @@ class DrawioEditor {
 			( !$img && !$user->isAllowed( 'upload' ) ) ||
 			( !$img && !$user->isAllowed( 'reupload' ) ) ||
 			( $parser->getTitle() ? $parser->getTitle()->isProtected( 'edit' ) : false );
-	}
-
-	/**
-	 * @param File $img
-	 * @param RepoGroup $repo
-	 * @param bool &$latest_is_approved
-	 * @return string|null $img_url_ts
-	 */
-	private function fetchApprovedTimestampURL( $img, $repo, &$latest_is_approved ) {
-		list( $approvedRevTimestamp, $approvedRevSha1 ) = $this->getApprovedFileInfo( $img->getTitle() );
-		$img_url_ts = null;
-		if ( ( !$approvedRevTimestamp ) || ( !$approvedRevSha1 ) ) {
-			return $img_url_ts;
-		} else {
-			$title = $img->getTitle();
-			$displayFile = $repo->findFile(
-				$title, [ 'time' => $approvedRevTimestamp ]
-			);
-			# If none found, try current
-			if ( !$displayFile ) {
-				wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: " .
-					"$approvedRevTimestamp not found, using current\n" );
-				$displayFile = $repo->findFile( $title );
-				if ( !$displayFile ) {
-					$displayFile = $repo->getLocalRepo()->newFile( $title );
-				}
-				$normalFile = $displayFile;
-			# If found, set $normalFile
-			} else {
-				wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: " .
-					"using timestamp $approvedRevTimestamp\n" );
-				$normalFile = $displayFile;
-			}
-			$img_url_ts = $normalFile->getUrl();
-			if ( $img->getTimestamp() !== $approvedRevTimestamp ) {
-				$latest_is_approved = false;
-			}
-			return $img_url_ts;
-		}
-	}
-
-	/**
-	 * @param Title $fileTitle
-	 * @return array $return
-	 */
-	private function getApprovedFileInfo( $fileTitle ) {
-		$dbr = wfGetDB( DB_REPLICA );
-		$row = $dbr->selectRow(
-			'approved_revs_files',
-			[ 'approved_timestamp', 'approved_sha1' ],
-			[ 'file_title' => $fileTitle->getDBkey() ],
-			__METHOD__
-		);
-		if ( $row ) {
-			$return = [ $row->approved_timestamp, $row->approved_sha1 ];
-		} else {
-			$return = [ false, false ];
-		}
-
-		return $return;
 	}
 }
