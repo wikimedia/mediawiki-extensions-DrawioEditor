@@ -30,7 +30,7 @@ function DrawioEditor( id, filename, type, interactive, updateHeight, updateWidt
 	if (interactive) {
 		this.imageURL = this.image.attr('data-editurl');
 	} else {
-		this.imageURL = imageURL;
+		this.imageURL = this.imageURL || undefined;
 	}
 	this.imageHref = $("#drawio-img-href-" + id);
 	this.placeholder = $("#drawio-placeholder-" + id);
