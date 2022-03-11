@@ -2,5 +2,10 @@
 	"@metadata": {
 		"authors": []
 	},
-	"drawioeditor-desc": "draw.io Flussdiagramm-Erstellung und Inline-Bearbeitung"
+	"drawioeditor-desc": "draw.io Flussdiagramm-Erstellung und Inline-Bearbeitung",
+	"drawioeditor-approved-editwarning": "Bitte beachte, dass du jetzt die letzte Version dieses Diagramms bearbeitest, die nicht die standardmäßig angezeigte genehmigte Version ist.",
+	"drawioeditor-approved-displaywarning": "Dies ist die genehmigte Version des Diagramms und nicht die letzte Version.",
+	"drawioeditor-noapproved": "Das Diagramm $1 hat keine genehmigte Version.",
+	"drawioeditor-approve-link": "Klicke hier, um eine Version zu genehmigen",
+	"drawioeditor-changeapprove-link": "Klicke hier, um die genehmigte Version für dieses Diagramm zu ändern"
 }
