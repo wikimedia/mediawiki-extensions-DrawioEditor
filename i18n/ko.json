@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Ykhwong"
+		]
+	},
+	"drawioeditor-approved-editwarning": "현재 편집하고 있는 다이어그램은 이 다이어그램의 최신 판이며, 기본으로 보이는 승인된 판과는 다름에 주의하세요.",
+	"drawioeditor-approved-displaywarning": "이것은 다이어그램의 승인된 판이며 최신판은 아닙니다.",
+	"drawioeditor-noapproved": "$1 다이어그램에 승인된 판이 없습니다.",
+	"drawioeditor-approve-link": "판을 승인하려면 여기를 클릭하십시오",
+	"drawioeditor-changeapprove-link": "이 다이어그램의 승인된 판을 변경하려면 여기를 클릭하십시오"
+}
