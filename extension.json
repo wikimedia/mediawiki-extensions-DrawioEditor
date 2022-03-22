@@ -43,7 +43,6 @@
 		"remoteExtPath": "DrawioEditor/resources"
 	},
 	"Hooks": {
-		"OutputPageParserOutput": "MediaWiki\\Extension\\DrawioEditor\\Hook\\OutputPageParserOutput\\AddModules::callback",
 		"ParserFirstCallInit": "MediaWiki\\Extension\\DrawioEditor\\Hook\\ParserFirstCallInit\\SetFunctionHook::callback",
 		"DrawioGetFile": "approveRevsSetStableFile"
 	},
