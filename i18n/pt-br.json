@@ -2,8 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Eduardo Addad de Oliveira",
-			"Eduardoaddad"
+			"Eduardoaddad",
+			"YuriNikolai"
 		]
 	},
-	"drawioeditor-desc": "Criação de fluxograma draw.io e edição em linha"
+	"drawioeditor-desc": "Criação de fluxograma draw.io e edição em linha",
+	"drawioeditor-approved-editwarning": "Note, por favor, que agora você está editando a revisão mais recente deste diagrama, e não a versão aprovada que é mostrada por padrão.",
+	"drawioeditor-approved-displaywarning": "Esta é a versão aprovada do diagrama, e não a versão mais recente.",
+	"drawioeditor-noapproved": "O diagrama $1 não possui revisão aprovada.",
+	"drawioeditor-approve-link": "Clique aqui para aprovar uma revisão",
+	"drawioeditor-changeapprove-link": "Clique aqui para alterar a revisão aprovada para este diagrama"
 }
