@@ -305,11 +305,19 @@ class DrawioEditor {
 		$user = RequestContext::getMain()->getUser();
 		$parser = $this->services->getParser();
 
+		if ( method_exists( $this->services, 'getRestrictionStore' ) ) {
+			// MW 1.37+
+			$isProtected = $parser->getTitle() ?
+				$this->services->getRestrictionStore()->isProtected( $parser->getTitle(), 'edit' ) : false;
+		} else {
+			$isProtected = $parser->getTitle() ? $parser->getTitle()->isProtected( 'edit' ) : false;
+		}
+
 		return !$this->config->get( 'EnableUploads' ) ||
 				!$this->services->getPermissionManager()->userHasRight( $user, 'upload' ) ||
 				!$this->services->getPermissionManager()->userHasRight( $user, 'reupload' ) ||
 			( !$img && !$this->services->getPermissionManager()->userHasRight( $user, 'upload' ) ) ||
 			( !$img && !$this->services->getPermissionManager()->userHasRight( $user, 'reupload' ) ) ||
-			( $parser->getTitle() ? $parser->getTitle()->isProtected( 'edit' ) : false );
+			( $isProtected );
 	}
 }
