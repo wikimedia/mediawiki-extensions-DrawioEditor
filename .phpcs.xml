@@ -4,6 +4,7 @@
 	<arg name="extensions" value="php"/>
 	<arg name="encoding" value="UTF-8"/>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
+		<exclude name="MediaWiki.NamingConventions.ValidGlobalName.allowedPrefix" />
 		<properties>
 			<property name="allowedPrefixes" type="array">
 				<element value="eg" />
