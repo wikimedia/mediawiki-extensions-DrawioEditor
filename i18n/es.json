@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"DiegoAmbrocio"
+		]
+	},
+	"drawioeditor-desc": "Creación de diagramas de flujo en draw.io y edición en línea",
+	"drawioeditor-approved-editwarning": "Tenga en cuenta que ahora está editando la última revisión de este diagrama, que no es la aprobada que se muestra por defecto.",
+	"drawioeditor-approved-displaywarning": "Esta es la revisión aprobada del diagrama y no la última revisión.",
+	"drawioeditor-noapproved": "El diagrama $1 no tiene ninguna revisión aprobada.",
+	"drawioeditor-approve-link": "Haga clic aquí para aprobar una revisión",
+	"drawioeditor-changeapprove-link": "Haga clic aquí para cambiar la revisión aprobada para este diagrama"
+}
