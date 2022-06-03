@@ -26,13 +26,15 @@ class ApprovedRevsSetStableFile implements DrawioGetFileHook {
 	/**
 	 * @inheritDoc
 	 */
-	public function onDrawioGetFile( File &$file, &$latestIsStable, User $user ) {
+	public function onDrawioGetFile( File &$file, &$latestIsStable, User $user, bool &$isNotApproved,
+	&$displayFile ) {
 		if ( !class_exists( 'ApprovedRevs' ) ) {
 			return true;
 		}
 		list( $approvedRevTimestamp, $approvedRevSha1 ) = $this->getApprovedFileInfo( $file->getTitle() );
-		$img_url_ts = null;
 		if ( ( !$approvedRevTimestamp ) || ( !$approvedRevSha1 ) ) {
+			$isNotApproved = true;
+			$displayFile = $file;
 			return true;
 		} else {
 			$title = $file->getTitle();
@@ -43,6 +45,8 @@ class ApprovedRevsSetStableFile implements DrawioGetFileHook {
 			if ( !$displayFile ) {
 				wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: " .
 					"$approvedRevTimestamp not found, using current\n" );
+				$isNotApproved = false;
+				$displayFile = $file;
 				return true;
 			} else {
 				wfDebug( __METHOD__ . ": {$title->getPrefixedDBkey()}: " .
@@ -51,7 +55,7 @@ class ApprovedRevsSetStableFile implements DrawioGetFileHook {
 			if ( $file->getTimestamp() !== $approvedRevTimestamp ) {
 				$latestIsStable = false;
 			}
-			$file = $displayFile;
+			$isNotApproved = false;
 			return true;
 		}
 	}
