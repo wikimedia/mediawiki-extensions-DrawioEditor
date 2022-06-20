@@ -5,5 +5,15 @@
 	"drawioeditor-approved-displaywarning": "This is the approved revision of the diagram and not the latest revision.",
 	"drawioeditor-noapproved": "The diagram $1 has no approved revision.",
 	"drawioeditor-approve-link": "Click here to approve a revision",
-	"drawioeditor-changeapprove-link": "Click here to change the approved revision for this diagram"
+	"drawioeditor-changeapprove-link": "Click here to change the approved revision for this diagram",
+
+	"drawio-usage": "Used with Drawio tag",
+	"drawio-not-used": "There are no pages with this Drawio image",
+	"drawioconnector-extension-description": "Connects BlueSpice to Drawio",
+	"drawioconnector-tag-drawio-title": "drawio",
+	"drawioconnector-ve-drawio-title": "Draw.io diagram",
+	"drawioconnector-tag-drawio-desc": "Insert a draw.io diagram that can be edited.",
+	"drawioconnector-ve-drawio-tag-name": "Name",
+	"drawioconnector-ve-drawio-tag-name-help": "Name of the diagram as stored in the wiki",
+	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1"
 }

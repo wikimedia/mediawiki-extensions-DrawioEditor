@@ -6,6 +6,13 @@
 		"Markus Gebert",
 		"[https://www.hallowelt.com Hallo Welt! GmbH]"
 	],
+	"attributes": {
+		"VisualEditor": {
+			"PluginModules": [
+				"ext.drawioconnector.visualEditor"
+			]
+		}
+	},
 	"descriptionmsg": "drawioeditor-desc",
 	"type": "parserhook",
 	"requires": {
@@ -39,6 +46,23 @@
 				"drawioeditor-approve-link",
 				"drawioeditor-changeapprove-link"
 			]
+		},
+		"ext.drawioconnector.visualEditor": {
+			"scripts": [
+				"ve/ve.dm.DrawioNode.js",
+				"ve/ve.ce.DrawioNode.js",
+				"ve/ve.ui.DrawioInspector.js",
+				"ve/ve.ui.DrawioNodeTool.js"
+			],
+			"dependencies": [
+				"ext.visualEditor.mwcore",
+				"oojs-ui"
+			],
+			"messages": [
+				"drawioconnector-tag-drawio-desc",
+				"drawioconnector-ve-drawio-title",
+				"drawio-usage"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -46,10 +70,21 @@
 		"remoteExtPath": "DrawioEditor/resources"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": "MediaWiki\\Extension\\DrawioEditor\\Hook\\ParserFirstCallInit\\SetFunctionHook::callback",
-		"DrawioGetFile": "approveRevsSetStableFile"
+		"ParserFirstCallInit": [
+			"tag",
+			"MediaWiki\\Extension\\DrawioEditor\\Hook\\ParserFirstCallInit\\SetFunctionHook::callback"
+		],
+		"DrawioGetFile": "approveRevsSetStableFile",
+		"BSInsertMagicAjaxGetData": [
+			"\\MediaWiki\\Extension\\DrawioEditor\\Hook\\BSInsertMagicAjaxGetData\\AddDrawioTag::callback"
+		],
+		"BSUEModulePDFFindFiles": "BlueSpiceDrawioConnector::onBSUEModulePDFFindFiles",
+		"ImagePageAfterImageLinks": "BlueSpiceDrawioConnector::onImagePageAfterImageLinks"
 	},
 	"HookHandlers": {
+		"tag": {
+			"class": "\\MediaWiki\\Extension\\DrawioEditor\\Hook\\Tag"
+		},
 		"approveRevsSetStableFile": {
 			"class": "MediaWiki\\Extension\\DrawioEditor\\Hook\\ApprovedRevsSetStableFile",
 			"services": [ "DBLoadBalancer", "RepoGroup" ]
