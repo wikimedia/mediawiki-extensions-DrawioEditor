@@ -54,10 +54,10 @@ function DrawioEditor( id, filename, type, interactive, updateHeight, updateWidt
 
 	var localAttr = this.baseUrl !== 'https://embed.diagrams.net' ? "&local=1" : "";
 	this.iframe = $('<iframe>', {
-		src: this.baseUrl + '/?embed=1&proto=json&spin=1&analytics=0&offline=1&picker=0&lang=' + this.language + localAttr,
-	id: 'drawio-iframe-' + id,
-	class: 'DrawioEditorIframe'
-	})
+		src: this.baseUrl + '/?embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language + localAttr,
+		id: 'drawio-iframe-' + id,
+		class: 'DrawioEditorIframe'
+	});
 	this.iframe.appendTo(this.iframeBox);
 
 	this.iframeWindow = this.iframe.prop('contentWindow');
