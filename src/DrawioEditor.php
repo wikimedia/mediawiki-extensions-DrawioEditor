@@ -138,11 +138,11 @@ class DrawioEditor {
 		$latest_is_approved = true;
 		if ( $img ) {
 			$img_url_ts = null;
+			$displayImage = null;
 			$hookRunner = MediaWikiServices::getInstance()->getHookContainer();
-			$hookRunner->run( 'DrawioGetFile', [ &$img, &$latest_is_approved, $parser->getUserIdentity() ] );
-			$noApproved = $img === null;
-
-			$img_url_ts = $img->getUrl();
+			$hookRunner->run( 'DrawioGetFile', [ &$img, &$latest_is_approved, $parser->getUserIdentity(),
+			&$noApproved, &$displayImage ] );
+			$img_url_ts = $displayImage->getUrl();
 			$img_desc_url = $img->getDescriptionUrl();
 			$img_height = $img->getHeight() . 'px';
 			$img_width = $img->getWidth() . 'px';
@@ -167,7 +167,7 @@ class DrawioEditor {
 
 		/* prepare edit href */
 		$edit_ahref = sprintf( "<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s,
-		\"%s\", %s, \"%s\")'>",
+		\"%s\", %s, \"%s\")'>" . wfMessage( 'edit' )->text() . "</a>",
 			$id,
 			json_encode( $img_name, JSON_HEX_QUOT | JSON_HEX_APOS ),
 			$opt_type,
@@ -193,6 +193,7 @@ class DrawioEditor {
 			global $egApprovedRevsBlankFileIfUnapproved;
 			if ( $egApprovedRevsBlankFileIfUnapproved ) {
 				$img = null;
+				$edit_ahref = '';
 			}
 		} else {
 			if ( $img ) {
@@ -215,7 +216,6 @@ class DrawioEditor {
 			$output .= '<span class="mw-editdrawio">';
 			$output .= '<span class="mw-editsection-bracket">[</span>';
 			$output .= $edit_ahref;
-			$output .= wfMessage( 'edit' )->text() . '</a>';
 			$output .= '<span class="mw-editsection-bracket">]</span>';
 			$output .= '</span>';
 			$output .= '</div>';
@@ -248,7 +248,7 @@ class DrawioEditor {
 		}
 
 		/* output image and optionally a placeholder if the image does not exist yet */
-		if ( !$img ) {
+		if ( !$img && !$noApproved ) {
 			// show placeholder
 			$output .= sprintf( '<div id="drawio-placeholder-%s" class="DrawioEditorInfoBox">' .
 				'<b>%s</b><br/>empty app.diagrams.net chart</div> ',
