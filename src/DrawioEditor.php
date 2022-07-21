@@ -159,8 +159,7 @@ class DrawioEditor {
 
 		/* get and check base url */
 		$base_url = filter_var( $this->config->get( 'DrawioEditorBackendUrl' ),
-			FILTER_VALIDATE_URL,
-			FILTER_FLAG_SCHEME_REQUIRED & FILTER_FLAG_HOST_REQUIRED );
+			FILTER_VALIDATE_URL );
 		if ( !$base_url ) {
 			return $this->errorMessage( 'Invalid base url' );
 		}
