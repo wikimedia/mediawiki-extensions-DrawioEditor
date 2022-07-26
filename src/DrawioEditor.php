@@ -138,7 +138,7 @@ class DrawioEditor {
 		$latest_is_approved = true;
 		if ( $img ) {
 			$img_url_ts = null;
-			$displayImage = null;
+			$displayImage = $img;
 			$hookRunner = MediaWikiServices::getInstance()->getHookContainer();
 			$hookRunner->run( 'DrawioGetFile', [ &$img, &$latest_is_approved, $parser->getUserIdentity(),
 			&$noApproved, &$displayImage ] );
