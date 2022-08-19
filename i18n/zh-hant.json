@@ -4,5 +4,10 @@
 			"Kly"
 		]
 	},
-	"drawioeditor-desc": "draw.io 流程圖建立與內文編輯"
+	"drawioeditor-desc": "draw.io 流程圖建立與內文編輯",
+	"drawioeditor-approved-editwarning": "請注意，您現在正編輯此頁面的最新修訂，而非依預設條件所顯示出的批准版本。",
+	"drawioeditor-approved-displaywarning": "這是圖表的批准修訂，而非最新修訂版本。",
+	"drawioeditor-noapproved": "圖表$1沒有批准過的修訂。",
+	"drawioeditor-approve-link": "在此點擊來批准修訂",
+	"drawioeditor-changeapprove-link": "在此點擊來更改此圖表的已批准修訂"
 }
