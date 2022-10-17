@@ -4,5 +4,10 @@
 			"Hamilton Abreu"
 		]
 	},
-	"drawioeditor-desc": "Criação e edição em linha de fluxogramas para draw.io"
+	"drawioeditor-desc": "Criação e edição em linha de fluxogramas para draw.io",
+	"drawioeditor-approved-editwarning": "Note, por favor, que está agora a editar a revisão mais recente deste diagrama, a qual não é a revisão aprovada que é mostrada por padrão.",
+	"drawioeditor-approved-displaywarning": "Esta é a revisão aprovada do diagrama e não a revisão mais recente.",
+	"drawioeditor-noapproved": "O diagrama $1 não tem nenhuma revisão aprovada.",
+	"drawioeditor-approve-link": "Clique aqui para aprovar uma revisão",
+	"drawioeditor-changeapprove-link": "Clique aqui para alterar a revisão aprovada para este diagrama"
 }
