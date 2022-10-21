@@ -278,7 +278,7 @@ class DrawioEditor {
 			$parser->getOutput()->addImage( $img->getTitle()->getDBkey() );
 		}
 
-		$parser->getOutput()->addModules( ['ext.drawioeditor'] );
+		$parser->getOutput()->addModules( [ 'ext.drawioeditor' ] );
 
 		return [ $output, 'isHTML' => true, 'noparse' => true ];
 	}
