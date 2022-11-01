@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Meno25"
+		]
+	},
+	"drawioeditor-desc": "رسم مخطط تدفق الرسم والتحرير المضمن",
+	"drawioeditor-approved-editwarning": "يرجى ملاحظة أنك تقوم الآن بتحرير أحدث مراجعة لهذا الرسم التخطيطي ، وهي ليست النسخة المعتمدة المعروضة بشكل افتراضي.",
+	"drawioeditor-approved-displaywarning": "هذه هي المراجعة المعتمدة للرسم التخطيطي وليست المراجعة الأخيرة.",
+	"drawioeditor-noapproved": "الرسم التخطيطي $1 ليس له مراجعة معتمدة.",
+	"drawioeditor-approve-link": "انقر هنا للموافقة على المراجعة",
+	"drawioeditor-changeapprove-link": "انقر هنا لتغيير المراجعة المعتمدة لهذا الرسم التخطيطي"
+}
