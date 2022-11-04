@@ -22,9 +22,11 @@
 		"MediaWiki\\Extension\\DrawioEditor\\": "src/"
 	},
 	"ResourceModules": {
+		"ext.drawioeditor.styles": {
+			"styles": "ext.drawioeditor.css"
+		},
 		"ext.drawioeditor": {
 			"scripts": "ext.drawioeditor.js",
-			"styles": "ext.drawioeditor.css",
 			"dependencies": [
 				"jquery.ui",
 				"mediawiki.api"
