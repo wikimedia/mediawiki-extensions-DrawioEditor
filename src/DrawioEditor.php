@@ -250,7 +250,7 @@ class DrawioEditor {
 		if ( !$img && !$noApproved ) {
 			// show placeholder
 			$output .= sprintf( '<div id="drawio-placeholder-%s" class="DrawioEditorInfoBox">' .
-				'<b>%s</b><br/>empty app.diagrams.net chart</div> ',
+				'<b>%s</b></div> ',
 				$id, $dispname );
 		} else {
 			// the image or object element must be there in any case
@@ -279,6 +279,7 @@ class DrawioEditor {
 		}
 
 		$parser->getOutput()->addModules( [ 'ext.drawioeditor' ] );
+		$parser->getOutput()->addModuleStyles( [ 'ext.drawioeditor.styles' ] );
 
 		return [ $output, 'isHTML' => true, 'noparse' => true ];
 	}

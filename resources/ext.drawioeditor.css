@@ -18,9 +18,13 @@
 }
 
 .DrawioEditorInfoBox {
-  border: 2px dotted black;
+  padding-top: 20px;
   text-align:center;
-  margin: 5px 0px 20px 0px;
-  padding:5px;
+  /* @embed */
+  background-image: url('./placeholder.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  min-width: 600px;
+  min-height: 400px;
 }
 
