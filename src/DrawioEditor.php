@@ -4,6 +4,10 @@ namespace MediaWiki\Extension\DrawioEditor;
 
 use Config;
 use File;
+use FileRepo;
+use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\NullExtractor;
+use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\PNG;
+use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\SVG;
 use MediaWiki\MediaWikiServices;
 use Parser;
 use PPFrame;
@@ -237,11 +241,18 @@ class DrawioEditor {
 				$img_html = sprintf( $img_fmt, $id, $img_url_ts, $img->getUrl(),  $img_style );
 			}
 		} else {
-			$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
+			$mxDocumentExtractor = $this->getMXDocumentExtractor( $opt_type, $img->getRepo() );
+			$mxDocument = $mxDocumentExtractor->extractMXDocument( $img );
+			$imageMapGenerator = new ImageMapGenerator();
+			$imageMapName = 'drawio-map-' . $id;
+			$imageMap = $imageMapGenerator->generateImageMap( $mxDocument, $imageMapName );
+			$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s" usemap="#%s"></img>';
+			$img_fmt .= $imageMap;
 			$img_html = '<a id="drawio-img-href-' . $id . '" href="' . $img_desc_url . '">';
 			$img_html .= sprintf(
 				$img_fmt, $id, $img_url_ts,
-				'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style
+				'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style,
+				$imageMapName
 			);
 			$img_html .= '</a>';
 		}
@@ -282,6 +293,28 @@ class DrawioEditor {
 		$parser->getOutput()->addModuleStyles( [ 'ext.drawioeditor.styles' ] );
 
 		return [ $output, 'isHTML' => true, 'noparse' => true ];
+	}
+
+	/**
+	 * @param string $opt_type
+	 * @param FileRepo $repo
+	 * @return IMXDocumentExtractor
+	 */
+	private function getMXDocumentExtractor( $opt_type, $repo ) {
+		$extractor = null;
+		$backend = $repo->getBackend();
+		switch ( $opt_type ) {
+			case 'png':
+				$extractor = new PNG( $backend );
+				break;
+			case 'svg':
+				$extractor = new SVG( $backend );
+				break;
+			default:
+				$extractor = new NullExtractor( $backend );
+				break;
+		}
+		return $extractor;
 	}
 
 	/**
