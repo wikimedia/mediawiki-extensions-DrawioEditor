@@ -1,0 +1,16 @@
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/2000/svg" version="1.1" width="181px" height="161px" viewBox="-0.5 -0.5 181 161" content="&lt;mxfile host=&quot;embed.diagrams.net&quot; modified=&quot;2022-12-16T13:44:29.475Z&quot; agent=&quot;5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36&quot; version=&quot;20.7.4&quot; etag=&quot;EUbG6Xw6fl8FZ74HJXdt&quot; type=&quot;embed&quot;&gt;&lt;diagram id=&quot;aCI9MKqzX_XA8krSlI-C&quot; name=&quot;Page-1&quot;&gt;vZRbT4MwFIB/Da8LUJ28zrnNl0UToj6ajp5BXaGkdAL+eltabu4Wk2myh/L1tKf7enocNE+rlcB5suYEmOO7pHLQg+P7N77v6J9LagOmU8+AWFBi0ACE9AssdC3dUwLFKFByziTNxzDiWQaRHDEsBC/HYVvOxllzHMMBCCPMDukbJTIxNLh1e/4INE7azJ5rZ1LcBltQJJjwcoDQwkFzwbk0o7SaA9PuWi9m3fLEbHcwAZk8suClAPG0+dBOfJfhjbqWJsgsYzTbtd9ojWn2/qxFNHNtBr87ZJe8kHUrRvB9RkCHug66LxMqIcxxpGdLVQmKJTLVOT01NBt/gpBQnTy+N8i3Ap6CFLUKsQvurEZbR6j1XPa34gWWJYMbmVqGbSHE3c69KzWwf7H9HNj7rc0wh4hiNT97BVFQno2torNWFVCVDZeN4iI35b6llb6Fayj2fjoODh0fUxz8q+JESv32Z3prf1nSHZ1EPM1xVk8YVw93rPvmrG71JnM9JFjiUHLRNINL6hvjtlP9UXEfEd81luubV6hvQ034oJejxTc=&lt;/diagram&gt;&lt;/mxfile&gt;">
+	<defs/>
+	<g>
+		<a xlink:href="#Main_Page">
+			<rect x="0" y="0" width="180" height="60" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
+		</a>
+		<a xlink:href="#Special:Version">
+			<ellipse cx="140" cy="120" rx="40" ry="40" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all"/>
+		</a>
+		<a xlink:href="https://wiki.company.local">
+			<path d="M 20 80 L 100 80 Q 60 120 100 160 L 20 160 Q -20 120 20 80 Z" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
+		</a>
+	</g>
+</svg>
