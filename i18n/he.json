@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Amire80"
+		]
+	},
+	"drawioeditor-desc": "יצירה ועריכה מובנית של תרשימי זרימה של draw.io",
+	"drawioeditor-approved-editwarning": "יש לשים לב לכך שעכשיו נערכת הגרסה העדכנית ביותר של התרשים הזה, ולא הגרסה מאושרת שמוצגת כברירת מחדל.",
+	"drawioeditor-approved-displaywarning": "זוהי הגרסה המאושרת של התרשים ולא הגרסה האחרונה.",
+	"drawioeditor-noapproved": "לתרשים $1 אין גרסה מאושרת.",
+	"drawioeditor-approve-link": "יש ללחוץ כאן כדי לאשר גרסה",
+	"drawioeditor-changeapprove-link": "יש ללחוץ כאן כדי לשנות את הגרסה המאושרת עבור התרשים הזה"
+}
