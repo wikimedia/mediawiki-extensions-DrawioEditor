@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"drawioeditor-desc": "Ustvarjanje diagramov poteka in znotrajvrstično urejanje Draw.io",
+	"drawioeditor-approved-editwarning": "Upoštevajte, da zdaj urejate zadnjo redakcijo tega diagrama, ki ni privzeto prikazana odobrena.",
+	"drawioeditor-approved-displaywarning": "To je odobrena in ne zadnja redakcija diagrama.",
+	"drawioeditor-noapproved": "Diagram $1 nima odobrene redakcije.",
+	"drawioeditor-approve-link": "Kliknite, da odobrite redakcijo",
+	"drawioeditor-changeapprove-link": "Kliknite tu, da spremenite odobreno redakcijo tega diagrama"
+}
