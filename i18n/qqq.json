@@ -8,7 +8,6 @@
 	"drawioeditor-noapproved": "Displayed when $1 has no approved revision",
 	"drawioeditor-approve-link": "Link to approve a revision of the diagram",
 	"drawioeditor-changeapprove-link": "Link to change the approved revision of the diagram",
-
 	"drawio-usage": "Headline for list of pages which use a particular drawio image. Displayed on the image page",
 	"drawio-not-used": "Text shown when no page uses a particular drawio image. Displayed on the image page",
 	"drawioconnector-extension-description": "Describes the purpose of the extension",
