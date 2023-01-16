@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"DiegoAmbrocio"
+			"DiegoAmbrocio",
+			"Fitoschido"
 		]
 	},
 	"drawioeditor-desc": "Creación de diagramas de flujo en draw.io y edición en línea",
@@ -9,5 +10,9 @@
 	"drawioeditor-approved-displaywarning": "Esta es la revisión aprobada del diagrama y no la última revisión.",
 	"drawioeditor-noapproved": "El diagrama $1 no tiene ninguna revisión aprobada.",
 	"drawioeditor-approve-link": "Haga clic aquí para aprobar una revisión",
-	"drawioeditor-changeapprove-link": "Haga clic aquí para cambiar la revisión aprobada para este diagrama"
+	"drawioeditor-changeapprove-link": "Haga clic aquí para cambiar la revisión aprobada para este diagrama",
+	"drawio-not-used": "No existe ninguna página en esta imagen de Drawio",
+	"drawioconnector-extension-description": "Conecta BlueSpice con Drawio",
+	"drawioconnector-ve-drawio-title": "Diagrama de Draw.io",
+	"drawioconnector-ve-drawio-tag-name": "Nombre"
 }

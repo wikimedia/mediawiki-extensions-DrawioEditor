@@ -9,5 +9,14 @@
 	"drawioeditor-approved-displaywarning": "Ова е одобрената преработка на дијаграмот, а не последната преработка.",
 	"drawioeditor-noapproved": "Дијаграмот $1 нема одобрена преработка.",
 	"drawioeditor-approve-link": "Стиснете тука за да одобрите преработка",
-	"drawioeditor-changeapprove-link": "Стискете тука за да ја смените одобрената преработка за дијаграмов"
+	"drawioeditor-changeapprove-link": "Стискете тука за да ја смените одобрената преработка за дијаграмов",
+	"drawio-usage": "Се користи со ознаката Drawio",
+	"drawio-not-used": "Нема страници со оваа слика од Drawio",
+	"drawioconnector-extension-description": "Го поврзува BlueSpice со Drawio",
+	"drawioconnector-tag-drawio-title": "drawio",
+	"drawioconnector-ve-drawio-title": "Дијаграм од Draw.io",
+	"drawioconnector-tag-drawio-desc": "Внесете дијаграм од draw.io што може да се уредува.",
+	"drawioconnector-ve-drawio-tag-name": "Име",
+	"drawioconnector-ve-drawio-tag-name-help": "Име на дијаграмот како што е складиран на викито",
+	"drawioconnector-ve-drawio-tag-name-placeholder": "Дијаграм-1"
 }
