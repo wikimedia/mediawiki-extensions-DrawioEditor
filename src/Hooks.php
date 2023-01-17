@@ -1,8 +1,13 @@
 <?php
 
-use MediaWiki\MediaWikiServices;
+namespace MediaWiki\Extension\DrawioEditor;
 
-class DrawioConnector {
+use Html;
+use MediaWiki\MediaWikiServices;
+use Revision;
+use Title;
+
+class Hooks {
 	/**
 	 *
 	 * @param mixed $oPDFServlet
