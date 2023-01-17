@@ -78,8 +78,8 @@
 		"BSInsertMagicAjaxGetData": [
 			"\\MediaWiki\\Extension\\DrawioEditor\\Hook\\BSInsertMagicAjaxGetData\\AddDrawioTag::callback"
 		],
-		"BSUEModulePDFFindFiles": "BlueSpiceDrawioConnector::onBSUEModulePDFFindFiles",
-		"ImagePageAfterImageLinks": "BlueSpiceDrawioConnector::onImagePageAfterImageLinks"
+		"BSUEModulePDFFindFiles": "\\MediaWiki\\Extension\\DrawioEditor\\Hooks::onBSUEModulePDFFindFiles",
+		"ImagePageAfterImageLinks": "\\MediaWiki\\Extension\\DrawioEditor\\Hooks::onImagePageAfterImageLinks"
 	},
 	"HookHandlers": {
 		"tag": {
