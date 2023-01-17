@@ -9,5 +9,14 @@
 	"drawioeditor-approved-displaywarning": "Iste es le version approbate del diagramma e non le ultime version.",
 	"drawioeditor-noapproved": "Le diagramma $1 non ha un version approbate.",
 	"drawioeditor-approve-link": "Clicca hic pro approbar un version",
-	"drawioeditor-changeapprove-link": "Clicca hic pro cambiar le version approbate de iste diagramma"
+	"drawioeditor-changeapprove-link": "Clicca hic pro cambiar le version approbate de iste diagramma",
+	"drawio-usage": "Usate con etiquetta Drawio",
+	"drawio-not-used": "Il non ha paginas con iste imagine Drawio",
+	"drawioconnector-extension-description": "Connecte BlueSpice a Drawio",
+	"drawioconnector-tag-drawio-title": "drawio",
+	"drawioconnector-ve-drawio-title": "Diagramma Draw.io",
+	"drawioconnector-tag-drawio-desc": "Inserer un diagramma draw.io modificabile.",
+	"drawioconnector-ve-drawio-tag-name": "Nomine",
+	"drawioconnector-ve-drawio-tag-name-help": "Nomine del diagramma como immagazinate in le wiki",
+	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagramma-1"
 }
