@@ -138,6 +138,13 @@ class DrawioEditor {
 		$img_name = $name . ".drawio." . $opt_type;
 		$repo = $this->services->getRepoGroup();
 		$img = $repo->findFile( $img_name );
+
+		if ( !$img ) {
+			// fallback
+			$img_name = $name . $opt_type;
+			$img = $repo->findFile( $img_name );
+		}
+
 		$noApproved = false;
 		$latest_is_approved = true;
 		if ( $img ) {
