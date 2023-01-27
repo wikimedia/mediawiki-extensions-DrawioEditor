@@ -11,6 +11,13 @@
 			"PluginModules": [
 				"ext.drawioconnector.visualEditor"
 			]
+		},
+		"ContentDroplets": {
+			"Droplets": {
+				"drawio": {
+					"class": "\\MediaWiki\\Extension\\DrawioEditor\\ContentDroplets\\DrawioDroplet"
+				}
+			}
 		}
 	},
 	"descriptionmsg": "drawioeditor-desc",
@@ -54,6 +61,9 @@
 				"ve/ve.ui.DrawioInspector.js",
 				"ve/ve.ui.DrawioNodeTool.js"
 			],
+			"styles": [
+				"ext.drawio.droplet.css"
+			],
 			"dependencies": [
 				"ext.visualEditor.mwcore",
 				"oojs-ui"
@@ -61,7 +71,9 @@
 			"messages": [
 				"drawioconnector-tag-drawio-desc",
 				"drawioconnector-ve-drawio-title",
-				"drawio-usage"
+				"drawio-usage",
+				"drawio-droplet-name",
+				"drawio-droplet-description"
 			]
 		}
 	},
@@ -70,6 +82,7 @@
 		"remoteExtPath": "DrawioEditor/resources"
 	},
 	"Hooks": {
+		"MessageCache::get": "\\MediaWiki\\Extension\\DrawioEditor\\DrawioEditor::mockMessages",
 		"ParserFirstCallInit": [
 			"tag",
 			"MediaWiki\\Extension\\DrawioEditor\\Hook\\ParserFirstCallInit\\SetFunctionHook::callback"
