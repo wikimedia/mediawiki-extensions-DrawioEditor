@@ -5,5 +5,7 @@
 		]
 	},
 	"drawioeditor-noapproved": "Den Diagramm $1 huet keng akzeptéiert Versioun.",
-	"drawioeditor-approve-link": "Klickt hei fir eng Versioun z'akzeptéieren"
+	"drawioeditor-approve-link": "Klickt hei fir eng Versioun z'akzeptéieren",
+	"drawioconnector-ve-drawio-tag-name": "Numm",
+	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagramm-1"
 }

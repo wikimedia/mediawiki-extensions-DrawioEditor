@@ -1,6 +1,8 @@
 {
 	"@metadata": {
-		"authors": []
+		"authors": [
+			"Robby"
+		]
 	},
 	"drawioeditor-desc": "{{desc|name=DrawioEditor|url=https://www.mediawiki.org/wiki/Extension:DrawioEditor}}",
 	"drawioeditor-approved-editwarning": "Used as warning shown in '''bold'''.",
@@ -8,14 +10,13 @@
 	"drawioeditor-noapproved": "Displayed when $1 has no approved revision",
 	"drawioeditor-approve-link": "Link to approve a revision of the diagram",
 	"drawioeditor-changeapprove-link": "Link to change the approved revision of the diagram",
-
 	"drawio-usage": "Headline for list of pages which use a particular drawio image. Displayed on the image page",
 	"drawio-not-used": "Text shown when no page uses a particular drawio image. Displayed on the image page",
 	"drawioconnector-extension-description": "Describes the purpose of the extension",
 	"drawioconnector-tag-drawio-title": "Used in InsertMagic extension, tag description for drawio",
 	"drawioconnector-ve-drawio-title": "Used in VisualEditor tag inspector, tag title for drawio",
 	"drawioconnector-tag-drawio-desc": "Used in VisualEditor tag inspector, tag description for drawio.",
-	"drawioconnector-ve-drawio-tag-name": "Label for the input field for name of the diagram",
+	"drawioconnector-ve-drawio-tag-name": "Label for the input field for name of the diagram\n{{identical|Name}}",
 	"drawioconnector-ve-drawio-tag-name-help": "Help text for the input field for name of the diagram",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Placeholder text for the input field for name of the diagram"
 }
