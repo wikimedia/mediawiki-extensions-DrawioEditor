@@ -141,7 +141,7 @@ class DrawioEditor {
 
 		if ( !$img ) {
 			// fallback
-			$img_name = $name . $opt_type;
+			$img_name = $name . '.' . $opt_type;
 			$img = $repo->findFile( $img_name );
 		}
 
@@ -248,20 +248,30 @@ class DrawioEditor {
 				$img_html = sprintf( $img_fmt, $id, $img_url_ts, $img->getUrl(),  $img_style );
 			}
 		} else {
-			$mxDocumentExtractor = $this->getMXDocumentExtractor( $opt_type, $img->getRepo() );
-			$mxDocument = $mxDocumentExtractor->extractMXDocument( $img );
-			$imageMapGenerator = new ImageMapGenerator();
-			$imageMapName = 'drawio-map-' . $id;
-			$imageMap = $imageMapGenerator->generateImageMap( $mxDocument, $imageMapName );
-			$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s" usemap="#%s"></img>';
-			$img_fmt .= $imageMap;
-			$img_html = '<a id="drawio-img-href-' . $id . '" href="' . $img_desc_url . '">';
-			$img_html .= sprintf(
-				$img_fmt, $id, $img_url_ts,
-				'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style,
-				$imageMapName
-			);
-			$img_html .= '</a>';
+			if ( !$img ) {
+				$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
+				$img_html = '<a id="drawio-img-href-' . $id . '" href="' . $img_desc_url . '">';
+				$img_html .= sprintf(
+					$img_fmt, $id, $img_url_ts,
+					'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style
+				);
+				$img_html .= '</a>';
+			} else {
+				$mxDocumentExtractor = $this->getMXDocumentExtractor( $opt_type, $img->getRepo() );
+				$mxDocument = $mxDocumentExtractor->extractMXDocument( $img );
+				$imageMapGenerator = new ImageMapGenerator();
+				$imageMapName = 'drawio-map-' . $id;
+				$imageMap = $imageMapGenerator->generateImageMap( $mxDocument, $imageMapName );
+				$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s" usemap="#%s"></img>';
+				$img_fmt .= $imageMap;
+				$img_html = '<a id="drawio-img-href-' . $id . '" href="' . $img_desc_url . '">';
+				$img_html .= sprintf(
+					$img_fmt, $id, $img_url_ts,
+					'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style,
+					$imageMapName
+				);
+				$img_html .= '</a>';
+			}
 		}
 
 		/* output image and optionally a placeholder if the image does not exist yet */
