@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"MuratTheTurkish"
+			"MuratTheTurkish",
+			"Rapsar"
 		]
 	},
-	"drawioeditor-desc": "draw.io akış şeması oluşturma ve satır içi düzenleme"
+	"drawioeditor-desc": "draw.io akış şeması oluşturma ve satır içi değişiklik yapma"
 }
