@@ -11,5 +11,6 @@
 	"drawioeditor-approved-displaywarning": "Esta é a versão aprovada do diagrama, e não a versão mais recente.",
 	"drawioeditor-noapproved": "O diagrama $1 não possui revisão aprovada.",
 	"drawioeditor-approve-link": "Clique aqui para aprovar uma revisão",
-	"drawioeditor-changeapprove-link": "Clique aqui para alterar a revisão aprovada para este diagrama"
+	"drawioeditor-changeapprove-link": "Clique aqui para alterar a revisão aprovada para este diagrama",
+	"drawioconnector-ve-drawio-tag-name": "Nome"
 }
