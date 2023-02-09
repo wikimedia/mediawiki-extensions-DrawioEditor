@@ -370,15 +370,4 @@ class DrawioEditor {
 			( $isProtected );
 	}
 
-	/**
-	 * TODO:Remove me
-	 *
-	 * @param string &$lckey
-	 * @return void
-	 */
-	public static function mockMessages( &$lckey ) {
-		if ( $lckey === 'drawio-droplet-name' || $lckey === 'drawio-droplet-description' ) {
-			$lckey = 'drawioconnector-tag-drawio-title';
-		}
-	}
 }

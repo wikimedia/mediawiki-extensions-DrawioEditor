@@ -7,5 +7,7 @@
 	"drawioeditor-approved-displaywarning": "Dies ist die genehmigte Version des Diagramms und nicht die letzte Version.",
 	"drawioeditor-noapproved": "Das Diagramm $1 hat keine genehmigte Version.",
 	"drawioeditor-approve-link": "Klicke hier, um eine Version zu genehmigen",
-	"drawioeditor-changeapprove-link": "Klicke hier, um die genehmigte Version für dieses Diagramm zu ändern"
+	"drawioeditor-changeapprove-link": "Klicke hier, um die genehmigte Version für dieses Diagramm zu ändern",
+	"drawio-droplet-name": "Diagramm",
+	"drawio-droplet-description": "Bearbeitbares draw.io-Diagramm"
 }
