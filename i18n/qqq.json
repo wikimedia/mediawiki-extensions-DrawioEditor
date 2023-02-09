@@ -19,5 +19,7 @@
 	"drawioconnector-tag-drawio-desc": "Used in VisualEditor tag inspector, tag description for drawio.",
 	"drawioconnector-ve-drawio-tag-name": "Label for the input field for name of the diagram\n{{identical|Name}}",
 	"drawioconnector-ve-drawio-tag-name-help": "Help text for the input field for name of the diagram",
-	"drawioconnector-ve-drawio-tag-name-placeholder": "Placeholder text for the input field for name of the diagram"
+	"drawioconnector-ve-drawio-tag-name-placeholder": "Placeholder text for the input field for name of the diagram",
+	"drawio-droplet-name": "Title of droplet for tag drawio",
+	"drawio-droplet-description": "Description of droplet for tag drawio"
 }
