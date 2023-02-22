@@ -52,6 +52,6 @@ class ImageMapGeneratorTest extends TestCase {
 		$imageMapGenerator = new ImageMapGenerator();
 		$inputDOM = new DOMDocument();
 		$actualImageMap = $imageMapGenerator->generateImageMap( $inputDOM, 'test' );
-		$this->assertSame( '', $actualImageMap );
+		$this->assertEmpty( $actualImageMap );
 	}
 }

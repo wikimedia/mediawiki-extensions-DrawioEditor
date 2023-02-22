@@ -7,6 +7,7 @@
 	"drawio-usage": "Gebruikt met Drawio-tag",
 	"drawio-not-used": "Er zijn geen pagina's met deze Drawio-afbeelding",
 	"drawioconnector-extension-description": "Verbindt BlueSpice met Drawio",
+	"drawioconnector-tag-drawio-title": "drawio",
 	"drawioconnector-ve-drawio-title": "Draw.io-diagram",
 	"drawioconnector-tag-drawio-desc": "Een draw.io-diagram invoegen dat kan worden bewerkt.",
 	"drawioconnector-ve-drawio-tag-name": "Naam",

@@ -23,7 +23,7 @@
 	"descriptionmsg": "drawioeditor-desc",
 	"type": "parserhook",
 	"requires": {
-		"MediaWiki": ">= 1.35.0"
+		"MediaWiki": ">= 1.31.0"
 	},
 	"ExtensionMessagesFiles": {
 		"DrawioEditorMagic": "DrawioEditor.magic.php"

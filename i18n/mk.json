@@ -13,6 +13,7 @@
 	"drawio-usage": "Се користи со ознаката Drawio",
 	"drawio-not-used": "Нема страници со оваа слика од Drawio",
 	"drawioconnector-extension-description": "Го поврзува BlueSpice со Drawio",
+	"drawioconnector-tag-drawio-title": "drawio",
 	"drawioconnector-ve-drawio-title": "Дијаграм од Draw.io",
 	"drawioconnector-tag-drawio-desc": "Внесете дијаграм од draw.io што може да се уредува.",
 	"drawioconnector-ve-drawio-tag-name": "Име",

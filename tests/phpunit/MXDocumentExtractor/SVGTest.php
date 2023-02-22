@@ -28,7 +28,7 @@ class SVGTest extends TestCase {
 		$expectedImageMap = file_get_contents( __DIR__ . '/../data/test-1-dxdocument.xml' );
 		$this->assertXmlStringEqualsXmlString(
 			$expectedImageMap,
-			$actualImageMap->saveXML()
+			$actualImageMap
 		);
 	}
 }

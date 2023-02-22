@@ -151,7 +151,7 @@ class DrawioEditor {
 			$img_url_ts = null;
 			$displayImage = $img;
 			$hookRunner = MediaWikiServices::getInstance()->getHookContainer();
-			$hookRunner->run( 'DrawioGetFile', [ &$img, &$latest_is_approved, $parser->getUserIdentity(),
+			$hookRunner->run( 'DrawioGetFile', [ &$img, &$latest_is_approved, $parser->getUser(),
 			&$noApproved, &$displayImage ] );
 			$img_url_ts = $displayImage->getUrl();
 			$img_desc_url = $img->getDescriptionUrl();
@@ -354,15 +354,13 @@ class DrawioEditor {
 	private function isReadOnly( $img ) {
 		$user = RequestContext::getMain()->getUser();
 		$parser = $this->services->getParser();
-		$isProtected = $parser->getTitle() ?
-			$this->services->getRestrictionStore()->isProtected( $parser->getTitle(), 'edit' ) : false;
 
 		return !$this->config->get( 'EnableUploads' ) ||
 				!$this->services->getPermissionManager()->userHasRight( $user, 'upload' ) ||
 				!$this->services->getPermissionManager()->userHasRight( $user, 'reupload' ) ||
 			( !$img && !$this->services->getPermissionManager()->userHasRight( $user, 'upload' ) ) ||
 			( !$img && !$this->services->getPermissionManager()->userHasRight( $user, 'reupload' ) ) ||
-			( $isProtected );
+			( $parser->getTitle() ? $parser->getTitle()->isProtected( 'edit' ) : false );
 	}
 
 	/**
