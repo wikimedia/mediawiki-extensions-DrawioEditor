@@ -67,6 +67,7 @@ function DrawioEditor( id, filename, type, interactive, updateHeight, updateWidt
 
 DrawioEditor.prototype.destroy = function() {
 	this.iframe.remove();
+	location.reload();
 }
 
 DrawioEditor.prototype.show = function() {
