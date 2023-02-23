@@ -257,6 +257,20 @@ DrawioEditor.prototype.save = function(datauri) {
 	datastr = atob(parts[4]);
 	var expr = /"http:\/\/[^"]*?1999[^"]*?"/gmi;
 	datastr = datastr.replace( expr, '"http://www.w3.org/1999/xhtml"' );
+
+	// To make the links work in an object tag
+	var expr3 = /xlink\=\"http\:\/\/www\.w3\.org\/1999\/xhtml"/gmi;
+	datastr = datastr.replace( expr3, 'xlink="http://www.w3.org/1999/xlink"');
+
+	// Add the target="_top" attribute to a tag to avoid links opening only in small object tag on articles
+	datastr = datastr.replace(/<a([^>]*)>/gi, function(match, p1) {
+		if (!p1.match(/target=/i)) {
+		  return '<a' + p1 + ' target="_top">';
+		} else {
+		  return match;
+		}
+	});
+
 	data = new Uint8Array(datastr.length)
 	for (i = 0; i < datastr.length; i++) {
 		data[i] = datastr.charCodeAt(i);
