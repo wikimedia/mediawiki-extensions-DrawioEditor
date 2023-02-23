@@ -73,6 +73,7 @@ function DrawioEditor( id, filename, type, interactive, updateHeight, updateWidt
 
 DrawioEditor.prototype.destroy = function() {
 	this.iframe.remove();
+	// Add a page refresh to see the new image (aploe)
 	location.reload();
 }
 
@@ -322,6 +323,24 @@ DrawioEditor.prototype.initCallback = function () {
 	this.loadImage();
 }
 
+// Send new config to editor (aploe)
+DrawioEditor.prototype.sendConfig = function() {
+	this.sendMsgToIframe({
+		'action' : 'configure',
+		'config' : {
+			"version": "1.0",
+			// "css": ".geMenubarContainer { background-color: #9d9d9d !important; color: #fff !important; }"
+			"css": ".geMenubarContainer { background-color: #c0143c !important; }" +
+			".geMenubarContainer a.geItem { color: #ffffff !important; }" + 
+			".geMenubarContainer a.geItem:hover { color: #000000 !important; }" +
+			".geMenubarContainer a.geItem:active { background: #c17285 !important; color: #000000 !important }" +
+			".geBigButton[title=\"Save (Ctrl+S)\"] { background-color: #c0143c !important; }" +
+			".geBigButton[title=\"Save (Ctrl+S)\"]:hover { background-color: #c17285 !important; }" +
+			".geBigButton[title=\"Save (Ctrl+S)\"]:active { background-color: #920526 !important; }" +
+			".geBigButton { background-color: #920526 !important; }"
+		}
+		});
+}
 
 var editor;
 
@@ -363,6 +382,11 @@ function drawioHandleMessage(e) {
 		case 'exit':
 			editor.exitCallback();
 		// editor is null after this callback
+			break;
+
+		// Add configure event (aploe)
+		case 'configure':
+			editor.sendConfig();
 			break;
 
 		default:
