@@ -52,9 +52,15 @@ function DrawioEditor( id, filename, type, interactive, updateHeight, updateWidt
 	this.iframeOverlay = $("#drawio-iframe-overlay-" + id);
 	this.iframeOverlay.hide();
 
+	// Determine if page is secured over https (aploe)
+	var iframeviahttps = 0;
+	if (location.protocol === 'https:') iframeviahttps = 1;
+
 	var localAttr = this.baseUrl !== 'https://embed.diagrams.net' ? "&local=1" : "";
 	this.iframe = $('<iframe>', {
-		src: this.baseUrl + '/?embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language + localAttr,
+		// Add https to base url (aploe)
+		src: this.baseUrl + '/?https=' + iframeviahttps + '&embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language + localAttr,
+		// src: this.baseUrl + '/?embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language + localAttr,
 		id: 'drawio-iframe-' + id,
 		class: 'DrawioEditorIframe'
 	});
