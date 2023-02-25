@@ -52,9 +52,15 @@ function DrawioEditor( id, filename, type, interactive, updateHeight, updateWidt
 	this.iframeOverlay = $("#drawio-iframe-overlay-" + id);
 	this.iframeOverlay.hide();
 
+	// Determine if page is secured over https (aploe)
+	var iframeviahttps = 0;
+	if (location.protocol === 'https:') iframeviahttps = 1;
+
 	var localAttr = this.baseUrl !== 'https://embed.diagrams.net' ? "&local=1" : "";
 	this.iframe = $('<iframe>', {
-		src: this.baseUrl + '/?embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language + localAttr,
+		// Add https to base url (aploe)
+		src: this.baseUrl + '/?https=' + iframeviahttps + '&embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language + localAttr,
+		// src: this.baseUrl + '/?embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language + localAttr,
 		id: 'drawio-iframe-' + id,
 		class: 'DrawioEditorIframe'
 	});
@@ -67,6 +73,8 @@ function DrawioEditor( id, filename, type, interactive, updateHeight, updateWidt
 
 DrawioEditor.prototype.destroy = function() {
 	this.iframe.remove();
+	// Add a page refresh to see the new image (aploe)
+	location.reload();
 }
 
 DrawioEditor.prototype.show = function() {
@@ -256,6 +264,20 @@ DrawioEditor.prototype.save = function(datauri) {
 	datastr = atob(parts[4]);
 	var expr = /"http:\/\/[^"]*?1999[^"]*?"/gmi;
 	datastr = datastr.replace( expr, '"http://www.w3.org/1999/xhtml"' );
+
+	// To make the links work in an object tag
+	var expr3 = /xlink\=\"http\:\/\/www\.w3\.org\/1999\/xhtml"/gmi;
+	datastr = datastr.replace( expr3, 'xlink="http://www.w3.org/1999/xlink"');
+
+	// Add the target="_top" attribute to a tag to avoid links opening only in small object tag on articles
+	datastr = datastr.replace(/<a([^>]*)>/gi, function(match, p1) {
+		if (!p1.match(/target=/i)) {
+		  return '<a' + p1 + ' target="_top">';
+		} else {
+		  return match;
+		}
+	});
+
 	data = new Uint8Array(datastr.length)
 	for (i = 0; i < datastr.length; i++) {
 		data[i] = datastr.charCodeAt(i);
@@ -301,6 +323,24 @@ DrawioEditor.prototype.initCallback = function () {
 	this.loadImage();
 }
 
+// Send new config to editor (aploe)
+DrawioEditor.prototype.sendConfig = function() {
+	this.sendMsgToIframe({
+		'action' : 'configure',
+		'config' : {
+			"version": "1.0",
+			// "css": ".geMenubarContainer { background-color: #9d9d9d !important; color: #fff !important; }"
+			"css": ".geMenubarContainer { background-color: #c0143c !important; }" +
+			".geMenubarContainer a.geItem { color: #ffffff !important; }" + 
+			".geMenubarContainer a.geItem:hover { color: #000000 !important; }" +
+			".geMenubarContainer a.geItem:active { background: #c17285 !important; color: #000000 !important }" +
+			".geBigButton[title=\"Save (Ctrl+S)\"] { background-color: #c0143c !important; }" +
+			".geBigButton[title=\"Save (Ctrl+S)\"]:hover { background-color: #c17285 !important; }" +
+			".geBigButton[title=\"Save (Ctrl+S)\"]:active { background-color: #920526 !important; }" +
+			".geBigButton { background-color: #920526 !important; }"
+		}
+		});
+}
 
 var editor;
 
@@ -342,6 +382,11 @@ function drawioHandleMessage(e) {
 		case 'exit':
 			editor.exitCallback();
 		// editor is null after this callback
+			break;
+
+		// Add configure event (aploe)
+		case 'configure':
+			editor.sendConfig();
 			break;
 
 		default:
