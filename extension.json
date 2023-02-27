@@ -69,8 +69,8 @@
 				"oojs-ui"
 			],
 			"messages": [
-				"drawioconnector-tag-drawio-desc",
 				"drawioconnector-ve-drawio-title",
+				"drawioconnector-ve-drawio-tag-name",
 				"drawio-usage",
 				"drawio-droplet-name",
 				"drawio-droplet-description"
