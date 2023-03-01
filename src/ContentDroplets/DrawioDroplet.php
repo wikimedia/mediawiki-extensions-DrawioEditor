@@ -33,8 +33,8 @@ class DrawioDroplet extends TagDroplet {
 	/**
 	 * @inheritDoc
 	 */
-	public function getRLModule(): string {
-		return 'ext.drawioconnector.visualEditor';
+	public function getRLModules(): array {
+		return [ 'ext.drawioconnector.visualEditor' ];
 	}
 
 	/**
