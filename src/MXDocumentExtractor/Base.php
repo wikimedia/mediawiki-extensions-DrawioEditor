@@ -30,6 +30,9 @@ abstract class Base implements IMXDocumentExtractor {
 
 		$mxFileString = $this->getPlainMXFileString();
 		$mxFileDOM = $this->getMXFileDOM( $mxFileString );
+		if ( !$mxFileDOM ) {
+			return new DOMDocument();
+		}
 		$diagramDOM = $this->getDiagramDOM( $mxFileDOM );
 		if ( $diagramDOM === null ) {
 			return new DOMDocument();
@@ -44,10 +47,13 @@ abstract class Base implements IMXDocumentExtractor {
 
 	/**
 	 * @param string $mxfileXML
-	 * @return DOMDocument
+	 * @return DOMDocument|null
 	 */
 	protected function getMXFileDOM( $mxfileXML ) {
 		$mxfileXMLDOM = new DOMDocument();
+		if ( empty( $mxfileXML ) ) {
+			return null;
+		}
 		$mxfileXMLDOM->loadXML( $mxfileXML );
 
 		return $mxfileXMLDOM;
