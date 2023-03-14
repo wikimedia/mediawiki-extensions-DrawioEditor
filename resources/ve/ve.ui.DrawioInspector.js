@@ -47,7 +47,7 @@ ve.ui.DrawioInspector.prototype.createLayout = function ( ) {
 			if ( value === '' ) {
 				return false;
 			}
-			if ( !value.match( /^[a-zA-Z0-9_-]+$/ ) ) {
+			if ( !value.match( /^[\w,-.\s]+$/ ) ) {
 				return false;
 			}
 			return true;
