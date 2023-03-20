@@ -151,7 +151,7 @@ class DrawioEditor {
 		if ( $img ) {
 			$img_url_ts = null;
 			$displayImage = $img;
-			$hookRunner = MediaWikiServices::getInstance()->getHookContainer();
+			$hookRunner = $this->services->getHookContainer();
 			$hookRunner->run( 'DrawioGetFile', [ &$img, &$latest_is_approved, $parser->getUserIdentity(),
 			&$noApproved, &$displayImage ] );
 			$img_url_ts = $displayImage->getUrl();
@@ -194,10 +194,12 @@ class DrawioEditor {
 		/* output begin */
 		$output = '<div>';
 		$user = RequestContext::getMain()->getUser();
+		$permisionManager = $this->services->getPermissionManager();
+		$userHasRight = $permisionManager->userHasRight( $user, 'approverevisions' );
 		if ( $noApproved ) {
 			$output .= '<p class="successbox">' .
 			wfMessage( "drawioeditor-noapproved", $name )->text();
-			if ( $user->isAllowed( 'approverevisions' ) ) {
+			if ( $userHasRight ) {
 				$output .= ' <a href="' . $img_desc_url . '">'
 				. wfMessage( "drawioeditor-approve-link" ) . '</a>';
 			}
@@ -212,7 +214,7 @@ class DrawioEditor {
 					$output .= '<p class="successbox" id="approved-displaywarning">' .
 				wfMessage( "drawioeditor-approved-displaywarning" )->text();
 				}
-				if ( $user->isAllowed( 'approverevisions' ) ) {
+				if ( $userHasRight ) {
 					$output .= ' <a href="' . $img_desc_url . '">'
 					. wfMessage( "drawioeditor-changeapprove-link" ) . '</a>';
 				}
