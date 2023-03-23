@@ -31,7 +31,7 @@ class Tag implements ParserFirstCallInitHook {
 		PPFrame $frame ) {
 		$drawioEditor = new DrawioEditor();
 		$magicWordData = $drawioEditor->parse( $parser, $args[ 'filename' ], $args );
-		$parser->getOutput()->setProperty( 'drawio-image', $args[ 'filename' ] );
+		$parser->getOutput()->setPageProperty( 'drawio-image', $args[ 'filename' ] );
 		$parser->getOutput()->addModules( [ 'ext.drawioconnector.init' ] );
 
 		$out = Html::element( 'div', [
