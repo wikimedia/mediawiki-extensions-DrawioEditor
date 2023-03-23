@@ -12,6 +12,7 @@ use MediaWiki\MediaWikiServices;
 use Parser;
 use PPFrame;
 use RequestContext;
+use Title;
 
 class DrawioEditor {
 
@@ -354,8 +355,10 @@ class DrawioEditor {
 	private function isReadOnly( $img ) {
 		$user = RequestContext::getMain()->getUser();
 		$parser = $this->services->getParser();
-		$isProtected = $parser->getTitle() ?
-			$this->services->getRestrictionStore()->isProtected( $parser->getTitle(), 'edit' ) : false;
+		$pageRef = $parser->getPage();
+		$title = Title::castFromPageReference( $pageRef );
+		$isProtected = $title ?
+			$this->services->getRestrictionStore()->isProtected( $title, 'edit' ) : false;
 
 		return !$this->config->get( 'EnableUploads' ) ||
 				!$this->services->getPermissionManager()->userHasRight( $user, 'upload' ) ||
