@@ -101,6 +101,9 @@ abstract class Base implements IMXDocumentExtractor {
 		$inflatedDiagramXML = base64_decode( $b64DiagramXML );
 		$urlencodedDiagramXML = gzinflate( $inflatedDiagramXML );
 		$diagramXmlString = urldecode( $urlencodedDiagramXML );
+		if ( empty( $diagramXmlString ) ) {
+			return null;
+		}
 		$documentXML = new DOMDocument();
 		$documentXML->loadXML( $diagramXmlString );
 
