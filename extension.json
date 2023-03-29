@@ -82,7 +82,6 @@
 		"remoteExtPath": "DrawioEditor/resources"
 	},
 	"Hooks": {
-		"MessageCache::get": "\\MediaWiki\\Extension\\DrawioEditor\\DrawioEditor::mockMessages",
 		"ParserFirstCallInit": [
 			"tag",
 			"MediaWiki\\Extension\\DrawioEditor\\Hook\\ParserFirstCallInit\\SetFunctionHook::callback"
