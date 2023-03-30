@@ -16,7 +16,7 @@ class PNG extends Base {
 		$partiallyDecodedXML = urldecode( $encodedXML );
 		$matches = [];
 		preg_match( '#<mxfile.*?>(.*?)</mxfile>#s', $partiallyDecodedXML, $matches );
-		$strippedXML = $matches[0];
+		$strippedXML = $matches[0] ?? '';
 		return trim( $strippedXML );
 	}
 }
