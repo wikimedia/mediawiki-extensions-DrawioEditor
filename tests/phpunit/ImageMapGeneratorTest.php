@@ -40,6 +40,14 @@ class ImageMapGeneratorTest extends TestCase {
 				__DIR__ . '/data/test-2-dxdocument.xml',
 				__DIR__ . '/data/test-2.html',
 			],
+			[
+				__DIR__ . '/data/test-3-dxdocument.xml',
+				__DIR__ . '/data/test-3.html',
+			],
+			[
+				__DIR__ . '/data/test-4-dxdocument.xml',
+				__DIR__ . '/data/test-4.html',
+			],
 		];
 	}
 

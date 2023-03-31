@@ -15,6 +15,7 @@ class PNG extends Base {
 			'$1',
 			$this->imageContent
 		);
+		$encodedXML = preg_replace( '/[[:^print:]]/', '', $encodedXML );
 		$partiallyDecodedXML = urldecode( $encodedXML );
 		$matches = [];
 		preg_match( '#<mxfile.*?>(.*?)</mxfile>#s', $partiallyDecodedXML, $matches );
