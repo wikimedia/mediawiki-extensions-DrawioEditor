@@ -96,13 +96,21 @@ abstract class Base implements IMXDocumentExtractor {
 			// TODO: Proper handling of invalid XML
 			return null;
 		}
-		// This is a Base64-encoded, gzipped, URL-encoded XML string.
-		$b64DiagramXML = $diagramEl->nodeValue;
-		$inflatedDiagramXML = base64_decode( $b64DiagramXML );
-		$urlencodedDiagramXML = gzinflate( $inflatedDiagramXML );
-		$diagramXmlString = urldecode( $urlencodedDiagramXML );
-		if ( empty( $diagramXmlString ) ) {
-			return null;
+		// Newer versions of draw.io store the diagram XML as a child element of the
+		// <diagram> element.
+		$mxGraphModelEl = $diagramEl->getElementsByTagName( 'mxGraphModel' )->item( 0 );
+		if ( $mxGraphModelEl !== null ) {
+			$diagramXmlString = $mxGraphModelEl->ownerDocument->saveXML( $mxGraphModelEl );
+		} else {
+			// Older versions of draw.io store the diagram XML as a Base64-encoded,
+			// gzipped, URL-encoded string.
+			$b64DiagramXML = $diagramEl->nodeValue;
+			$inflatedDiagramXML = base64_decode( $b64DiagramXML );
+			$urlencodedDiagramXML = gzinflate( $inflatedDiagramXML );
+			$diagramXmlString = urldecode( $urlencodedDiagramXML );
+			if ( empty( $diagramXmlString ) ) {
+				return null;
+			}
 		}
 		$documentXML = new DOMDocument();
 		$documentXML->loadXML( $diagramXmlString );
