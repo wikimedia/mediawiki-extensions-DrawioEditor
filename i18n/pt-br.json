@@ -3,7 +3,8 @@
 		"authors": [
 			"Eduardo Addad de Oliveira",
 			"Eduardoaddad",
-			"YuriNikolai"
+			"YuriNikolai",
+			"Re demz"
 		]
 	},
 	"drawioeditor-desc": "Criação de fluxograma draw.io e edição em linha",
@@ -12,5 +13,7 @@
 	"drawioeditor-noapproved": "O diagrama $1 não possui revisão aprovada.",
 	"drawioeditor-approve-link": "Clique aqui para aprovar uma revisão",
 	"drawioeditor-changeapprove-link": "Clique aqui para alterar a revisão aprovada para este diagrama",
-	"drawioconnector-ve-drawio-tag-name": "Nome"
+	"drawioconnector-ve-drawio-tag-name": "Nome",
+	"drawio-droplet-name": "Diagrama",
+	"drawio-droplet-description": "Diagrama draw.io editável"
 }

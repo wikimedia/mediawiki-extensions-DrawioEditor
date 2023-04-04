@@ -18,5 +18,7 @@
 	"drawioconnector-tag-drawio-desc": "Vstavite diagram draw.io, ki ga je mogoče urejati.",
 	"drawioconnector-ve-drawio-tag-name": "Ime",
 	"drawioconnector-ve-drawio-tag-name-help": "Ime diagrama, kot je shranjeno v vikiju",
-	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1"
+	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
+	"drawio-droplet-name": "Diagram",
+	"drawio-droplet-description": "Diagram draw.io, ki ga je mogoče urejati"
 }
