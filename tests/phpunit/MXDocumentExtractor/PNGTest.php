@@ -10,10 +10,13 @@ use PHPUnit\Framework\TestCase;
 class PNGTest extends TestCase {
 
 	/**
+	 * @param string $inputFilename
+	 * @param string $expectedFilename
 	 * @covers \MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\PNG::extractMXDocument
+	 * @dataProvider providerExtractMXDocumentData
 	 */
-	public function testExtractMXDocument() {
-		$imageContent = file_get_contents( __DIR__ . '/../data/test-1.png' );
+	public function testExtractMXDocument( $inputFilename, $expectedFilename ) {
+		$imageContent = file_get_contents( __DIR__ . '/../data/' . $inputFilename );
 		$fileBackend = $this->createMock( FileBackend::class );
 		$fileBackend
 			->method( 'getFileContentsMulti' )
@@ -25,10 +28,27 @@ class PNGTest extends TestCase {
 
 		$generator = new PNG( $fileBackend );
 		$actualImageMap = $generator->extractMXDocument( $image );
-		$expectedImageMap = file_get_contents( __DIR__ . '/../data/test-1-dxdocument.xml' );
+		$expectedImageMap = file_get_contents( __DIR__ . '/../data/' . $expectedFilename );
 		$this->assertXmlStringEqualsXmlString(
 			$expectedImageMap,
-			$actualImageMap
+			$actualImageMap->saveXML()
 		);
+	}
+
+	public function providerExtractMXDocumentData() {
+		return [
+			'legacy-compressed-mxdocument' => [
+				'file' => 'test-1.png',
+				'expected' => 'test-1-dxdocument.xml',
+			],
+			'new-uncompressed-mxdocument' => [
+				'file' => 'test-3.png',
+				'expected' => 'test-3-dxdocument.xml',
+			],
+			'new-uncompressed-mxdocument-with-special-char' => [
+				'file' => 'test-4.png',
+				'expected' => 'test-4-dxdocument.xml',
+			]
+		];
 	}
 }
