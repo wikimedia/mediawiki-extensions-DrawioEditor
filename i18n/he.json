@@ -17,5 +17,7 @@
 	"drawioconnector-tag-drawio-desc": "הוספת תרשים draw.io שניתן לערוך.",
 	"drawioconnector-ve-drawio-tag-name": "שם",
 	"drawioconnector-ve-drawio-tag-name-help": "שם התרשים כפי שמאוחסן בוויקי",
-	"drawioconnector-ve-drawio-tag-name-placeholder": "תרשים-1"
+	"drawioconnector-ve-drawio-tag-name-placeholder": "תרשים-1",
+	"drawio-droplet-name": "תרשים",
+	"drawio-droplet-description": "תרשים draw.io שאפשר לערוך"
 }
