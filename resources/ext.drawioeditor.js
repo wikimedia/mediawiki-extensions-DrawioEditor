@@ -1,12 +1,11 @@
 
-function DrawioEditor( id, filename, type, interactive, updateHeight, updateWidth,
+function DrawioEditor( id, filename, type, updateHeight, updateWidth,
 	updateMaxWidth, baseUrl, latestIsApproved, imageURL ) {
 	var that = this;
 
 	this.id = id;
 	this.filename = filename;
 	this.imgType = type;
-	this.interactive = interactive;
 	this.updateHeight = updateHeight;
 	this.updateWidth = updateWidth;
 	this.updateMaxWidth = updateMaxWidth;
@@ -27,11 +26,7 @@ function DrawioEditor( id, filename, type, interactive, updateHeight, updateWidt
 
 	this.imageBox = $("#drawio-img-box-" + id);
 	this.image = $("#drawio-img-" + id);
-	if (interactive) {
-		this.imageURL = this.image.attr('data-editurl');
-	} else {
-		this.imageURL = imageURL || undefined;
-	}
+	this.imageURL = imageURL || undefined;
 	this.imageHref = $("#drawio-img-href-" + id);
 	this.placeholder = $("#drawio-placeholder-" + id);
 
@@ -95,11 +90,7 @@ DrawioEditor.prototype.hideOverlay = function() {
 
 DrawioEditor.prototype.updateImage = function (imageinfo) {
 	this.imageURL = imageinfo.url + '?ts=' + imageinfo.timestamp;
-	if (this.interactive) {
-		this.image.attr("data-editurl", this.imageURL);
-	} else {
-		this.image.attr("src", this.imageURL);
-	}
+	this.image.attr("src", this.imageURL);
 	this.imageHref.attr("href", imageinfo.descriptionurl);
 	if (this.updateHeight)
 		this.image.css('height', imageinfo.height);
@@ -304,10 +295,10 @@ DrawioEditor.prototype.initCallback = function () {
 
 var editor;
 
-window.editDrawio = function(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL) {
+window.editDrawio = function(id, filename, type, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL) {
 	if (!editor) {
 		window.drawioEditorBaseUrl = baseUrl;
-		editor = new DrawioEditor(id, filename, type, interactive, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL);
+		editor = new DrawioEditor(id, filename, type, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL);
 	} else {
 		alert("Only one DrawioEditor can be open at the same time!");
 	}
