@@ -174,7 +174,7 @@ class DrawioEditor {
 		}
 
 		/* prepare edit href */
-		$edit_ahref = sprintf( "<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s, %s,
+		$edit_ahref = sprintf( "<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s,
 		\"%s\", %s, \"%s\")'>" . wfMessage( 'edit' )->text() . "</a>",
 			$id,
 			json_encode( $img_name, JSON_HEX_QUOT | JSON_HEX_APOS ),
