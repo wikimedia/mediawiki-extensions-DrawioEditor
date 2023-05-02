@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Mschlindwein"
+			"Mschlindwein",
+			"Lukasaiko"
 		]
 	},
 	"drawioeditor-desc": "draw.io Flussdiagramm-Erstellung und Inline-Bearbeitung",
@@ -11,6 +12,8 @@
 	"drawioeditor-approve-link": "Klicke hier, um eine Version zu genehmigen",
 	"drawioeditor-changeapprove-link": "Klicke hier, um die genehmigte Version für dieses Diagramm zu ändern",
 	"drawio-usage": "Drawio-Tag verwendet",
+	"drawioconnector-ve-drawio-tag-name": "Name",
+	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagramm-1",
 	"drawio-droplet-name": "Diagramm",
 	"drawio-droplet-description": "Bearbeitbares draw.io-Diagramm"
 }
