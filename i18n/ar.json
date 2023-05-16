@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Meno25"
+			"Meno25",
+			"Alshamiri1"
 		]
 	},
 	"drawioeditor-desc": "رسم مخطط تدفق الرسم والتحرير المضمن",
@@ -9,5 +10,15 @@
 	"drawioeditor-approved-displaywarning": "هذه هي المراجعة المعتمدة للرسم التخطيطي وليست المراجعة الأخيرة.",
 	"drawioeditor-noapproved": "الرسم التخطيطي $1 ليس له مراجعة معتمدة.",
 	"drawioeditor-approve-link": "انقر هنا للموافقة على المراجعة",
-	"drawioeditor-changeapprove-link": "انقر هنا لتغيير المراجعة المعتمدة لهذا الرسم التخطيطي"
+	"drawioeditor-changeapprove-link": "انقر هنا لتغيير المراجعة المعتمدة لهذا الرسم التخطيطي",
+	"drawio-usage": "تستخدم مع وسم Drawio",
+	"drawio-not-used": "لا توجد صفحات بهذه الصورة Drawio",
+	"drawioconnector-extension-description": "يربط BlueSpice بـ Drawio",
+	"drawioconnector-ve-drawio-title": "رسم مخطط io",
+	"drawioconnector-tag-drawio-desc": "قم بإدراج رسم تخطيطي draw.io يمكن تحريره.",
+	"drawioconnector-ve-drawio-tag-name": "الاسم",
+	"drawioconnector-ve-drawio-tag-name-help": "اسم الرسم التخطيطي كما تم تخزينه في wiki",
+	"drawioconnector-ve-drawio-tag-name-placeholder": "الرسم التخطيطي -1",
+	"drawio-droplet-name": "رسم بياني",
+	"drawio-droplet-description": "رسم تخطيطي قابل للتحرير"
 }
