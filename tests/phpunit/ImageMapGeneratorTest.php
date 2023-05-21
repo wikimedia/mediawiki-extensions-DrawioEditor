@@ -30,7 +30,7 @@ class ImageMapGeneratorTest extends TestCase {
 	/**
 	 * @return array
 	 */
-	public function provideTestGenerateImageMapData() {
+	public static function provideTestGenerateImageMapData() {
 		return [
 			[
 				__DIR__ . '/data/test-1-dxdocument.xml',

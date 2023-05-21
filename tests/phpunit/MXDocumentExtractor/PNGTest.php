@@ -35,7 +35,7 @@ class PNGTest extends TestCase {
 		);
 	}
 
-	public function providerExtractMXDocumentData() {
+	public static function providerExtractMXDocumentData() {
 		return [
 			'legacy-compressed-mxdocument' => [
 				'file' => 'test-1.png',
