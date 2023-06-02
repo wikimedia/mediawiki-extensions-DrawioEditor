@@ -116,8 +116,8 @@ class ImageMapGenerator {
 			return;
 		}
 
-		$x = $geometryEl->getAttribute( 'x' ) - $this->offsetX;
-		$y = $geometryEl->getAttribute( 'y' ) - $this->offsetY;
+		$x = intval( $geometryEl->getAttribute( 'x' ) ) - intval( $this->offsetX );
+		$y = intval( $geometryEl->getAttribute( 'y' ) ) - intval( $this->offsetY );
 
 		$width = $geometryEl->getAttribute( 'width' ) + $x;
 		$height = $geometryEl->getAttribute( 'height' ) + $y;
