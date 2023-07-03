@@ -7,17 +7,15 @@
 		"[https://www.hallowelt.com Hallo Welt! GmbH]"
 	],
 	"attributes": {
-		"VisualEditor": {
-			"PluginModules": [
-				"ext.drawioconnector.visualEditor"
-			]
-		},
 		"ContentDroplets": {
 			"Droplets": {
 				"drawio": {
 					"class": "\\MediaWiki\\Extension\\DrawioEditor\\ContentDroplets\\DrawioDroplet"
 				}
 			}
+		},
+		"DrawioEditor": {
+			"InspectorPluginModules": []
 		}
 	},
 	"descriptionmsg": "drawioeditor-desc",
@@ -54,12 +52,22 @@
 				"drawioeditor-changeapprove-link"
 			]
 		},
+		"ext.drawioconnector.visualEditor.bootstrap": {
+			"packageFiles": [
+				"ext.drawioconnector.visualEditor.bootstrap.js",
+				{
+					"name": "pluginModules.json",
+					"callback": "MediaWiki\\Extension\\DrawioEditor\\DrawioInspectorPluginModules::getPluginModules"
+				}
+			]
+		},
 		"ext.drawioconnector.visualEditor": {
 			"scripts": [
 				"ve/ve.dm.DrawioNode.js",
 				"ve/ve.ce.DrawioNode.js",
 				"ve/ve.ui.DrawioInspector.js",
-				"ve/ve.ui.DrawioNodeTool.js"
+				"ve/ve.ui.DrawioNodeTool.js",
+				"FilenameProcessor.js"
 			],
 			"styles": [
 				"ext.drawio.droplet.css"
