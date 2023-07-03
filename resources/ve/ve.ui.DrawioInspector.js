@@ -21,9 +21,12 @@ ve.ui.DrawioInspector.static.selfCloseEmptyBody = false;
  */
 ve.ui.DrawioInspector.prototype.initialize = function () {
 	ve.ui.DrawioInspector.super.prototype.initialize.call( this );
-	this.filename = mw.config.get( 'wgTitle' ) + "-" + ( Math.floor( Math.random() * 100000000) + 1 );
-	// filename must only contain alphanumeric characters, dashes and underscores
-	this.filename = this.filename.replace( /[^a-zA-Z0-9_-]/g, '_' );
+
+	var filenameProcessor = { processor: new drawioeditor.FilenameProcessor() };
+	mw.hook( 'drawioeditor.makeFilenameProcessor' ).fire( filenameProcessor );
+	this.filenameProcessor = filenameProcessor.processor;
+
+	this.filename = this.filenameProcessor.initializeFilename();
 
 	// remove input field with links in it
 	this.input.$element.remove();
@@ -43,15 +46,7 @@ ve.ui.DrawioInspector.prototype.createLayout = function ( ) {
 
 	// InputWidget for file Name
 	this.fileNameInputWidget = new OO.ui.TextInputWidget( {
-		validate: function ( value ) {
-			if ( value === '' ) {
-				return false;
-			}
-			if ( !value.match( /^[\w,-.\s]+$/ ) ) {
-				return false;
-			}
-			return true;
-		}
+		validate: this.filenameProcessor.validateFilename
 	} );
 	this.fileNameInputWidget.on( 'change', this.onFileNameChange, [], this );
 	this.fileNameInputLayout = new OO.ui.FieldLayout( this.fileNameInputWidget, {
@@ -87,12 +82,9 @@ ve.ui.DrawioInspector.prototype.updateMwData = function ( mwData ) {
 	ve.ui.DrawioInspector.super.prototype.updateMwData.call( this, mwData );
 
 	var filename = this.fileNameInputWidget.getValue();
-	mwData.attrs.filename = filename;
-	// filename must only contain alphanumeric characters, and underscores
-	mwData.attrs.filename = mwData.attrs.filename.replace( /[^a-zA-Z0-9_]/g, '_' );
+	// Get rid of the symbols which should not be in the filename
+	mwData.attrs.filename = this.filenameProcessor.sanitizeFilename( filename );
 };
 
 /* Registration */
 ve.ui.windowFactory.register( ve.ui.DrawioInspector );
-
-
