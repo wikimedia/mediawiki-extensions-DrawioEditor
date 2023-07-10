@@ -34,6 +34,23 @@ class Hooks {
 	}
 
 	/**
+	 * Embeds CSS into pdf export
+	 *
+	 * @param array &$aTemplate
+	 * @param array &$aStyleBlocks
+	 * @return bool Always true to keep hook running
+	 */
+	public static function onBSUEModulePDFBeforeAddingStyleBlocks( &$aTemplate, &$aStyleBlocks ) {
+		$css = [
+			".bs-page-content .mw-editdrawio { display: none; }"
+		];
+
+		$aStyleBlocks['Drawio'] = implode( ' ', $css );
+
+		return true;
+	}
+
+	/**
 	 *
 	 * @param mixed $oImagePage
 	 * @param string &$sHtml
