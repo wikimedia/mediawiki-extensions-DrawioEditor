@@ -252,13 +252,13 @@ class DrawioEditor {
 			$imageMapName = 'drawio-map-' . $id;
 			$imageMap = $imageMapGenerator->generateImageMap( $mxDocument, $imageMapName );
 			$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s" usemap="#%s"></img>';
-			$img_fmt .= $imageMap;
 			$img_html = '<a id="drawio-img-href-' . $id . '" href="' . $img_desc_url . '">';
 			$img_html .= sprintf(
 				$img_fmt, $id, $img_url_ts,
 				'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style,
 				$imageMapName
 			);
+			$img_html .= $imageMap;
 			$img_html .= '</a>';
 		}
 
