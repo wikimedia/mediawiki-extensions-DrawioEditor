@@ -95,9 +95,6 @@
 			"MediaWiki\\Extension\\DrawioEditor\\Hook\\ParserFirstCallInit\\SetFunctionHook::callback"
 		],
 		"DrawioGetFile": "approveRevsSetStableFile",
-		"BSInsertMagicAjaxGetData": [
-			"\\MediaWiki\\Extension\\DrawioEditor\\Hook\\BSInsertMagicAjaxGetData\\AddDrawioTag::callback"
-		],
 		"BSUEModulePDFFindFiles": "\\MediaWiki\\Extension\\DrawioEditor\\Hooks::onBSUEModulePDFFindFiles",
 		"BSUEModulePDFBeforeAddingStyleBlocks": "\\MediaWiki\\Extension\\DrawioEditor\\Hooks::onBSUEModulePDFBeforeAddingStyleBlocks",
 		"ImagePageAfterImageLinks": "\\MediaWiki\\Extension\\DrawioEditor\\Hooks::onImagePageAfterImageLinks"
