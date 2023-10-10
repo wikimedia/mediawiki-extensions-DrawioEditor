@@ -18,7 +18,6 @@
 	"drawioconnector-extension-description": "Connecte BlueSpice à Drawio.",
 	"drawioconnector-tag-drawio-title": "Draw.io",
 	"drawioconnector-ve-drawio-title": "Diagramme Draw.io",
-	"drawioconnector-tag-drawio-desc": "Insérer un diagramme Draw.io qui peut être modifié.",
 	"drawioconnector-ve-drawio-tag-name": "Nom",
 	"drawioconnector-ve-drawio-tag-name-help": "Nom du diagramme tel qu’il est stocké dans le wiki",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagramme-1",

@@ -14,7 +14,6 @@
 	"drawio-not-used": "沒有包含此 Drawio 圖片的頁面",
 	"drawioconnector-extension-description": "連接 BlueSpice 到 Drawio",
 	"drawioconnector-ve-drawio-title": "Draw.io 流程圖",
-	"drawioconnector-tag-drawio-desc": "插入一個可被編輯的 draw.io 流程圖。",
 	"drawioconnector-ve-drawio-tag-name": "名稱",
 	"drawioconnector-ve-drawio-tag-name-help": "儲存在 wiki 中的流程圖名稱",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
