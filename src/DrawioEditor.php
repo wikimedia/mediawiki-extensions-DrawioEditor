@@ -337,22 +337,23 @@ class DrawioEditor {
 
 	/**
 	 * @param File|null $img
-	 * @return bool
+	 * @return bool $readOnly
 	 */
 	private function isReadOnly( $img ) {
 		$user = RequestContext::getMain()->getUser();
+		$permissionManager = $this->services->getPermissionManager();
 		$parser = $this->services->getParser();
 		$pageRef = $parser->getPage();
 		$title = Title::castFromPageReference( $pageRef );
 		$isProtected = $title ?
 			$this->services->getRestrictionStore()->isProtected( $title, 'edit' ) : false;
 
-		return !$this->config->get( 'EnableUploads' ) ||
-				!$this->services->getPermissionManager()->userHasRight( $user, 'upload' ) ||
-				!$this->services->getPermissionManager()->userHasRight( $user, 'reupload' ) ||
-			( !$img && !$this->services->getPermissionManager()->userHasRight( $user, 'upload' ) ) ||
-			( !$img && !$this->services->getPermissionManager()->userHasRight( $user, 'reupload' ) ) ||
-			( $isProtected );
-	}
+		$uploadsEnabled = $this->config->get( 'EnableUploads' );
+		$canUpload = $permissionManager->userCan( 'upload', $user, $title );
+		$canReupload = $permissionManager->userCan( 'reupload', $user, $title );
 
+		$readOnly = !$uploadsEnabled || !$canUpload || !$canReupload || $isProtected;
+
+		return $readOnly;
+	}
 }
