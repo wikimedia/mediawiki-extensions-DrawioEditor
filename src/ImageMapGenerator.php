@@ -18,6 +18,24 @@ class ImageMapGenerator {
 	private $offsetY = 0;
 
 	/**
+	 * Key is "cellId" of cell which can be used as container.
+	 * Value is "X" coordinate.
+	 *
+	 * Used
+	 *
+	 * @var array
+	 */
+	private $cellXCoords = [];
+
+	/**
+	 * Key is "cellId" of cell which can be used as container.
+	 * Value is "Y" coordinate.
+	 *
+	 * @var array
+	 */
+	private $cellYCoords = [];
+
+	/**
 	 * @param string $shape
 	 * @param string $coords
 	 * @param string $href
@@ -59,25 +77,114 @@ class ImageMapGenerator {
 
 	/**
 	 * DrawIO will create an image file without any <padding>
-	 * But internaly it stores absolute coordinates in the mxFile.
+	 * But internally it stores absolute coordinates in the mxFile.
 	 * @param DOMXPath $xpath
 	 * @return void
 	 */
 	private function calculateOffsets( $xpath ) {
-		$allGeometries = $xpath->query( '//mxGeometry' );
-		$xCoords = [];
-		$yCoords = [];
+		$allCells = $xpath->query( '//mxCell' );
 
-		foreach ( $allGeometries as $geometry ) {
-			$xCoords[] = $geometry->getAttribute( 'x' );
-			$yCoords[] = $geometry->getAttribute( 'y' );
+		$pointXCoords = [];
+		$pointYCoords = [];
+
+		foreach ( $allCells as $cellEl ) {
+			/** @var DOMElement $cellEl */
+
+			$cellId = $cellEl->getAttribute( 'id' );
+
+			list( $parentX, $parentY ) = $this->getParentContainerCoords( $cellEl );
+
+			// There should be only one geometry in one cell
+			/** @var DOMElement $geometry */
+			$geometry = $cellEl->getElementsByTagName( 'mxGeometry' )->item( 0 );
+			if ( $geometry === null ) {
+				continue;
+			}
+
+			$x = $geometry->getAttribute( 'x' );
+			$y = $geometry->getAttribute( 'y' );
+
+			// If "<mxGeometry>" does not have coordinates - probably that's an arrow or curve
+			// In case with arrow it should have two nested "<mxPoint>" elements with coordinates
+			// In case with curve there will be just more nested points, but algorithm of processing is the same
+			if ( !$x && !$y ) {
+				// Probably that's an arrow
+
+				// If that's a curve - then processing is the same.
+				// Still, in perfect case points on curve should be calculated in different way.
+				// Thing is that points which we get from XML - are "anchor" points for calculating "bezier curve".
+				// These "anchor" points are located outside the curve itself,
+				// but they can be used to calculate curve coords.
+				// But such advanced calculations solve only one edge case -
+				// when curve is located on the top right of diagram.
+				// So using "anchor" points will break offset calculation
+				// (because image is cropped considering curve itself).
+
+				// So, summarizing - currently we do not process curves in other way
+				$points = $geometry->getElementsByTagName( 'mxPoint' );
+				foreach ( $points as $pointEl ) {
+					$pointXCoords[] = intval( $parentX ) + intval( $pointEl->getAttribute( 'x' ) );
+					$pointYCoords[] = intval( $parentY ) + intval( $pointEl->getAttribute( 'y' ) );
+				}
+
+				continue;
+			}
+
+			// If there is "cellId" - current cell potentially could be a container.
+			if ( $cellId ) {
+				$this->cellXCoords[$cellId] = $parentX + intval( $x );
+				$this->cellYCoords[$cellId] = $parentY + intval( $y );
+			} else {
+				// If there is no "cellId" - then this cell cannot be used as a container.
+				// That is the case when cell has a link. Such cells cannot be a container for other cells.
+
+				// Then we can just remember its coordinates as a single point
+				$pointXCoords[] = $parentX + intval( $x );
+				$pointYCoords[] = $parentY + intval( $y );
+			}
 		}
+		$xCoords = array_merge(
+			array_values( $this->cellXCoords ),
+			$pointXCoords
+		);
+
+		$yCoords = array_merge(
+			array_values( $this->cellYCoords ),
+			$pointYCoords
+		);
+
 		if ( !empty( $xCoords ) ) {
 			$this->offsetX = min( $xCoords );
 		}
 		if ( !empty( $yCoords ) ) {
 			$this->offsetY = min( $yCoords );
 		}
+	}
+
+	/**
+	 * Gets coordinates of parent container for specified diagram cell.
+	 *
+	 * @param DOMElement $cellEl Cell element for which we need parent container coordinates
+	 * @return array List with two values, "X" and "Y" parent container coordinates accordingly
+	 * 		If there is no parent container (or it's the main diagram container) "X" and "Y" will be <val>0</val>
+	 */
+	private function getParentContainerCoords( DOMElement $cellEl ): array {
+		$parentId = $cellEl->getAttribute( 'parent' );
+
+		// We should also consider case with nested geometry
+		// When some geometry is nested into container - its coordinates are relative to container
+		// So if we need to calculate absolute coordinates - we need to consider parent cell coordinates
+		$parentX = 0;
+		$parentY = 0;
+
+		// '1' and '0' are "cellId"-s of root cells, their coords are "0;0" actually
+		// But in other case there is some cell used as container, so its coordinates should be considered
+		if ( $parentId !== '' && $parentId !== '0' && $parentId !== '1' ) {
+			$parentX = $this->cellXCoords[$parentId];
+			$parentY = $this->cellYCoords[$parentId];
+		}
+
+		return [ $parentX, $parentY ];
 	}
 
 	/**
@@ -107,20 +214,24 @@ class ImageMapGenerator {
 		$linkTarget = $linkEl->getAttribute( 'link' );
 
 		// TODO: This must be more flexible!
+		/** @var DOMElement $cellEl */
 		$cellEl = $linkEl->getElementsByTagName( 'mxCell' )->item( 0 );
 		if ( $cellEl === null ) {
 			return;
 		}
+		/** @var DOMElement $geometryEl */
 		$geometryEl = $cellEl->getElementsByTagName( 'mxGeometry' )->item( 0 );
 		if ( $geometryEl === null ) {
 			return;
 		}
 
-		$x = intval( $geometryEl->getAttribute( 'x' ) ) - intval( $this->offsetX );
-		$y = intval( $geometryEl->getAttribute( 'y' ) ) - intval( $this->offsetY );
+		list( $parentX, $parentY ) = $this->getParentContainerCoords( $cellEl );
 
-		$width = $geometryEl->getAttribute( 'width' ) + $x;
-		$height = $geometryEl->getAttribute( 'height' ) + $y;
+		$x = ( $parentX + intval( $geometryEl->getAttribute( 'x' ) ) ) - $this->offsetX;
+		$y = ( $parentY + intval( $geometryEl->getAttribute( 'y' ) ) ) - $this->offsetY;
+
+		$width = intval( $geometryEl->getAttribute( 'width' ) ) + $x;
+		$height = intval( $geometryEl->getAttribute( 'height' ) ) + $y;
 
 		$href = $linkTarget;
 		$shape = 'rect';

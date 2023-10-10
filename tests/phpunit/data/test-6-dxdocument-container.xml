@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="embed.diagrams.net" modified="2023-09-29T17:11:56.522Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36" etag="6m74U4We5DEr4QzXRGRy" version="22.0.0" type="embed">
+  <diagram id="hfSSDBorzAjG5ObjS8Qv" name="Page-1">
+    <mxGraphModel dx="634" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <UserObject label="" link="http://google.com.ua" linkTarget="_blank" id="2">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+            <mxGeometry x="350" y="260" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="3" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="330" y="110" width="120" height="60" as="geometry" />
+        </mxCell>
+        <UserObject label="" link="data:page/id,hfSSDBorzAjG5ObjS8Qv" id="5">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+            <mxGeometry x="180" y="320" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="8" value="" style="swimlane;startSize=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="400" width="200" height="200" as="geometry" />
+        </mxCell>
+        <UserObject label="" link="https://google.net" linkTarget="_blank" id="9">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="8">
+            <mxGeometry x="40" y="60" width="120" height="60" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
