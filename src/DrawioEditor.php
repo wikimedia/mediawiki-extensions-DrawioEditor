@@ -220,7 +220,7 @@ class DrawioEditor {
 		$output .= '<div id="drawio-img-box-' . $id . '">';
 
 		/* display edit link */
-		if ( !$this->isReadOnly( $img ) ) {
+		if ( !$this->isReadOnly( $img, $parser ) ) {
 			$output .= '<div align="right">';
 			$output .= '<span class="mw-editdrawio">';
 			$output .= '<span class="mw-editsection-bracket">[</span>';
@@ -337,23 +337,23 @@ class DrawioEditor {
 
 	/**
 	 * @param File|null $img
-	 * @return bool $readOnly
+	 * @param Parser $parser
+	 * @return bool
 	 */
-	private function isReadOnly( $img ) {
+	private function isReadOnly( $img, $parser ) {
 		$user = RequestContext::getMain()->getUser();
 		$permissionManager = $this->services->getPermissionManager();
-		$parser = $this->services->getParser();
 		$pageRef = $parser->getPage();
 		$title = Title::castFromPageReference( $pageRef );
-		$isProtected = $title ?
-			$this->services->getRestrictionStore()->isProtected( $title, 'edit' ) : false;
+		if ( !$title ) {
+			return true;
+		}
 
+		$isProtected = $this->services->getRestrictionStore()->isProtected( $title, 'edit' );
 		$uploadsEnabled = $this->config->get( 'EnableUploads' );
 		$canUpload = $permissionManager->userCan( 'upload', $user, $title );
 		$canReupload = $permissionManager->userCan( 'reupload', $user, $title );
 
-		$readOnly = !$uploadsEnabled || !$canUpload || !$canReupload || $isProtected;
-
-		return $readOnly;
+		return !$uploadsEnabled || !$canUpload || !$canReupload || $isProtected;
 	}
 }
