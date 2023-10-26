@@ -4,7 +4,6 @@ namespace MediaWiki\Extension\DrawioEditor;
 
 use Html;
 use MediaWiki\MediaWikiServices;
-use Revision;
 use Title;
 
 class Hooks {
@@ -83,7 +82,7 @@ class Hooks {
 		$aLinks = [];
 		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
 		foreach ( $oRes as $oRow ) {
-			$oRevision = Revision::newFromId( $oRow->rev_id );
+			$oRevision = MediaWikiServices::getInstance()->getRevisionLookup()->getRevisionById( $oRow->rev_id );
 			if ( $oRevision->isCurrent() ) {
 				$title = Title::makeTitle( $oRow->page_namespace, $oRow->page_title );
 				$sLink = $linkRenderer->makeLink( $title );
