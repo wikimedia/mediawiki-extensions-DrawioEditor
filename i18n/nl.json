@@ -4,13 +4,20 @@
 			"McDutchie"
 		]
 	},
+	"drawioeditor-desc": "draw.io stroomdiagrammen maken en inline bewerken",
+	"drawioeditor-approved-editwarning": "Let op: u bewerkt nu de meest recente versie van dit diagram. Dit is niet de goedgekeurde versie die standaard wordt weergegeven.",
+	"drawioeditor-approved-displaywarning": "Dit is de goedgekeurde versie van het diagram en niet de laatste versie.",
+	"drawioeditor-noapproved": "Het diagram $1 heeft geen goedgekeurde versie.",
+	"drawioeditor-approve-link": "Klik hier om een versie goed te keuren",
+	"drawioeditor-changeapprove-link": "Klik hier om de goedgekeurde versie voor dit diagram te wijzigen",
 	"drawio-usage": "Gebruikt met Drawio-tag",
 	"drawio-not-used": "Er zijn geen pagina's met deze Drawio-afbeelding",
 	"drawioconnector-extension-description": "Verbindt BlueSpice met Drawio",
 	"drawioconnector-tag-drawio-title": "drawio",
 	"drawioconnector-ve-drawio-title": "Draw.io-diagram",
-	"drawioconnector-tag-drawio-desc": "Een draw.io-diagram invoegen dat kan worden bewerkt.",
 	"drawioconnector-ve-drawio-tag-name": "Naam",
 	"drawioconnector-ve-drawio-tag-name-help": "Naam van het diagram zoals in de wiki opgeslagen",
-	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1"
+	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
+	"drawio-droplet-name": "Diagram",
+	"drawio-droplet-description": "Bewerkbaar draw.io-diagram"
 }
