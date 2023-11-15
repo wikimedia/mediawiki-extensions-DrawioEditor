@@ -341,3 +341,18 @@ function drawioHandleMessage(e) {
 };
 
 window.addEventListener('message', drawioHandleMessage);
+
+$( document ).on( 'click', '.drawioeditor-edit', function ( e ) {
+	let data = $(this).data();
+	editDrawio(
+		data.targetId,
+		data.imgName,
+		data.type,
+		data.height,
+		data.width,
+		data.maxWidth,
+		data.baseUrl,
+		data.latestIsApproved,
+		data.imgUrl
+	);
+} );

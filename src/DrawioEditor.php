@@ -174,18 +174,21 @@ class DrawioEditor {
 		}
 
 		/* prepare edit href */
-		$edit_ahref = sprintf( "<a href='javascript:editDrawio(\"%s\", %s, \"%s\", %s, %s, %s,
-		\"%s\", %s, \"%s\")'>" . wfMessage( 'edit' )->text() . "</a>",
-			$id,
-			json_encode( $img_name, JSON_HEX_QUOT | JSON_HEX_APOS ),
-			$opt_type,
-			$opt_height === 'chart' ? 'true' : 'false',
-			$opt_width === 'chart' ? 'true' : 'false',
-			$opt_max_width === 'chart' ? 'true' : 'false',
-			$base_url,
-			$latest_is_approved ? 'true' : 'false',
-			$img ? $img->getUrl() : ""
-		);
+		$editLabel = wfMessage( 'edit' )->text();
+		$attribs = [
+			'class' => 'drawioeditor-edit',
+			'title' => $editLabel,
+			'data-target-id' => $id,
+			'data-img-name' => $img_name,
+			'data-type' => $opt_type,
+			'data-height' => $opt_height === 'chart' ? 'true' : 'false',
+			'data-width' => $opt_width === 'chart' ? 'true' : 'false',
+			'data-max-width' => $opt_max_width === 'chart' ? 'true' : 'false',
+			'data-base-url' => $base_url,
+			'data-latest-is-approved' => $latest_is_approved ? 'true' : 'false',
+			'data-img-url' => $img ? $img->getUrl() : ""
+		];
+		$edit_ahref = \Html::element( 'a', $attribs, $editLabel );
 
 		/* output begin */
 		$output = '<div>';
