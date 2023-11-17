@@ -1,8 +1,10 @@
 {
 	"@metadata": {
 		"authors": [
+			"Kizule",
 			"Milicevic01"
 		]
 	},
+	"drawioconnector-ve-drawio-tag-name": "Име",
 	"drawio-droplet-name": "Дијаграм"
 }
