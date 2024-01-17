@@ -16,5 +16,7 @@
 	"drawioconnector-ve-drawio-title": "Diagrama Draw.io",
 	"drawioconnector-ve-drawio-tag-name": "Nome",
 	"drawioconnector-ve-drawio-tag-name-help": "Nome do diagrama tal como armazenado na wiki",
-	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagrama-1"
+	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagrama-1",
+	"drawio-droplet-name": "Diagrama",
+	"drawio-droplet-description": "Diagrama draw.io editável"
 }
