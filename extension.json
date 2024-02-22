@@ -77,6 +77,7 @@
 				"oojs-ui"
 			],
 			"messages": [
+				"drawio-tag-title",
 				"drawioconnector-ve-drawio-title",
 				"drawioconnector-ve-drawio-tag-name",
 				"drawio-usage",
