@@ -1,3 +1,7 @@
 .droplet .icon-droplet.droplet-drawio {
 	background-image: url('contentdroplets-drawio-icon.svg');
 }
+
+.oo-ui-icon-drawio {
+	background-image: url( ./drawio-icon-greyscale.svg );
+}
