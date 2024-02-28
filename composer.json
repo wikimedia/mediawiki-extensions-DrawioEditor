@@ -3,7 +3,8 @@
 	"type": "mediawiki-extension",
 	"description": "This is a MediaWiki extension that integrates the draw.io flow chart editor and allows inline editing of charts.",
 	"require": {
-		"composer/installers": "~1.0|~2"
+		"composer/installers": "~1.0|~2",
+		"mwstake/mediawiki-component-manifestregistry": "~2"
 	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "45.0.0",
