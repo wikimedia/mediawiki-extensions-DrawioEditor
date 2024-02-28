@@ -24,6 +24,7 @@
 	"requires": {
 		"MediaWiki": ">= 1.39.0"
 	},
+	"callback": "mwsInitComponents",
 	"ExtensionMessagesFiles": {
 		"DrawioEditorMagic": "DrawioEditor.magic.php"
 	},
