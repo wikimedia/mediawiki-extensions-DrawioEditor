@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Nike"
+			"Nike",
+			"Pyscowicz"
 		]
 	},
 	"drawio-usage": "Käytetty Drawio-elementin kanssa",
-	"drawioconnector-ve-drawio-title": "Draw.io-kaavio",
+	"drawioconnector-ve-drawio-title": "draw.io-kaavio",
 	"drawioconnector-ve-drawio-tag-name": "Nimi"
 }
