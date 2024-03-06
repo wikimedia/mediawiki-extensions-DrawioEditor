@@ -3,6 +3,7 @@
 		"authors": [
 			"Gomoko",
 			"GrandEscogriffe",
+			"MacOS Weed",
 			"Thibaut120094",
 			"Verdy p"
 		]
@@ -13,11 +14,11 @@
 	"drawioeditor-noapproved": "Le diagramme $1 n’a pas de version approuvée.",
 	"drawioeditor-approve-link": "Cliquez ici pour approuver une version",
 	"drawioeditor-changeapprove-link": "Cliquer ici pour modifier la version approuvée de ce diagramme",
-	"drawio-usage": "Utilisé avec la balise Drawio",
-	"drawio-not-used": "Il n’y a aucune page avec cette image Drawio.",
+	"drawio-usage": "Utilisé avec la balise draw.io",
+	"drawio-not-used": "Il n’y a aucune page avec cette image draw.io.",
 	"drawioconnector-extension-description": "Connecte BlueSpice à Drawio.",
 	"drawioconnector-tag-drawio-title": "Draw.io",
-	"drawioconnector-ve-drawio-title": "Diagramme Draw.io",
+	"drawioconnector-ve-drawio-title": "Diagramme draw.io",
 	"drawioconnector-tag-drawio-desc": "Insérer un diagramme Draw.io qui peut être modifié.",
 	"drawioconnector-ve-drawio-tag-name": "Nom",
 	"drawioconnector-ve-drawio-tag-name-help": "Nom du diagramme tel qu’il est stocké dans le wiki",
