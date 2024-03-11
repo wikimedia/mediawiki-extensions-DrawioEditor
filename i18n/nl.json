@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"McDutchie"
+			"McDutchie",
+			"Siebrand"
 		]
 	},
 	"drawioeditor-desc": "draw.io stroomdiagrammen maken en inline bewerken",
@@ -10,9 +11,9 @@
 	"drawioeditor-noapproved": "Het diagram $1 heeft geen goedgekeurde versie.",
 	"drawioeditor-approve-link": "Klik hier om een versie goed te keuren",
 	"drawioeditor-changeapprove-link": "Klik hier om de goedgekeurde versie voor dit diagram te wijzigen",
-	"drawio-usage": "Gebruikt met Drawio-tag",
-	"drawio-not-used": "Er zijn geen pagina's met deze Drawio-afbeelding",
-	"drawioconnector-ve-drawio-title": "Draw.io-diagram",
+	"drawio-usage": "Gebruikt met draw.io-tag",
+	"drawio-not-used": "Er zijn geen pagina's met deze draw.io-afbeelding",
+	"drawioconnector-ve-drawio-title": "draw.io-diagram",
 	"drawioconnector-ve-drawio-tag-name": "Naam",
 	"drawioconnector-ve-drawio-tag-name-help": "Naam van het diagram zoals in de wiki opgeslagen",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
