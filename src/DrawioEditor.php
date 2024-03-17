@@ -211,7 +211,7 @@ class DrawioEditor {
 			if ( $img ) {
 				if ( !$latest_is_approved ) {
 					$output .= '<p class="successbox" id="approved-displaywarning">' .
-				wfMessage( "drawioeditor-approved-displaywarning" )->text();
+					wfMessage( "drawioeditor-approved-displaywarning" )->text();
 				}
 				if ( $userHasRight ) {
 					$output .= ' <a href="' . $img_desc_url . '">'

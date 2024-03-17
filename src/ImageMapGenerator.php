@@ -92,7 +92,7 @@ class ImageMapGenerator {
 
 			$cellId = $cellEl->getAttribute( 'id' );
 
-			list( $parentX, $parentY ) = $this->getParentContainerCoords( $cellEl );
+			[ $parentX, $parentY ] = $this->getParentContainerCoords( $cellEl );
 
 			// There should be only one geometry in one cell
 			/** @var DOMElement $geometry */
@@ -225,7 +225,7 @@ class ImageMapGenerator {
 			return;
 		}
 
-		list( $parentX, $parentY ) = $this->getParentContainerCoords( $cellEl );
+		[ $parentX, $parentY ] = $this->getParentContainerCoords( $cellEl );
 
 		$x = ( $parentX + intval( $geometryEl->getAttribute( 'x' ) ) ) - $this->offsetX;
 		$y = ( $parentY + intval( $geometryEl->getAttribute( 'y' ) ) ) - $this->offsetY;

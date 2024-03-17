@@ -31,7 +31,7 @@ class ApprovedRevsSetStableFile implements DrawioGetFileHook {
 		if ( !class_exists( 'ApprovedRevs' ) ) {
 			return true;
 		}
-		list( $approvedRevTimestamp, $approvedRevSha1 ) = $this->getApprovedFileInfo( $file->getTitle() );
+		[ $approvedRevTimestamp, $approvedRevSha1 ] = $this->getApprovedFileInfo( $file->getTitle() );
 		if ( ( !$approvedRevTimestamp ) || ( !$approvedRevSha1 ) ) {
 			$isNotApproved = true;
 			$displayFile = $file;
