@@ -79,8 +79,9 @@ class Hooks {
 			"old_text LIKE '%{{#drawio: " . $sFileName . "|%'",
 		];
 
-		$oDBR = wfGetDB( DB_REPLICA );
-		$oRes = $oDBR->select(
+		$services = MediaWikiServices::getInstance();
+		$dbr = $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
+		$oRes = $dbr->select(
 				[ 'page', 'revision', 'slots', 'text' ],
 				[ 'page_namespace', 'rev_id', 'page_title' ],
 				'(' . implode( ' OR ', $aConds ) .
@@ -89,9 +90,10 @@ class Hooks {
 		);
 
 		$aLinks = [];
-		$linkRenderer = MediaWikiServices::getInstance()->getLinkRenderer();
+		$revisionLookup = $services->getRevisionLookup();
+		$linkRenderer = $services->getLinkRenderer();
 		foreach ( $oRes as $oRow ) {
-			$oRevision = MediaWikiServices::getInstance()->getRevisionLookup()->getRevisionById( $oRow->rev_id );
+			$oRevision = $revisionLookup->getRevisionById( $oRow->rev_id );
 			if ( $oRevision->isCurrent() ) {
 				$title = Title::makeTitle( $oRow->page_namespace, $oRow->page_title );
 				$sLink = $linkRenderer->makeLink( $title );
@@ -100,7 +102,7 @@ class Hooks {
 			}
 		}
 
-		$pagePropsRes = $oDBR->select(
+		$pagePropsRes = $dbr->select(
 			'page_props',
 			'pp_page',
 			[
