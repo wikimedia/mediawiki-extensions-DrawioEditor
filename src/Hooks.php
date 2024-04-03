@@ -41,7 +41,8 @@ class Hooks {
 	 */
 	public static function onBSUEModulePDFBeforeAddingStyleBlocks( &$aTemplate, &$aStyleBlocks ) {
 		$css = [
-			".bs-page-content .mw-editdrawio { display: none; }"
+			".bs-page-content .mw-editdrawio { display: none; } ",
+			'img[id^="drawio-img-"] { width: 99%; height: auto; }'
 		];
 
 		$aStyleBlocks['Drawio'] = implode( ' ', $css );
