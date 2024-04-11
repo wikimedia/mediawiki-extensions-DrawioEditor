@@ -28,3 +28,6 @@
   min-height: 400px;
 }
 
+html.ve-active .mw-editdrawio-wrapper {
+	display: none;
+}
