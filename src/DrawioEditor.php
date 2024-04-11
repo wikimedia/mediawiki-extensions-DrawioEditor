@@ -224,7 +224,7 @@ class DrawioEditor {
 
 		/* display edit link */
 		if ( !$this->isReadOnly( $img, $parser ) ) {
-			$output .= '<div align="right">';
+			$output .= '<div class="mw-editdrawio-wrapper" align="right">';
 			$output .= '<span class="mw-editdrawio">';
 			$output .= '<span class="mw-editsection-bracket">[</span>';
 			$output .= $edit_ahref;
