@@ -94,11 +94,43 @@ class ImageMapGenerator {
 
 			[ $parentX, $parentY ] = $this->getParentContainerCoords( $cellEl );
 
+			// Also consider that element may be rotated
+			// Currently we take in account only rotation by 90 degrees
+			$isRotated = $this->isRotated( $cellEl );
+
 			// There should be only one geometry in one cell
 			/** @var DOMElement $geometry */
 			$geometry = $cellEl->getElementsByTagName( 'mxGeometry' )->item( 0 );
 			if ( $geometry === null ) {
 				continue;
+			}
+
+			if ( $isRotated ) {
+				// Get geometry dimensions, it is needed for further calculations
+				$width = $geometry->getAttribute( 'width' );
+				$height = $geometry->getAttribute( 'height' );
+
+				// Get initial geometry's top-left coordinates
+				$x1 = $geometry->getAttribute( 'x' );
+				$y1 = $geometry->getAttribute( 'y' );
+
+				// At first, we need to find coordinates of geometry center
+				// To correctly "rotate" its coordinates
+				$x0 = (int)$x1 + ( (int)$width / 2 );
+				$y0 = (int)$y1 + ( (int)$height / 2 );
+
+				// Now, assuming coordinates of figure center,
+				// calculate figure top-left coordinates after rotation
+				$x2 = $x0 - ( (int)$height / 2 );
+				$y2 = $y0 - ( (int)$width / 2 );
+
+				// Update coordinates
+				$geometry->setAttribute( 'x', $x2 );
+				$geometry->setAttribute( 'y', $y2 );
+
+				// If figure is rotated by 90 degrees - we need to swap width and height
+				$geometry->setAttribute( 'width', $height );
+				$geometry->setAttribute( 'height', $width );
 			}
 
 			$x = $geometry->getAttribute( 'x' );
@@ -185,6 +217,28 @@ class ImageMapGenerator {
 		}
 
 		return [ $parentX, $parentY ];
+	}
+
+	/**
+	 * @param DOMElement $cellEl
+	 * @return bool
+	 */
+	private function isRotated( DOMElement $cellEl ): bool {
+		$stylesRaw = $cellEl->getAttribute( 'style' );
+		if ( $stylesRaw ) {
+			$stylesArr = explode( ';', $stylesRaw );
+			foreach ( $stylesArr as $style ) {
+				if ( strpos( $style, 'rotation' ) === 0 ) {
+					$rotationDegrees = explode( '=', $style )[1];
+
+					if ( $rotationDegrees == 90 || $rotationDegrees == 270 ) {
+						return true;
+					}
+				}
+			}
+		}
+
+		return false;
 	}
 
 	/**

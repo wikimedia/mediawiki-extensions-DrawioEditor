@@ -62,6 +62,10 @@ class ImageMapGeneratorTest extends TestCase {
 				// So this case needs considering parent container's coordinates
 				__DIR__ . '/data/test-6-dxdocument-container.xml',
 				__DIR__ . '/data/test-6.html',
+			],
+			'Case with rotated geometry (rectangle)' => [
+				__DIR__ . '/data/test-7-dxdocument-rotated-rectangle.xml',
+				__DIR__ . '/data/test-7.html',
 			]
 		];
 	}

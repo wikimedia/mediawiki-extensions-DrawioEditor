@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="embed.diagrams.net" modified="2024-04-14T19:59:07.529Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="VgN-CQyoyS6mWWSM4Wfe" version="24.2.5" type="embed">
+	<diagram id="7jcAPMqYrrWy46ktvT3N" name="Page-1">
+		<mxGraphModel dx="634" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+			<root>
+				<mxCell id="0" />
+				<mxCell id="1" parent="0" />
+				<mxCell id="8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="9" target="12" edge="1">
+					<mxGeometry relative="1" as="geometry" />
+				</mxCell>
+				<UserObject label="" link="Main Page" id="9">
+					<mxCell style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+						<mxGeometry x="290" y="110" width="80" height="80" as="geometry" />
+					</mxCell>
+				</UserObject>
+				<mxCell id="10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="12" target="13" edge="1">
+					<mxGeometry relative="1" as="geometry" />
+				</mxCell>
+				<mxCell id="11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="12" target="14" edge="1">
+					<mxGeometry relative="1" as="geometry" />
+				</mxCell>
+				<UserObject label="" linkTarget="_blank" link="data:page/id,7jcAPMqYrrWy46ktvT3N" id="12">
+					<mxCell style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+						<mxGeometry x="290" y="270" width="80" height="80" as="geometry" />
+					</mxCell>
+				</UserObject>
+				<UserObject label="" link="Main Page" id="13">
+					<mxCell style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+						<mxGeometry x="130" y="270" width="80" height="80" as="geometry" />
+					</mxCell>
+				</UserObject>
+				<UserObject label="" link="Main Page" id="14">
+					<mxCell style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
+						<mxGeometry x="450" y="270" width="80" height="80" as="geometry" />
+					</mxCell>
+				</UserObject>
+				<UserObject label="" link="Main page" id="15">
+					<mxCell style="rounded=0;whiteSpace=wrap;html=1;rotation=90;" parent="1" vertex="1">
+						<mxGeometry x="-170" y="290" width="460" height="60" as="geometry" />
+					</mxCell>
+				</UserObject>
+			</root>
+		</mxGraphModel>
+	</diagram>
+</mxfile>
