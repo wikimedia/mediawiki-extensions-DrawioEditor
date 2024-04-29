@@ -1,8 +1,17 @@
 {
 	"@metadata": {
 		"authors": [
-			"StarrySky"
+			"StarrySky",
+			"沈澄心"
 		]
 	},
-	"drawioeditor-desc": "draw.io 流程图建立与内文编辑"
+	"drawioeditor-desc": "draw.io 流程图建立与内文编辑",
+	"drawio-usage": "与draw.io标签一起使用",
+	"drawio-not-used": "没有包含此draw.io图像的页面",
+	"drawioconnector-ve-drawio-title": "draw.io图表",
+	"drawioconnector-ve-drawio-tag-name": "名称",
+	"drawioconnector-ve-drawio-tag-name-help": "存储在wiki中的图表名称",
+	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
+	"drawio-droplet-name": "图表",
+	"drawio-droplet-description": "可编辑的draw.io图表"
 }
