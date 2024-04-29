@@ -5,13 +5,13 @@
 			"Fitoschido"
 		]
 	},
-	"drawioeditor-desc": "Creación de diagramas de flujo en draw.io y edición en línea",
-	"drawioeditor-approved-editwarning": "Tenga en cuenta que ahora está editando la última revisión de este diagrama, que no es la aprobada que se muestra por defecto.",
-	"drawioeditor-approved-displaywarning": "Esta es la revisión aprobada del diagrama y no la última revisión.",
-	"drawioeditor-noapproved": "El diagrama $1 no tiene ninguna revisión aprobada.",
-	"drawioeditor-approve-link": "Haga clic aquí para aprobar una revisión",
-	"drawioeditor-changeapprove-link": "Haga clic aquí para cambiar la revisión aprobada para este diagrama",
-	"drawio-not-used": "No existe ninguna página en esta imagen de Drawio",
+	"drawioeditor-desc": "Creaci\u00f3n de diagramas de flujo en draw.io y edici\u00f3n en l\u00ednea",
+	"drawioeditor-approved-editwarning": "Tenga en cuenta que ahora est\u00e1 editando la \u00faltima revisi\u00f3n de este diagrama, que no es la aprobada que se muestra por defecto.",
+	"drawioeditor-approved-displaywarning": "Esta es la revisi\u00f3n aprobada del diagrama y no la \u00faltima revisi\u00f3n.",
+	"drawioeditor-noapproved": "El diagrama $1 no tiene ninguna revisi\u00f3n aprobada.",
+	"drawioeditor-approve-link": "Haga clic aqu\u00ed para aprobar una revisi\u00f3n",
+	"drawioeditor-changeapprove-link": "Haga clic aqu\u00ed para cambiar la revisi\u00f3n aprobada para este diagrama",
+	"drawio-not-used": "No existe ninguna p\u00e1gina en esta imagen de Drawio",
 	"drawioconnector-extension-description": "Conecta BlueSpice con Drawio",
 	"drawioconnector-ve-drawio-title": "Diagrama de Draw.io",
 	"drawioconnector-ve-drawio-tag-name": "Nombre"

@@ -5,7 +5,7 @@
 			"Robby"
 		]
 	},
-	"drawioeditor-desc": "{{desc|name=DrawioEditor|url=https://www.mediawiki.org/wiki/Extension:DrawioEditor}}",
+	"drawioeditor-desc": "{{desc|name=DrawioEditor|url=https:\/\/www.mediawiki.org\/wiki\/Extension:DrawioEditor}}",
 	"drawioeditor-approved-editwarning": "Used as warning shown in '''bold'''.",
 	"drawioeditor-approved-displaywarning": "Used as warning shown in '''bold'''.",
 	"drawioeditor-noapproved": "Displayed when $1 has no approved revision",
