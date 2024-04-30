@@ -4,21 +4,21 @@
 			"Eleassar"
 		]
 	},
-	"drawioeditor-desc": "Ustvarjanje diagramov poteka in znotrajvrsti\u010dno urejanje Draw.io",
-	"drawioeditor-approved-editwarning": "Upo\u0161tevajte, da zdaj urejate zadnjo redakcijo tega diagrama, ki ni privzeto prikazana odobrena.",
+	"drawioeditor-desc": "Ustvarjanje diagramov poteka in znotrajvrstično urejanje Draw.io",
+	"drawioeditor-approved-editwarning": "Upoštevajte, da zdaj urejate zadnjo redakcijo tega diagrama, ki ni privzeto prikazana odobrena.",
 	"drawioeditor-approved-displaywarning": "To je odobrena in ne zadnja redakcija diagrama.",
 	"drawioeditor-noapproved": "Diagram $1 nima odobrene redakcije.",
 	"drawioeditor-approve-link": "Kliknite, da odobrite redakcijo",
 	"drawioeditor-changeapprove-link": "Kliknite tu, da spremenite odobreno redakcijo tega diagrama",
-	"drawio-usage": "Uporablja se z zna\u010dko draw.io",
+	"drawio-usage": "Uporablja se z značko draw.io",
 	"drawio-not-used": "Ni strani s to sliko draw.io",
 	"drawioconnector-extension-description": "Povezuje BlueSpice z Drawio",
 	"drawioconnector-tag-drawio-title": "drawio",
 	"drawioconnector-ve-drawio-title": "Diagram draw.io",
-	"drawioconnector-tag-drawio-desc": "Vstavite diagram draw.io, ki ga je mogo\u010de urejati.",
+	"drawioconnector-tag-drawio-desc": "Vstavite diagram draw.io, ki ga je mogoče urejati.",
 	"drawioconnector-ve-drawio-tag-name": "Ime",
 	"drawioconnector-ve-drawio-tag-name-help": "Ime diagrama, kot je shranjeno v vikiju",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
 	"drawio-droplet-name": "Diagram",
-	"drawio-droplet-description": "Diagram draw.io, ki ga je mogo\u010de urejati"
+	"drawio-droplet-description": "Diagram draw.io, ki ga je mogoče urejati"
 }

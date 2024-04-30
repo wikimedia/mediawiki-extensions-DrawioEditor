@@ -2,16 +2,16 @@
 	"@metadata": {
 		"authors": [
 			"StarrySky",
-			"\u6c88\u6f84\u5fc3"
+			"沈澄心"
 		]
 	},
-	"drawioeditor-desc": "draw.io \u6d41\u7a0b\u56fe\u5efa\u7acb\u4e0e\u5185\u6587\u7f16\u8f91",
-	"drawio-usage": "\u4e0edraw.io\u6807\u7b7e\u4e00\u8d77\u4f7f\u7528",
-	"drawio-not-used": "\u6ca1\u6709\u5305\u542b\u6b64draw.io\u56fe\u50cf\u7684\u9875\u9762",
-	"drawioconnector-ve-drawio-title": "draw.io\u56fe\u8868",
-	"drawioconnector-ve-drawio-tag-name": "\u540d\u79f0",
-	"drawioconnector-ve-drawio-tag-name-help": "\u5b58\u50a8\u5728wiki\u4e2d\u7684\u56fe\u8868\u540d\u79f0",
+	"drawioeditor-desc": "draw.io 流程图建立与内文编辑",
+	"drawio-usage": "与draw.io标签一起使用",
+	"drawio-not-used": "没有包含此draw.io图像的页面",
+	"drawioconnector-ve-drawio-title": "draw.io图表",
+	"drawioconnector-ve-drawio-tag-name": "名称",
+	"drawioconnector-ve-drawio-tag-name-help": "存储在wiki中的图表名称",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
-	"drawio-droplet-name": "\u56fe\u8868",
-	"drawio-droplet-description": "\u53ef\u7f16\u8f91\u7684draw.io\u56fe\u8868"
+	"drawio-droplet-name": "图表",
+	"drawio-droplet-description": "可编辑的draw.io图表"
 }
