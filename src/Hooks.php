@@ -27,7 +27,14 @@ class Hooks {
 			return true;
 		}
 		if ( strpos( $oImageElement->getAttribute( 'id' ), "drawio-img-" ) !== false ) {
-			$oImageElement->removeAttribute( 'style' );
+			$style = $oImageElement->getAttribute( 'style' );
+			$matches = [];
+			preg_match( '#max-width: (\d*?)px;#', $style, $matches );
+			if ( $matches[1] > 690 ) {
+				$oImageElement->setAttribute( 'style', 'width: 99%' );
+			} else {
+				$oImageElement->setAttribute( 'style', 'width: ' . $matches[1] . 'px' );
+			}
 		}
 		return true;
 	}
@@ -42,7 +49,8 @@ class Hooks {
 	public static function onBSUEModulePDFBeforeAddingStyleBlocks( &$aTemplate, &$aStyleBlocks ) {
 		$css = [
 			".bs-page-content .mw-editdrawio { display: none; } ",
-			'img[id^="drawio-img-"] { width: 99%; height: auto; }'
+			'[id^="drawio-img-"] { padding-top: 10px; }',
+			'img[id^="drawio-img-"] { height: auto; }'
 		];
 
 		$aStyleBlocks['Drawio'] = implode( ' ', $css );
