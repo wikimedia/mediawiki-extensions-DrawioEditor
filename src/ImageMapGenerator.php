@@ -212,8 +212,8 @@ class ImageMapGenerator {
 		// '1' and '0' are "cellId"-s of root cells, their coords are "0;0" actually
 		// But in other case there is some cell used as container, so its coordinates should be considered
 		if ( $parentId !== '' && $parentId !== '0' && $parentId !== '1' ) {
-			$parentX = $this->cellXCoords[$parentId];
-			$parentY = $this->cellYCoords[$parentId];
+			$parentX = $this->cellXCoords[$parentId] ?? 0;
+			$parentY = $this->cellYCoords[$parentId] ?? 0;
 		}
 
 		return [ $parentX, $parentY ];
