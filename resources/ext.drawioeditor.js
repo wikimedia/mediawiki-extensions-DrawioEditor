@@ -47,9 +47,8 @@ function DrawioEditor( id, filename, type, updateHeight, updateWidth,
 	this.iframeOverlay = $("#drawio-iframe-overlay-" + id);
 	this.iframeOverlay.hide();
 
-	var localAttr = this.baseUrl !== 'https://embed.diagrams.net' ? "&local=1" : "";
 	this.iframe = $('<iframe>', {
-		src: this.baseUrl + '/?embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language + localAttr,
+		src: this.baseUrl + '/?embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language,
 		id: 'drawio-iframe-' + id,
 		class: 'DrawioEditorIframe'
 	});
