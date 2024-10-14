@@ -80,9 +80,12 @@
 				"drawio-tag-title",
 				"drawioconnector-ve-drawio-title",
 				"drawioconnector-ve-drawio-tag-name",
+				"drawioconnector-ve-drawio-tag-name-help",
 				"drawio-usage",
 				"drawio-droplet-name",
-				"drawio-droplet-description"
+				"drawio-droplet-description",
+				"drawioconnector-ve-drawio-alt-label",
+				"drawioconnector-ve-drawio-alt-help"
 			]
 		}
 	},

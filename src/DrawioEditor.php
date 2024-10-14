@@ -96,6 +96,7 @@ class DrawioEditor {
 		$opt_height = array_key_exists( 'height', $opts ) ? $opts[ 'height' ] : 'auto';
 		$opt_width = array_key_exists( 'width', $opts ) ? $opts[ 'width' ] : '100%';
 		$opt_max_width = array_key_exists( 'max-width', $opts ) ? $opts[ 'max-width' ] : false;
+		$opt_alt = array_key_exists( 'alt', $opts ) ? $opts[ 'alt' ] : false;
 
 		/* process input */
 		if ( $name == null || !strlen( $name ) ) {
@@ -128,6 +129,12 @@ class DrawioEditor {
 
 		$name = wfStripIllegalFilenameChars( $name );
 		$dispname = htmlspecialchars( $name, ENT_QUOTES );
+
+		if ( $opt_alt ) {
+			$alt = htmlspecialchars( $opt_alt, ENT_QUOTES );
+		} else {
+			$alt = $name;
+		}
 
 		/* random id to reference html elements */
 		$id = mt_rand();
@@ -244,8 +251,12 @@ class DrawioEditor {
 			$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s"></img>';
 			$img_html = '<a id="drawio-img-href-' . $id . '" href="' . $img_desc_url . '">';
 			$img_html .= sprintf(
-				$img_fmt, $id, $img_url_ts,
-				'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style
+				$img_fmt,
+				$id,
+				$img_url_ts,
+				'drawio: ' . $dispname,
+				$alt,
+				$img_style
 			);
 			$img_html .= '</a>';
 		} else {
@@ -257,8 +268,12 @@ class DrawioEditor {
 			$img_fmt = '<img id="drawio-img-%s" src="%s" title="%s" alt="%s" style="%s" usemap="#%s"></img>';
 			$img_html = '<a id="drawio-img-href-' . $id . '" href="' . $img_desc_url . '">';
 			$img_html .= sprintf(
-				$img_fmt, $id, $img_url_ts,
-				'drawio: ' . $dispname, 'drawio: ' . $dispname, $img_style,
+				$img_fmt,
+				$id,
+				$img_url_ts,
+				'drawio: ' . $dispname,
+				$alt,
+				$img_style,
 				$imageMapName
 			);
 			$img_html .= $imageMap;
