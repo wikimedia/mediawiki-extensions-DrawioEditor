@@ -15,5 +15,7 @@
 	"drawioconnector-ve-drawio-tag-name-help": "Name of the diagram as stored in the wiki",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
 	"drawio-droplet-name": "Diagram",
-	"drawio-droplet-description": "Editable draw.io diagram"
+	"drawio-droplet-description": "Editable draw.io diagram",
+	"drawioconnector-ve-drawio-alt-label": "Image description",
+	"drawioconnector-ve-drawio-alt-help": "Text displayed when image doesn't load or for assistive devices"
 }
