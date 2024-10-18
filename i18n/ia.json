@@ -20,5 +20,7 @@
 	"drawioconnector-ve-drawio-tag-name-help": "Nomine del diagramma como immagazinate in le wiki",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagramma-1",
 	"drawio-droplet-name": "Diagramma",
-	"drawio-droplet-description": "Diagramma draw.io modificabile"
+	"drawio-droplet-description": "Diagramma draw.io modificabile",
+	"drawioconnector-ve-drawio-alt-label": "Description del imagine",
+	"drawioconnector-ve-drawio-alt-help": "Texto monstrate quando le imagine non se carga o quando se usa un apparato de assistentia"
 }

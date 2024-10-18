@@ -11,5 +11,6 @@
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagramm-1",
 	"drawio-droplet-name": "Diagramm",
 	"drawio-not-used": "Et gëtt keng Säite mat dësem draw.io-Bild",
-	"drawioconnector-ve-drawio-title": "draw.io-Diagramm"
+	"drawioconnector-ve-drawio-title": "draw.io-Diagramm",
+	"drawioconnector-ve-drawio-alt-label": "Bildbeschreiwung"
 }

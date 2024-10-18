@@ -20,5 +20,7 @@
 	"drawioconnector-ve-drawio-tag-name-help": "Име на дијаграмот како што е складиран на викито",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Дијаграм-1",
 	"drawio-droplet-name": "Дијаграм",
-	"drawio-droplet-description": "Уредлив draw.io-дијаграм"
+	"drawio-droplet-description": "Уредлив draw.io-дијаграм",
+	"drawioconnector-ve-drawio-alt-label": "Опис на сликата",
+	"drawioconnector-ve-drawio-alt-help": "Текстот што се прикажува кога сликата не се вчитува или за помошни уреди"
 }
