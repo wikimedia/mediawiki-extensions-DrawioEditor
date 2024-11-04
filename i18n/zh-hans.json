@@ -13,5 +13,6 @@
 	"drawioconnector-ve-drawio-tag-name-help": "存储在wiki中的图表名称",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
 	"drawio-droplet-name": "图表",
-	"drawio-droplet-description": "可编辑的draw.io图表"
+	"drawio-droplet-description": "可编辑的draw.io图表",
+	"drawioconnector-ve-drawio-alt-label": "图像描述"
 }

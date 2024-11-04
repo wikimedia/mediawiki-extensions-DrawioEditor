@@ -13,8 +13,6 @@
 	"drawioeditor-changeapprove-link": "Klik hier om de goedgekeurde versie voor dit diagram te wijzigen",
 	"drawio-usage": "Gebruikt met draw.io-tag",
 	"drawio-not-used": "Er zijn geen pagina's met deze draw.io-afbeelding",
-	"drawioconnector-extension-description": "Verbindt BlueSpice met Drawio",
-	"drawioconnector-tag-drawio-title": "drawio",
 	"drawioconnector-ve-drawio-title": "draw.io-diagram",
 	"drawioconnector-ve-drawio-tag-name": "Naam",
 	"drawioconnector-ve-drawio-tag-name-help": "Naam van het diagram zoals in de wiki opgeslagen",
