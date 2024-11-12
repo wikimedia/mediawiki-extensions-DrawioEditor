@@ -17,5 +17,7 @@
 	"drawioconnector-ve-drawio-tag-name-help": "儲存在 wiki 中的流程圖名稱",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
 	"drawio-droplet-name": "圖表",
-	"drawio-droplet-description": "可編輯的 draw.io 圖表"
+	"drawio-droplet-description": "可編輯的 draw.io 圖表",
+	"drawioconnector-ve-drawio-alt-label": "圖片描述",
+	"drawioconnector-ve-drawio-alt-help": "在圖片未載入或使用輔助設備時顯示的文字"
 }
