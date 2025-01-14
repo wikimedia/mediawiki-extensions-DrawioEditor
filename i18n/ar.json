@@ -18,5 +18,7 @@
 	"drawioconnector-ve-drawio-tag-name-help": "اسم الرسم التخطيطي كما تم تخزينه في wiki",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "الرسم التخطيطي -1",
 	"drawio-droplet-name": "رسم بياني",
-	"drawio-droplet-description": "رسم تخطيطي قابل للتحرير"
+	"drawio-droplet-description": "رسم تخطيطي قابل للتحرير",
+	"drawioconnector-ve-drawio-alt-label": "وصف الصورة",
+	"drawioconnector-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة"
 }
