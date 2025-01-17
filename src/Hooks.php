@@ -4,7 +4,7 @@ namespace MediaWiki\Extension\DrawioEditor;
 
 use Html;
 use MediaWiki\MediaWikiServices;
-use Title;
+use MediaWiki\Title\Title;
 
 class Hooks {
 	/**
