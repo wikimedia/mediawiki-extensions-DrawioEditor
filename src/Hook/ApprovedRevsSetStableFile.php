@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\DrawioEditor\Hook;
 
 use File;
+use MediaWiki\Title\Title;
 use RepoGroup;
-use Title;
 use User;
 use Wikimedia\Rdbms\ILoadBalancer;
 
