@@ -5,6 +5,7 @@ namespace MediaWiki\Extension\DrawioEditor;
 use Config;
 use File;
 use FileRepo;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\NullExtractor;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\PNG;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\SVG;
@@ -12,7 +13,6 @@ use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use Parser;
 use PPFrame;
-use RequestContext;
 
 class DrawioEditor {
 
