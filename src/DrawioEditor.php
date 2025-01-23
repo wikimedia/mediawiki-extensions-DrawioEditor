@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\DrawioEditor;
 
-use Config;
 use File;
 use FileRepo;
+use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\NullExtractor;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\PNG;
