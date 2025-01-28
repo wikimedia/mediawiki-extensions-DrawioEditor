@@ -2,7 +2,7 @@
 
 namespace MediaWiki\Extension\DrawioEditor;
 
-use Html;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 

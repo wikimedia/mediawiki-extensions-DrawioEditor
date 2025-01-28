@@ -2,9 +2,9 @@
 
 namespace MediaWiki\Extension\DrawioEditor\Hook;
 
-use Html;
 use MediaWiki\Extension\DrawioEditor\DrawioEditor;
 use MediaWiki\Hook\ParserFirstCallInitHook;
+use MediaWiki\Html\Html;
 use Parser;
 use PPFrame;
 
