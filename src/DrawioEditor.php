@@ -9,6 +9,7 @@ use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\NullExtractor;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\PNG;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\SVG;
+use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Title\Title;
 use Parser;
@@ -195,7 +196,7 @@ class DrawioEditor {
 			'data-latest-is-approved' => $latest_is_approved ? 'true' : 'false',
 			'data-img-url' => $img ? $img->getUrl() : ""
 		];
-		$edit_ahref = \Html::element( 'a', $attribs, $editLabel );
+		$edit_ahref = Html::element( 'a', $attribs, $editLabel );
 
 		/* output begin */
 		$output = '<div>';
