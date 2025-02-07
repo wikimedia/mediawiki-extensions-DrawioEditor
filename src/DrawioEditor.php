@@ -12,8 +12,8 @@ use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\SVG;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Parser\Parser;
+use MediaWiki\Parser\PPFrame;
 use MediaWiki\Title\Title;
-use PPFrame;
 
 class DrawioEditor {
 

@@ -6,7 +6,7 @@ use MediaWiki\Extension\DrawioEditor\DrawioEditor;
 use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\Html\Html;
 use MediaWiki\Parser\Parser;
-use PPFrame;
+use MediaWiki\Parser\PPFrame;
 
 class Tag implements ParserFirstCallInitHook {
 	public const NAME = 'drawio';
