@@ -3,8 +3,8 @@
 namespace MediaWiki\Extension\DrawioEditor\Hook\ParserFirstCallInit;
 
 use MediaWiki\Extension\DrawioEditor\DrawioEditor;
+use MediaWiki\Parser\Parser;
 use MWException;
-use Parser;
 
 class SetFunctionHook {
 
