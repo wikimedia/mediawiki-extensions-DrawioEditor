@@ -5,7 +5,7 @@ namespace MediaWiki\Extension\DrawioEditor\Hook;
 use MediaWiki\Extension\DrawioEditor\DrawioEditor;
 use MediaWiki\Hook\ParserFirstCallInitHook;
 use MediaWiki\Html\Html;
-use Parser;
+use MediaWiki\Parser\Parser;
 use PPFrame;
 
 class Tag implements ParserFirstCallInitHook {
