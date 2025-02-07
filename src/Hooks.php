@@ -8,56 +8,6 @@ use MediaWiki\Page\Hook\ImagePageAfterImageLinksHook;
 use MediaWiki\Title\Title;
 
 class Hooks implements ImagePageAfterImageLinksHook {
-	/**
-	 *
-	 * @param mixed $oPDFServlet
-	 * @param mixed $oImageElement
-	 * @param string &$sAbsoluteFileSystemPath
-	 * @param string &$sFileName
-	 * @param string $sDirectory
-	 * @return void
-	 */
-	public static function onBSUEModulePDFFindFiles(
-		$oPDFServlet,
-		$oImageElement,
-		&$sAbsoluteFileSystemPath,
-		&$sFileName,
-		$sDirectory
-	) {
-		if ( $sDirectory !== 'images' ) {
-			return true;
-		}
-		if ( strpos( $oImageElement->getAttribute( 'id' ), "drawio-img-" ) !== false ) {
-			$style = $oImageElement->getAttribute( 'style' );
-			$matches = [];
-			preg_match( '#max-width: (\d*?)px;#', $style, $matches );
-			if ( $matches[1] > 690 ) {
-				$oImageElement->setAttribute( 'style', 'width: 99%' );
-			} else {
-				$oImageElement->setAttribute( 'style', 'width: ' . $matches[1] . 'px' );
-			}
-		}
-		return true;
-	}
-
-	/**
-	 * Embeds CSS into pdf export
-	 *
-	 * @param array &$aTemplate
-	 * @param array &$aStyleBlocks
-	 * @return bool Always true to keep hook running
-	 */
-	public static function onBSUEModulePDFBeforeAddingStyleBlocks( &$aTemplate, &$aStyleBlocks ) {
-		$css = [
-			".bs-page-content .mw-editdrawio { display: none; } ",
-			'[id^="drawio-img-"] { padding-top: 10px; }',
-			'img[id^="drawio-img-"] { height: auto; }'
-		];
-
-		$aStyleBlocks['Drawio'] = implode( ' ', $css );
-
-		return true;
-	}
 
 	/**
 	 * @inheritDoc

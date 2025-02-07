@@ -17,6 +17,13 @@
 		},
 		"DrawioEditor": {
 			"InspectorPluginModules": []
+		},
+		"PDFCreator": {
+			"StyleBlocksProvider": {
+				"DrawioEditorStyleBlock": {
+					"class": "MediaWiki\\Extension\\DrawioEditor\\Integration\\PDFCreator\\StyleBlockProvider\\StyleBlock"
+				}
+			}
 		}
 	},
 	"descriptionmsg": "drawioeditor-desc",
@@ -101,8 +108,6 @@
 			"MediaWiki\\Extension\\DrawioEditor\\Hook\\ParserFirstCallInit\\SetFunctionHook::callback"
 		],
 		"DrawioGetFile": "approveRevsSetStableFile",
-		"BSUEModulePDFFindFiles": "\\MediaWiki\\Extension\\DrawioEditor\\Hooks::onBSUEModulePDFFindFiles",
-		"BSUEModulePDFBeforeAddingStyleBlocks": "\\MediaWiki\\Extension\\DrawioEditor\\Hooks::onBSUEModulePDFBeforeAddingStyleBlocks",
 		"ImagePageAfterImageLinks": "hooks"
 	},
 	"HookHandlers": {
