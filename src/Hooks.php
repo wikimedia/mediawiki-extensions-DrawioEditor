@@ -4,9 +4,10 @@ namespace MediaWiki\Extension\DrawioEditor;
 
 use Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Page\Hook\ImagePageAfterImageLinksHook;
 use Title;
 
-class Hooks {
+class Hooks implements ImagePageAfterImageLinksHook {
 	/**
 	 *
 	 * @param mixed $oPDFServlet
@@ -59,75 +60,45 @@ class Hooks {
 	}
 
 	/**
-	 *
-	 * @param mixed $oImagePage
-	 * @param string &$sHtml
-	 * @return void
+	 * @inheritDoc
 	 */
-	public static function onImagePageAfterImageLinks( $oImagePage, &$sHtml ) {
-		$oTitle = $oImagePage->getTitle();
-		$sFileName = $oTitle->getText();
-		if ( strpos( $sFileName, '.drawio.' ) === false ) {
-			return true;
-		}
-		// $sFileName = str_replace( '.drawio.' . $wgDrawioEditorImageType, '', $sFileName );
-		$sFileName = str_replace( ' ', '_', $sFileName );
-		$aConds = [
-			"old_text LIKE '%{{#drawio:" . $sFileName . "}}%'",
-			"old_text LIKE '%{{#drawio: " . $sFileName . "}}%'",
-			"old_text LIKE '%{{#drawio:" . $sFileName . "|%'",
-			"old_text LIKE '%{{#drawio: " . $sFileName . "|%'",
-		];
-
+	public function onImagePageAfterImageLinks( $imagePage, &$html ) {
+		$fileName = $imagePage->getFile()->getTitle()->getDBkey();
 		$services = MediaWikiServices::getInstance();
-		$dbr = $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
-		$oRes = $dbr->select(
-				[ 'page', 'revision', 'slots', 'text' ],
-				[ 'page_namespace', 'rev_id', 'page_title' ],
-				'(' . implode( ' OR ', $aConds ) .
-				') AND page_id = rev_page AND rev_id = slot_revision_id AND old_id = slot_content_id',
-				__METHOD__
-		);
-
-		$aLinks = [];
-		$revisionLookup = $services->getRevisionLookup();
-		$linkRenderer = $services->getLinkRenderer();
-		foreach ( $oRes as $oRow ) {
-			$oRevision = $revisionLookup->getRevisionById( $oRow->rev_id );
-			if ( $oRevision->isCurrent() ) {
-				$title = Title::makeTitle( $oRow->page_namespace, $oRow->page_title );
-				$sLink = $linkRenderer->makeLink( $title );
-				$oLi = Html::rawElement( 'li', [], $sLink ) . "\n";
-				$aLinks[$title->getPrefixedDBkey()] = $oLi;
-			}
+		$fileType = $services->getMainConfig()->get( 'DrawioEditorImageType' );
+		if ( $fileType && !str_contains( $fileName, $fileType ) ) {
+			return;
 		}
+		$fileName = str_replace( ".$fileType", '', $fileName );
 
-		$pagePropsRes = $dbr->select(
-			'page_props',
-			'pp_page',
-			[
+		$dbr = $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
+		$res = $dbr->newSelectQueryBuilder()
+			->table( 'page_props' )
+			->field( 'pp_page' )
+			->where( [
 				'pp_propname' => 'drawio-image',
-				'pp_value' => $sFileName
-			],
-			__METHOD__
-		);
-		foreach ( $pagePropsRes as $row ) {
+				'pp_value' => "[[$fileName]]"
+			] )
+			->caller( __METHOD__ )
+			->fetchResultSet();
+
+		$links = [];
+		$linkRenderer = $services->getLinkRenderer();
+		foreach ( $res as $row ) {
 			$title = Title::newFromID( $row->pp_page );
 			$link = $linkRenderer->makeLink( $title );
 			$liEl = Html::rawElement( 'li', [], $link );
-			$aLinks[$title->getPrefixedDBkey()] = $liEl;
+			$links[$title->getPrefixedDBkey()] = $liEl;
 		}
-		ksort( $aLinks );
+		ksort( $links );
 
-		$sHtml .= Html::rawElement( 'h2', [], wfMessage( 'drawio-usage' )->plain() );
-		$sHtml .= Html::openElement( 'ul' ) . "\n";
-		if ( empty( $aLinks ) ) {
-			$sHtml .= Html::rawElement( 'p', [], wfMessage( 'drawio-not-used' )->plain() );
-		} else {
-			$sHtml .= implode( "\n", $aLinks );
+		if ( empty( $links ) ) {
+			return;
 		}
-		$sHtml .= Html::closeElement( 'ul' );
 
-		return true;
+		$html .= Html::rawElement( 'h2', [], wfMessage( 'drawio-usage' )->escaped() );
+		$html .= Html::openElement( 'ul' ) . "\n";
+		$html .= implode( "\n", $links );
+		$html .= Html::closeElement( 'ul' );
 	}
 }
