@@ -13,7 +13,6 @@
 	"drawioeditor-changeapprove-link": "Link to change the approved revision of the diagram",
 	"drawio-tag-title": "Title for tag inspector in ve to insert drawio tag",
 	"drawio-usage": "Headline for list of pages which use a particular drawio image. Displayed on the image page",
-	"drawio-not-used": "Text shown when no page uses a particular drawio image. Displayed on the image page",
 	"drawioconnector-tag-drawio-title": "{{optional}}\nUsed in InsertMagic extension, tag description for drawio",
 	"drawioconnector-ve-drawio-title": "Used in VisualEditor tag inspector, tag title for drawio",
 	"drawioconnector-ve-drawio-tag-name": "Label for the input field for name of the diagram\n{{identical|Name}}",
