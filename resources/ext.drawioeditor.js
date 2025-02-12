@@ -69,7 +69,7 @@ DrawioEditor.prototype.show = function() {
 	this.iframeBox.show();
 	$( '#approved-displaywarning' ).remove();
 	if ( !this.latestIsApproved ) {
-		$msg = mw.message( "drawioeditor-approved-editwarning" ).text();
+		$msg = mw.message( "drawioeditor-approved-editwarning" ).escaped();
 		$('#bodyContent').before("<p id=\"warningmsg\" class=\"successbox\">" + $msg + "</p>");
 	}
 }

@@ -66,7 +66,7 @@ class Hooks implements ImagePageAfterImageLinksHook {
 		$fileName = $imagePage->getFile()->getTitle()->getDBkey();
 		$services = MediaWikiServices::getInstance();
 		$fileType = $services->getMainConfig()->get( 'DrawioEditorImageType' );
-		if ( $fileType && !str_contains( $fileName, $fileType ) ) {
+		if ( !str_contains( $fileName, $fileType ) ) {
 			return;
 		}
 		$fileName = str_replace( ".$fileType", '', $fileName );
@@ -77,7 +77,7 @@ class Hooks implements ImagePageAfterImageLinksHook {
 			->field( 'pp_page' )
 			->where( [
 				'pp_propname' => 'drawio-image',
-				'pp_value' => "[[$fileName]]"
+				'pp_value' => $fileName
 			] )
 			->caller( __METHOD__ )
 			->fetchResultSet();
