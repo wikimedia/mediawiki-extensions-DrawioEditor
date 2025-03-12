@@ -6,10 +6,15 @@
 		"wikimedia/mediawiki"
 	],
 	"globals": {
+		"drawioeditor": "readonly",
 		"ve": "readonly"
 	},
 	"rules": {
-		"max-len": "off"
+		"max-len": "off",
+		"no-alert": "off",
+		"no-implicit-globals": "off",
+		"no-jquery/no-global-selector": "off",
+		"no-jquery/variable-pattern": "off"
 	},
 	"parserOptions": {
 		"ecmaVersion": 8

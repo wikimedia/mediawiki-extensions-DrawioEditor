@@ -1,16 +1,16 @@
 window.drawioeditor = window.drawioeditor || {};
 
-drawioeditor.FilenameProcessor = function() {};
+drawioeditor.FilenameProcessor = function () {};
 
 OO.initClass( drawioeditor.FilenameProcessor );
 
 /**
  * Suggests initial filename for DrawIO diagram
  *
- * @returns {string}
+ * @return {string}
  */
-drawioeditor.FilenameProcessor.prototype.initializeFilename = function() {
-	var filename = mw.config.get( 'wgTitle' ) + '-' + ( Math.floor( Math.random() * 100000000) + 1 );
+drawioeditor.FilenameProcessor.prototype.initializeFilename = function () {
+	let filename = mw.config.get( 'wgTitle' ) + '-' + ( Math.floor( Math.random() * 100000000 ) + 1 );
 	// filename must only contain alphanumeric characters, dashes and underscores
 	filename = this.sanitizeFilename( filename );
 
@@ -22,9 +22,9 @@ drawioeditor.FilenameProcessor.prototype.initializeFilename = function() {
  * Checks if string could be a valid filename
  *
  * @param {string} filename
- * @returns {boolean}
+ * @return {boolean}
  */
-drawioeditor.FilenameProcessor.prototype.validateFilename = function( filename ) {
+drawioeditor.FilenameProcessor.prototype.validateFilename = function ( filename ) {
 	if ( filename === '' ) {
 		return false;
 	}
@@ -38,9 +38,9 @@ drawioeditor.FilenameProcessor.prototype.validateFilename = function( filename )
  * Sanitizes specified string to be a valid filename.
  *
  * @param {string} filename
- * @returns {string}
+ * @return {string}
  */
-drawioeditor.FilenameProcessor.prototype.sanitizeFilename = function( filename ) {
+drawioeditor.FilenameProcessor.prototype.sanitizeFilename = function ( filename ) {
 	// filename must only contain alphanumeric characters, and underscores
 	filename = filename.replace( /[^a-zA-Z0-9_-]/g, '_' );
 
