@@ -22,7 +22,7 @@ ve.ui.DrawioInspector.static.selfCloseEmptyBody = false;
 ve.ui.DrawioInspector.prototype.initialize = function () {
 	ve.ui.DrawioInspector.super.prototype.initialize.call( this );
 
-	const filenameProcessor = { processor: new drawioeditor.FilenameProcessor() }; // eslint-disable-line no-undef
+	const filenameProcessor = { processor: new drawioeditor.FilenameProcessor() };
 	mw.hook( 'drawioeditor.makeFilenameProcessor' ).fire( filenameProcessor );
 	this.filenameProcessor = filenameProcessor.processor;
 
@@ -75,7 +75,7 @@ ve.ui.DrawioInspector.prototype.createLayout = function () {
 ve.ui.DrawioInspector.prototype.onFileNameChange = function () {
 	const actions = this.actions;
 	actions.setAbilities( { done: false } );
-	this.fileNameInputWidget.getValidity().done( function () {
+	this.fileNameInputWidget.getValidity().done( () => {
 		actions.setAbilities( { done: true } );
 	} );
 };
