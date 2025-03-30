@@ -66,6 +66,10 @@ class ImageMapGeneratorTest extends TestCase {
 			'Case with rotated geometry (rectangle)' => [
 				__DIR__ . '/data/test-7-dxdocument-rotated-rectangle.xml',
 				__DIR__ . '/data/test-7.html',
+			],
+			'Case with foreground and background geometry' => [
+				__DIR__ . '/data/test-8-dxdocument-background-rectangle.xml',
+				__DIR__ . '/data/test-8.html',
 			]
 		];
 	}
