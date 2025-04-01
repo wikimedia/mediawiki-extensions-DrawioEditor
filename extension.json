@@ -94,7 +94,9 @@
 				"drawio-droplet-name",
 				"drawio-droplet-description",
 				"drawioconnector-ve-drawio-alt-label",
-				"drawioconnector-ve-drawio-alt-help"
+				"drawioconnector-ve-drawio-alt-help",
+				"drawioconnector-ve-drawio-scale-label",
+				"drawioconnector-ve-drawio-scale-help"
 			]
 		}
 	},
