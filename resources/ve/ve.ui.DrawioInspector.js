@@ -54,6 +54,7 @@ ve.ui.DrawioInspector.prototype.createLayout = function () {
 		label: OO.ui.deferMsg( 'drawioconnector-ve-drawio-tag-name' ),
 		help: OO.ui.deferMsg( 'drawioconnector-ve-drawio-tag-name-help' )
 	} );
+	this.fileNameInputWidget.setValue( this.filename );
 
 	// InputWidget for Alt Text
 	this.altTextInputWidget = new OO.ui.TextInputWidget();
@@ -63,12 +64,18 @@ ve.ui.DrawioInspector.prototype.createLayout = function () {
 		help: OO.ui.deferMsg( 'drawioconnector-ve-drawio-alt-help' )
 	} );
 
-	// set default values
-	this.fileNameInputWidget.setValue( this.filename );
+	// InputWidget for scale
+	this.scaleInputWidget = new OO.ui.NumberInputWidget( { min: -10, max: 10, step: 1, value: 1 } );
+	this.scaleInputLayout = new OO.ui.FieldLayout( this.scaleInputWidget, {
+		align: 'left',
+		label: OO.ui.deferMsg( 'drawioconnector-ve-drawio-scale-label' ),
+		help: OO.ui.deferMsg( 'drawioconnector-ve-drawio-scale-help' )
+	} );
 
 	this.indexLayout.$element.append(
 		this.fileNameInputLayout.$element,
-		this.altTextInputLayout.$element
+		this.altTextInputLayout.$element,
+		this.scaleInputLayout.$element
 	);
 };
 
@@ -90,6 +97,9 @@ ve.ui.DrawioInspector.prototype.getSetupProcess = function ( data ) {
 			if ( attributes.alt ) {
 				this.altTextInputWidget.setValue( attributes.alt );
 			}
+			if ( attributes.scale ) {
+				this.scaleInputWidget.setValue( attributes.scale );
+			}
 			this.actions.setAbilities( { done: true } );
 		} );
 };
@@ -99,10 +109,12 @@ ve.ui.DrawioInspector.prototype.updateMwData = function ( mwData ) {
 
 	const filename = this.fileNameInputWidget.getValue();
 	const altText = this.altTextInputWidget.getValue();
+	const scale = this.scaleInputWidget.getValue();
 
 	// Get rid of the symbols which should not be in the filename
 	mwData.attrs.filename = this.filenameProcessor.sanitizeFilename( filename );
 	mwData.attrs.alt = altText;
+	mwData.attrs.scale = scale;
 };
 
 /* Registration */
