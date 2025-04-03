@@ -304,11 +304,10 @@ class DrawioEditor {
 		/* output image and optionally a placeholder if the image does not exist yet */
 		if ( !$img && !$noApproved ) {
 			// show placeholder
-			$output .= Html::element( 'div', [
+			$output .= Html::rawElement( 'div', [
 				'id' => "drawio-placeholder-$id",
 				'class' => 'DrawioEditorInfoBox'
-			], Html::element( 'b', [], $dispname )
-			);
+			], Html::element( 'b', [], $dispname ) );
 		} else {
 			// the image or object element must be there in any case
 			// (it's hidden as long as there is no content.)
