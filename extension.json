@@ -24,6 +24,14 @@
 					"class": "MediaWiki\\Extension\\DrawioEditor\\Integration\\PDFCreator\\StyleBlockProvider\\StyleBlock"
 				}
 			}
+		},
+		"BlueSpiceFoundation": {
+			"StatusCheckProvider": {
+				"ext-drawioeditor": {
+					"class": "\\MediaWiki\\Extension\\DrawioEditor\\Integration\\BlueSpiceFoundation\\StatusCheckProvider",
+					"services": [ "MainConfig" ]
+				}
+			}
 		}
 	},
 	"descriptionmsg": "drawioeditor-desc",
