@@ -4,6 +4,7 @@ namespace MediaWiki\Extension\DrawioEditor;
 
 use DOMDocument;
 use DOMElement;
+use DOMNodeList;
 use DOMXPath;
 
 class ImageMapGenerator {
@@ -64,6 +65,15 @@ class ImageMapGenerator {
 		$xpath = new DOMXPath( $diagramDOM );
 		$this->calculateOffsets( $xpath );
 		$linkEls = $xpath->query( '//*[@link]' );
+
+		// Sort all links by geometry square to make sure that cases
+		// with links in nested geometries will still work.
+		// For example, two small rectangles with links are nested in the bigger one, with link as well.
+		// In that case user will be able to click on smaller ones
+		// only if they'll come "earlier" in DOM tree.
+		// Unfortunately, "z-index" does not work with "area" HTML elements.
+		$linkEls = $this->sortLinksByGeometrySquare( $linkEls );
+
 		foreach ( $linkEls as $linkEl ) {
 			$this->processLinkElement( $linkEl );
 		}
@@ -78,6 +88,7 @@ class ImageMapGenerator {
 	/**
 	 * DrawIO will create an image file without any <padding>
 	 * But internally it stores absolute coordinates in the mxFile.
+	 *
 	 * @param DOMXPath $xpath
 	 * @return void
 	 */
@@ -239,6 +250,57 @@ class ImageMapGenerator {
 		}
 
 		return false;
+	}
+
+	/**
+	 * Sort all nodes with links by related geometries square.
+	 * As soon as we cannot sort them in "DOM node list", return value will be simple array.
+	 *
+	 * @param DOMNodeList $linkElements
+	 * @return array
+	 */
+	private function sortLinksByGeometrySquare( DOMNodeList $linkElements ): array {
+		$squareToLinkElMap = [];
+
+		foreach ( $linkElements as $linkEl ) {
+			/** @var DOMElement $cellEl */
+			$cellEl = $linkEl->getElementsByTagName( 'mxCell' )->item( 0 );
+			if ( $cellEl === null ) {
+				continue;
+			}
+
+			/** @var DOMElement $geometryEl */
+			$geometryEl = $cellEl->getElementsByTagName( 'mxGeometry' )->item( 0 );
+			if ( $geometryEl === null ) {
+				continue;
+			}
+
+			$width = intval( $geometryEl->getAttribute( 'width' ) );
+			$height = intval( $geometryEl->getAttribute( 'height' ) );
+
+			// There is no need to calculate square differently for ellipses,
+			// because logically they are still rectangles (can be seen when select any ellipse with cursor).
+			// So ellipse form is more like different visual representation for user.
+			$square = $width * $height;
+
+			// There may be multiple figures with the same square
+			if ( !isset( $squareToLinkElMap[$square] ) ) {
+				$squareToLinkElMap[$square] = [];
+			}
+
+			$squareToLinkElMap[$square][] = $linkEl;
+		}
+
+		ksort( $squareToLinkElMap, SORT_NUMERIC );
+
+		$newLinksEls = [];
+		foreach ( $squareToLinkElMap as $linkEls ) {
+			foreach ( $linkEls as $linkEl ) {
+				$newLinksEls[] = $linkEl;
+			}
+		}
+
+		return $newLinksEls;
 	}
 
 	/**
