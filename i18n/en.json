@@ -16,5 +16,7 @@
 	"drawio-droplet-name": "Diagram",
 	"drawio-droplet-description": "Editable draw.io diagram",
 	"drawioconnector-ve-drawio-alt-label": "Image description",
-	"drawioconnector-ve-drawio-alt-help": "Text displayed when image doesn't load or for assistive devices"
+	"drawioconnector-ve-drawio-alt-help": "Text displayed when image doesn't load or for assistive devices",
+	"drawioconnector-ve-drawio-scale-label": "Scale",
+	"drawioconnector-ve-drawio-scale-help": "Scale factor to adjust resolution: positive to increase, negative to decrease"
 }
