@@ -18,5 +18,7 @@
 	"drawio-droplet-name": "תרשים",
 	"drawio-droplet-description": "תרשים draw.io שאפשר לערוך",
 	"drawioconnector-ve-drawio-alt-label": "תיאור התמונה",
-	"drawioconnector-ve-drawio-alt-help": "טקסט שמוצג כשהתמונה לא נטענת או עבור מכשירים מסייעים"
+	"drawioconnector-ve-drawio-alt-help": "טקסט שמוצג כשהתמונה לא נטענת או עבור מכשירים מסייעים",
+	"drawioconnector-ve-drawio-scale-label": "קנה מידה",
+	"drawioconnector-ve-drawio-scale-help": "גורם קנה מידה לכוונון רזולוציה: חיובי כדי להגדיל, שלילי כדי להקטין"
 }
