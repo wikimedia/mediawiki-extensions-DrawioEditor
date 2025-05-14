@@ -18,5 +18,7 @@
 	"drawio-droplet-name": "Дијаграм",
 	"drawio-droplet-description": "Уредлив draw.io-дијаграм",
 	"drawioconnector-ve-drawio-alt-label": "Опис на сликата",
-	"drawioconnector-ve-drawio-alt-help": "Текстот што се прикажува кога сликата не се вчитува или за помошни уреди"
+	"drawioconnector-ve-drawio-alt-help": "Текстот што се прикажува кога сликата не се вчитува или за помошни уреди",
+	"drawioconnector-ve-drawio-scale-label": "Размер",
+	"drawioconnector-ve-drawio-scale-help": "Размерен фактор за прилагодување на разложеноста: позитивен за зголемување, а негативен за намалување"
 }
