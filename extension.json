@@ -25,11 +25,11 @@
 				}
 			}
 		},
-		"BlueSpiceFoundation": {
-			"StatusCheckProvider": {
+		"BlueSpiceInstanceStatus": {
+			"ApiInstanceStatusProvider": {
 				"ext-drawioeditor": {
-					"class": "\\MediaWiki\\Extension\\DrawioEditor\\Integration\\BlueSpiceFoundation\\StatusCheckProvider",
-					"services": [ "MainConfig" ]
+					"class": "\\MediaWiki\\Extension\\DrawioEditor\\Integration\\StatusCheckProvider",
+					"services": [ "MainConfig", "HttpRequestFactory" ]
 				}
 			}
 		}
