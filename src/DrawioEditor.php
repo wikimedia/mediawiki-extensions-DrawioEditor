@@ -99,17 +99,6 @@ class DrawioEditor {
 		$opt_max_width = array_key_exists( 'max-width', $opts ) ? $opts[ 'max-width' ] : false;
 		$opt_alt = array_key_exists( 'alt', $opts ) ? $opts[ 'alt' ] : false;
 
-		$scale = isset( $opts[ 'scale' ] ) ? $opts[ 'scale' ] : 1;
-		// Prevent 0 and -1, default to 1
-		if ( $scale == 0 || $scale == -1 ) {
-			$scale = 1;
-		}
-		// Mapping for negatives: -2 → 0.9, -5 → 0.5, -10 → 0.1
-		if ( $scale < 0 ) {
-			$scale = 1 + ( ( $scale + 1 ) / 10 );
-		}
-		$parser->getOutput()->setJsConfigVar( 'drawioscale', $scale );
-
 		/* process input */
 		if ( $name == null || !strlen( $name ) ) {
 			return $this->errorMessage( 'Usage Error' );
