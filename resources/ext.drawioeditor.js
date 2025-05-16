@@ -10,7 +10,6 @@ function DrawioEditor( id, filename, type, updateHeight, updateWidth,
 	this.updateMaxWidth = updateMaxWidth;
 	this.baseUrl = baseUrl;
 	this.latestIsApproved = latestIsApproved;
-	this.scale = mw.config.get( 'drawioscale' ) || 1;
 
 	// Could be 'en', 'fr', 'de-formal', 'zh-hant', ...
 	const currentUserLanguage = mw.user.options.get( 'language', 'en' ).split( '-' );
@@ -92,18 +91,14 @@ DrawioEditor.prototype.updateImage = function ( imageinfo ) {
 	this.imageURL = imageinfo.url + '?ts=' + imageinfo.timestamp;
 	this.image.attr( 'src', this.imageURL );
 	this.imageHref.attr( 'href', imageinfo.descriptionurl );
-
-	const displayWidth = imageinfo.width / this.scale;
-	const displayHeight = imageinfo.height / this.scale;
-
 	if ( this.updateHeight ) {
-		this.image.css( 'height', displayWidth );
+		this.image.css( 'height', imageinfo.height );
 	}
 	if ( this.updateWidth ) {
-		this.image.css( 'width', displayHeight );
+		this.image.css( 'width', imageinfo.width );
 	}
 	if ( this.updateMaxWidth ) {
-		this.image.css( 'max-width', displayHeight );
+		this.image.css( 'max-width', imageinfo.width );
 	}
 	if ( this.placeholder ) {
 		this.placeholder.hide();
@@ -284,8 +279,7 @@ DrawioEditor.prototype.saveCallback = function () {
 	this.sendMsgToIframe( {
 		action: 'export',
 		embedImages: true,
-		format: format,
-		scale: this.scale
+		format: format
 	} );
 
 	// TODO: prevent exit while saving
@@ -317,7 +311,7 @@ window.editDrawio = function ( id, filename, type, updateHeight, updateWidth, up
 
 function drawioHandleMessage( e ) {
 	// we only act on event coming from "baseUrl" iframes
-	if ( !window.drawioEditorBaseUrl || window.drawioEditorBaseUrl.indexOf( e.origin ) !== 0 ) {
+	if ( window.drawioEditorBaseUrl.indexOf( e.origin ) !== 0 ) {
 		return;
 	}
 
