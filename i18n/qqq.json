@@ -21,7 +21,5 @@
 	"drawio-droplet-name": "Title of droplet for tag drawio",
 	"drawio-droplet-description": "Description of droplet for tag drawio",
 	"drawioconnector-ve-drawio-alt-label": "Label for the input field for the alt text of the diagram",
-	"drawioconnector-ve-drawio-alt-help": "Help text for the input field for the alt text of the diagram",
-	"drawioconnector-ve-drawio-scale-label": "Label for the input field for the scale of the diagram",
-	"drawioconnector-ve-drawio-scale-help": "Help text for the input field for the scale of the diagram"
+	"drawioconnector-ve-drawio-alt-help": "Help text for the input field for alt text of the diagram"
 }
