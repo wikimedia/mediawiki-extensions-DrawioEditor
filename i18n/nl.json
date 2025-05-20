@@ -19,7 +19,5 @@
 	"drawio-droplet-name": "Diagram",
 	"drawio-droplet-description": "Bewerkbaar draw.io-diagram",
 	"drawioconnector-ve-drawio-alt-label": "Afbeeldingsbeschrijving",
-	"drawioconnector-ve-drawio-alt-help": "Tekst die wordt weergegeven wanneer de afbeelding niet wordt geladen of bij gebruik van assisterende apparaten",
-	"drawioconnector-ve-drawio-scale-label": "Schaal",
-	"drawioconnector-ve-drawio-scale-help": "Schaalfactor om de resolutie aan te passen: positief om te verhogen, negatief om te verlagen"
+	"drawioconnector-ve-drawio-alt-help": "Tekst die wordt weergegeven wanneer de afbeelding niet wordt geladen of bij gebruik van assisterende apparaten"
 }

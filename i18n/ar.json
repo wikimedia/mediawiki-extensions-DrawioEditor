@@ -19,7 +19,5 @@
 	"drawio-droplet-name": "رسم بياني",
 	"drawio-droplet-description": "رسم تخطيطي قابل للتحرير",
 	"drawioconnector-ve-drawio-alt-label": "وصف الصورة",
-	"drawioconnector-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة",
-	"drawioconnector-ve-drawio-scale-label": "حجم",
-	"drawioconnector-ve-drawio-scale-help": "عامل المقياس لضبط الدقة: موجب لزيادة، وسالب لتقليل"
+	"drawioconnector-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة"
 }

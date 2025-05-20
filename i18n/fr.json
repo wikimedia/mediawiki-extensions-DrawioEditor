@@ -25,6 +25,5 @@
 	"drawio-droplet-name": "Diagramme",
 	"drawio-droplet-description": "Diagramme draw.io modifiable",
 	"drawioconnector-ve-drawio-alt-label": "Description de l'image",
-	"drawioconnector-ve-drawio-alt-help": "Texte affiché lorsque l'image ne se charge pas ou pour les appareils d'assistance",
-	"drawioconnector-ve-drawio-scale-label": "Échelle"
+	"drawioconnector-ve-drawio-alt-help": "Texte affiché lorsque l'image ne se charge pas ou pour les appareils d'assistance"
 }
