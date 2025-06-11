@@ -91,19 +91,23 @@ class DrawioEditor {
 		/* disable caching before any output is generated */
 		$parser->getOutput()->updateCacheExpiry( 0 );
 
-		$opt_type = array_key_exists( 'type', $opts )
-			? $opts[ 'type' ]
-			: $this->config->get( 'DrawioEditorImageType' );
-		$opt_height = array_key_exists( 'height', $opts ) ? $opts[ 'height' ] : 'auto';
-		$opt_width = array_key_exists( 'width', $opts ) ? $opts[ 'width' ] : '100%';
-		$opt_max_width = array_key_exists( 'max-width', $opts ) ? $opts[ 'max-width' ] : false;
-		$opt_alt = array_key_exists( 'alt', $opts ) ? $opts[ 'alt' ] : false;
+		$opt_type = $opts[ 'type' ] ?? $this->config->get( 'DrawioEditorImageType' );
+		$opt_height = $opts[ 'height' ] ?? 'auto';
+		$opt_width = $opts[ 'width' ] ?? '100%';
+		$opt_max_width = $opts[ 'max-width' ] ?? false;
+		$opt_alt = $opts[ 'alt' ] ?? false;
 
 		/* process input */
 		if ( $name == null || !strlen( $name ) ) {
 			return $this->errorMessage( 'Usage Error' );
 		}
-		if ( !in_array( $opt_type, [ 'svg', 'png' ] ) ) {
+		$opt_type = strtolower( $opt_type );
+		if ( $opt_type === 'svg' ) {
+			// allow fallback to png
+			$tryTypes = [ 'svg', 'png' ];
+		} elseif ( $opt_type === 'png' ) {
+			$tryTypes = [ 'png' ];
+		} else {
 			return $this->errorMessage( 'Invalid type' );
 		}
 
@@ -141,14 +145,19 @@ class DrawioEditor {
 		$id = mt_rand();
 
 		/* prepare image information */
-		$img_name = $name . ".drawio." . $opt_type;
 		$repo = $this->services->getRepoGroup();
-		$img = $repo->findFile( $img_name );
+		$img = null;
+		$img_name = "$name.$opt_type";
 
-		if ( !$img ) {
-			// fallback
-			$img_name = $name . '.' . $opt_type;
-			$img = $repo->findFile( $img_name );
+		foreach ( $tryTypes as $ext ) {
+			foreach ( [ "$name.drawio.$ext", "$name.$ext" ] as $imgNameTry ) {
+				$img = $repo->findFile( $imgNameTry );
+				if ( $img ) {
+					$opt_type = $ext;
+					$img_name = $imgNameTry;
+					break 2;
+				}
+			}
 		}
 
 		$noApproved = false;

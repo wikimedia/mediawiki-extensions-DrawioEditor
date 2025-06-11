@@ -132,7 +132,8 @@
 	},
 	"config": {
 		"DrawioEditorImageType": {
-			"value": "png"
+			"value": "png",
+			"description": "Supported values: png, svg"
 		},
 		"DrawioEditorBackendUrl": {
 			"value": "https://embed.diagrams.net"
