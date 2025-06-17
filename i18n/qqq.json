@@ -6,6 +6,8 @@
 		]
 	},
 	"drawioeditor-desc": "{{desc|name=DrawioEditor|url=https://www.mediawiki.org/wiki/Extension:DrawioEditor}}",
+	"apihelp-drawioeditor-save-diagram-summary": "{{doc-apihelp-summary|drawioeditor-save-diagram}}",
+	"apihelp-drawioeditor-save-diagram-param-file": "{{doc-apihelp-summary|drawioeditor-save-diagram|file}}",
 	"drawioeditor-approved-editwarning": "Used as warning shown in '''bold'''.",
 	"drawioeditor-approved-displaywarning": "Used as warning shown in '''bold'''.",
 	"drawioeditor-noapproved": "Displayed when $1 has no approved revision",

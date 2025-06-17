@@ -1,22 +1,24 @@
 {
 	"root": true,
 	"extends": [
-		"wikimedia/client-es6",
+		"wikimedia/client",
 		"wikimedia/jquery",
 		"wikimedia/mediawiki"
 	],
+	"parserOptions": {
+		"sourceType": "commonjs",
+		"ecmaVersion": 2017
+	},
 	"globals": {
 		"drawioeditor": "readonly",
 		"ve": "readonly"
 	},
 	"rules": {
+		"es-x/no-async-functions": "off",
 		"max-len": "off",
 		"no-alert": "off",
 		"no-implicit-globals": "off",
 		"no-jquery/no-global-selector": "off",
 		"no-jquery/variable-pattern": "off"
-	},
-	"parserOptions": {
-		"ecmaVersion": 8
 	}
 }
