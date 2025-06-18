@@ -273,13 +273,19 @@ class DrawioEditor {
 
 		$imgAttribs = [
 			'id' => "drawio-img-$id",
-			'src' => $img_url_ts,
-			'title' => wfMessage( 'drawio: ' . $dispname )->escaped(),
-			'alt' => $alt,
+			'title' => "drawio: $dispname",
 			'style' => $img_style
 		];
 
-		if ( $img ) {
+		if ( $opt_type === 'svg' ) {
+			$imgAttribs['data'] = $img_url_ts;
+			$imgAttribs['type'] = 'image/svg+xml';
+		} elseif ( $opt_type === 'png' ) {
+			$imgAttribs['src'] = $img_url_ts;
+			$imgAttribs['alt'] = $alt;
+		}
+
+		if ( $img && $opt_type === 'png' ) {
 			$mxDocumentExtractor = $this->getMXDocumentExtractor( $opt_type, $img->getRepo() );
 			$mxDocument = $mxDocumentExtractor->extractMXDocument( $img );
 			$imageMapGenerator = new ImageMapGenerator();
@@ -291,15 +297,22 @@ class DrawioEditor {
 		}
 
 		/* Generate image HTML */
-		$img_html = Html::openElement( 'a', [
-			'id' => "drawio-img-href-$id",
-			'href' => $img_desc_url
-		] );
-		$img_html .= Html::element( 'img', $imgAttribs );
-		if ( isset( $imageMap ) ) {
-			$img_html .= $imageMap;
+		if ( $opt_type === 'svg' ) {
+			$img_html = Html::element( 'object', $imgAttribs );
+			$img_html .= Html::rawElement( 'div', [ 'class' => 'drawio-caption' ],
+				Html::element( 'a', [ 'href' => $img_desc_url ], $dispname )
+			);
+		} elseif ( $opt_type === 'png' ) {
+			$img_html = Html::openElement( 'a', [
+				'id' => "drawio-img-href-$id",
+				'href' => $img_desc_url
+			] );
+			$img_html .= Html::element( 'img', $imgAttribs );
+			if ( isset( $imageMap ) ) {
+				$img_html .= $imageMap;
+			}
+			$img_html .= Html::closeElement( 'a' );
 		}
-		$img_html .= Html::closeElement( 'a' );
 
 		/* output image and optionally a placeholder if the image does not exist yet */
 		if ( !$img && !$noApproved ) {
