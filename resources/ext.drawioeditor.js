@@ -311,7 +311,7 @@ window.editDrawio = function ( id, filename, type, updateHeight, updateWidth, up
 
 function drawioHandleMessage( e ) {
 	// we only act on event coming from "baseUrl" iframes
-	if ( window.drawioEditorBaseUrl.indexOf( e.origin ) !== 0 ) {
+	if ( !window.drawioEditorBaseUrl || window.drawioEditorBaseUrl.indexOf( e.origin ) !== 0 ) {
 		return;
 	}
 
