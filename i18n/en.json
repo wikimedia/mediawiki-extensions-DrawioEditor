@@ -1,6 +1,8 @@
 {
 	"@metadata": {},
 	"drawioeditor-desc": "draw.io flow chart creation and inline editing",
+	"apihelp-drawioeditor-save-diagram-summary": "Uploads a Drawio diagram to the wiki as a file.",
+	"apihelp-drawioeditor-save-diagram-param-file": "The file to upload, provided as a binary upload.",
 	"drawioeditor-approved-editwarning": "Please note that you are now editing the latest revision of this diagram, which is not the approved one shown by default.",
 	"drawioeditor-approved-displaywarning": "This is the approved revision of the diagram and not the latest revision.",
 	"drawioeditor-noapproved": "The diagram $1 has no approved revision.",

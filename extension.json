@@ -51,6 +51,12 @@
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\DrawioEditor\\": "src/"
 	},
+	"APIModules": {
+		"drawioeditor-save-diagram": {
+			"class": "MediaWiki\\Extension\\DrawioEditor\\Api\\SaveDrawioDiagram",
+			"services": [ "RepoGroup", "MimeAnalyzer" ]
+		}
+	},
 	"ResourceModules": {
 		"ext.drawioeditor.styles": {
 			"styles": "ext.drawioeditor.css"

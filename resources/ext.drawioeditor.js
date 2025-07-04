@@ -192,45 +192,64 @@ DrawioEditor.prototype.loadImage = function () {
 	this.downloadFromWiki();
 };
 
-DrawioEditor.prototype.uploadToWiki = function ( blob ) {
-	const that = this;
+/**
+ * Upload the Drawio diagram to the wiki using the custom API module.
+ *
+ * @param {Blob} blob - The diagram file blob to upload.
+ */
+DrawioEditor.prototype.uploadToWiki = async function ( blob ) {
+	const formData = new FormData();
+	formData.append( 'action', 'drawioeditor-save-diagram' );
+	formData.append( 'token', mw.user.tokens.get( 'csrfToken' ) );
+	formData.append( 'format', 'json' );
+	formData.append( 'file', blob, this.filename );
 
-	const api = new mw.Api();
-	api.upload( blob, { filename: this.filename, ignorewarnings: true, format: 'json' } )
-		.done( ( data ) => {
-			if ( !data.upload ) {
-				if ( data.error ) {
-					that.showDialog( 'Save failed',
-						'The wiki returned the follwing error when uploading:<br>' +
-						data.error.info
-					);
-				} else {
-					that.showDialog( 'Save failed',
-						'The upload to the wiki failed.' +
-						'<br>Check javascript console for details.'
-					);
-				}
-				console.log( 'upload to wiki failed' ); // eslint-disable-line no-console
-				console.log( data ); // eslint-disable-line no-console
-			} else {
-				that.updateImage( data.upload.imageinfo );
-				that.hideSpinner();
-			}
-		} )
-		.fail( ( retStatus, data ) => {
-			that.hideSpinner();
-			if ( retStatus === 'exists' ) {
-				that.updateImage( data.upload.imageinfo );
-			} else {
-				if ( data.error ) {
-					that.showDialog( 'Save failed',
-						'Upload to wiki failed!' +
-				'<br>Error: ' + data.error.info +
-				'<br>Check javascript console for details.' );
-				}
-			}
+	try {
+		// Perform the upload request
+		const response = await fetch( mw.util.wikiScript( 'api' ), {
+			method: 'POST',
+			body: formData,
+			credentials: 'same-origin'
 		} );
 
+		if ( !response.ok ) {
+			throw new Error( `HTTP ${ response.status } - ${ response.statusText }` );
+		}
+
+		const data = await response.json();
+
+		if ( data.upload ) {
+			// Upload succeeded, update image
+			this.updateImage( data.upload.imageinfo );
+			this.hideSpinner();
+			return;
+		}
+
+		this.hideSpinner();
+
+		if ( data.error ) {
+			// Known API error
+			this.showDialog(
+				'Save failed',
+				`Upload error: ${ data.error.info }`
+			);
+		} else {
+			// Unexpected or malformed API response
+			this.showDialog(
+				'Save failed',
+				'Unexpected response. See console for details.'
+			);
+			console.error( '[DrawioEditor] Unexpected upload response:', data ); // eslint-disable-line no-console
+		}
+	} catch ( error ) {
+		// Network or fatal error
+		this.hideSpinner();
+		this.showDialog(
+			'Save failed',
+			`Upload failed: ${ error.message }. See console for details.`
+		);
+		console.error( '[DrawioEditor] Upload error:', error ); // eslint-disable-line no-console
+	}
 };
 
 DrawioEditor.prototype.save = function ( datauri ) {
@@ -250,9 +269,7 @@ DrawioEditor.prototype.save = function ( datauri ) {
 	}
 
 	// convert base64 to uint8 array
-	let datastr = atob( parts[ 4 ] );
-	const expr = /"http:\/\/[^"]*?1999[^"]*?"/gmi;
-	datastr = datastr.replace( expr, '"http://www.w3.org/1999/xhtml"' );
+	const datastr = atob( parts[ 4 ] );
 	const data = new Uint8Array( datastr.length );
 	for ( let i = 0; i < datastr.length; i++ ) {
 		data[ i ] = datastr.charCodeAt( i );
