@@ -14,13 +14,16 @@ class Hooks implements ImagePageAfterImageLinksHook {
 	 */
 	public function onImagePageAfterImageLinks( $imagePage, &$html ) {
 		$fileName = $imagePage->getFile()->getTitle()->getDBkey();
-		$services = MediaWikiServices::getInstance();
-		$fileType = $services->getMainConfig()->get( 'DrawioEditorImageType' );
-		if ( !str_contains( $fileName, $fileType ) ) {
+
+		if ( str_ends_with( $fileName, '.svg' ) ) {
+			$fileName = substr( $fileName, 0, -4 );
+		} elseif ( str_ends_with( $fileName, '.png' ) ) {
+			$fileName = substr( $fileName, 0, -4 );
+		} else {
 			return;
 		}
-		$fileName = str_replace( ".$fileType", '', $fileName );
 
+		$services = MediaWikiServices::getInstance();
 		$dbr = $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
 		$res = $dbr->newSelectQueryBuilder()
 			->table( 'page_props' )
