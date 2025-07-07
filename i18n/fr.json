@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Bananax47",
+			"Crochet.david",
 			"Gomoko",
 			"GrandEscogriffe",
 			"MacOS Weed",
@@ -11,6 +12,8 @@
 		]
 	},
 	"drawioeditor-desc": "Création et modification en ligne de diagrammes de flux pour draw.io",
+	"apihelp-drawioeditor-save-diagram-summary": "Télécharge un diagramme Drawio sur le wiki sous forme de fichier.",
+	"apihelp-drawioeditor-save-diagram-param-file": "Le fichier à télécharger, fourni sous forme de téléchargement binaire.",
 	"drawioeditor-approved-editwarning": "Veuillez noter que vous modifiez actuellement la dernière version de ce diagramme, qui n’est pas celle qui est approuvée et affichée par défaut.",
 	"drawioeditor-approved-displaywarning": "Ceci est la version approuvée du diagramme mais pas la dernière version.",
 	"drawioeditor-noapproved": "Le diagramme $1 n’a pas de version approuvée.",
