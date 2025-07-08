@@ -5,6 +5,8 @@
 		]
 	},
 	"drawioeditor-desc": "Creation e modification integrate de diagrammas de fluxo pro draw.io",
+	"apihelp-drawioeditor-save-diagram-summary": "Incarga un diagramma Drawio sur le wiki in forma de file.",
+	"apihelp-drawioeditor-save-diagram-param-file": "Le file a incargar, fornite in forma de incargamento binari.",
 	"drawioeditor-approved-editwarning": "Nota ben que tu modifica ora le ultime version de iste diagramma, le qual non es le version approbate que es monstrate normalmente.",
 	"drawioeditor-approved-displaywarning": "Iste es le version approbate del diagramma e non le ultime version.",
 	"drawioeditor-noapproved": "Le diagramma $1 non ha un version approbate.",

@@ -5,6 +5,8 @@
 		]
 	},
 	"drawioeditor-desc": "Создавање на тековен диаграм со draw.io и негово уредување во редови",
+	"apihelp-drawioeditor-save-diagram-summary": "Подига Drawio-дијаграм на викито како податотека.",
+	"apihelp-drawioeditor-save-diagram-param-file": "Податотеката за подигање, обезбедена бинарно подигање.",
 	"drawioeditor-approved-editwarning": "Имајте предвид дека сега ја уредувате најновата преработка на овој дијаграм, која не е одобрената што се прикажува по основно.",
 	"drawioeditor-approved-displaywarning": "Ова е одобрената преработка на дијаграмот, а не последната преработка.",
 	"drawioeditor-noapproved": "Дијаграмот $1 нема одобрена преработка.",
