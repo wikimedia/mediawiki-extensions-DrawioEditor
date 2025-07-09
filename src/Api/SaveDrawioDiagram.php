@@ -61,7 +61,7 @@ class SaveDrawioDiagram extends ApiBase {
 			$this->dieWithError( 'No uploaded filename' );
 		}
 
-		$title = Title::newFromText( $filename, NS_FILE );
+		$title = Title::makeTitleSafe( NS_FILE, $filename );
 		if ( !$title || !$title->canExist() ) {
 			$this->dieWithError( 'Invalid filename' );
 		}
