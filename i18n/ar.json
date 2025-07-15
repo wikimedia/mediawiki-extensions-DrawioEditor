@@ -6,6 +6,8 @@
 		]
 	},
 	"drawioeditor-desc": "رسم مخطط تدفق الرسم والتحرير المضمن",
+	"apihelp-drawioeditor-save-diagram-summary": "يقوم بتحميل مخطط Drawio إلى wiki كملف.",
+	"apihelp-drawioeditor-save-diagram-param-file": "الملف الذي سيتم تحميله، المقدم كتحميل ثنائي.",
 	"drawioeditor-approved-editwarning": "يرجى ملاحظة أنك تقوم الآن بتحرير أحدث مراجعة لهذا الرسم التخطيطي ، وهي ليست النسخة المعتمدة المعروضة بشكل افتراضي.",
 	"drawioeditor-approved-displaywarning": "هذه هي المراجعة المعتمدة للرسم التخطيطي وليست المراجعة الأخيرة.",
 	"drawioeditor-noapproved": "الرسم التخطيطي $1 ليس له مراجعة معتمدة.",
@@ -19,7 +21,5 @@
 	"drawio-droplet-name": "رسم بياني",
 	"drawio-droplet-description": "رسم تخطيطي قابل للتحرير",
 	"drawioconnector-ve-drawio-alt-label": "وصف الصورة",
-	"drawioconnector-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة",
-	"apihelp-drawioeditor-save-diagram-summary": "يقوم بتحميل مخطط Drawio إلى wiki كملف.",
-	"apihelp-drawioeditor-save-diagram-param-file": "الملف الذي سيتم تحميله، المقدم كتحميل ثنائي."
+	"drawioconnector-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة"
 }
