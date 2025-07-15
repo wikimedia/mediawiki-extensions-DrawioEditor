@@ -2,6 +2,7 @@
 
 namespace MediaWiki\Extension\DrawioEditor\Api;
 
+use File;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Message\Message;
@@ -10,6 +11,7 @@ use MediaWiki\Title\Title;
 use MWFileProps;
 use RepoGroup;
 use RuntimeException;
+use SVGReader;
 use Wikimedia\Mime\MimeAnalyzer;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\Util\UploadedFile;
@@ -78,6 +80,22 @@ class SaveDrawioDiagram extends ApiBase {
 			$this->dieWithError( 'Could not determine uploaded file temp path' );
 		}
 		$props = $mwProps->getPropsFromPath( $tempFilePath, true );
+
+		$mime = $props['file-mime'] ?? null;
+		if ( $mime && $mime !== 'unknown/unknown' ) {
+			[ $major, $minor ] = File::splitMime( $mime );
+			$props['major_mime'] = $major;
+			$props['minor_mime'] = $minor;
+			$props['mime'] = "$major/$minor";
+			$props['media_type'] = 'IMAGE';
+
+			if ( $mime === 'image/svg+xml' ) {
+				$svgReader = new SVGReader( $tempFilePath );
+				$svgMetadata = $svgReader->getMetadata();
+				$props['width'] = $svgMetadata['width'] ?? 100;
+				$props['height'] = $svgMetadata['height'] ?? 100;
+			}
+		}
 
 		// Store file in repo
 		$status = $repoFile->publish( $tempFilePath );
