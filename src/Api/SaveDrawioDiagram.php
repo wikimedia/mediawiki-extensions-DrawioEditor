@@ -9,6 +9,7 @@ use MediaWiki\Message\Message;
 use MediaWiki\Specials\SpecialUpload;
 use MediaWiki\Title\Title;
 use MWFileProps;
+use PNGMetadataExtractor;
 use RepoGroup;
 use RuntimeException;
 use SVGReader;
@@ -94,6 +95,11 @@ class SaveDrawioDiagram extends ApiBase {
 				$svgMetadata = $svgReader->getMetadata();
 				$props['width'] = $svgMetadata['width'] ?? 100;
 				$props['height'] = $svgMetadata['height'] ?? 100;
+			} elseif ( $mime === 'image/png' ) {
+				$pngReader = new PNGMetadataExtractor();
+				$pngMetadata = $pngReader->getMetadata( $tempFilePath );
+				$props['width'] = $pngMetadata['width'] ?? 100;
+				$props['height'] = $pngMetadata['height'] ?? 100;
 			}
 		}
 
