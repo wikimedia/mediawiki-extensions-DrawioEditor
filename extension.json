@@ -32,6 +32,11 @@
 					"services": [ "MainConfig", "HttpRequestFactory" ]
 				}
 			}
+		},
+		"BlueSpiceFoundation": {
+			"ConfigDefinitionRegistry": {
+				"DrawioEditorBackendUrl": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\BackendUrl::getInstance"
+			}
 		}
 	},
 	"descriptionmsg": "drawioeditor-desc",
