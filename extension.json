@@ -113,7 +113,9 @@
 				"drawio-droplet-name",
 				"drawio-droplet-description",
 				"drawioconnector-ve-drawio-alt-label",
-				"drawioconnector-ve-drawio-alt-help"
+				"drawioconnector-ve-drawio-alt-help",
+				"drawioconnector-ve-drawio-alignment-label",
+				"drawioconnector-ve-drawio-alignment-help"
 			]
 		}
 	},

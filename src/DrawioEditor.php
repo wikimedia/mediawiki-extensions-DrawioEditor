@@ -96,6 +96,7 @@ class DrawioEditor {
 		$opt_width = $opts[ 'width' ] ?? '100%';
 		$opt_max_width = $opts[ 'max-width' ] ?? false;
 		$opt_alt = $opts[ 'alt' ] ?? false;
+		$alignment = $opts[ 'alignment' ] ?? 'center';
 
 		/* process input */
 		if ( $name == null || !strlen( $name ) ) {
@@ -308,9 +309,12 @@ class DrawioEditor {
 		/* Generate image HTML */
 		if ( $opt_type === 'svg' ) {
 			$img_html = Html::element( 'object', $imgAttribs );
-			$img_html .= Html::rawElement( 'div', [ 'class' => 'drawio-caption' ],
-				Html::element( 'a', [ 'href' => $img_desc_url ], $dispname )
-			);
+			$icon = Html::element( 'a', [
+				'href' => $img_desc_url,
+				'title' => $dispname,
+				'class' => 'oo-ui-icon-info mw-ui-icon mw-ui-icon-element'
+			] );
+			$img_html .= Html::rawElement( 'div', [ 'class' => 'drawio-caption-icon' ], $icon );
 		} elseif ( $opt_type === 'png' ) {
 			$img_html = Html::openElement( 'a', [
 				'id' => "drawio-img-href-$id",
@@ -333,7 +337,10 @@ class DrawioEditor {
 		} else {
 			// the image or object element must be there in any case
 			// (it's hidden as long as there is no content.)
-			$output .= $img_html;
+			$output .= Html::rawElement( 'div',
+				[ 'class' => "drawio-img-container drawio-align-$alignment" ],
+				$img_html
+			);
 		}
 
 		$output .= Html::closeElement( 'div' );
@@ -364,7 +371,10 @@ class DrawioEditor {
 		}
 
 		$parser->getOutput()->addModules( [ 'ext.drawioeditor' ] );
-		$parser->getOutput()->addModuleStyles( [ 'ext.drawioeditor.styles' ] );
+		$parser->getOutput()->addModuleStyles( [
+			'ext.drawioeditor.styles',
+			'mediawiki.ui.icon'
+		] );
 
 		return [ $output, 'isHTML' => true, 'noparse' => true ];
 	}
