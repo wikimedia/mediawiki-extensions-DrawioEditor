@@ -29,3 +29,24 @@
 html.ve-active .mw-editdrawio-wrapper {
 	display: none;
 }
+
+.drawio-img-container {
+	display: flex;
+}
+
+.drawio-align-center {
+	justify-content: center;
+}
+
+.drawio-align-left {
+	justify-content: left;
+}
+
+.drawio-align-right {
+	justify-content: right;
+}
+
+.drawio-caption-icon .mw-ui-icon {
+	margin: 5px;
+	background-repeat: no-repeat;
+}

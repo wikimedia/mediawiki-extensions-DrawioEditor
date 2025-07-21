@@ -54,6 +54,7 @@ ve.ui.DrawioInspector.prototype.createLayout = function () {
 		label: OO.ui.deferMsg( 'drawioconnector-ve-drawio-tag-name' ),
 		help: OO.ui.deferMsg( 'drawioconnector-ve-drawio-tag-name-help' )
 	} );
+	this.fileNameInputWidget.setValue( this.filename );
 
 	// InputWidget for Alt Text
 	this.altTextInputWidget = new OO.ui.TextInputWidget();
@@ -63,12 +64,24 @@ ve.ui.DrawioInspector.prototype.createLayout = function () {
 		help: OO.ui.deferMsg( 'drawioconnector-ve-drawio-alt-help' )
 	} );
 
-	// set default values
-	this.fileNameInputWidget.setValue( this.filename );
+	// InputWidget for alignment
+	this.alignmentInputWidget = new OO.ui.DropdownInputWidget( {
+		options: [
+			{ data: 'center', label: 'center' },
+			{ data: 'left', label: 'left' },
+			{ data: 'right', label: 'right' }
+		]
+	} );
+	this.alignmentInputLayout = new OO.ui.FieldLayout( this.alignmentInputWidget, {
+		align: 'left',
+		label: OO.ui.deferMsg( 'drawioconnector-ve-drawio-alignment-label' ),
+		help: OO.ui.deferMsg( 'drawioconnector-ve-drawio-alignment-help' )
+	} );
 
 	this.indexLayout.$element.append(
 		this.fileNameInputLayout.$element,
-		this.altTextInputLayout.$element
+		this.altTextInputLayout.$element,
+		this.alignmentInputLayout.$element
 	);
 };
 
@@ -90,6 +103,9 @@ ve.ui.DrawioInspector.prototype.getSetupProcess = function ( data ) {
 			if ( attributes.alt ) {
 				this.altTextInputWidget.setValue( attributes.alt );
 			}
+			if ( attributes.alignment ) {
+				this.alignmentInputWidget.setValue( attributes.alignment );
+			}
 			this.actions.setAbilities( { done: true } );
 		} );
 };
@@ -99,10 +115,12 @@ ve.ui.DrawioInspector.prototype.updateMwData = function ( mwData ) {
 
 	const filename = this.fileNameInputWidget.getValue();
 	const altText = this.altTextInputWidget.getValue();
+	const alignment = this.alignmentInputWidget.getValue();
 
 	// Get rid of the symbols which should not be in the filename
 	mwData.attrs.filename = this.filenameProcessor.sanitizeFilename( filename );
 	mwData.attrs.alt = altText;
+	mwData.attrs.alignment = alignment;
 };
 
 /* Registration */
