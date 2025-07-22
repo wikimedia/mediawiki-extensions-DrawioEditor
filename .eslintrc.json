@@ -7,14 +7,16 @@
 	],
 	"parserOptions": {
 		"sourceType": "commonjs",
-		"ecmaVersion": 2017
+		"ecmaVersion": 2020
 	},
 	"globals": {
 		"drawioeditor": "readonly",
 		"ve": "readonly"
 	},
 	"rules": {
+		"es-x/no-array-prototype-includes": "off",
 		"es-x/no-async-functions": "off",
+		"es-x/no-optional-chaining": "off",
 		"max-len": "off",
 		"no-alert": "off",
 		"no-implicit-globals": "off",
