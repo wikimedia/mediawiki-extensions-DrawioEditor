@@ -46,10 +46,22 @@ function DrawioEditor( id, filename, type, updateHeight, updateWidth,
 	this.iframeOverlay = $( '#drawio-iframe-overlay-' + id );
 	this.iframeOverlay.hide();
 
+	const iframeUrl = this.baseUrl +
+		'/?embed=1' +
+		'&proto=json' +
+		'&spin=1' +
+		'&analytics=0' +
+		'&picker=0' +
+		`&lang=${ this.language }` +
+		'&stealth=1' +
+		'&ui=min' +
+		'&libraries=1' +
+		'&configure=1';
+
 	this.iframe = $( '<iframe>' )
 		.attr( {
-			src: this.baseUrl + '/?embed=1&proto=json&spin=1&analytics=0&picker=0&lang=' + this.language,
-			id: 'drawio-iframe-' + id
+			src: iframeUrl,
+			id: `drawio-iframe-${ id }`
 		} )
 		.addClass( 'DrawioEditorIframe' );
 	this.iframe.appendTo( this.iframeBox );
@@ -326,9 +338,9 @@ window.editDrawio = function ( id, filename, type, updateHeight, updateWidth, up
 	}
 };
 
-function drawioHandleMessage( e ) {
+async function drawioHandleMessage( e ) {
 	// we only act on event coming from "baseUrl" iframes
-	if ( !window.drawioEditorBaseUrl || window.drawioEditorBaseUrl.indexOf( e.origin ) !== 0 ) {
+	if ( !window?.drawioEditorBaseUrl?.startsWith( e.origin ) ) {
 		return;
 	}
 
@@ -339,6 +351,10 @@ function drawioHandleMessage( e ) {
 	const evdata = JSON.parse( e.data );
 
 	switch ( evdata.event ) {
+		case 'configure':
+			await configureCallback( e );
+			break;
+
 		case 'init':
 			editor.initCallback();
 			break;
@@ -361,6 +377,47 @@ function drawioHandleMessage( e ) {
 
 		default:
 			alert( 'Received unknown event from drawio iframe: ' + evdata.event );
+	}
+}
+
+async function configureCallback( e ) {
+	try {
+		const response = await fetch(
+			mw.util.wikiScript() + '?' + new URLSearchParams( {
+				action: 'raw',
+				title: 'MediaWiki:DrawioEditorConfig.json',
+				ctype: 'application/json'
+			} )
+		);
+
+		if ( !response.ok ) {
+			throw new Error( `HTTP error ${ response.status }` );
+		}
+
+		let config = {
+			defaultAdaptiveColors: 'none'
+		};
+		const contentType = response.headers.get( 'Content-Type' );
+		const text = await response.text();
+
+		if ( !text.trim() ) {
+			console.warn( '[DrawioEditor] Config page is empty. Using default config.' ); // eslint-disable-line no-console
+		} else if ( contentType?.includes( 'application/json' ) || text.trim().startsWith( '{' ) ) {
+			try {
+				config = JSON.parse( text );
+			} catch ( parseErr ) {
+				console.warn( '[DrawioEditor] Failed to parse JSON in config. Using default config.', parseErr ); // eslint-disable-line no-console
+			}
+		} else {
+			console.warn( '[DrawioEditor] Config content not JSON-like. Using default config.' ); // eslint-disable-line no-console
+		}
+
+		e.source.postMessage( JSON.stringify( {
+			action: 'configure',
+			config
+		} ), e.origin );
+	} catch ( err ) {
+		console.error( '[DrawioEditor] Configure load failed:', err ); // eslint-disable-line no-console
 	}
 }
 

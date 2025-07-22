@@ -4,7 +4,8 @@
 	"version": "3.0.2",
 	"author": [
 		"Markus Gebert",
-		"[https://www.hallowelt.com Hallo Welt! GmbH]"
+		"[https://www.hallowelt.com Hallo Welt! GmbH]",
+		"Hamish Slater"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:DrawioEditor",
 	"attributes": {
@@ -36,6 +37,13 @@
 		"BlueSpiceFoundation": {
 			"ConfigDefinitionRegistry": {
 				"DrawioEditorBackendUrl": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\BackendUrl::getInstance"
+			}
+		},
+		"MWStakeContentProvisioner": {
+			"ContentManifests": {
+				"DefaultContentProvisioner": [
+					"extensions/DrawioEditor/data/Content/manifest.json"
+				]
 			}
 		}
 	},
