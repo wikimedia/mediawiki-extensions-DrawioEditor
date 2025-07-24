@@ -2,6 +2,9 @@
 
 namespace MediaWiki\Extension\DrawioEditor\Api;
 
+use DOMDocument;
+use DOMElement;
+use DOMXPath;
 use File;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
@@ -91,6 +94,7 @@ class SaveDrawioDiagram extends ApiBase {
 			$props['media_type'] = 'IMAGE';
 
 			if ( $mime === 'image/svg+xml' ) {
+				$this->enforceAnchorTargetTop( $tempFilePath );
 				$svgReader = new SVGReader( $tempFilePath );
 				$svgMetadata = $svgReader->getMetadata();
 				$props['width'] = $svgMetadata['width'] ?? 100;
@@ -134,6 +138,32 @@ class SaveDrawioDiagram extends ApiBase {
 				'height' => $repoFile->getHeight()
 			]
 		] );
+	}
+
+	/**
+	 * Set target="_top" on SVG <a> links unless target="_blank" is set,
+	 * to prevent links opening inside the <object> and ensure
+	 * they open in the top-level window.
+	 *
+	 * @param string $filePath
+	 */
+	private function enforceAnchorTargetTop( string $filePath ): void {
+		$dom = new DOMDocument();
+		$dom->load( $filePath );
+		$xpath = new DOMXPath( $dom );
+		$xpath->registerNamespace( 'svg', 'http://www.w3.org/2000/svg' );
+
+		$anchors = $xpath->query( '//svg:a' );
+		foreach ( $anchors as $anchor ) {
+			/** @var DOMElement $anchor */
+			if ( $anchor->hasAttribute( 'target' ) && $anchor->getAttribute( 'target' ) === '_blank' ) {
+				// user explicitly set 'Open in New Window'
+				continue;
+			}
+			$anchor->setAttribute( 'target', '_top' );
+		}
+
+		$dom->save( $filePath );
 	}
 
 	/**
