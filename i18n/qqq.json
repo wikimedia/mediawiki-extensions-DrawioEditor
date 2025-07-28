@@ -21,5 +21,11 @@
 	"drawio-droplet-name": "Title of droplet for tag drawio",
 	"drawio-droplet-description": "Description of droplet for tag drawio",
 	"drawioconnector-ve-drawio-alt-label": "Label for the input field for the alt text of the diagram",
-	"drawioconnector-ve-drawio-alt-help": "Help text for the input field for alt text of the diagram"
+	"drawioconnector-ve-drawio-alt-help": "Help text for the input field for alt text of the diagram",
+	"apihelp-drawioeditor-save-diagram-summary": "{{doc-apihelp-summary|drawioeditor-save-diagram}}",
+	"apihelp-drawioeditor-save-diagram-param-file": "{{doc-apihelp-summary|drawioeditor-save-diagram|file}}",
+	"drawioeditor-config-backendurl": "Label for input field to set config variable for \"Backend URL\"",
+	"drawioeditor-config-backendurl-help": "Help text for input field to set config variable for \"Backend URL\"",
+	"drawioconnector-ve-drawio-alignment-label": "Label for the input field for the alignment of the diagram",
+	"drawioconnector-ve-drawio-alignment-help": "Help text for the input field for alignment of the diagram"
 }

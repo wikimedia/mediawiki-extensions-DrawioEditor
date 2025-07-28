@@ -18,5 +18,7 @@
 	"drawio-droplet-name": "Diagramma",
 	"drawio-droplet-description": "Diagramma draw.io modificabile",
 	"drawioconnector-ve-drawio-alt-label": "Description del imagine",
-	"drawioconnector-ve-drawio-alt-help": "Texto monstrate quando le imagine non se carga o quando se usa un apparato de assistentia"
+	"drawioconnector-ve-drawio-alt-help": "Texto monstrate quando le imagine non se carga o quando se usa un apparato de assistentia",
+	"apihelp-drawioeditor-save-diagram-summary": "Incarga un diagramma Drawio sur le wiki in forma de file.",
+	"apihelp-drawioeditor-save-diagram-param-file": "Le file a incargar, fornite in forma de incargamento binari."
 }

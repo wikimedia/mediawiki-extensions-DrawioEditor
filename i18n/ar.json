@@ -19,5 +19,7 @@
 	"drawio-droplet-name": "رسم بياني",
 	"drawio-droplet-description": "رسم تخطيطي قابل للتحرير",
 	"drawioconnector-ve-drawio-alt-label": "وصف الصورة",
-	"drawioconnector-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة"
+	"drawioconnector-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة",
+	"apihelp-drawioeditor-save-diagram-summary": "يقوم بتحميل مخطط Drawio إلى wiki كملف.",
+	"apihelp-drawioeditor-save-diagram-param-file": "الملف الذي سيتم تحميله، المقدم كتحميل ثنائي."
 }

@@ -1,5 +1,5 @@
 {
-	"@metadata": {},
+	"@metadata": [],
 	"drawioeditor-desc": "draw.io flow chart creation and inline editing",
 	"drawioeditor-approved-editwarning": "Please note that you are now editing the latest revision of this diagram, which is not the approved one shown by default.",
 	"drawioeditor-approved-displaywarning": "This is the approved revision of the diagram and not the latest revision.",
@@ -16,5 +16,11 @@
 	"drawio-droplet-name": "Diagram",
 	"drawio-droplet-description": "Editable draw.io diagram",
 	"drawioconnector-ve-drawio-alt-label": "Image description",
-	"drawioconnector-ve-drawio-alt-help": "Text displayed when image doesn't load or for assistive devices"
+	"drawioconnector-ve-drawio-alt-help": "Text displayed when image doesn't load or for assistive devices",
+	"apihelp-drawioeditor-save-diagram-summary": "Uploads a Drawio diagram to the wiki as a file.",
+	"apihelp-drawioeditor-save-diagram-param-file": "The file to upload, provided as a binary upload.",
+	"drawioeditor-config-backendurl": "Backend URL",
+	"drawioeditor-config-backendurl-help": "The base URL of the diagrams.net (formerly draw.io) backend service used for editing diagrams",
+	"drawioconnector-ve-drawio-alignment-label": "Image alignment",
+	"drawioconnector-ve-drawio-alignment-help": "Horizontal alignment of the image on the page"
 }

@@ -1,14 +1,14 @@
 {
 	"@metadata": {
 		"authors": [
+			"Bananax47",
+			"Crochet.david",
 			"Gomoko",
 			"GrandEscogriffe",
 			"MacOS Weed",
 			"Mahabarata",
 			"Thibaut120094",
-			"Verdy p",
-			"Bananax47",
-			"Crochet.david"
+			"Verdy p"
 		]
 	},
 	"drawioeditor-desc": "Création et modification en ligne de diagrammes de flux pour draw.io",
@@ -26,5 +26,7 @@
 	"drawio-droplet-name": "Diagramme",
 	"drawio-droplet-description": "Diagramme draw.io modifiable",
 	"drawioconnector-ve-drawio-alt-label": "Description de l'image",
-	"drawioconnector-ve-drawio-alt-help": "Texte affiché lorsque l'image ne se charge pas ou pour les appareils d'assistance"
+	"drawioconnector-ve-drawio-alt-help": "Texte affiché lorsque l'image ne se charge pas ou pour les appareils d'assistance",
+	"apihelp-drawioeditor-save-diagram-summary": "Télécharge un diagramme Drawio sur le wiki sous forme de fichier.",
+	"apihelp-drawioeditor-save-diagram-param-file": "Le fichier à télécharger, fourni sous forme de téléchargement binaire."
 }
