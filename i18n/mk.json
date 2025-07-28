@@ -20,5 +20,9 @@
 	"drawio-droplet-name": "Дијаграм",
 	"drawio-droplet-description": "Уредлив draw.io-дијаграм",
 	"drawioconnector-ve-drawio-alt-label": "Опис на сликата",
-	"drawioconnector-ve-drawio-alt-help": "Текстот што се прикажува кога сликата не се вчитува или за помошни уреди"
+	"drawioconnector-ve-drawio-alt-help": "Текстот што се прикажува кога сликата не се вчитува или за помошни уреди",
+	"drawioeditor-config-backendurl": "URL на заднината",
+	"drawioeditor-config-backendurl-help": "Основната URL-адреса на заднинската служба на diagrams.net (порано draw.io) која се користи за уредување на дијаграми",
+	"drawioconnector-ve-drawio-alignment-label": "Поставеност на сликата",
+	"drawioconnector-ve-drawio-alignment-help": "Хоризонтална поставеност на сликата на страницата"
 }
