@@ -5,7 +5,7 @@
 			"Siebrand"
 		]
 	},
-	"drawioeditor-desc": "draw.io stroomdiagrammen maken en inline bewerken",
+	"drawioeditor-desc": "draw.io-stroomdiagrammen maken en geïntegreerd bewerken",
 	"drawioeditor-approved-editwarning": "Let op: u bewerkt nu de meest recente versie van dit diagram. Dit is niet de goedgekeurde versie die standaard wordt weergegeven.",
 	"drawioeditor-approved-displaywarning": "Dit is de goedgekeurde versie van het diagram en niet de laatste versie.",
 	"drawioeditor-noapproved": "Het diagram $1 heeft geen goedgekeurde versie.",
@@ -19,5 +19,11 @@
 	"drawio-droplet-name": "Diagram",
 	"drawio-droplet-description": "Bewerkbaar draw.io-diagram",
 	"drawioconnector-ve-drawio-alt-label": "Afbeeldingsbeschrijving",
-	"drawioconnector-ve-drawio-alt-help": "Tekst die wordt weergegeven wanneer de afbeelding niet wordt geladen of bij gebruik van assisterende apparaten"
+	"drawioconnector-ve-drawio-alt-help": "Tekst die wordt weergegeven wanneer de afbeelding niet wordt geladen of bij gebruik van assisterende apparaten",
+	"apihelp-drawioeditor-save-diagram-summary": "Uploadt een Drawio-diagram naar de wiki als een bestand.",
+	"apihelp-drawioeditor-save-diagram-param-file": "Het te uploaden bestand, aangeleverd als binaire upload.",
+	"drawioeditor-config-backendurl": "Backend-URL",
+	"drawioeditor-config-backendurl-help": "De basis-URL van de backend-service diagrams.net (voorheen draw.io) die wordt gebruikt voor het bewerken van diagrammen",
+	"drawioconnector-ve-drawio-alignment-label": "Uitlijning afbeelding",
+	"drawioconnector-ve-drawio-alignment-help": "Horizontale uitlijning van de afbeelding op de pagina"
 }
