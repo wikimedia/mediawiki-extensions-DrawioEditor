@@ -1,3 +1,4 @@
 {
-	"defaultAdaptiveColors": "none"
+	"defaultAdaptiveColors": "none",
+	"simpleLabels": true
 }
