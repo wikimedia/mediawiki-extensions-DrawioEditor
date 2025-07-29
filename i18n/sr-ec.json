@@ -7,5 +7,6 @@
 	},
 	"drawioconnector-ve-drawio-tag-name": "Име",
 	"drawio-droplet-name": "Дијаграм",
-	"drawioconnector-ve-drawio-alt-label": "Опис слике"
+	"drawioconnector-ve-drawio-alt-label": "Опис слике",
+	"drawioconnector-ve-drawio-alignment-label": "Центрирање слике"
 }

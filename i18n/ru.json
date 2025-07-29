@@ -1,9 +1,12 @@
 {
 	"@metadata": {
 		"authors": [
-			"Kareyac"
+			"Kareyac",
+			"Elzav"
 		]
 	},
 	"drawio-droplet-name": "Диаграмма",
-	"drawioconnector-ve-drawio-alt-label": "Описание изображения"
+	"drawioconnector-ve-drawio-alt-label": "Описание изображения",
+	"drawioeditor-config-backendurl": "URL-адрес бэкэнда",
+	"drawioconnector-ve-drawio-alignment-help": "Горизонтальное выравнивание изображения на странице"
 }
