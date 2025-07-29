@@ -20,5 +20,9 @@
 	"drawio-droplet-name": "Diagramma",
 	"drawio-droplet-description": "Diagramma draw.io modificabile",
 	"drawioconnector-ve-drawio-alt-label": "Description del imagine",
-	"drawioconnector-ve-drawio-alt-help": "Texto monstrate quando le imagine non se carga o quando se usa un apparato de assistentia"
+	"drawioconnector-ve-drawio-alt-help": "Texto monstrate quando le imagine non se carga o quando se usa un apparato de assistentia",
+	"drawioeditor-config-backendurl": "URL del servicio",
+	"drawioeditor-config-backendurl-help": "Le adresse URL de base del servitor diagrams.net (anteriormente draw.io) usate pro le modification de diagrammas",
+	"drawioconnector-ve-drawio-alignment-label": "Alineamento de imagines",
+	"drawioconnector-ve-drawio-alignment-help": "Alineamento horizontal del imagine sur le pagina"
 }
