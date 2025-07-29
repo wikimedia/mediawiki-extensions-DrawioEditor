@@ -20,5 +20,9 @@
 	"drawioconnector-ve-drawio-alt-label": "Description del imagine",
 	"drawioconnector-ve-drawio-alt-help": "Texto monstrate quando le imagine non se carga o quando se usa un apparato de assistentia",
 	"apihelp-drawioeditor-save-diagram-summary": "Incarga un diagramma Drawio sur le wiki in forma de file.",
-	"apihelp-drawioeditor-save-diagram-param-file": "Le file a incargar, fornite in forma de incargamento binari."
+	"apihelp-drawioeditor-save-diagram-param-file": "Le file a incargar, fornite in forma de incargamento binari.",
+	"drawioeditor-config-backendurl": "URL del servicio",
+	"drawioeditor-config-backendurl-help": "Le adresse URL de base del servitor diagrams.net (anteriormente draw.io) usate pro le modification de diagrammas",
+	"drawioconnector-ve-drawio-alignment-label": "Alineamento de imagines",
+	"drawioconnector-ve-drawio-alignment-help": "Alineamento horizontal del imagine sur le pagina"
 }
