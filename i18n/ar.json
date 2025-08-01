@@ -21,5 +21,9 @@
 	"drawio-droplet-name": "رسم بياني",
 	"drawio-droplet-description": "رسم تخطيطي قابل للتحرير",
 	"drawioconnector-ve-drawio-alt-label": "وصف الصورة",
-	"drawioconnector-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة"
+	"drawioconnector-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة",
+	"drawioeditor-config-backendurl": "عنوان URL الخلفي",
+	"drawioeditor-config-backendurl-help": "عنوان URL الأساسي لخدمة الواجهة الخلفية diagrams.net (المعروفة سابقًا باسم draw.io) المستخدمة لتحرير المخططات",
+	"drawioconnector-ve-drawio-alignment-label": "محاذاة الصورة",
+	"drawioconnector-ve-drawio-alignment-help": "محاذاة أفقية للصورة على الصفحة"
 }
