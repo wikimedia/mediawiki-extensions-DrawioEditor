@@ -21,5 +21,9 @@
 	"drawioconnector-ve-drawio-alt-label": "وصف الصورة",
 	"drawioconnector-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة",
 	"apihelp-drawioeditor-save-diagram-summary": "يقوم بتحميل مخطط Drawio إلى wiki كملف.",
-	"apihelp-drawioeditor-save-diagram-param-file": "الملف الذي سيتم تحميله، المقدم كتحميل ثنائي."
+	"apihelp-drawioeditor-save-diagram-param-file": "الملف الذي سيتم تحميله، المقدم كتحميل ثنائي.",
+	"drawioeditor-config-backendurl": "عنوان URL الخلفي",
+	"drawioeditor-config-backendurl-help": "عنوان URL الأساسي لخدمة الواجهة الخلفية diagrams.net (المعروفة سابقًا باسم draw.io) المستخدمة لتحرير المخططات",
+	"drawioconnector-ve-drawio-alignment-label": "محاذاة الصورة",
+	"drawioconnector-ve-drawio-alignment-help": "محاذاة أفقية للصورة على الصفحة"
 }
