@@ -150,10 +150,23 @@ class SaveDrawioDiagram extends ApiBase {
 	private function enforceAnchorTargetTop( string $filePath ): void {
 		$dom = new DOMDocument();
 		$dom->load( $filePath );
+
 		$xpath = new DOMXPath( $dom );
 		$xpath->registerNamespace( 'svg', 'http://www.w3.org/2000/svg' );
+		$xpath->registerNamespace( 'xhtml', 'http://www.w3.org/1999/xhtml' );
 
-		$anchors = $xpath->query( '//svg:a' );
+		$anchors = [];
+
+		$svgAnchors = $xpath->query( '//svg:a' );
+		foreach ( $svgAnchors as $anchor ) {
+			$anchors[] = $anchor;
+		}
+
+		$htmlAnchors = $xpath->query( '//svg:foreignObject//xhtml:a' );
+		foreach ( $htmlAnchors as $anchor ) {
+			$anchors[] = $anchor;
+		}
+
 		foreach ( $anchors as $anchor ) {
 			/** @var DOMElement $anchor */
 			if ( $anchor->hasAttribute( 'target' ) && $anchor->getAttribute( 'target' ) === '_blank' ) {
