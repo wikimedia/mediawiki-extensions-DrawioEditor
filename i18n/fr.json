@@ -3,6 +3,7 @@
 		"authors": [
 			"Bananax47",
 			"Crochet.david",
+			"Derugon",
 			"Gomoko",
 			"GrandEscogriffe",
 			"MacOS Weed",
@@ -31,5 +32,6 @@
 	"apihelp-drawioeditor-save-diagram-param-file": "Le fichier à télécharger, fourni sous forme de téléchargement binaire.",
 	"drawioeditor-config-backendurl-help": "L'URL de base du service backend diagrams.net (anciennement draw.io) utilisé pour l'édition des diagrammes",
 	"drawioconnector-ve-drawio-alignment-label": "Alignement des images",
-	"drawioconnector-ve-drawio-alignment-help": "Alignement horizontal de l'image sur la page"
+	"drawioconnector-ve-drawio-alignment-help": "Alignement horizontal de l'image sur la page",
+	"drawioeditor-config-backendurl": "URL du backend"
 }
