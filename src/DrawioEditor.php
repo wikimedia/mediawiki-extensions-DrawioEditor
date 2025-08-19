@@ -163,21 +163,27 @@ class DrawioEditor {
 
 		$noApproved = false;
 		$latest_is_approved = true;
+
+		$img_url_ts = '';
+		$img_desc_url = '';
+		$img_height = 0;
+		$img_width = 0;
+
 		if ( $img ) {
-			$img_url_ts = null;
 			$displayImage = $img;
 			$hookRunner = $this->services->getHookContainer();
-			$hookRunner->run( 'DrawioGetFile', [ &$img, &$latest_is_approved, $parser->getUserIdentity(),
-			&$noApproved, &$displayImage ] );
+			$hookRunner->run( 'DrawioGetFile', [
+				&$img,
+				&$latest_is_approved,
+				$parser->getUserIdentity(),
+				&$noApproved,
+				&$displayImage
+			] );
+
 			$img_url_ts = $displayImage->getUrl();
-			$img_desc_url = $img->getDescriptionUrl();
-			$img_height = $img->getHeight() . 'px';
-			$img_width = $img->getWidth() . 'px';
-		} else {
-			$img_url_ts = '';
-			$img_desc_url = '';
-			$img_height = 0;
-			$img_width = 0;
+			$img_desc_url = $displayImage->getDescriptionUrl();
+			$img_height = $displayImage->getHeight() . 'px';
+			$img_width = $displayImage->getWidth() . 'px';
 		}
 
 		$css_img_height = $opt_height === 'chart' ? $img_height : $opt_height;
