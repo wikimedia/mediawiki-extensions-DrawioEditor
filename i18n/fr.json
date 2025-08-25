@@ -30,8 +30,8 @@
 	"drawioconnector-ve-drawio-alt-help": "Texte affiché lorsque l'image ne se charge pas ou pour les appareils d'assistance",
 	"apihelp-drawioeditor-save-diagram-summary": "Télécharge un diagramme Drawio sur le wiki sous forme de fichier.",
 	"apihelp-drawioeditor-save-diagram-param-file": "Le fichier à télécharger, fourni sous forme de téléchargement binaire.",
+	"drawioeditor-config-backendurl": "URL du backend",
 	"drawioeditor-config-backendurl-help": "L'URL de base du service backend diagrams.net (anciennement draw.io) utilisé pour l'édition des diagrammes",
 	"drawioconnector-ve-drawio-alignment-label": "Alignement des images",
-	"drawioconnector-ve-drawio-alignment-help": "Alignement horizontal de l'image sur la page",
-	"drawioeditor-config-backendurl": "URL du backend"
+	"drawioconnector-ve-drawio-alignment-help": "Alignement horizontal de l'image sur la page"
 }
