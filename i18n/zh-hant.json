@@ -18,5 +18,11 @@
 	"drawio-droplet-name": "圖表",
 	"drawio-droplet-description": "可編輯的 draw.io 圖表",
 	"drawioconnector-ve-drawio-alt-label": "圖片描述",
-	"drawioconnector-ve-drawio-alt-help": "在圖片未載入或使用輔助設備時顯示的文字"
+	"drawioconnector-ve-drawio-alt-help": "在圖片未載入或使用輔助設備時顯示的文字",
+	"apihelp-drawioeditor-save-diagram-summary": "將 Drawio 圖表作為檔案上傳到 wiki。",
+	"apihelp-drawioeditor-save-diagram-param-file": "要上傳的檔案（以二進位形式提供上傳）。",
+	"drawioeditor-config-backendurl": "後端 URL",
+	"drawioeditor-config-backendurl-help": "用於編輯圖表的 diagrams.net（以前稱為 draw.io）後端服務的基本 URL",
+	"drawioconnector-ve-drawio-alignment-label": "圖片對齊",
+	"drawioconnector-ve-drawio-alignment-help": "於頁面上圖片的水平對齊"
 }
