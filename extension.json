@@ -123,7 +123,8 @@
 				"drawioeditor-ve-drawio-alt-label",
 				"drawioeditor-ve-drawio-alt-help",
 				"drawioeditor-ve-drawio-alignment-label",
-				"drawioeditor-ve-drawio-alignment-help"
+				"drawioeditor-ve-drawio-alignment-help",
+				"drawioeditor-details"
 			]
 		}
 	},

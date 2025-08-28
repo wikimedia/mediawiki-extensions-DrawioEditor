@@ -45,8 +45,3 @@ html.ve-active .mw-editdrawio-wrapper {
 .drawio-align-right {
 	justify-content: right;
 }
-
-.drawio-caption-icon .mw-ui-icon {
-	margin: 5px;
-	background-repeat: no-repeat;
-}
