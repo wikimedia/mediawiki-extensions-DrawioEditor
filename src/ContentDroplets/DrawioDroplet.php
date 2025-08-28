@@ -13,14 +13,14 @@ class DrawioDroplet extends TagDroplet {
 	 * @inheritDoc
 	 */
 	public function getName(): Message {
-		return Message::newFromKey( 'drawio-droplet-name' );
+		return Message::newFromKey( 'drawioeditor-droplet-name' );
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function getDescription(): Message {
-		return Message::newFromKey( 'drawio-droplet-description' );
+		return Message::newFromKey( 'drawioeditor-droplet-description' );
 	}
 
 	/**

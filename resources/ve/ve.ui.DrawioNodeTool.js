@@ -8,7 +8,7 @@ ve.ui.DrawioNodeTool.static.name = 'drawioTool';
 ve.ui.DrawioNodeTool.static.group = 'none';
 ve.ui.DrawioNodeTool.static.autoAddToCatchall = false;
 ve.ui.DrawioNodeTool.static.icon = 'drawio';
-ve.ui.DrawioNodeTool.static.title = mw.message( 'drawio-tag-title' ).text();
+ve.ui.DrawioNodeTool.static.title = mw.message( 'drawioeditor-tag-title' ).text();
 ve.ui.DrawioNodeTool.static.modelClasses = [ ve.dm.DrawioNode ];
 ve.ui.DrawioNodeTool.static.commandName = 'drawioCommand';
 

@@ -8,7 +8,7 @@ OO.inheritClass( ve.ui.DrawioInspector, ve.ui.MWLiveExtensionInspector );
 
 /* Static properties */
 ve.ui.DrawioInspector.static.name = 'drawioInspector';
-ve.ui.DrawioInspector.static.title = mw.message( 'drawioconnector-ve-drawio-title' ).text();
+ve.ui.DrawioInspector.static.title = mw.message( 'drawioeditor-ve-drawio-title' ).text();
 ve.ui.DrawioInspector.static.modelClasses = [ ve.dm.DrawioNode ];
 ve.ui.DrawioInspector.static.dir = 'ltr';
 
@@ -51,8 +51,8 @@ ve.ui.DrawioInspector.prototype.createLayout = function () {
 	this.fileNameInputWidget.on( 'change', this.onFileNameChange, [], this );
 	this.fileNameInputLayout = new OO.ui.FieldLayout( this.fileNameInputWidget, {
 		align: 'left',
-		label: OO.ui.deferMsg( 'drawioconnector-ve-drawio-tag-name' ),
-		help: OO.ui.deferMsg( 'drawioconnector-ve-drawio-tag-name-help' )
+		label: OO.ui.deferMsg( 'drawioeditor-ve-drawio-tag-name' ),
+		help: OO.ui.deferMsg( 'drawioeditor-ve-drawio-tag-name-help' )
 	} );
 	this.fileNameInputWidget.setValue( this.filename );
 
@@ -60,8 +60,8 @@ ve.ui.DrawioInspector.prototype.createLayout = function () {
 	this.altTextInputWidget = new OO.ui.TextInputWidget();
 	this.altTextInputLayout = new OO.ui.FieldLayout( this.altTextInputWidget, {
 		align: 'left',
-		label: OO.ui.deferMsg( 'drawioconnector-ve-drawio-alt-label' ),
-		help: OO.ui.deferMsg( 'drawioconnector-ve-drawio-alt-help' )
+		label: OO.ui.deferMsg( 'drawioeditor-ve-drawio-alt-label' ),
+		help: OO.ui.deferMsg( 'drawioeditor-ve-drawio-alt-help' )
 	} );
 
 	// InputWidget for alignment
@@ -74,8 +74,8 @@ ve.ui.DrawioInspector.prototype.createLayout = function () {
 	} );
 	this.alignmentInputLayout = new OO.ui.FieldLayout( this.alignmentInputWidget, {
 		align: 'left',
-		label: OO.ui.deferMsg( 'drawioconnector-ve-drawio-alignment-label' ),
-		help: OO.ui.deferMsg( 'drawioconnector-ve-drawio-alignment-help' )
+		label: OO.ui.deferMsg( 'drawioeditor-ve-drawio-alignment-label' ),
+		help: OO.ui.deferMsg( 'drawioeditor-ve-drawio-alignment-help' )
 	} );
 
 	this.indexLayout.$element.append(
