@@ -49,7 +49,7 @@ class Hooks implements ImagePageAfterImageLinksHook {
 			return;
 		}
 
-		$html .= Html::rawElement( 'h2', [], wfMessage( 'drawio-usage' )->escaped() );
+		$html .= Html::rawElement( 'h2', [], wfMessage( 'drawioeditor-usage' )->escaped() );
 		$html .= Html::openElement( 'ul' ) . "\n";
 		$html .= implode( "\n", $links );
 		$html .= Html::closeElement( 'ul' );
