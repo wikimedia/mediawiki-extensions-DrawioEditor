@@ -11,6 +11,7 @@ use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\PNG;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\SVG;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
+use MediaWiki\Message\Message;
 use MediaWiki\Parser\Parser;
 use MediaWiki\Parser\PPFrame;
 use MediaWiki\Title\Title;
@@ -197,8 +198,8 @@ class DrawioEditor {
 			return $this->errorMessage( 'Invalid base url' );
 		}
 
-		/* prepare edit href */
-		$editLabel = wfMessage( 'edit' )->escaped();
+		// Edit link
+		$editLabel = Message::newFromKey( 'edit' )->text();
 		$attribs = [
 			'class' => 'drawioeditor-edit',
 			'title' => $editLabel,
@@ -212,7 +213,11 @@ class DrawioEditor {
 			'data-latest-is-approved' => $latest_is_approved ? 'true' : 'false',
 			'data-img-url' => $img ? $img->getUrl() : ""
 		];
-		$edit_ahref = Html::element( 'a', $attribs, $editLabel );
+		$editLink = Html::element( 'a', $attribs, $editLabel );
+
+		// Details link
+		$detailsLabel = Message::newFromKey( 'drawioeditor-details' )->text();
+		$detailsLink = Html::element( 'a', [ 'href' => $img_desc_url ], $detailsLabel );
 
 		/* output begin */
 		$output = Html::openElement( 'div' );
@@ -224,20 +229,20 @@ class DrawioEditor {
 		if ( $noApproved ) {
 			$output .= Html::element( 'p',
 				[ 'class' => 'successbox' ],
-				wfMessage( "drawioeditor-noapproved", $name )->escaped()
+				Message::newFromKey( 'drawioeditor-noapproved', $name )->text()
 			);
 
 			if ( $userHasRight ) {
 				$output .= ' ' . Html::element( 'a',
 					[ 'href' => $img_desc_url ],
-					wfMessage( "drawioeditor-approve-link" )->escaped()
+					Message::newFromKey( 'drawioeditor-approve-link' )->text()
 				);
 			}
 
 			global $egApprovedRevsBlankFileIfUnapproved;
 			if ( $egApprovedRevsBlankFileIfUnapproved ) {
 				$img = null;
-				$edit_ahref = '';
+				$editLink = '';
 			}
 		} else {
 			if ( $img ) {
@@ -245,17 +250,25 @@ class DrawioEditor {
 					$output .= Html::element( 'p', [
 						'class' => 'successbox',
 						'id' => 'approved-displaywarning'
-					], wfMessage( "drawioeditor-approved-displaywarning" )->escaped()
+					], Message::newFromKey( 'drawioeditor-approved-displaywarning' )->text()
 					);
 				}
 				if ( $userHasRight ) {
 					$output .= ' ' . Html::element( 'a',
 						[ 'href' => $img_desc_url ],
-						wfMessage( "drawioeditor-changeapprove-link" )->escaped()
+						Message::newFromKey( 'drawioeditor-changeapprove-link' )->text()
 					);
 				}
 			}
 		}
+
+		// Build links section
+		$links = [];
+		if ( $editLink ) {
+			$links[] = $editLink;
+		}
+		$links[] = $detailsLink;
+		$linksSection = implode( ' | ', $links );
 
 		/* div around the image */
 		$output .= Html::openElement( 'div', [ 'id' => "drawio-img-box-$id" ] );
@@ -271,7 +284,7 @@ class DrawioEditor {
 				[ 'class' => 'mw-editsection-bracket' ],
 				'['
 			);
-			$output .= $edit_ahref;
+			$output .= $linksSection;
 			$output .= Html::element( 'span',
 				[ 'class' => 'mw-editsection-bracket' ],
 				']'
@@ -315,12 +328,6 @@ class DrawioEditor {
 		/* Generate image HTML */
 		if ( $opt_type === 'svg' ) {
 			$img_html = Html::element( 'object', $imgAttribs );
-			$icon = Html::element( 'a', [
-				'href' => $img_desc_url,
-				'title' => $dispname,
-				'class' => 'oo-ui-icon-info mw-ui-icon mw-ui-icon-element'
-			] );
-			$img_html .= Html::rawElement( 'div', [ 'class' => 'drawio-caption-icon' ], $icon );
 		} elseif ( $opt_type === 'png' ) {
 			$img_html = Html::openElement( 'a', [
 				'id' => "drawio-img-href-$id",
@@ -377,10 +384,7 @@ class DrawioEditor {
 		}
 
 		$parser->getOutput()->addModules( [ 'ext.drawioeditor' ] );
-		$parser->getOutput()->addModuleStyles( [
-			'ext.drawioeditor.styles',
-			'mediawiki.ui.icon'
-		] );
+		$parser->getOutput()->addModuleStyles( [ 'ext.drawioeditor.styles' ] );
 
 		return [ $output, 'isHTML' => true, 'noparse' => true ];
 	}
