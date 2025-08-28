@@ -309,6 +309,7 @@ class DrawioEditor {
 		if ( $opt_type === 'svg' ) {
 			$imgAttribs['data'] = $img_url_ts;
 			$imgAttribs['type'] = 'image/svg+xml';
+			$imgAttribs['aria-label'] = $alt;
 		} elseif ( $opt_type === 'png' ) {
 			$imgAttribs['src'] = $img_url_ts;
 			$imgAttribs['alt'] = $alt;
