@@ -1,5 +1,9 @@
 {
-	"@metadata": {},
+	"@metadata": {
+		"authors": [
+			"HalloWelt! GmbH"
+		]
+	},
 	"drawioeditor-desc": "draw.io flow chart creation and inline editing",
 	"apihelp-drawioeditor-save-diagram-summary": "Uploads a Drawio diagram to the wiki as a file.",
 	"apihelp-drawioeditor-save-diagram-param-file": "The file to upload, provided as a binary upload.",
@@ -8,19 +12,18 @@
 	"drawioeditor-noapproved": "The diagram $1 has no approved revision.",
 	"drawioeditor-approve-link": "Click here to approve a revision",
 	"drawioeditor-changeapprove-link": "Click here to change the approved revision for this diagram",
-	"drawio-tag-title": "draw.io",
-	"drawio-usage": "Used with draw.io tag",
-	"drawioconnector-tag-drawio-title": "draw.io",
-	"drawioconnector-ve-drawio-title": "draw.io diagram",
-	"drawioconnector-ve-drawio-tag-name": "Name",
-	"drawioconnector-ve-drawio-tag-name-help": "Name of the diagram as stored in the wiki",
-	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
-	"drawio-droplet-name": "Diagram",
-	"drawio-droplet-description": "Editable draw.io diagram",
-	"drawioconnector-ve-drawio-alt-label": "Image description",
-	"drawioconnector-ve-drawio-alt-help": "Text displayed when image doesn't load or for assistive devices",
+	"drawioeditor-tag-title": "draw.io",
+	"drawioeditor-usage": "Used with draw.io tag",
+	"drawioeditor-ve-drawio-title": "draw.io diagram",
+	"drawioeditor-ve-drawio-tag-name": "Name",
+	"drawioeditor-ve-drawio-tag-name-help": "Name of the diagram as stored in the wiki",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagram-1",
+	"drawioeditor-droplet-name": "Diagram",
+	"drawioeditor-droplet-description": "Editable draw.io diagram",
+	"drawioeditor-ve-drawio-alt-label": "Image description",
+	"drawioeditor-ve-drawio-alt-help": "Text displayed when image doesn't load or for assistive devices",
 	"drawioeditor-config-backendurl": "Backend URL",
 	"drawioeditor-config-backendurl-help": "The base URL of the diagrams.net (formerly draw.io) backend service used for editing diagrams",
-	"drawioconnector-ve-drawio-alignment-label": "Image alignment",
-	"drawioconnector-ve-drawio-alignment-help": "Horizontal alignment of the image on the page"
+	"drawioeditor-ve-drawio-alignment-label": "Image alignment",
+	"drawioeditor-ve-drawio-alignment-help": "Horizontal alignment of the image on the page"
 }
