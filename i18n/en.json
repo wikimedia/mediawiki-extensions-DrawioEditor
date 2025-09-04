@@ -1,5 +1,9 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"HalloWelt! GmbH"
+		]
+	},
 	"drawioeditor-desc": "draw.io flow chart creation and inline editing",
 	"drawioeditor-approved-editwarning": "Please note that you are now editing the latest revision of this diagram, which is not the approved one shown by default.",
 	"drawioeditor-approved-displaywarning": "This is the approved revision of the diagram and not the latest revision.",
@@ -22,5 +26,17 @@
 	"drawioeditor-config-backendurl": "Backend URL",
 	"drawioeditor-config-backendurl-help": "The base URL of the diagrams.net (formerly draw.io) backend service used for editing diagrams",
 	"drawioconnector-ve-drawio-alignment-label": "Image alignment",
-	"drawioconnector-ve-drawio-alignment-help": "Horizontal alignment of the image on the page"
+	"drawioconnector-ve-drawio-alignment-help": "Horizontal alignment of the image on the page",
+	"drawioeditor-tag-title": "draw.io",
+	"drawioeditor-usage": "Used with draw.io tag",
+	"drawioeditor-ve-drawio-title": "draw.io diagram",
+	"drawioeditor-ve-drawio-tag-name": "Name",
+	"drawioeditor-ve-drawio-tag-name-help": "Name of the diagram as stored in the wiki",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagram-1",
+	"drawioeditor-droplet-name": "Diagram",
+	"drawioeditor-droplet-description": "Editable draw.io diagram",
+	"drawioeditor-ve-drawio-alt-label": "Image description",
+	"drawioeditor-ve-drawio-alt-help": "Text displayed when image doesn't load or for assistive devices",
+	"drawioeditor-ve-drawio-alignment-label": "Image alignment",
+	"drawioeditor-ve-drawio-alignment-help": "Horizontal alignment of the image on the page"
 }

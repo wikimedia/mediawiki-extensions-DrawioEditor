@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"HalloWelt! GmbH",
 			"Amire80",
 			"Robby"
 		]
@@ -27,5 +28,17 @@
 	"drawioeditor-config-backendurl": "Label for input field to set config variable for \"Backend URL\"",
 	"drawioeditor-config-backendurl-help": "Help text for input field to set config variable for \"Backend URL\"",
 	"drawioconnector-ve-drawio-alignment-label": "Label for the input field for the alignment of the diagram",
-	"drawioconnector-ve-drawio-alignment-help": "Help text for the input field for alignment of the diagram"
+	"drawioconnector-ve-drawio-alignment-help": "Help text for the input field for alignment of the diagram",
+	"drawioeditor-tag-title": "{{optional}}\nTitle for tag inspector in ve to insert drawio tag",
+	"drawioeditor-usage": "Headline for list of pages which use a particular drawio image. Displayed on the image page",
+	"drawioeditor-ve-drawio-title": "Used in VisualEditor tag inspector, tag title for drawio",
+	"drawioeditor-ve-drawio-tag-name": "Label for the input field for name of the diagram\n{{identical|Name}}",
+	"drawioeditor-ve-drawio-tag-name-help": "Help text for the input field for name of the diagram",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Placeholder text for the input field for name of the diagram",
+	"drawioeditor-droplet-name": "Title of droplet for tag drawio",
+	"drawioeditor-droplet-description": "Description of droplet for tag drawio",
+	"drawioeditor-ve-drawio-alt-label": "Label for the input field for the alt text of the diagram",
+	"drawioeditor-ve-drawio-alt-help": "Help text for the input field for alt text of the diagram",
+	"drawioeditor-ve-drawio-alignment-label": "Label for the input field for the alignment of the diagram",
+	"drawioeditor-ve-drawio-alignment-help": "Help text for the input field for alignment of the diagram"
 }
