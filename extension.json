@@ -37,7 +37,8 @@
 		"BlueSpiceFoundation": {
 			"ConfigDefinitionRegistry": {
 				"DrawioEditorBackendUrl": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\BackendUrl::getInstance",
-				"DrawioEditorDefaultEditmode": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\DefaultEditmode::getInstance"
+				"DrawioEditorDefaultEditmode": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\DefaultEditmode::getInstance",
+				"DrawioEditorCustomShapeLibraries": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\CustomShapeLibraries::getInstance"
 			}
 		},
 		"MWStakeContentProvisioner": {
@@ -76,7 +77,13 @@
 			"styles": "ext.drawioeditor.css"
 		},
 		"ext.drawioeditor": {
-			"scripts": "ext.drawioeditor.js",
+			"packageFiles": [
+				"ext.drawioeditor.js",
+				{
+					"name": "customShapeLibraries.json",
+					"callback": "MediaWiki\\Extension\\DrawioEditor\\ClientConfig::getCustomShapeLibraries"
+				}
+			],
 			"dependencies": [
 				"jquery.ui",
 				"mediawiki.api",
@@ -179,6 +186,10 @@
 		"DrawioEditorDefaultEditmode": {
 			"value": "inline",
 			"description": "Supported values: inline, fullscreen"
+		},
+		"DrawioEditorCustomShapeLibraries": {
+			"value": [],
+			"description": "List of URLs to custom shape libraries to load in the shapes panel."
 		}
 	},
 	"manifest_version": 2
