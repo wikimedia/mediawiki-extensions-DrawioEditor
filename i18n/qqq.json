@@ -28,5 +28,7 @@
 	"drawioeditor-config-backendurl-help": "Help text for input field to set config variable for \"Backend URL\"",
 	"drawioeditor-ve-drawio-alignment-label": "Label for the input field for the alignment of the diagram",
 	"drawioeditor-ve-drawio-alignment-help": "Help text for the input field for alignment of the diagram",
-	"drawioeditor-details": "Label for \"Details\"\n{{identical|Details}}"
+	"drawioeditor-details": "Label for \"Details\"\n{{identical|Details}}",
+	"drawioeditor-config-customshapelibraries": "Label for input field to set config variable for \"Custom shape libraries\"",
+	"drawioeditor-config-customshapelibraries-help": "Help text for input field to set config variable for \"Custom shape libraries\""
 }

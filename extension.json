@@ -36,7 +36,8 @@
 		},
 		"BlueSpiceFoundation": {
 			"ConfigDefinitionRegistry": {
-				"DrawioEditorBackendUrl": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\BackendUrl::getInstance"
+				"DrawioEditorBackendUrl": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\BackendUrl::getInstance",
+				"DrawioEditorCustomShapeLibraries": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\CustomShapeLibraries::getInstance"
 			}
 		},
 		"MWStakeContentProvisioner": {
@@ -75,7 +76,13 @@
 			"styles": "ext.drawioeditor.css"
 		},
 		"ext.drawioeditor": {
-			"scripts": "ext.drawioeditor.js",
+			"packageFiles": [
+				"ext.drawioeditor.js",
+				{
+					"name": "customShapeLibraries.json",
+					"callback": "MediaWiki\\Extension\\DrawioEditor\\ClientConfig::getCustomShapeLibraries"
+				}
+			],
 			"dependencies": [
 				"jquery.ui",
 				"mediawiki.api"
@@ -159,6 +166,10 @@
 		},
 		"DrawioEditorBackendUrl": {
 			"value": "https://embed.diagrams.net"
+		},
+		"DrawioEditorCustomShapeLibraries": {
+			"value": [],
+			"description": "List of URLs to custom shape libraries to load in the shapes panel."
 		}
 	},
 	"manifest_version": 2
