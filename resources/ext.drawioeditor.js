@@ -47,17 +47,24 @@ function DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
 	this.iframeOverlay = $( '#drawio-iframe-overlay-' + id );
 	this.iframeOverlay.hide();
 
-	const iframeUrl = this.baseUrl +
-		'/?embed=1' +
-		'&proto=json' +
-		'&spin=1' +
-		'&analytics=0' +
-		'&picker=0' +
-		`&lang=${ this.language }` +
-		'&stealth=1' +
-		'&ui=min' +
-		'&libraries=1' +
-		'&configure=1';
+	const customShapeLibraries = require( './customShapeLibraries.json' );
+
+	const params = new URLSearchParams( {
+		embed: '1',
+		proto: 'json',
+		spin: '1',
+		analytics: '0',
+		picker: '0',
+		lang: this.language,
+		ui: 'min',
+		libraries: '1',
+		configure: '1',
+		splash: '0'
+	} );
+
+	// Append clibs manually so semicolons remain unencoded
+	const clibsParam = `&clibs=${ customShapeLibraries.customShapeLibraries }`;
+	const iframeUrl = `${ this.baseUrl }/?${ params.toString() }${ clibsParam }`;
 
 	this.iframe = $( '<iframe>' )
 		.attr( {
