@@ -5,8 +5,8 @@
 			"Kareyac"
 		]
 	},
-	"drawio-droplet-name": "Диаграмма",
-	"drawioconnector-ve-drawio-alt-label": "Описание изображения",
+	"drawioeditor-droplet-name": "Диаграмма",
+	"drawioeditor-ve-drawio-alt-label": "Описание изображения",
 	"drawioeditor-config-backendurl": "URL-адрес бэкэнда",
-	"drawioconnector-ve-drawio-alignment-help": "Горизонтальное выравнивание изображения на странице"
+	"drawioeditor-ve-drawio-alignment-help": "Горизонтальное выравнивание изображения на странице"
 }

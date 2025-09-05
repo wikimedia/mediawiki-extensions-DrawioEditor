@@ -2,7 +2,7 @@
 	"@metadata": {
 		"authors": []
 	},
-	"drawioconnector-ve-drawio-tag-name": "Ime",
-	"drawio-droplet-name": "Dijagram",
-	"drawioconnector-ve-drawio-alt-label": "Opis slike"
+	"drawioeditor-ve-drawio-tag-name": "Ime",
+	"drawioeditor-droplet-name": "Dijagram",
+	"drawioeditor-ve-drawio-alt-label": "Opis slike"
 }

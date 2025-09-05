@@ -13,7 +13,7 @@
 	"drawioeditor-noapproved": "O diagrama $1 não possui revisão aprovada.",
 	"drawioeditor-approve-link": "Clique aqui para aprovar uma revisão",
 	"drawioeditor-changeapprove-link": "Clique aqui para alterar a revisão aprovada para este diagrama",
-	"drawioconnector-ve-drawio-tag-name": "Nome",
-	"drawio-droplet-name": "Diagrama",
-	"drawio-droplet-description": "Diagrama draw.io editável"
+	"drawioeditor-ve-drawio-tag-name": "Nome",
+	"drawioeditor-droplet-name": "Diagrama",
+	"drawioeditor-droplet-description": "Diagrama draw.io editável"
 }
