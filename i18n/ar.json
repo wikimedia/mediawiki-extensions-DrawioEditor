@@ -25,5 +25,16 @@
 	"drawioeditor-config-backendurl": "عنوان URL الخلفي",
 	"drawioeditor-config-backendurl-help": "عنوان URL الأساسي لخدمة الواجهة الخلفية diagrams.net (المعروفة سابقًا باسم draw.io) المستخدمة لتحرير المخططات",
 	"drawioconnector-ve-drawio-alignment-label": "محاذاة الصورة",
-	"drawioconnector-ve-drawio-alignment-help": "محاذاة أفقية للصورة على الصفحة"
+	"drawioconnector-ve-drawio-alignment-help": "محاذاة أفقية للصورة على الصفحة",
+	"drawioeditor-usage": "يستخدم مع علامة draw.io",
+	"drawioeditor-ve-drawio-title": "رسم تخطيطي لبرنامج draw.io",
+	"drawioeditor-ve-drawio-tag-name": "الاسم",
+	"drawioeditor-ve-drawio-tag-name-help": "اسم الرسم التخطيطي كما تم تخزينه في wiki",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "الرسم التخطيطي -1",
+	"drawioeditor-droplet-name": "رسم بياني",
+	"drawioeditor-droplet-description": "رسم تخطيطي قابل للتحرير",
+	"drawioeditor-ve-drawio-alt-label": "وصف الصورة",
+	"drawioeditor-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة",
+	"drawioeditor-ve-drawio-alignment-label": "محاذاة الصورة",
+	"drawioeditor-ve-drawio-alignment-help": "محاذاة أفقية للصورة على الصفحة"
 }

@@ -33,5 +33,16 @@
 	"drawioeditor-config-backendurl": "URL du backend",
 	"drawioeditor-config-backendurl-help": "L'URL de base du service backend diagrams.net (anciennement draw.io) utilisé pour l'édition des diagrammes",
 	"drawioconnector-ve-drawio-alignment-label": "Alignement des images",
-	"drawioconnector-ve-drawio-alignment-help": "Alignement horizontal de l'image sur la page"
+	"drawioconnector-ve-drawio-alignment-help": "Alignement horizontal de l'image sur la page",
+	"drawioeditor-usage": "Utilisé avec la balise draw.io",
+	"drawioeditor-ve-drawio-title": "Diagramme draw.io",
+	"drawioeditor-ve-drawio-tag-name": "Nom",
+	"drawioeditor-ve-drawio-tag-name-help": "Nom du diagramme tel qu’il est stocké dans le wiki",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagramme-1",
+	"drawioeditor-droplet-name": "Diagramme",
+	"drawioeditor-droplet-description": "Diagramme draw.io modifiable",
+	"drawioeditor-ve-drawio-alt-label": "Description de l'image",
+	"drawioeditor-ve-drawio-alt-help": "Texte affiché lorsque l'image ne se charge pas ou pour les appareils d'assistance",
+	"drawioeditor-ve-drawio-alignment-label": "Alignement des images",
+	"drawioeditor-ve-drawio-alignment-help": "Alignement horizontal de l'image sur la page"
 }

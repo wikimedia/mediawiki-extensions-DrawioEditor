@@ -8,5 +8,9 @@
 	"drawioconnector-ve-drawio-tag-name": "Име",
 	"drawio-droplet-name": "Дијаграм",
 	"drawioconnector-ve-drawio-alt-label": "Опис слике",
-	"drawioconnector-ve-drawio-alignment-label": "Центрирање слике"
+	"drawioconnector-ve-drawio-alignment-label": "Центрирање слике",
+	"drawioeditor-ve-drawio-tag-name": "Име",
+	"drawioeditor-droplet-name": "Дијаграм",
+	"drawioeditor-ve-drawio-alt-label": "Опис слике",
+	"drawioeditor-ve-drawio-alignment-label": "Центрирање слике"
 }

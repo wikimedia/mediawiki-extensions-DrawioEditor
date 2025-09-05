@@ -26,5 +26,16 @@
 	"drawioeditor-config-backendurl": "后端URL",
 	"drawioeditor-config-backendurl-help": "用于编辑图表的diagrams.net（旧称draw.io）后端服务的基准URL",
 	"drawioconnector-ve-drawio-alignment-label": "图像对齐",
-	"drawioconnector-ve-drawio-alignment-help": "页面上图像的水平对齐"
+	"drawioconnector-ve-drawio-alignment-help": "页面上图像的水平对齐",
+	"drawioeditor-usage": "与draw.io标签一起使用",
+	"drawioeditor-ve-drawio-title": "draw.io图表",
+	"drawioeditor-ve-drawio-tag-name": "名称",
+	"drawioeditor-ve-drawio-tag-name-help": "存储在wiki中的图表名称",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagram-1",
+	"drawioeditor-droplet-name": "图表",
+	"drawioeditor-droplet-description": "可编辑的draw.io图表",
+	"drawioeditor-ve-drawio-alt-label": "图像描述",
+	"drawioeditor-ve-drawio-alt-help": "图像未加载或使用辅助设备时显示的文本",
+	"drawioeditor-ve-drawio-alignment-label": "图像对齐",
+	"drawioeditor-ve-drawio-alignment-help": "页面上图像的水平对齐"
 }

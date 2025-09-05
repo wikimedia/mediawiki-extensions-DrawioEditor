@@ -18,5 +18,14 @@
 	"drawio-droplet-name": "תרשים",
 	"drawio-droplet-description": "תרשים draw.io שאפשר לערוך",
 	"drawioconnector-ve-drawio-alt-label": "תיאור התמונה",
-	"drawioconnector-ve-drawio-alt-help": "טקסט שמוצג כשהתמונה לא נטענת או עבור מכשירים מסייעים"
+	"drawioconnector-ve-drawio-alt-help": "טקסט שמוצג כשהתמונה לא נטענת או עבור מכשירים מסייעים",
+	"drawioeditor-usage": "בשימוש עם תג draw.io",
+	"drawioeditor-ve-drawio-title": "תרשים draw.io",
+	"drawioeditor-ve-drawio-tag-name": "שם",
+	"drawioeditor-ve-drawio-tag-name-help": "שם התרשים כפי שמאוחסן בוויקי",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "תרשים-1",
+	"drawioeditor-droplet-name": "תרשים",
+	"drawioeditor-droplet-description": "תרשים draw.io שאפשר לערוך",
+	"drawioeditor-ve-drawio-alt-label": "תיאור התמונה",
+	"drawioeditor-ve-drawio-alt-help": "טקסט שמוצג כשהתמונה לא נטענת או עבור מכשירים מסייעים"
 }

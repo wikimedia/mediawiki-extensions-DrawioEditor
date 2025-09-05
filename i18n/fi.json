@@ -8,5 +8,8 @@
 	},
 	"drawio-usage": "Käytetty draw.io-elementin kanssa",
 	"drawioconnector-ve-drawio-title": "draw.io-kaavio",
-	"drawioconnector-ve-drawio-tag-name": "Nimi"
+	"drawioconnector-ve-drawio-tag-name": "Nimi",
+	"drawioeditor-usage": "Käytetty draw.io-elementin kanssa",
+	"drawioeditor-ve-drawio-title": "draw.io-kaavio",
+	"drawioeditor-ve-drawio-tag-name": "Nimi"
 }

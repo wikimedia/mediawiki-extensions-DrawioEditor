@@ -16,5 +16,12 @@
 	"drawioconnector-ve-drawio-tag-name-help": "Ime diagrama, kot je shranjeno v vikiju",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
 	"drawio-droplet-name": "Diagram",
-	"drawio-droplet-description": "Diagram draw.io, ki ga je mogoče urejati"
+	"drawio-droplet-description": "Diagram draw.io, ki ga je mogoče urejati",
+	"drawioeditor-usage": "Uporablja se z značko draw.io",
+	"drawioeditor-ve-drawio-title": "Diagram draw.io",
+	"drawioeditor-ve-drawio-tag-name": "Ime",
+	"drawioeditor-ve-drawio-tag-name-help": "Ime diagrama, kot je shranjeno v vikiju",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagram-1",
+	"drawioeditor-droplet-name": "Diagram",
+	"drawioeditor-droplet-description": "Diagram draw.io, ki ga je mogoče urejati"
 }
