@@ -11,6 +11,7 @@ function DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
 	this.updateMaxWidth = updateMaxWidth;
 	this.baseUrl = baseUrl;
 	this.latestIsApproved = latestIsApproved;
+	this.theme = mw.config.get( 'drawiotheme' ) || 'min';
 
 	// Could be 'en', 'fr', 'de-formal', 'zh-hant', ...
 	const currentUserLanguage = mw.user.options.get( 'language', 'en' ).split( '-' );
@@ -56,7 +57,7 @@ function DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
 		analytics: '0',
 		picker: '0',
 		lang: this.language,
-		ui: 'min',
+		ui: this.theme,
 		libraries: '1',
 		configure: '1',
 		splash: '0'
