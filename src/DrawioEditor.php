@@ -6,9 +6,7 @@ use File;
 use FileRepo;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
-use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\NullExtractor;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\PNG;
-use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\SVG;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
@@ -329,7 +327,7 @@ class DrawioEditor {
 		}
 
 		if ( $img && $opt_type === 'png' ) {
-			$mxDocumentExtractor = $this->getMXDocumentExtractor( $opt_type, $img->getRepo() );
+			$mxDocumentExtractor = $this->getPNGMXDocumentExtractor( $img->getRepo() );
 			$mxDocument = $mxDocumentExtractor->extractMXDocument( $img );
 			$imageMapGenerator = new ImageMapGenerator();
 			$imageMapName = "drawio-map-$id";
@@ -343,15 +341,17 @@ class DrawioEditor {
 		if ( $opt_type === 'svg' ) {
 			$img_html = Html::element( 'object', $imgAttribs );
 		} elseif ( $opt_type === 'png' ) {
-			$img_html = Html::openElement( 'a', [
-				'id' => "drawio-img-href-$id",
-				'href' => $img_desc_url
-			] );
-			$img_html .= Html::element( 'img', $imgAttribs );
-			if ( isset( $imageMap ) ) {
-				$img_html .= $imageMap;
+			$imgTag = Html::element( 'img', $imgAttribs );
+			if ( $imageMap ) {
+				// Don't wrap in file description link
+				$img_html = $imgTag . $imageMap;
+			} else {
+				// Wrap in file description link
+				$img_html = Html::rawElement( 'a', [
+					'id' => "drawio-img-href-$id",
+					'href' => $img_desc_url
+				], $imgTag );
 			}
-			$img_html .= Html::closeElement( 'a' );
 		}
 
 		/* output image and optionally a placeholder if the image does not exist yet */
@@ -404,25 +404,12 @@ class DrawioEditor {
 	}
 
 	/**
-	 * @param string $opt_type
 	 * @param FileRepo $repo
 	 * @return IMXDocumentExtractor
 	 */
-	private function getMXDocumentExtractor( $opt_type, $repo ) {
-		$extractor = null;
+	private function getPNGMXDocumentExtractor( $repo ) {
 		$backend = $repo->getBackend();
-		switch ( $opt_type ) {
-			case 'png':
-				$extractor = new PNG( $backend );
-				break;
-			case 'svg':
-				$extractor = new SVG( $backend );
-				break;
-			default:
-				$extractor = new NullExtractor( $backend );
-				break;
-		}
-		return $extractor;
+		return new PNG( $backend );
 	}
 
 	/**
