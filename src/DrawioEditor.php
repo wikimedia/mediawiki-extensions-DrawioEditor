@@ -100,6 +100,9 @@ class DrawioEditor {
 		$alignment = $opts[ 'alignment' ] ?? 'center';
 		$edit_mode = $opts[ 'editmode' ] ?? $this->config->get( 'DrawioEditorDefaultEditmode' );
 
+		$theme = $opts[ 'theme' ] ?? 'min';
+		$parser->getOutput()->setJsConfigVar( 'drawiotheme', $theme );
+
 		/* process input */
 		if ( $name == null || !strlen( $name ) ) {
 			return $this->errorMessage( 'Usage Error' );
