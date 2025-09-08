@@ -38,5 +38,6 @@
 	"drawioeditor-ve-drawio-alt-label": "Image description",
 	"drawioeditor-ve-drawio-alt-help": "Text displayed when image doesn't load or for assistive devices",
 	"drawioeditor-ve-drawio-alignment-label": "Image alignment",
-	"drawioeditor-ve-drawio-alignment-help": "Horizontal alignment of the image on the page"
+	"drawioeditor-ve-drawio-alignment-help": "Horizontal alignment of the image on the page",
+	"drawioeditor-details": "Details"
 }

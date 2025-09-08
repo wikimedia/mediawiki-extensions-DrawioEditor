@@ -27,5 +27,11 @@
 	"drawioeditor-droplet-name": "תרשים",
 	"drawioeditor-droplet-description": "תרשים draw.io שאפשר לערוך",
 	"drawioeditor-ve-drawio-alt-label": "תיאור התמונה",
-	"drawioeditor-ve-drawio-alt-help": "טקסט שמוצג כשהתמונה לא נטענת או עבור מכשירים מסייעים"
+	"drawioeditor-ve-drawio-alt-help": "טקסט שמוצג כשהתמונה לא נטענת או עבור מכשירים מסייעים",
+	"apihelp-drawioeditor-save-diagram-summary": "מעלה תרשים Drawio לוויקי בתור קובץ.",
+	"apihelp-drawioeditor-save-diagram-param-file": "הקובץ להעלאה, מסופק בתור העלאה בינארית.",
+	"drawioeditor-config-backendurl": "כתובת URL של השרת",
+	"drawioeditor-config-backendurl-help": "כתובת ה־URL הבסיסית של שירות diagrams.net (לשעבר draw.io) שמשמש לעריכת תרשימים",
+	"drawioeditor-ve-drawio-alignment-label": "יישור תמונה",
+	"drawioeditor-ve-drawio-alignment-help": "יישור אופקי של התמונה בדף"
 }

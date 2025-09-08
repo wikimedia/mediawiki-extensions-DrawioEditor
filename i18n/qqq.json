@@ -40,5 +40,6 @@
 	"drawioeditor-ve-drawio-alt-label": "Label for the input field for the alt text of the diagram",
 	"drawioeditor-ve-drawio-alt-help": "Help text for the input field for alt text of the diagram",
 	"drawioeditor-ve-drawio-alignment-label": "Label for the input field for the alignment of the diagram",
-	"drawioeditor-ve-drawio-alignment-help": "Help text for the input field for alignment of the diagram"
+	"drawioeditor-ve-drawio-alignment-help": "Help text for the input field for alignment of the diagram",
+	"drawioeditor-details": "Label for \"Details\"\n{{identical|Details}}"
 }
