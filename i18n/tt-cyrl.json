@@ -4,8 +4,8 @@
 			"Ильгиз"
 		]
 	},
-	"drawio-usage": "Drawio тегы белән кулланыла",
-	"drawioconnector-ve-drawio-title": "Draw.io диаграммасы",
-	"drawioconnector-ve-drawio-tag-name": "Исем",
-	"drawioconnector-ve-drawio-tag-name-placeholder": "Диаграмма-1"
+	"drawioeditor-usage": "Drawio тегы белән кулланыла",
+	"drawioeditor-ve-drawio-title": "Draw.io диаграммасы",
+	"drawioeditor-ve-drawio-tag-name": "Исем",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Диаграмма-1"
 }

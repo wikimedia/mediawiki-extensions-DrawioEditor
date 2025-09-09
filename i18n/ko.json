@@ -10,9 +10,9 @@
 	"drawioeditor-noapproved": "$1 다이어그램에 승인된 판이 없습니다.",
 	"drawioeditor-approve-link": "판을 승인하려면 여기를 클릭하십시오",
 	"drawioeditor-changeapprove-link": "이 다이어그램의 승인된 판을 변경하려면 여기를 클릭하십시오",
-	"drawioconnector-ve-drawio-title": "draw.io 그래프",
-	"drawioconnector-ve-drawio-tag-name": "이름",
-	"drawioconnector-ve-drawio-alt-label": "이미지 설명",
+	"drawioeditor-ve-drawio-title": "draw.io 그래프",
+	"drawioeditor-ve-drawio-tag-name": "이름",
+	"drawioeditor-ve-drawio-alt-label": "이미지 설명",
 	"drawioeditor-config-backendurl": "백엔드 URL",
-	"drawioconnector-ve-drawio-alignment-label": "이미지 정렬"
+	"drawioeditor-ve-drawio-alignment-label": "이미지 정렬"
 }
