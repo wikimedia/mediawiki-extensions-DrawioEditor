@@ -183,6 +183,11 @@ class DrawioEditor {
 			] );
 
 			$img_url_ts = $displayImage->getUrl();
+			$ts = $displayImage->getTimestamp();
+			if ( $ts ) {
+				$img_url_ts .= "?t=$ts";
+			}
+
 			$img_desc_url = $displayImage->getDescriptionUrl();
 			$img_height = $displayImage->getHeight() . 'px';
 			$img_width = $displayImage->getWidth() . 'px';
