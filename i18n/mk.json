@@ -35,5 +35,6 @@
 	"drawioeditor-ve-drawio-alt-label": "Опис на сликата",
 	"drawioeditor-ve-drawio-alt-help": "Текстот што се прикажува кога сликата не се вчитува или за помошни уреди",
 	"drawioeditor-ve-drawio-alignment-label": "Поставеност на сликата",
-	"drawioeditor-ve-drawio-alignment-help": "Хоризонтална поставеност на сликата на страницата"
+	"drawioeditor-ve-drawio-alignment-help": "Хоризонтална поставеност на сликата на страницата",
+	"drawioeditor-details": "Подробно"
 }

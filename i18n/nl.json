@@ -36,5 +36,6 @@
 	"drawioeditor-ve-drawio-alt-label": "Afbeeldingsbeschrijving",
 	"drawioeditor-ve-drawio-alt-help": "Tekst die wordt weergegeven wanneer de afbeelding niet wordt geladen of bij gebruik van assisterende apparaten",
 	"drawioeditor-ve-drawio-alignment-label": "Uitlijning afbeelding",
-	"drawioeditor-ve-drawio-alignment-help": "Horizontale uitlijning van de afbeelding op de pagina"
+	"drawioeditor-ve-drawio-alignment-help": "Horizontale uitlijning van de afbeelding op de pagina",
+	"drawioeditor-details": "Details"
 }
