@@ -25,5 +25,6 @@
 	"drawioeditor-config-backendurl": "Backend-URL",
 	"drawioeditor-config-backendurl-help": "De basis-URL van de backend-service diagrams.net (voorheen draw.io) die wordt gebruikt voor het bewerken van diagrammen",
 	"drawioeditor-ve-drawio-alignment-label": "Uitlijning afbeelding",
-	"drawioeditor-ve-drawio-alignment-help": "Horizontale uitlijning van de afbeelding op de pagina"
+	"drawioeditor-ve-drawio-alignment-help": "Horizontale uitlijning van de afbeelding op de pagina",
+	"drawioeditor-details": "Details"
 }
