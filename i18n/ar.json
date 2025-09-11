@@ -36,5 +36,6 @@
 	"drawioeditor-ve-drawio-alt-label": "وصف الصورة",
 	"drawioeditor-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة",
 	"drawioeditor-ve-drawio-alignment-label": "محاذاة الصورة",
-	"drawioeditor-ve-drawio-alignment-help": "محاذاة أفقية للصورة على الصفحة"
+	"drawioeditor-ve-drawio-alignment-help": "محاذاة أفقية للصورة على الصفحة",
+	"drawioeditor-details": "تفاصيل"
 }

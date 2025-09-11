@@ -35,5 +35,6 @@
 	"drawioeditor-ve-drawio-alt-label": "Description del imagine",
 	"drawioeditor-ve-drawio-alt-help": "Texto monstrate quando le imagine non se carga o quando se usa un apparato de assistentia",
 	"drawioeditor-ve-drawio-alignment-label": "Alineamento de imagines",
-	"drawioeditor-ve-drawio-alignment-help": "Alineamento horizontal del imagine sur le pagina"
+	"drawioeditor-ve-drawio-alignment-help": "Alineamento horizontal del imagine sur le pagina",
+	"drawioeditor-details": "Detalios"
 }
