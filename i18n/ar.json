@@ -25,5 +25,6 @@
 	"drawioeditor-config-backendurl": "عنوان URL الخلفي",
 	"drawioeditor-config-backendurl-help": "عنوان URL الأساسي لخدمة الواجهة الخلفية diagrams.net (المعروفة سابقًا باسم draw.io) المستخدمة لتحرير المخططات",
 	"drawioeditor-ve-drawio-alignment-label": "محاذاة الصورة",
-	"drawioeditor-ve-drawio-alignment-help": "محاذاة أفقية للصورة على الصفحة"
+	"drawioeditor-ve-drawio-alignment-help": "محاذاة أفقية للصورة على الصفحة",
+	"drawioeditor-details": "تفاصيل"
 }

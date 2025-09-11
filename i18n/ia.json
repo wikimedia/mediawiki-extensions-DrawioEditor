@@ -24,5 +24,6 @@
 	"drawioeditor-config-backendurl": "URL del servicio",
 	"drawioeditor-config-backendurl-help": "Le adresse URL de base del servitor diagrams.net (anteriormente draw.io) usate pro le modification de diagrammas",
 	"drawioeditor-ve-drawio-alignment-label": "Alineamento de imagines",
-	"drawioeditor-ve-drawio-alignment-help": "Alineamento horizontal del imagine sur le pagina"
+	"drawioeditor-ve-drawio-alignment-help": "Alineamento horizontal del imagine sur le pagina",
+	"drawioeditor-details": "Detalios"
 }

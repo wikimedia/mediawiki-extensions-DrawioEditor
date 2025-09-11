@@ -24,5 +24,6 @@
 	"drawioeditor-config-backendurl": "後端 URL",
 	"drawioeditor-config-backendurl-help": "用於編輯圖表的 diagrams.net（以前稱為 draw.io）後端服務的基本 URL",
 	"drawioeditor-ve-drawio-alignment-label": "圖片對齊",
-	"drawioeditor-ve-drawio-alignment-help": "於頁面上圖片的水平對齊"
+	"drawioeditor-ve-drawio-alignment-help": "於頁面上圖片的水平對齊",
+	"drawioeditor-details": "詳細資訊"
 }
