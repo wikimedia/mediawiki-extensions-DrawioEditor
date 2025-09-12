@@ -55,14 +55,12 @@ class DrawioDroplet extends TagDroplet {
 	 * @return array
 	 */
 	protected function getAttributes(): array {
-		return [ 'filename' ];
-	}
-
-	/**
-	 * @return bool
-	 */
-	protected function hasContent(): bool {
-		return false;
+		return [
+			'filename' => "",
+			'editmode' => "",
+			'alt' => "",
+			'alignment' => "",
+		];
 	}
 
 	/**
@@ -70,5 +68,9 @@ class DrawioDroplet extends TagDroplet {
 	 */
 	public function getVeCommand(): ?string {
 		return 'drawioCommand';
+	}
+
+	protected function hasContent(): bool {
+		return false;
 	}
 }

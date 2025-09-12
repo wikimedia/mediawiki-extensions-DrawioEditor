@@ -1,9 +1,10 @@
-function DrawioEditor( id, filename, type, updateHeight, updateWidth,
+function DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
 	updateMaxWidth, baseUrl, latestIsApproved, imageURL ) {
 	const that = this;
 
 	this.id = id;
 	this.filename = filename;
+	this.editMode = editMode;
 	this.imgType = type;
 	this.updateHeight = updateHeight;
 	this.updateWidth = updateWidth;
@@ -65,8 +66,11 @@ function DrawioEditor( id, filename, type, updateHeight, updateWidth,
 		} )
 		.addClass( 'DrawioEditorIframe' );
 	this.iframe.appendTo( this.iframeBox );
+	this.fullscreenDialog = new FullscreenDialog( this.iframe );
 
-	this.iframeWindow = this.iframe.prop( 'contentWindow' );
+	this.iframe.on( 'load', () => {
+		this.iframeWindow = this.iframe.prop( 'contentWindow' );
+	} );
 
 	this.show();
 }
@@ -77,8 +81,16 @@ DrawioEditor.prototype.destroy = function () {
 
 DrawioEditor.prototype.show = function () {
 	this.imageBox.hide();
-	this.iframeBox.height( Math.max( this.imageBox.height() + 100, 800 ) );
-	this.iframeBox.show();
+
+	if ( this.editMode === 'inline' ) {
+		this.iframeBox.height( Math.max( this.imageBox.height() + 100, 800 ) );
+		this.iframeBox.show();
+	} else if ( this.editMode === 'fullscreen' ) {
+		this.fullscreenDialog.show( this.iframe );
+	} else {
+		throw new Error( 'unknown edit mode' );
+	}
+
 	$( '#approved-displaywarning' ).remove();
 	if ( !this.latestIsApproved ) {
 		const msg = mw.message( 'drawioeditor-approved-editwarning' ).escaped();
@@ -89,6 +101,7 @@ DrawioEditor.prototype.show = function () {
 DrawioEditor.prototype.hide = function () {
 	this.iframeBox.hide();
 	this.imageBox.show();
+	this.fullscreenDialog.close();
 };
 
 DrawioEditor.prototype.showOverlay = function () {
@@ -327,12 +340,47 @@ DrawioEditor.prototype.initCallback = function () {
 	this.loadImage();
 };
 
+function FullscreenDialog( $iFrame ) {
+	FullscreenDialog.super.call( this, {} );
+
+	this.$iFrame = $iFrame;
+	this.windowManager = new OO.ui.WindowManager();
+	$( document.body ).append( this.windowManager.$element );
+	this.windowManager.addWindows( [ this ] );
+}
+OO.inheritClass( FullscreenDialog, OO.ui.Dialog );
+
+FullscreenDialog.static.name = 'drawioFullscreenDialog';
+
+FullscreenDialog.prototype.getSize = function () {
+	return 'full';
+};
+
+FullscreenDialog.prototype.initialize = function () {
+	FullscreenDialog.super.prototype.initialize.apply( this, arguments );
+
+	this.content = new OO.ui.PanelLayout( {
+		padded: false,
+		expanded: true
+	} );
+	this.$body.append( this.content.$element );
+};
+
+FullscreenDialog.prototype.show = function () {
+	this.windowManager.openWindow( this );
+	this.content.$element.append( this.$iFrame );
+};
+
+FullscreenDialog.prototype.close = function () {
+	this.windowManager.closeWindow( this );
+};
+
 var editor; // eslint-disable-line no-var
 
-window.editDrawio = function ( id, filename, type, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL ) {
+window.editDrawio = function ( id, filename, editMode, type, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL ) {
 	if ( !editor ) {
 		window.drawioEditorBaseUrl = baseUrl;
-		editor = new DrawioEditor( id, filename, type, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL );
+		editor = new DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL );
 	} else {
 		alert( 'Only one DrawioEditor can be open at the same time!' );
 	}
@@ -428,6 +476,7 @@ $( document ).on( 'click', '.drawioeditor-edit', function () {
 	editDrawio( // eslint-disable-line no-undef
 		data.targetId,
 		data.imgName,
+		data.editMode,
 		data.type,
 		data.height,
 		data.width,

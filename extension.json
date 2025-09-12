@@ -36,7 +36,8 @@
 		},
 		"BlueSpiceFoundation": {
 			"ConfigDefinitionRegistry": {
-				"DrawioEditorBackendUrl": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\BackendUrl::getInstance"
+				"DrawioEditorBackendUrl": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\BackendUrl::getInstance",
+				"DrawioEditorDefaultEditmode": "\\MediaWiki\\Extension\\DrawioEditor\\ConfigDefinition\\DefaultEditmode::getInstance"
 			}
 		},
 		"MWStakeContentProvisioner": {
@@ -78,7 +79,8 @@
 			"scripts": "ext.drawioeditor.js",
 			"dependencies": [
 				"jquery.ui",
-				"mediawiki.api"
+				"mediawiki.api",
+				"oojs-ui"
 			],
 			"messages": [
 				"drawioeditor-approved-editwarning",
@@ -98,19 +100,8 @@
 			]
 		},
 		"ext.drawioconnector.visualEditor": {
-			"scripts": [
-				"ve/ve.dm.DrawioNode.js",
-				"ve/ve.ce.DrawioNode.js",
-				"ve/ve.ui.DrawioInspector.js",
-				"ve/ve.ui.DrawioNodeTool.js",
-				"FilenameProcessor.js"
-			],
 			"styles": [
 				"ext.drawio.droplet.css"
-			],
-			"dependencies": [
-				"ext.visualEditor.mwcore",
-				"oojs-ui"
 			],
 			"messages": [
 				"drawioeditor-tag-title",
@@ -126,6 +117,31 @@
 				"drawioeditor-ve-drawio-alignment-help",
 				"drawioeditor-details"
 			]
+		},
+		"ext.drawio.tag.form": {
+			"scripts": [
+				"FilenameProcessor.js",
+				"ext.drawio.tag.form.js"
+			],
+			"messages": [
+				"drawioeditor-ve-drawio-tag-name",
+				"drawioeditor-ve-drawio-tag-name-help",
+				"drawioeditor-ve-drawio-editmode-label-inline",
+				"drawioeditor-ve-drawio-editmode-label-fullscreen",
+				"drawioeditor-ve-drawio-editmode-label",
+				"drawioeditor-ve-drawio-editmode-help",
+				"drawioeditor-ve-drawio-alt-label",
+				"drawioeditor-ve-drawio-alt-help",
+				"drawioeditor-ve-drawio-alignment-label-center",
+				"drawioeditor-ve-drawio-alignment-label-left",
+				"drawioeditor-ve-drawio-alignment-label-right",
+				"drawioeditor-ve-drawio-alignment-label",
+				"drawioeditor-ve-drawio-alignment-help"
+			],
+			"dependencies": [
+				"ext.forms.formelements.bootstrap",
+				"ext.forms.standalone"
+			]
 		}
 	},
 	"ResourceFileModulePaths": {
@@ -133,12 +149,9 @@
 		"remoteExtPath": "DrawioEditor/resources"
 	},
 	"Hooks": {
-		"ParserFirstCallInit": [
-			"tag",
-			"MediaWiki\\Extension\\DrawioEditor\\Hook\\ParserFirstCallInit\\SetFunctionHook::callback"
-		],
 		"DrawioGetFile": "approveRevsSetStableFile",
-		"ImagePageAfterImageLinks": "hooks"
+		"ImagePageAfterImageLinks": "hooks",
+		"MWStakeGenericTagHandlerInitTags": "registerTags"
 	},
 	"HookHandlers": {
 		"tag": {
@@ -150,6 +163,9 @@
 		},
 		"hooks": {
 			"class": "\\MediaWiki\\Extension\\DrawioEditor\\Hooks"
+		},
+		"registerTags": {
+			"class": "MediaWiki\\Extension\\DrawioEditor\\Hook\\RegisterTags"
 		}
 	},
 	"config": {
@@ -159,6 +175,10 @@
 		},
 		"DrawioEditorBackendUrl": {
 			"value": "https://embed.diagrams.net"
+		},
+		"DrawioEditorDefaultEditmode": {
+			"value": "inline",
+			"description": "Supported values: inline, fullscreen"
 		}
 	},
 	"manifest_version": 2

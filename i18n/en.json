@@ -15,6 +15,7 @@
 	"drawioeditor-tag-title": "draw.io",
 	"drawioeditor-usage": "Used with draw.io tag",
 	"drawioeditor-ve-drawio-title": "draw.io diagram",
+	"drawioeditor-ve-drawio-description": "Insert an editable draw.io diagram",
 	"drawioeditor-ve-drawio-tag-name": "Name",
 	"drawioeditor-ve-drawio-tag-name-help": "Name of the diagram as stored in the wiki",
 	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagram-1",
@@ -26,5 +27,12 @@
 	"drawioeditor-config-backendurl-help": "The base URL of the diagrams.net (formerly draw.io) backend service used for editing diagrams",
 	"drawioeditor-ve-drawio-alignment-label": "Image alignment",
 	"drawioeditor-ve-drawio-alignment-help": "Horizontal alignment of the image on the page",
+	"drawioeditor-ve-drawio-alignment-label-center": "Center",
+	"drawioeditor-ve-drawio-alignment-label-left": "Left",
+	"drawioeditor-ve-drawio-alignment-label-right": "Right",
+	"drawioeditor-ve-drawio-editmode-label": "Edit mode",
+	"drawioeditor-ve-drawio-editmode-help": "Choose how the diagram editor is displayed",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Inline",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Fullscreen",
 	"drawioeditor-details": "Details"
 }
