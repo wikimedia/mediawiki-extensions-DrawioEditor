@@ -4,6 +4,7 @@
 			"Bananax47",
 			"Crochet.david",
 			"Derugon",
+			"Escargot bleu",
 			"Gomoko",
 			"GrandEscogriffe",
 			"MacOS Weed",
@@ -44,5 +45,6 @@
 	"drawioeditor-ve-drawio-alt-label": "Description de l'image",
 	"drawioeditor-ve-drawio-alt-help": "Texte affiché lorsque l'image ne se charge pas ou pour les appareils d'assistance",
 	"drawioeditor-ve-drawio-alignment-label": "Alignement des images",
-	"drawioeditor-ve-drawio-alignment-help": "Alignement horizontal de l'image sur la page"
+	"drawioeditor-ve-drawio-alignment-help": "Alignement horizontal de l'image sur la page",
+	"drawioeditor-details": "Détails"
 }
