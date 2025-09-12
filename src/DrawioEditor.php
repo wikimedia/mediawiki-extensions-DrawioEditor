@@ -98,6 +98,7 @@ class DrawioEditor {
 		$opt_max_width = $opts[ 'max-width' ] ?? false;
 		$opt_alt = $opts[ 'alt' ] ?? false;
 		$alignment = $opts[ 'alignment' ] ?? 'center';
+		$edit_mode = $opts[ 'editmode' ] ?? 'inline';
 
 		/* process input */
 		if ( $name == null || !strlen( $name ) ) {
@@ -205,6 +206,7 @@ class DrawioEditor {
 			'title' => $editLabel,
 			'data-target-id' => $id,
 			'data-img-name' => $img_name,
+			'data-edit-mode' => $edit_mode,
 			'data-type' => $opt_type,
 			'data-height' => $opt_height === 'chart' ? 'true' : 'false',
 			'data-width' => $opt_width === 'chart' ? 'true' : 'false',
