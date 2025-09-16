@@ -24,5 +24,6 @@
 	"drawioeditor-config-backendurl": "URL на заднината",
 	"drawioeditor-config-backendurl-help": "Основната URL-адреса на заднинската служба на diagrams.net (порано draw.io) која се користи за уредување на дијаграми",
 	"drawioeditor-ve-drawio-alignment-label": "Поставеност на сликата",
-	"drawioeditor-ve-drawio-alignment-help": "Хоризонтална поставеност на сликата на страницата"
+	"drawioeditor-ve-drawio-alignment-help": "Хоризонтална поставеност на сликата на страницата",
+	"drawioeditor-details": "Подробно"
 }
