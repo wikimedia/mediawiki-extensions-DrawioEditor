@@ -39,5 +39,13 @@
 	"drawioeditor-ve-drawio-alt-help": "Text displayed when image doesn't load or for assistive devices",
 	"drawioeditor-ve-drawio-alignment-label": "Image alignment",
 	"drawioeditor-ve-drawio-alignment-help": "Horizontal alignment of the image on the page",
-	"drawioeditor-details": "Details"
+	"drawioeditor-details": "Details",
+	"drawioeditor-ve-drawio-description": "Insert an editable draw.io diagram",
+	"drawioeditor-ve-drawio-alignment-label-center": "Center",
+	"drawioeditor-ve-drawio-alignment-label-left": "Left",
+	"drawioeditor-ve-drawio-alignment-label-right": "Right",
+	"drawioeditor-ve-drawio-editmode-label": "Edit mode",
+	"drawioeditor-ve-drawio-editmode-help": "Choose how the diagram editor is displayed",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Inline",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Fullscreen"
 }
