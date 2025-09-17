@@ -15,6 +15,7 @@
 	"drawioeditor-changeapprove-link": "Klik hier om de goedgekeurde versie voor dit diagram te wijzigen",
 	"drawioeditor-usage": "Gebruikt met draw.io-tag",
 	"drawioeditor-ve-drawio-title": "draw.io-diagram",
+	"drawioeditor-ve-drawio-description": "Een bewerkbaar draw.io-diagram invoegen",
 	"drawioeditor-ve-drawio-tag-name": "Naam",
 	"drawioeditor-ve-drawio-tag-name-help": "Naam van het diagram zoals in de wiki opgeslagen",
 	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagram-1",
@@ -26,5 +27,12 @@
 	"drawioeditor-config-backendurl-help": "De basis-URL van de backend-service diagrams.net (voorheen draw.io) die wordt gebruikt voor het bewerken van diagrammen",
 	"drawioeditor-ve-drawio-alignment-label": "Uitlijning afbeelding",
 	"drawioeditor-ve-drawio-alignment-help": "Horizontale uitlijning van de afbeelding op de pagina",
+	"drawioeditor-ve-drawio-alignment-label-center": "Midden",
+	"drawioeditor-ve-drawio-alignment-label-left": "Links",
+	"drawioeditor-ve-drawio-alignment-label-right": "Rechts",
+	"drawioeditor-ve-drawio-editmode-label": "Bewerkingsmodus",
+	"drawioeditor-ve-drawio-editmode-help": "Kies hoe de diagram-editor wordt weergegeven",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Geïntegreerd",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Volledig scherm",
 	"drawioeditor-details": "Details"
 }
