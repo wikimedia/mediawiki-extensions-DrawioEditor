@@ -17,5 +17,9 @@
 	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagramm-1",
 	"drawioeditor-droplet-name": "Diagramm",
 	"drawioeditor-ve-drawio-alt-label": "Bildbeschreiwung",
-	"drawioeditor-details": "Detailer"
+	"drawioeditor-details": "Detailer",
+	"drawioeditor-ve-drawio-alignment-label-left": "Lénks",
+	"drawioeditor-ve-drawio-alignment-label-right": "Riets",
+	"drawioeditor-ve-drawio-editmode-label": "Ännerungsmodus",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Vollbild"
 }

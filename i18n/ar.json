@@ -37,5 +37,13 @@
 	"drawioeditor-ve-drawio-alt-help": "النص المعروض عند عدم تحميل الصورة أو للأجهزة المساعدة",
 	"drawioeditor-ve-drawio-alignment-label": "محاذاة الصورة",
 	"drawioeditor-ve-drawio-alignment-help": "محاذاة أفقية للصورة على الصفحة",
-	"drawioeditor-details": "تفاصيل"
+	"drawioeditor-details": "تفاصيل",
+	"drawioeditor-ve-drawio-description": "إدراج رسم تخطيطي قابل للتعديل في draw.io",
+	"drawioeditor-ve-drawio-alignment-label-center": "مركز",
+	"drawioeditor-ve-drawio-alignment-label-left": "يسار",
+	"drawioeditor-ve-drawio-alignment-label-right": "يمين",
+	"drawioeditor-ve-drawio-editmode-label": "وضع التحرير",
+	"drawioeditor-ve-drawio-editmode-help": "اختر كيفية عرض محرر المخطط",
+	"drawioeditor-ve-drawio-editmode-label-inline": "مضمن",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "ملء الشاشة"
 }

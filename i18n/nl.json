@@ -37,5 +37,13 @@
 	"drawioeditor-ve-drawio-alt-help": "Tekst die wordt weergegeven wanneer de afbeelding niet wordt geladen of bij gebruik van assisterende apparaten",
 	"drawioeditor-ve-drawio-alignment-label": "Uitlijning afbeelding",
 	"drawioeditor-ve-drawio-alignment-help": "Horizontale uitlijning van de afbeelding op de pagina",
-	"drawioeditor-details": "Details"
+	"drawioeditor-details": "Details",
+	"drawioeditor-ve-drawio-description": "Een bewerkbaar draw.io-diagram invoegen",
+	"drawioeditor-ve-drawio-alignment-label-center": "Midden",
+	"drawioeditor-ve-drawio-alignment-label-left": "Links",
+	"drawioeditor-ve-drawio-alignment-label-right": "Rechts",
+	"drawioeditor-ve-drawio-editmode-label": "Bewerkingsmodus",
+	"drawioeditor-ve-drawio-editmode-help": "Kies hoe de diagram-editor wordt weergegeven",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Geïntegreerd",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Volledig scherm"
 }
