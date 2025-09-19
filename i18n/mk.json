@@ -36,5 +36,13 @@
 	"drawioeditor-ve-drawio-alt-help": "Текстот што се прикажува кога сликата не се вчитува или за помошни уреди",
 	"drawioeditor-ve-drawio-alignment-label": "Поставеност на сликата",
 	"drawioeditor-ve-drawio-alignment-help": "Хоризонтална поставеност на сликата на страницата",
-	"drawioeditor-details": "Подробно"
+	"drawioeditor-details": "Подробно",
+	"drawioeditor-ve-drawio-description": "Внесете уредлив дијаграм на draw.io",
+	"drawioeditor-ve-drawio-alignment-label-center": "По средина",
+	"drawioeditor-ve-drawio-alignment-label-left": "Лево",
+	"drawioeditor-ve-drawio-alignment-label-right": "Десно",
+	"drawioeditor-ve-drawio-editmode-label": "Режим на уредување",
+	"drawioeditor-ve-drawio-editmode-help": "Изберете како да се прикажува уредникот на дијаграми",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Во ред",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Цел екран"
 }
