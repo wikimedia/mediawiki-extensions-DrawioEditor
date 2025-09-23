@@ -15,6 +15,7 @@
 	"drawioeditor-changeapprove-link": "انقر هنا لتغيير المراجعة المعتمدة لهذا الرسم التخطيطي",
 	"drawioeditor-usage": "يستخدم مع علامة draw.io",
 	"drawioeditor-ve-drawio-title": "رسم تخطيطي لبرنامج draw.io",
+	"drawioeditor-ve-drawio-description": "إدراج رسم تخطيطي قابل للتعديل في draw.io",
 	"drawioeditor-ve-drawio-tag-name": "الاسم",
 	"drawioeditor-ve-drawio-tag-name-help": "اسم الرسم التخطيطي كما تم تخزينه في wiki",
 	"drawioeditor-ve-drawio-tag-name-placeholder": "الرسم التخطيطي -1",
@@ -26,5 +27,12 @@
 	"drawioeditor-config-backendurl-help": "عنوان URL الأساسي لخدمة الواجهة الخلفية diagrams.net (المعروفة سابقًا باسم draw.io) المستخدمة لتحرير المخططات",
 	"drawioeditor-ve-drawio-alignment-label": "محاذاة الصورة",
 	"drawioeditor-ve-drawio-alignment-help": "محاذاة أفقية للصورة على الصفحة",
+	"drawioeditor-ve-drawio-alignment-label-center": "مركز",
+	"drawioeditor-ve-drawio-alignment-label-left": "يسار",
+	"drawioeditor-ve-drawio-alignment-label-right": "يمين",
+	"drawioeditor-ve-drawio-editmode-label": "وضع التحرير",
+	"drawioeditor-ve-drawio-editmode-help": "اختر كيفية عرض محرر المخطط",
+	"drawioeditor-ve-drawio-editmode-label-inline": "مضمن",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "ملء الشاشة",
 	"drawioeditor-details": "تفاصيل"
 }
