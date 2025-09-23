@@ -21,7 +21,6 @@
 		"no-alert": "off",
 		"no-implicit-globals": "off",
 		"no-jquery/no-global-selector": "off",
-		"no-jquery/variable-pattern": "off",
-		"no-jquery/no-done-fail": "warn"
+		"no-jquery/variable-pattern": "off"
 	}
 }
