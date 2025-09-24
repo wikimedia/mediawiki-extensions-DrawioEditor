@@ -36,5 +36,13 @@
 	"drawioeditor-ve-drawio-alt-help": "Texto monstrate quando le imagine non se carga o quando se usa un apparato de assistentia",
 	"drawioeditor-ve-drawio-alignment-label": "Alineamento de imagines",
 	"drawioeditor-ve-drawio-alignment-help": "Alineamento horizontal del imagine sur le pagina",
-	"drawioeditor-details": "Detalios"
+	"drawioeditor-details": "Detalios",
+	"drawioeditor-ve-drawio-description": "Inserer un diagramma draw.io modificabile",
+	"drawioeditor-ve-drawio-alignment-label-center": "Centro",
+	"drawioeditor-ve-drawio-alignment-label-left": "Sinistra",
+	"drawioeditor-ve-drawio-alignment-label-right": "Dextra",
+	"drawioeditor-ve-drawio-editmode-label": "Modo de modification",
+	"drawioeditor-ve-drawio-editmode-help": "Elige como le editor de diagrammas se presenta",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Integrate",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "In plen schermo"
 }
