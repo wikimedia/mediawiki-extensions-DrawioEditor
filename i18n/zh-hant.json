@@ -36,5 +36,13 @@
 	"drawioeditor-ve-drawio-alt-help": "在圖片未載入或使用輔助設備時顯示的文字",
 	"drawioeditor-ve-drawio-alignment-label": "圖片對齊",
 	"drawioeditor-ve-drawio-alignment-help": "於頁面上圖片的水平對齊",
-	"drawioeditor-details": "詳細資訊"
+	"drawioeditor-details": "詳細資訊",
+	"drawioeditor-ve-drawio-description": "插入可編輯的 draw.io 圖表",
+	"drawioeditor-ve-drawio-alignment-label-center": "置中",
+	"drawioeditor-ve-drawio-alignment-label-left": "靠左",
+	"drawioeditor-ve-drawio-alignment-label-right": "靠右",
+	"drawioeditor-ve-drawio-editmode-label": "編輯模式",
+	"drawioeditor-ve-drawio-editmode-help": "選擇圖表編輯器的顯示方式",
+	"drawioeditor-ve-drawio-editmode-label-inline": "內聯",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "全螢幕"
 }
