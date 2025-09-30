@@ -14,6 +14,7 @@
 	"drawioeditor-changeapprove-link": "在此點擊來更改此圖表的已批准修訂",
 	"drawioeditor-usage": "與 draw.io 標籤一起使用",
 	"drawioeditor-ve-drawio-title": "draw.io 流程圖",
+	"drawioeditor-ve-drawio-description": "插入可編輯的 draw.io 圖表",
 	"drawioeditor-ve-drawio-tag-name": "名稱",
 	"drawioeditor-ve-drawio-tag-name-help": "儲存在 wiki 中的流程圖名稱",
 	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagram-1",
@@ -25,5 +26,12 @@
 	"drawioeditor-config-backendurl-help": "用於編輯圖表的 diagrams.net（以前稱為 draw.io）後端服務的基本 URL",
 	"drawioeditor-ve-drawio-alignment-label": "圖片對齊",
 	"drawioeditor-ve-drawio-alignment-help": "於頁面上圖片的水平對齊",
+	"drawioeditor-ve-drawio-alignment-label-center": "置中",
+	"drawioeditor-ve-drawio-alignment-label-left": "靠左",
+	"drawioeditor-ve-drawio-alignment-label-right": "靠右",
+	"drawioeditor-ve-drawio-editmode-label": "編輯模式",
+	"drawioeditor-ve-drawio-editmode-help": "選擇圖表編輯器的顯示方式",
+	"drawioeditor-ve-drawio-editmode-label-inline": "內聯",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "全螢幕",
 	"drawioeditor-details": "詳細資訊"
 }

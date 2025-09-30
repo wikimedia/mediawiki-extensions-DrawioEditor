@@ -14,6 +14,7 @@
 	"drawioeditor-changeapprove-link": "Clicca hic pro cambiar le version approbate de iste diagramma",
 	"drawioeditor-usage": "Usate con etiquetta draw.io",
 	"drawioeditor-ve-drawio-title": "Diagramma draw.io",
+	"drawioeditor-ve-drawio-description": "Inserer un diagramma draw.io modificabile",
 	"drawioeditor-ve-drawio-tag-name": "Nomine",
 	"drawioeditor-ve-drawio-tag-name-help": "Nomine del diagramma como immagazinate in le wiki",
 	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagramma-1",
@@ -25,5 +26,12 @@
 	"drawioeditor-config-backendurl-help": "Le adresse URL de base del servitor diagrams.net (anteriormente draw.io) usate pro le modification de diagrammas",
 	"drawioeditor-ve-drawio-alignment-label": "Alineamento de imagines",
 	"drawioeditor-ve-drawio-alignment-help": "Alineamento horizontal del imagine sur le pagina",
+	"drawioeditor-ve-drawio-alignment-label-center": "Centro",
+	"drawioeditor-ve-drawio-alignment-label-left": "Sinistra",
+	"drawioeditor-ve-drawio-alignment-label-right": "Dextra",
+	"drawioeditor-ve-drawio-editmode-label": "Modo de modification",
+	"drawioeditor-ve-drawio-editmode-help": "Elige como le editor de diagrammas se presenta",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Integrate",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "In plen schermo",
 	"drawioeditor-details": "Detalios"
 }
