@@ -48,5 +48,7 @@
 	"drawioeditor-ve-drawio-editmode-label": "Label for the input field for the edit mode of the diagram",
 	"drawioeditor-ve-drawio-editmode-help": "Help text for the input field for edit mode of the diagram",
 	"drawioeditor-ve-drawio-editmode-label-inline": "Label for the option to edit the diagram inline",
-	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Label for the option to edit the diagram in fullscreen"
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Label for the option to edit the diagram in fullscreen",
+	"drawioeditor-config-customshapelibraries": "Label for input field to set config variable for \"Custom shape libraries\"",
+	"drawioeditor-config-customshapelibraries-help": "Help text for input field to set config variable for \"Custom shape libraries\""
 }
