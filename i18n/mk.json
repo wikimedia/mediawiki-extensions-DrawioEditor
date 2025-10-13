@@ -44,5 +44,7 @@
 	"drawioeditor-ve-drawio-editmode-label": "Режим на уредување",
 	"drawioeditor-ve-drawio-editmode-help": "Изберете како да се прикажува уредникот на дијаграми",
 	"drawioeditor-ve-drawio-editmode-label-inline": "Во ред",
-	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Цел екран"
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Цел екран",
+	"drawioeditor-config-customshapelibraries": "Библиотеки на прилагодени облици",
+	"drawioeditor-config-customshapelibraries-help": "URL-адреси од библиотеки на прилагодени облици за вчитување во управувачницата за облици"
 }
