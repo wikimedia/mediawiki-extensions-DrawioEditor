@@ -34,5 +34,7 @@
 	"drawioeditor-ve-drawio-editmode-help": "Kies hoe de diagram-editor wordt weergegeven",
 	"drawioeditor-ve-drawio-editmode-label-inline": "Geïntegreerd",
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Volledig scherm",
-	"drawioeditor-details": "Details"
+	"drawioeditor-details": "Details",
+	"drawioeditor-config-customshapelibraries": "Aangepaste vormbibliotheken",
+	"drawioeditor-config-customshapelibraries-help": "URL’s van aangepaste vormbibliotheken om in het vormenpaneel te laden"
 }
