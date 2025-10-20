@@ -6,7 +6,7 @@
 			"沈澄心"
 		]
 	},
-	"drawioeditor-desc": "draw.io 流程图建立与内文编辑",
+	"drawioeditor-desc": "draw.io流程图创建和内联编辑",
 	"drawioeditor-approved-editwarning": "请注意，您现在正在编辑此页面的最新修订，它不是默认显示的已核准修订。",
 	"drawioeditor-approved-displaywarning": "这是图表的已核准修订，而非最新修订。",
 	"drawioeditor-noapproved": "图表$1没有已核准的修订。",
@@ -37,5 +37,16 @@
 	"drawioeditor-ve-drawio-alt-label": "图像描述",
 	"drawioeditor-ve-drawio-alt-help": "图像未加载或使用辅助设备时显示的文本",
 	"drawioeditor-ve-drawio-alignment-label": "图像对齐",
-	"drawioeditor-ve-drawio-alignment-help": "页面上图像的水平对齐"
+	"drawioeditor-ve-drawio-alignment-help": "页面上图像的水平对齐",
+	"drawioeditor-ve-drawio-description": "插入可编辑的draw.io图表",
+	"drawioeditor-ve-drawio-alignment-label-center": "居中",
+	"drawioeditor-ve-drawio-alignment-label-left": "居左",
+	"drawioeditor-ve-drawio-alignment-label-right": "居右",
+	"drawioeditor-ve-drawio-editmode-label": "编辑模式",
+	"drawioeditor-ve-drawio-editmode-help": "选择图表编辑器的显示方式",
+	"drawioeditor-ve-drawio-editmode-label-inline": "内联",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "全屏",
+	"drawioeditor-details": "详细信息",
+	"drawioeditor-config-customshapelibraries": "自定义形状库",
+	"drawioeditor-config-customshapelibraries-help": "要在形状面板中加载的自定义形状库的URL"
 }
