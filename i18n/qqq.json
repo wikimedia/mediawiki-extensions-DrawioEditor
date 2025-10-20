@@ -1,7 +1,6 @@
 {
 	"@metadata": {
 		"authors": [
-			"HalloWelt! GmbH",
 			"Amire80",
 			"Robby"
 		]
@@ -16,7 +15,7 @@
 	"drawioeditor-changeapprove-link": "Link to change the approved revision of the diagram",
 	"drawioeditor-tag-title": "{{optional}}\nTitle for tag inspector in ve to insert drawio tag",
 	"drawioeditor-usage": "Headline for list of pages which use a particular drawio image. Displayed on the image page",
-	"drawioeditor-ve-drawio-title": "Used in VisualEditor tag inspector, tag title for drawio",
+	"drawioeditor-ve-drawio-title": "Used inVisualEditor tag inspector, tag title for drawio",
 	"drawioeditor-ve-drawio-tag-name": "Label for the input field for name of the diagram\n{{identical|Name}}",
 	"drawioeditor-ve-drawio-tag-name-help": "Help text for the input field for name of the diagram",
 	"drawioeditor-ve-drawio-tag-name-placeholder": "Placeholder text for the input field for name of the diagram",
@@ -30,5 +29,13 @@
 	"drawioeditor-ve-drawio-alignment-help": "Help text for the input field for alignment of the diagram",
 	"drawioeditor-details": "Label for \"Details\"\n{{identical|Details}}",
 	"drawioeditor-config-customshapelibraries": "Label for input field to set config variable for \"Custom shape libraries\"",
-	"drawioeditor-config-customshapelibraries-help": "Help text for input field to set config variable for \"Custom shape libraries\""
+	"drawioeditor-config-customshapelibraries-help": "Help text for input field to set config variable for \"Custom shape libraries\"",
+	"drawioeditor-ve-drawio-description": "Description shown in VisualEditor tag inspector for drawio tag",
+	"drawioeditor-ve-drawio-alignment-label-center": "Label for the option to center the diagram",
+	"drawioeditor-ve-drawio-alignment-label-left": "Label for the option to align the diagram to the left",
+	"drawioeditor-ve-drawio-alignment-label-right": "Label for the option to align the diagram to the right",
+	"drawioeditor-ve-drawio-editmode-label": "Label for the input field for the edit mode of the diagram",
+	"drawioeditor-ve-drawio-editmode-help": "Help text for the input field for edit mode of the diagram",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Label for the option to edit the diagram inline",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Label for the option to edit the diagram in fullscreen"
 }

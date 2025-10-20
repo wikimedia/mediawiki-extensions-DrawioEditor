@@ -9,5 +9,11 @@
 	"drawioconnector-ve-drawio-tag-name-help": "Diagramos, talpinamos viki, pavadinimas",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagrama-1",
 	"drawio-droplet-name": "Diagrama",
-	"drawio-droplet-description": "Redaguojama draw.io diagrama"
+	"drawio-droplet-description": "Redaguojama draw.io diagrama",
+	"drawioeditor-ve-drawio-title": "Draw.io diagrama",
+	"drawioeditor-ve-drawio-tag-name": "Pavadinimas",
+	"drawioeditor-ve-drawio-tag-name-help": "Diagramos, talpinamos viki, pavadinimas",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagrama-1",
+	"drawioeditor-droplet-name": "Diagrama",
+	"drawioeditor-droplet-description": "Redaguojama draw.io diagrama"
 }

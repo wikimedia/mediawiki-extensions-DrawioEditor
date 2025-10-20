@@ -11,5 +11,15 @@
 	"drawioconnector-ve-drawio-tag-name": "Numm",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagramm-1",
 	"drawio-droplet-name": "Diagramm",
-	"drawioconnector-ve-drawio-alt-label": "Bildbeschreiwung"
+	"drawioconnector-ve-drawio-alt-label": "Bildbeschreiwung",
+	"drawioeditor-ve-drawio-title": "draw.io-Diagramm",
+	"drawioeditor-ve-drawio-tag-name": "Numm",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagramm-1",
+	"drawioeditor-droplet-name": "Diagramm",
+	"drawioeditor-ve-drawio-alt-label": "Bildbeschreiwung",
+	"drawioeditor-ve-drawio-alignment-label-left": "Lénks",
+	"drawioeditor-ve-drawio-alignment-label-right": "Riets",
+	"drawioeditor-ve-drawio-editmode-label": "Ännerungsmodus",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Vollbild",
+	"drawioeditor-details": "Detailer"
 }

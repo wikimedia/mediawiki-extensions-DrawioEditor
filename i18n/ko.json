@@ -14,5 +14,9 @@
 	"drawioconnector-ve-drawio-tag-name": "이름",
 	"drawioconnector-ve-drawio-alt-label": "이미지 설명",
 	"drawioeditor-config-backendurl": "백엔드 URL",
-	"drawioconnector-ve-drawio-alignment-label": "이미지 정렬"
+	"drawioconnector-ve-drawio-alignment-label": "이미지 정렬",
+	"drawioeditor-ve-drawio-title": "draw.io 그래프",
+	"drawioeditor-ve-drawio-tag-name": "이름",
+	"drawioeditor-ve-drawio-alt-label": "이미지 설명",
+	"drawioeditor-ve-drawio-alignment-label": "이미지 정렬"
 }

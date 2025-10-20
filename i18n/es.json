@@ -12,5 +12,7 @@
 	"drawioeditor-approve-link": "Haga clic aquí para aprobar una revisión",
 	"drawioeditor-changeapprove-link": "Haga clic aquí para cambiar la revisión aprobada para este diagrama",
 	"drawioconnector-ve-drawio-title": "Diagrama de Draw.io",
-	"drawioconnector-ve-drawio-tag-name": "Nombre"
+	"drawioconnector-ve-drawio-tag-name": "Nombre",
+	"drawioeditor-ve-drawio-title": "Diagrama de Draw.io",
+	"drawioeditor-ve-drawio-tag-name": "Nombre"
 }

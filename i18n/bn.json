@@ -5,5 +5,13 @@
 		]
 	},
 	"drawioconnector-ve-drawio-title": "draw.io ডায়াগ্রাম",
-	"drawioconnector-ve-drawio-tag-name": "নাম"
+	"drawioconnector-ve-drawio-tag-name": "নাম",
+	"drawioeditor-ve-drawio-title": "draw.io ডায়াগ্রাম",
+	"drawioeditor-ve-drawio-tag-name": "নাম",
+	"drawioeditor-ve-drawio-alignment-label-center": "কেন্দ্রে",
+	"drawioeditor-ve-drawio-alignment-label-left": "বামে",
+	"drawioeditor-ve-drawio-alignment-label-right": "ডানে",
+	"drawioeditor-ve-drawio-editmode-label": "সম্পাদনা মোড",
+	"drawioeditor-ve-drawio-editmode-label-inline": "এক রেখায়",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "পূর্ণপর্দা"
 }

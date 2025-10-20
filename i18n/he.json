@@ -20,5 +20,20 @@
 	"drawioconnector-ve-drawio-alt-label": "תיאור התמונה",
 	"drawioconnector-ve-drawio-alt-help": "טקסט שמוצג כשהתמונה לא נטענת או עבור מכשירים מסייעים",
 	"drawioconnector-ve-drawio-scale-label": "קנה מידה",
-	"drawioconnector-ve-drawio-scale-help": "גורם קנה מידה לכוונון רזולוציה: חיובי כדי להגדיל, שלילי כדי להקטין"
+	"drawioconnector-ve-drawio-scale-help": "גורם קנה מידה לכוונון רזולוציה: חיובי כדי להגדיל, שלילי כדי להקטין",
+	"apihelp-drawioeditor-save-diagram-summary": "מעלה תרשים Drawio לוויקי בתור קובץ.",
+	"apihelp-drawioeditor-save-diagram-param-file": "הקובץ להעלאה, מסופק בתור העלאה בינארית.",
+	"drawioeditor-usage": "בשימוש עם תג draw.io",
+	"drawioeditor-ve-drawio-title": "תרשים draw.io",
+	"drawioeditor-ve-drawio-tag-name": "שם",
+	"drawioeditor-ve-drawio-tag-name-help": "שם התרשים כפי שמאוחסן בוויקי",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "תרשים-1",
+	"drawioeditor-droplet-name": "תרשים",
+	"drawioeditor-droplet-description": "תרשים draw.io שאפשר לערוך",
+	"drawioeditor-ve-drawio-alt-label": "תיאור התמונה",
+	"drawioeditor-ve-drawio-alt-help": "טקסט שמוצג כשהתמונה לא נטענת או עבור מכשירים מסייעים",
+	"drawioeditor-config-backendurl": "כתובת URL של השרת",
+	"drawioeditor-config-backendurl-help": "כתובת ה־URL הבסיסית של שירות diagrams.net (לשעבר draw.io) שמשמש לעריכת תרשימים",
+	"drawioeditor-ve-drawio-alignment-label": "יישור תמונה",
+	"drawioeditor-ve-drawio-alignment-help": "יישור אופקי של התמונה בדף"
 }
