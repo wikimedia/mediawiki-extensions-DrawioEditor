@@ -13,6 +13,12 @@ use MWStake\MediaWiki\Component\InputProcessor\Processor\StringValue;
 class DrawioTag extends GenericTag {
 
 	/**
+	 * @param string $defaultEditMode
+	 */
+	public function __construct( private readonly string $defaultEditMode = 'inline' ) {
+	}
+
+	/**
 	 * @inheritDoc
 	 */
 	public function getTagNames(): array {
@@ -48,7 +54,7 @@ class DrawioTag extends GenericTag {
 			->setRequired( false );
 
 		$editmode = new StringValue();
-		$editmode->setDefaultValue( "inline" );
+		$editmode->setDefaultValue( $this->defaultEditMode );
 
 		$alt = new StringValue();
 

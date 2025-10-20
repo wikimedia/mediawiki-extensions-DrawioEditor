@@ -98,7 +98,7 @@ class DrawioEditor {
 		$opt_max_width = $opts[ 'max-width' ] ?? false;
 		$opt_alt = $opts[ 'alt' ] ?? false;
 		$alignment = $opts[ 'alignment' ] ?? 'center';
-		$edit_mode = $opts[ 'editmode' ] ?? 'inline';
+		$edit_mode = $opts[ 'editmode' ] ?? $this->config->get( 'DrawioEditorDefaultEditmode' );
 
 		/* process input */
 		if ( $name == null || !strlen( $name ) ) {

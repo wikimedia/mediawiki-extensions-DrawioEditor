@@ -8,6 +8,7 @@ drawioeditor.tag.Form = function ( config ) {
 		}
 	} );
 	this.inspector = config.inspector;
+	this.definitions = config.definition.paramDefinitions;
 	this.filenameProcessor = new drawioeditor.FilenameProcessor();
 };
 
@@ -28,6 +29,7 @@ drawioeditor.tag.Form.prototype.makeItems = function () {
 		{
 			type: 'dropdown',
 			name: 'editmode',
+			value: this.definitions.editmode.default || 'inline',
 			options: [
 				{ data: 'inline', label: mw.msg( 'drawioeditor-ve-drawio-editmode-label-inline' ) },
 				{ data: 'fullscreen', label: mw.msg( 'drawioeditor-ve-drawio-editmode-label-fullscreen' ) }

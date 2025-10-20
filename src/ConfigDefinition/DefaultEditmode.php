@@ -36,8 +36,8 @@ class DefaultEditmode extends ArraySetting implements IOverwriteGlobal {
 	 */
 	public function getOptions() {
 		return [
-			Message::newFromKey( "drawio-tag-editmode-label-inline" )->text() => 'inline',
-			Message::newFromKey( "drawio-tag-editmode-label-fullscreen" )->text() => 'fullscreen',
+			Message::newFromKey( "drawioeditor-ve-drawio-editmode-label-inline" )->text() => 'inline',
+			Message::newFromKey( "drawioeditor-ve-drawio-editmode-label-fullscreen" )->text() => 'fullscreen',
 		];
 	}
 
@@ -48,11 +48,11 @@ class DefaultEditmode extends ArraySetting implements IOverwriteGlobal {
 
 	/** @inheritDoc */
 	public function getLabelMessageKey() {
-		return 'drawioeditor-config-defaulteditmode';
+		return 'drawioeditor-ve-drawio-editmode-label';
 	}
 
 	/** @inheritDoc */
 	public function getHelpMessageKey() {
-		return 'drawioeditor-config-defaulteditmode-help';
+		return 'drawioeditor-ve-drawio-editmode-help';
 	}
 }
