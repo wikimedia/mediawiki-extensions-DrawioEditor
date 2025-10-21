@@ -38,13 +38,6 @@ class DrawioTag extends GenericTag {
 	/**
 	 * @inheritDoc
 	 */
-	public function getResourceLoaderModules(): ?array {
-		return [ 'ext.drawio.tag.definition' ];
-	}
-
-	/**
-	 * @inheritDoc
-	 */
 	public function getParamDefinition(): ?array {
 		$filename = ( new StringValue() )
 			// Placeholder to prevent errors while VE inspector is being initialized

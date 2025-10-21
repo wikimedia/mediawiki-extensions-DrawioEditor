@@ -15,6 +15,8 @@ drawioeditor.tag.Form = function ( config ) {
 OO.inheritClass( drawioeditor.tag.Form, mw.ext.forms.standalone.Form );
 
 drawioeditor.tag.Form.prototype.makeItems = function () {
+	const me = this;
+
 	return [
 		{
 			type: 'text',
@@ -23,7 +25,7 @@ drawioeditor.tag.Form.prototype.makeItems = function () {
 			label: mw.msg( 'drawioeditor-ve-drawio-tag-name' ),
 			help: mw.msg( 'drawioeditor-ve-drawio-tag-name-help' ),
 			widget_validate: function ( value ) { // eslint-disable-line camelcase
-				return this.filenameProcessor.validateFilename( value );
+				return me.filenameProcessor.validateFilename( value );
 			}
 		},
 		{

@@ -14,7 +14,6 @@ class DrawioTagHandler implements ITagHandler {
 		$drawioEditor = new DrawioEditor();
 		$magicWordData = $drawioEditor->parse( $parser, $params[ 'filename' ], $params );
 		$parser->getOutput()->setPageProperty( 'drawio-image', $params[ 'filename' ] );
-		$parser->getOutput()->addModules( [ 'ext.drawioconnector.init' ] );
 
 		$out = Html::element( 'div', [
 			'class' => 'drawio'
