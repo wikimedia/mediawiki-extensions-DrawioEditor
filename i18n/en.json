@@ -35,6 +35,6 @@
 	"drawioeditor-ve-drawio-alignment-label-right": "Right",
 	"drawioeditor-ve-drawio-editmode-label": "Edit mode",
 	"drawioeditor-ve-drawio-editmode-help": "Choose how the diagram editor is displayed",
-	"drawioeditor-ve-drawio-editmode-label-inline": "Inline",
-	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Fullscreen"
+	"drawioeditor-ve-drawio-editmode-label-inline": "Page view",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Fullscreen view"
 }
