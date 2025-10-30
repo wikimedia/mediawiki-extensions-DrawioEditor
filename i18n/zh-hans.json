@@ -33,8 +33,8 @@
 	"drawioeditor-ve-drawio-alignment-label-right": "居右",
 	"drawioeditor-ve-drawio-editmode-label": "编辑模式",
 	"drawioeditor-ve-drawio-editmode-help": "选择图表编辑器的显示方式",
-	"drawioeditor-ve-drawio-editmode-label-inline": "内联",
-	"drawioeditor-ve-drawio-editmode-label-fullscreen": "全屏",
+	"drawioeditor-ve-drawio-editmode-label-inline": "页面视图",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "全屏视图",
 	"drawioeditor-details": "详细信息",
 	"drawioeditor-config-customshapelibraries": "自定义形状库",
 	"drawioeditor-config-customshapelibraries-help": "要在形状面板中加载的自定义形状库的URL"
