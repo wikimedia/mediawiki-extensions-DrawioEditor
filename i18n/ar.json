@@ -45,8 +45,8 @@
 	"drawioeditor-ve-drawio-alignment-label-right": "يمين",
 	"drawioeditor-ve-drawio-editmode-label": "وضع التحرير",
 	"drawioeditor-ve-drawio-editmode-help": "اختر كيفية عرض محرر المخطط",
-	"drawioeditor-ve-drawio-editmode-label-inline": "مضمن",
-	"drawioeditor-ve-drawio-editmode-label-fullscreen": "ملء الشاشة",
+	"drawioeditor-ve-drawio-editmode-label-inline": "عرض الصفحة",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "عرض ملء الشاشة",
 	"drawioeditor-details": "تفاصيل",
 	"drawioeditor-config-customshapelibraries": "مكتبات الأشكال المخصصة",
 	"drawioeditor-config-customshapelibraries-help": "عناوين URL لمكتبات الأشكال المخصصة للتحميل في لوحة الأشكال"
