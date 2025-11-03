@@ -43,8 +43,8 @@
 	"drawioeditor-ve-drawio-alignment-label-right": "Dextra",
 	"drawioeditor-ve-drawio-editmode-label": "Modo de modification",
 	"drawioeditor-ve-drawio-editmode-help": "Elige como le editor de diagrammas se presenta",
-	"drawioeditor-ve-drawio-editmode-label-inline": "Integrate",
-	"drawioeditor-ve-drawio-editmode-label-fullscreen": "In plen schermo",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Vista de pagina",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Vista de plen schermo",
 	"drawioeditor-config-customshapelibraries": "Bibliothecas personalisate de formas",
 	"drawioeditor-config-customshapelibraries-help": "URLs de bibliothecas personalisate de formas a cargar in le pannello de formas"
 }
