@@ -32,8 +32,8 @@
 	"drawioeditor-ve-drawio-alignment-label-right": "Rechts",
 	"drawioeditor-ve-drawio-editmode-label": "Bewerkingsmodus",
 	"drawioeditor-ve-drawio-editmode-help": "Kies hoe de diagram-editor wordt weergegeven",
-	"drawioeditor-ve-drawio-editmode-label-inline": "Geïntegreerd",
-	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Volledig scherm",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Paginaweergave",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Volledige schermweergave",
 	"drawioeditor-details": "Details",
 	"drawioeditor-config-customshapelibraries": "Aangepaste vormbibliotheken",
 	"drawioeditor-config-customshapelibraries-help": "URL’s van aangepaste vormbibliotheken om in het vormenpaneel te laden"

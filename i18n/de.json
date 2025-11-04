@@ -3,7 +3,8 @@
 		"authors": [
 			"Lukasaiko",
 			"Mschlindwein",
-			"TomatoCake"
+			"TomatoCake",
+			"Vhoesl"
 		]
 	},
 	"drawioeditor-desc": "draw.io Flussdiagramm-Erstellung und Inline-Bearbeitung",
@@ -15,9 +16,26 @@
 	"drawioeditor-tag-title": "Drawio",
 	"drawioeditor-usage": "draw.io-Tag verwendet",
 	"drawioeditor-ve-drawio-title": "draw.io-Diagramm",
+	"drawioeditor-ve-drawio-description": "Fügt ein bearbeitbares draw.io Diagramm ein",
 	"drawioeditor-ve-drawio-tag-name": "Name",
 	"drawioeditor-ve-drawio-tag-name-help": "Name des Diagramms, wie im Wiki gespeichert",
 	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagramm-1",
 	"drawioeditor-droplet-name": "Diagramm",
-	"drawioeditor-droplet-description": "Bearbeitbares draw.io-Diagramm"
+	"drawioeditor-droplet-description": "Bearbeitbares draw.io-Diagramm",
+	"drawioeditor-ve-drawio-alt-label": "Bildbeschreibung",
+	"drawioeditor-ve-drawio-alt-help": "Angezeigter Text, wenn das Bild nicht geladen oder für Hilfsgeräte benötigt wird",
+	"drawioeditor-config-backendurl": "Backend URL",
+	"drawioeditor-config-backendurl-help": "Die Basis-URL des Backend-Dienstes von diagrams.net (ehemals draw.io), der zum Bearbeiten von Diagrammen verwendet wird",
+	"drawioeditor-ve-drawio-alignment-label": "Bildausrichtung",
+	"drawioeditor-ve-drawio-alignment-help": "Horizontale Ausrichtung des Bildes auf der Seite",
+	"drawioeditor-ve-drawio-alignment-label-center": "Zentriert",
+	"drawioeditor-ve-drawio-alignment-label-left": "Linksbündig",
+	"drawioeditor-ve-drawio-alignment-label-right": "Rechtsbündig",
+	"drawioeditor-ve-drawio-editmode-label": "Bearbeitungsmodus",
+	"drawioeditor-ve-drawio-editmode-help": "Die Darstellung des Diagrammeditors auswählen",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Seitenansicht",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Vollbildansicht",
+	"drawioeditor-details": "Details",
+	"drawioeditor-config-customshapelibraries": "Benutzerdefinierte Formbibliotheken",
+	"drawioeditor-config-customshapelibraries-help": "URLs von benutzerdefinierten Formbibliotheken, die in das Formenfenster geladen werden sollen"
 }
