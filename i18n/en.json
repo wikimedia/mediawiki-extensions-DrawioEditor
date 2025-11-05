@@ -49,5 +49,12 @@
 	"drawioeditor-ve-drawio-editmode-label-inline": "Page view",
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Fullscreen view",
 	"drawioeditor-config-customshapelibraries": "Custom shape libraries",
-	"drawioeditor-config-customshapelibraries-help": "URLs of custom shape libraries to load in the shapes panel"
+	"drawioeditor-config-customshapelibraries-help": "URLs of custom shape libraries to load in the shapes panel",
+	"drawioeditor-ve-drawio-theme-label": "Theme",
+	"drawioeditor-ve-drawio-theme-help": "Choose your preferred theme for the user interface",
+	"drawioeditor-ve-drawio-theme-minimal-label": "Minimal",
+	"drawioeditor-ve-drawio-theme-classic-label": "Classic",
+	"drawioeditor-ve-drawio-theme-sketch-label": "Sketch",
+	"drawioeditor-ve-drawio-theme-dark-label": "Dark",
+	"drawioeditor-ve-drawio-theme-simple-label": "Simple"
 }
