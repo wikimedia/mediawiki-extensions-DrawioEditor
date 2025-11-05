@@ -60,11 +60,11 @@ drawioeditor.tag.Form.prototype.makeItems = function () {
 			type: 'dropdown',
 			name: 'theme',
 			options: [
-				{ data: 'min', label: mw.msg( 'drawioeditor-ve-drawio-theme-minimal-label' ).text() },
-				{ data: 'kennedy', label: mw.msg( 'drawioeditor-ve-drawio-theme-classic-label' ).text() },
-				{ data: 'sketch', label: mw.msg( 'drawioeditor-ve-drawio-theme-sketch-label' ).text() },
-				{ data: 'dark', label: mw.msg( 'drawioeditor-ve-drawio-theme-dark-label' ).text() },
-				{ data: 'simple', label: mw.msg( 'drawioeditor-ve-drawio-theme-simple-label' ).text() }
+				{ data: 'min', label: mw.msg( 'drawioeditor-ve-drawio-theme-minimal-label' ) },
+				{ data: 'kennedy', label: mw.msg( 'drawioeditor-ve-drawio-theme-classic-label' ) },
+				{ data: 'sketch', label: mw.msg( 'drawioeditor-ve-drawio-theme-sketch-label' ) },
+				{ data: 'dark', label: mw.msg( 'drawioeditor-ve-drawio-theme-dark-label' ) },
+				{ data: 'simple', label: mw.msg( 'drawioeditor-ve-drawio-theme-simple-label' ) }
 			],
 			label: mw.msg( 'drawioeditor-ve-drawio-theme-label' ),
 			help: mw.msg( 'drawioeditor-ve-drawio-theme-help' )
