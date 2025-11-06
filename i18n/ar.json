@@ -49,5 +49,7 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "عرض ملء الشاشة",
 	"drawioeditor-details": "تفاصيل",
 	"drawioeditor-config-customshapelibraries": "مكتبات الأشكال المخصصة",
-	"drawioeditor-config-customshapelibraries-help": "عناوين URL لمكتبات الأشكال المخصصة للتحميل في لوحة الأشكال"
+	"drawioeditor-config-customshapelibraries-help": "عناوين URL لمكتبات الأشكال المخصصة للتحميل في لوحة الأشكال",
+	"drawioeditor-ve-drawio-theme-label": "سمة",
+	"drawioeditor-ve-drawio-theme-help": "اختر المظهر المفضل لديك لواجهة المستخدم"
 }

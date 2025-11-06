@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"Elzav",
+			"EneshTranslates",
 			"Kareyac"
 		]
 	},
@@ -11,5 +12,12 @@
 	"drawioconnector-ve-drawio-alignment-help": "Горизонтальное выравнивание изображения на странице",
 	"drawioeditor-droplet-name": "Диаграмма",
 	"drawioeditor-ve-drawio-alt-label": "Описание изображения",
-	"drawioeditor-ve-drawio-alignment-help": "Горизонтальное выравнивание изображения на странице"
+	"drawioeditor-ve-drawio-alignment-help": "Горизонтальное выравнивание изображения на странице",
+	"drawioeditor-ve-drawio-theme-label": "Тема",
+	"drawioeditor-ve-drawio-theme-help": "Выберите предпочитаемую тему оформления интерфейса пользователя.",
+	"drawioeditor-ve-drawio-theme-minimal-label": "Минимальный",
+	"drawioeditor-ve-drawio-theme-classic-label": "Классический",
+	"drawioeditor-ve-drawio-theme-sketch-label": "Sketch",
+	"drawioeditor-ve-drawio-theme-dark-label": "Dark",
+	"drawioeditor-ve-drawio-theme-simple-label": "Простой"
 }

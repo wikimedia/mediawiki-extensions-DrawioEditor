@@ -10,7 +10,8 @@
 			"MacOS Weed",
 			"Mahabarata",
 			"Thibaut120094",
-			"Verdy p"
+			"Verdy p",
+			"WillyM"
 		]
 	},
 	"drawioeditor-desc": "Création et modification en ligne de diagrammes de flux pour draw.io",
@@ -47,5 +48,12 @@
 	"drawioeditor-ve-drawio-alt-help": "Texte affiché lorsque l'image ne se charge pas ou pour les appareils d'assistance",
 	"drawioeditor-ve-drawio-alignment-label": "Alignement des images",
 	"drawioeditor-ve-drawio-alignment-help": "Alignement horizontal de l'image sur la page",
-	"drawioeditor-details": "Détails"
+	"drawioeditor-details": "Détails",
+	"drawioeditor-ve-drawio-theme-label": "Thème",
+	"drawioeditor-ve-drawio-theme-help": "Choisissez le thème que vous préférez pour l'interface utilisateur",
+	"drawioeditor-ve-drawio-theme-minimal-label": "Minimal",
+	"drawioeditor-ve-drawio-theme-classic-label": "Classique",
+	"drawioeditor-ve-drawio-theme-sketch-label": "Esquisser",
+	"drawioeditor-ve-drawio-theme-dark-label": "Sombre",
+	"drawioeditor-ve-drawio-theme-simple-label": "Simple"
 }
