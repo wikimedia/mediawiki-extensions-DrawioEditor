@@ -6,5 +6,6 @@
 	},
 	"drawioconnector-ve-drawio-tag-name": "नाम",
 	"drawioeditor-ve-drawio-tag-name": "नाम",
-	"drawioeditor-details": "विवरण"
+	"drawioeditor-details": "विवरण",
+	"drawioeditor-ve-drawio-theme-label": "थीम"
 }
