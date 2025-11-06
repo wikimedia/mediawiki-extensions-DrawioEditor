@@ -93,6 +93,10 @@ class DrawioEditor {
 		$parser->getOutput()->updateCacheExpiry( 0 );
 
 		$opt_type = $opts[ 'type' ] ?? $this->config->get( 'DrawioEditorImageType' );
+		if ( !$this->isAllowedFileType( $opt_type ) ) {
+			return $this->errorMessage( "\"$opt_type\" files are not permitted on this wiki" );
+		}
+
 		$opt_height = $opts[ 'height' ] ?? 'auto';
 		$opt_width = $opts[ 'width' ] ?? '100%';
 		$opt_max_width = $opts[ 'max-width' ] ?? false;
@@ -456,4 +460,16 @@ class DrawioEditor {
 
 		return !$uploadsEnabled || !$canUpload || !$canReupload || $isProtected;
 	}
+
+	/**
+	 * Check if a given file type is permitted.
+	 *
+	 * @param string $extension File type, e.g. 'svg', 'png'
+	 * @return bool
+	 */
+	protected function isAllowedFileType( string $extension ): bool {
+		$allowed = $this->config->get( 'FileExtensions' );
+		return in_array( strtolower( $extension ), $allowed, true );
+	}
+
 }
