@@ -5,17 +5,14 @@ namespace MediaWiki\Extension\DrawioEditor\Api;
 use DOMDocument;
 use DOMElement;
 use DOMXPath;
-use File;
 use MediaWiki\Api\ApiBase;
 use MediaWiki\Api\ApiMain;
 use MediaWiki\Message\Message;
 use MediaWiki\Specials\SpecialUpload;
 use MediaWiki\Title\Title;
 use MWFileProps;
-use PNGMetadataExtractor;
 use RepoGroup;
 use RuntimeException;
-use SVGReader;
 use Wikimedia\Mime\MimeAnalyzer;
 use Wikimedia\ParamValidator\ParamValidator;
 use Wikimedia\ParamValidator\Util\UploadedFile;
@@ -67,6 +64,11 @@ class SaveDrawioDiagram extends ApiBase {
 			$this->dieWithError( 'No uploaded filename' );
 		}
 
+		$ext = pathinfo( $filename, PATHINFO_EXTENSION );
+		if ( !$this->isAllowedFileType( $ext ) ) {
+			$this->dieWithError( "\"$ext\" files are not permitted on this wiki" );
+		}
+
 		if ( str_contains( $filename, ':' ) ) {
 			// Validate user specified namespace
 			$title = Title::newFromText( $filename );
@@ -91,28 +93,10 @@ class SaveDrawioDiagram extends ApiBase {
 		if ( !$tempFilePath ) {
 			$this->dieWithError( 'Could not determine uploaded file temp path' );
 		}
+
 		$props = $mwProps->getPropsFromPath( $tempFilePath, true );
-
-		$mime = $props['file-mime'] ?? null;
-		if ( $mime && $mime !== 'unknown/unknown' ) {
-			[ $major, $minor ] = File::splitMime( $mime );
-			$props['major_mime'] = $major;
-			$props['minor_mime'] = $minor;
-			$props['mime'] = "$major/$minor";
-			$props['media_type'] = 'IMAGE';
-
-			if ( $mime === 'image/svg+xml' ) {
-				$this->enforceAnchorTargetTop( $tempFilePath );
-				$svgReader = new SVGReader( $tempFilePath );
-				$svgMetadata = $svgReader->getMetadata();
-				$props['width'] = $svgMetadata['width'] ?? 100;
-				$props['height'] = $svgMetadata['height'] ?? 100;
-			} elseif ( $mime === 'image/png' ) {
-				$pngReader = new PNGMetadataExtractor();
-				$pngMetadata = $pngReader->getMetadata( $tempFilePath );
-				$props['width'] = $pngMetadata['width'] ?? 100;
-				$props['height'] = $pngMetadata['height'] ?? 100;
-			}
+		if ( $props['mime'] === 'image/svg+xml' ) {
+			$this->enforceAnchorTargetTop( $tempFilePath );
 		}
 
 		// Store file in repo
@@ -185,6 +169,17 @@ class SaveDrawioDiagram extends ApiBase {
 		}
 
 		$dom->save( $filePath );
+	}
+
+	/**
+	 * Check if a given file type is permitted.
+	 *
+	 * @param string $extension File type, e.g. 'svg', 'png'
+	 * @return bool
+	 */
+	protected function isAllowedFileType( string $extension ): bool {
+		$allowed = $this->getConfig()->get( 'FileExtensions' );
+		return in_array( strtolower( $extension ), $allowed, true );
 	}
 
 	/**
