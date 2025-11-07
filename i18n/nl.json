@@ -47,5 +47,12 @@
 	"drawioeditor-ve-drawio-editmode-label-inline": "Paginaweergave",
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Volledige schermweergave",
 	"drawioeditor-config-customshapelibraries": "Aangepaste vormbibliotheken",
-	"drawioeditor-config-customshapelibraries-help": "URL’s van aangepaste vormbibliotheken om in het vormenpaneel te laden"
+	"drawioeditor-config-customshapelibraries-help": "URL’s van aangepaste vormbibliotheken om in het vormenpaneel te laden",
+	"drawioeditor-ve-drawio-theme-label": "Thema",
+	"drawioeditor-ve-drawio-theme-help": "Kies uw voorkeursthema voor de gebruikersinterface",
+	"drawioeditor-ve-drawio-theme-minimal-label": "Minimaal",
+	"drawioeditor-ve-drawio-theme-classic-label": "Klassiek",
+	"drawioeditor-ve-drawio-theme-sketch-label": "Schets",
+	"drawioeditor-ve-drawio-theme-dark-label": "Donker",
+	"drawioeditor-ve-drawio-theme-simple-label": "Eenvoudig"
 }

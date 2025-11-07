@@ -13,5 +13,6 @@
 	"drawioeditor-droplet-name": "Дијаграм",
 	"drawioeditor-ve-drawio-alt-label": "Опис слике",
 	"drawioeditor-ve-drawio-alignment-label": "Центрирање слике",
-	"drawioeditor-details": "Детаљи"
+	"drawioeditor-details": "Детаљи",
+	"drawioeditor-ve-drawio-theme-label": "Тема"
 }
