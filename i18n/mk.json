@@ -31,9 +31,16 @@
 	"drawioeditor-ve-drawio-alignment-label-right": "Десно",
 	"drawioeditor-ve-drawio-editmode-label": "Режим на уредување",
 	"drawioeditor-ve-drawio-editmode-help": "Изберете како да се прикажува уредникот на дијаграми",
-	"drawioeditor-ve-drawio-editmode-label-inline": "Во ред",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Страница",
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Цел екран",
 	"drawioeditor-details": "Подробно",
 	"drawioeditor-config-customshapelibraries": "Библиотеки на прилагодени облици",
-	"drawioeditor-config-customshapelibraries-help": "URL-адреси од библиотеки на прилагодени облици за вчитување во управувачницата за облици"
+	"drawioeditor-config-customshapelibraries-help": "URL-адреси од библиотеки на прилагодени облици за вчитување во управувачницата за облици",
+	"drawioeditor-ve-drawio-theme-label": "Изглед",
+	"drawioeditor-ve-drawio-theme-help": "Изберете го претпочитаниот изглед на корисничкиот посредник",
+	"drawioeditor-ve-drawio-theme-minimal-label": "Минимален",
+	"drawioeditor-ve-drawio-theme-classic-label": "Класичен",
+	"drawioeditor-ve-drawio-theme-sketch-label": "Скица",
+	"drawioeditor-ve-drawio-theme-dark-label": "Темен",
+	"drawioeditor-ve-drawio-theme-simple-label": "Прост"
 }
