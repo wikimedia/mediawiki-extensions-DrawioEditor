@@ -183,7 +183,8 @@
 	"Hooks": {
 		"DrawioGetFile": "approveRevsSetStableFile",
 		"ImagePageAfterImageLinks": "hooks",
-		"MWStakeGenericTagHandlerInitTags": "registerTags"
+		"MWStakeGenericTagHandlerInitTags": "registerTags",
+		"ParserFirstCallInit": "registerLegacyParserFunction"
 	},
 	"HookHandlers": {
 		"approveRevsSetStableFile": {
@@ -196,6 +197,9 @@
 		"registerTags": {
 			"class": "MediaWiki\\Extension\\DrawioEditor\\Hook\\RegisterTags",
 			"services": [ "MainConfig" ]
+		},
+		"registerLegacyParserFunction": {
+			"class": "MediaWiki\\Extension\\DrawioEditor\\Hook\\RegisterLegacyParserFunction"
 		}
 	},
 	"config": {
