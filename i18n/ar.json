@@ -49,5 +49,10 @@
 	"drawioeditor-config-customshapelibraries": "مكتبات الأشكال المخصصة",
 	"drawioeditor-config-customshapelibraries-help": "عناوين URL لمكتبات الأشكال المخصصة للتحميل في لوحة الأشكال",
 	"drawioeditor-ve-drawio-theme-label": "سمة",
-	"drawioeditor-ve-drawio-theme-help": "اختر المظهر المفضل لديك لواجهة المستخدم"
+	"drawioeditor-ve-drawio-theme-help": "اختر المظهر المفضل لديك لواجهة المستخدم",
+	"drawioeditor-ve-drawio-theme-minimal-label": "Minimal",
+	"drawioeditor-ve-drawio-theme-classic-label": "Classic",
+	"drawioeditor-ve-drawio-theme-sketch-label": "Sketch",
+	"drawioeditor-ve-drawio-theme-dark-label": "Dark",
+	"drawioeditor-ve-drawio-theme-simple-label": "Simple"
 }
