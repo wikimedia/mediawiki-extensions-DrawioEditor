@@ -48,8 +48,6 @@ function DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
 	this.iframeOverlay = $( '#drawio-iframe-overlay-' + id );
 	this.iframeOverlay.hide();
 
-	const customShapeLibraries = require( './customShapeLibraries.json' );
-
 	const params = new URLSearchParams( {
 		embed: '1',
 		proto: 'json',
@@ -64,9 +62,12 @@ function DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
 		splash: '0'
 	} );
 
+	// ERM43219 Deactivate clibs
 	// Append clibs manually so semicolons remain unencoded
-	const clibsParam = `&clibs=${ customShapeLibraries.customShapeLibraries }`;
-	const iframeUrl = `${ this.baseUrl }/?${ params.toString() }${ clibsParam }`;
+	// const customShapeLibraries = require( './customShapeLibraries.json' );
+	// const clibsParam = `&clibs=${ customShapeLibraries.customShapeLibraries }`;
+	// const iframeUrl = `${ this.baseUrl }/?${ params.toString() }${ clibsParam }`;
+	const iframeUrl = `${ this.baseUrl }/?${ params.toString() }`;
 
 	this.iframe = $( '<iframe>' )
 		.attr( {
@@ -396,12 +397,13 @@ window.editDrawio = function ( id, filename, editMode, type, updateHeight, updat
 };
 
 async function drawioHandleMessage( e ) {
-	// we only act on event coming from "baseUrl" iframes
-	if ( !window?.drawioEditorBaseUrl?.startsWith( e.origin ) ) {
-		return;
-	}
-
-	if ( !editor ) {
+	if (
+		// we only act on event coming from "baseUrl" iframes
+		!window?.drawioEditorBaseUrl?.startsWith( e.origin ) ||
+		!editor ||
+		// ignore e.g. { type: "WINDOWED-notify" }
+		typeof e.data !== 'string'
+	) {
 		return;
 	}
 
