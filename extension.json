@@ -57,6 +57,9 @@
 	"ExtensionMessagesFiles": {
 		"DrawioEditorMagic": "DrawioEditor.magic.php"
 	},
+	"ExtensionFunctions": [
+		"MediaWiki\\Extension\\DrawioEditor\\RegisterVisualEditorPlugins::execute"
+	],
 	"MessagesDirs": {
 		"DrawioEditor": [
 			"i18n"
@@ -122,6 +125,20 @@
 				"drawioeditor-ve-drawio-theme-help"
 			]
 		},
+		"ext.drawio.tag.definition": {
+			"scripts": [
+				"FilenameProcessor.js",
+				"ext.drawio.tag.definition.js"
+			],
+			"messages": [
+				"drawioeditor-ve-drawio-tag-name-placeholder"
+			],
+			"dependencies": [
+				"ext.drawio.tag.bootstrap",
+				"ext.visualEditorPlus.tags.definition",
+				"ext.drawio.tag.form"
+			]
+		},
 		"ext.drawio.tag.form": {
 			"scripts": [
 				"FilenameProcessor.js",
@@ -149,7 +166,13 @@
 			],
 			"dependencies": [
 				"ext.forms.formelements.bootstrap",
-				"ext.forms.standalone"
+				"ext.forms.standalone",
+				"ext.drawio.tag.bootstrap"
+			]
+		},
+		"ext.drawio.tag.bootstrap": {
+			"scripts": [
+				"ext.drawio.tag.bootstrap.js"
 			]
 		}
 	},
