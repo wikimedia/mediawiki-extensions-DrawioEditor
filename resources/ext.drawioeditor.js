@@ -1,5 +1,5 @@
 function DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
-	updateMaxWidth, baseUrl, latestIsApproved, imageURL ) {
+	updateMaxWidth, baseUrl, latestIsApproved, imageURL, theme ) {
 	const that = this;
 
 	this.id = id;
@@ -11,7 +11,7 @@ function DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
 	this.updateMaxWidth = updateMaxWidth;
 	this.baseUrl = baseUrl;
 	this.latestIsApproved = latestIsApproved;
-	this.theme = mw.config.get( 'drawiotheme' ) || 'min';
+	this.theme = theme;
 
 	// Could be 'en', 'fr', 'de-formal', 'zh-hant', ...
 	const currentUserLanguage = mw.user.options.get( 'language', 'en' ).split( '-' );
@@ -387,10 +387,12 @@ FullscreenDialog.prototype.close = function () {
 
 var editor; // eslint-disable-line no-var
 
-window.editDrawio = function ( id, filename, editMode, type, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL ) {
+window.editDrawio = function ( id, filename, editMode, type, updateHeight, updateWidth,
+	updateMaxWidth, baseUrl, latestIsApproved, imageURL, theme ) {
 	if ( !editor ) {
 		window.drawioEditorBaseUrl = baseUrl;
-		editor = new DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth, updateMaxWidth, baseUrl, latestIsApproved, imageURL );
+		editor = new DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
+			updateMaxWidth, baseUrl, latestIsApproved, imageURL, theme );
 	} else {
 		alert( 'Only one DrawioEditor can be open at the same time!' );
 	}
@@ -494,6 +496,7 @@ $( document ).on( 'click', '.drawioeditor-edit', function () {
 		data.maxWidth,
 		data.baseUrl,
 		data.latestIsApproved,
-		data.imgUrl
+		data.imgUrl,
+		data.theme
 	);
 } );

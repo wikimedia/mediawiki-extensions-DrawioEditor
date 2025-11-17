@@ -103,9 +103,7 @@ class DrawioEditor {
 		$opt_alt = $opts[ 'alt' ] ?? false;
 		$alignment = $opts[ 'alignment' ] ?? 'center';
 		$edit_mode = $opts[ 'editmode' ] ?? $this->config->get( 'DrawioEditorDefaultEditmode' );
-
 		$theme = $opts[ 'theme' ] ?? 'min';
-		$parser->getOutput()->setJsConfigVar( 'drawiotheme', $theme );
 
 		/* process input */
 		if ( $name == null || !strlen( $name ) ) {
@@ -225,7 +223,8 @@ class DrawioEditor {
 			'data-max-width' => $opt_max_width === 'chart' ? 'true' : 'false',
 			'data-base-url' => $base_url,
 			'data-latest-is-approved' => $latest_is_approved ? 'true' : 'false',
-			'data-img-url' => $img ? $img->getUrl() : ""
+			'data-img-url' => $img ? $img->getUrl() : "",
+			'data-theme' => $theme
 		];
 		$editLink = Html::element( 'a', $attribs, $editLabel );
 

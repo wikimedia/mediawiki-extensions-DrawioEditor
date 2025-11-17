@@ -49,11 +49,15 @@ class DrawioTag extends GenericTag {
 		$alignment = new StringValue();
 		$alignment->setDefaultValue( "center" );
 
+		$theme = new StringValue();
+		$theme->setDefaultValue( 'min' );
+
 		return [
 			'filename' => $filename,
 			'editmode' => $editmode,
 			'alt' => $alt,
 			'alignment' => $alignment,
+			'theme' => $theme
 		];
 	}
 
