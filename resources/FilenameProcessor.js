@@ -10,7 +10,8 @@ OO.initClass( drawioeditor.FilenameProcessor );
  * @return {string}
  */
 drawioeditor.FilenameProcessor.prototype.initializeFilename = function () {
-	let filename = mw.config.get( 'wgTitle' ) + '-' + ( Math.floor( Math.random() * 100000000 ) + 1 );
+	const title = mw.config.get( 'wgTitle' ) || mw.msg( 'drawioeditor-ve-drawio-tag-name-placeholder' );
+	let filename = title + '-' + ( Math.floor( Math.random() * 100000000 ) + 1 );
 	// filename must only contain alphanumeric characters, dashes and underscores
 	filename = this.sanitizeFilename( filename );
 
