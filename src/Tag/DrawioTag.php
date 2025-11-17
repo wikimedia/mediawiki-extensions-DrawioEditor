@@ -39,12 +39,7 @@ class DrawioTag extends GenericTag {
 	 * @inheritDoc
 	 */
 	public function getParamDefinition(): ?array {
-		$filename = ( new StringValue() )
-			// Placeholder to prevent errors while VE inspector is being initialized
-			->setDefaultValue(
-				Message::newFromKey( 'drawioeditor-ve-drawio-tag-name-placeholder' )->text() . uniqid( '_' )
-			)
-			->setRequired( false );
+		$filename = ( new StringValue() )->setRequired( true );
 
 		$editmode = new StringValue();
 		$editmode->setDefaultValue( $this->defaultEditMode );

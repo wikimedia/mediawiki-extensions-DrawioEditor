@@ -1,6 +1,3 @@
-window.drawioeditor = window.drawioeditor || {};
-window.drawioeditor.tag = window.drawioeditor.tag || {};
-
 drawioeditor.tag.Form = function ( config ) {
 	drawioeditor.tag.Form.super.call( this, {
 		definition: {
@@ -9,7 +6,10 @@ drawioeditor.tag.Form = function ( config ) {
 	} );
 	this.inspector = config.inspector;
 	this.definitions = config.definition.paramDefinitions;
-	this.filenameProcessor = new drawioeditor.FilenameProcessor();
+
+	const processorPayload = { processor: new drawioeditor.FilenameProcessor() };
+	mw.hook( 'drawioeditor.makeFilenameProcessor' ).fire( processorPayload );
+	this.filenameProcessor = processorPayload.processor;
 };
 
 OO.inheritClass( drawioeditor.tag.Form, mw.ext.forms.standalone.Form );
@@ -70,20 +70,4 @@ drawioeditor.tag.Form.prototype.makeItems = function () {
 			help: mw.msg( 'drawioeditor-ve-drawio-theme-help' )
 		}
 	];
-};
-
-drawioeditor.tag.Form.prototype.onRenderComplete = function ( form ) {
-	const initValue = form.getItem( 'filename' ).getValue();
-	let newValue = initValue;
-	if ( !initValue ) {
-		newValue = this.filenameProcessor.initializeFilename();
-	} else {
-		newValue = this.filenameProcessor.sanitizeFilename( initValue );
-	}
-	setTimeout( () => {
-		// Exec in next loop
-		if ( initValue !== newValue ) {
-			form.getItem( 'filename' ).setValue( newValue );
-		}
-	}, 1 );
 };
