@@ -24,6 +24,7 @@ drawioeditor.tag.Form.prototype.makeItems = function () {
 			required: true,
 			label: mw.msg( 'drawioeditor-ve-drawio-tag-name' ),
 			help: mw.msg( 'drawioeditor-ve-drawio-tag-name-help' ),
+			labelAlign: 'top',
 			widget_validate: function ( value ) { // eslint-disable-line camelcase
 				return me.filenameProcessor.validateFilename( value );
 			}
@@ -31,6 +32,7 @@ drawioeditor.tag.Form.prototype.makeItems = function () {
 		{
 			type: 'dropdown',
 			name: 'editmode',
+			labelAlign: 'top',
 			value: this.definitions.editmode.default || 'inline',
 			options: [
 				{ data: 'inline', label: mw.msg( 'drawioeditor-ve-drawio-editmode-label-inline' ) },
@@ -41,6 +43,7 @@ drawioeditor.tag.Form.prototype.makeItems = function () {
 		},
 		{
 			type: 'text',
+			labelAlign: 'top',
 			name: 'alt',
 			label: mw.msg( 'drawioeditor-ve-drawio-alt-label' ),
 			help: mw.msg( 'drawioeditor-ve-drawio-alt-help' )
@@ -48,6 +51,7 @@ drawioeditor.tag.Form.prototype.makeItems = function () {
 		{
 			type: 'dropdown',
 			name: 'alignment',
+			labelAlign: 'top',
 			options: [
 				{ data: 'center', label: mw.msg( 'drawioeditor-ve-drawio-alignment-label-center' ) },
 				{ data: 'left', label: mw.msg( 'drawioeditor-ve-drawio-alignment-label-left' ) },
@@ -59,6 +63,7 @@ drawioeditor.tag.Form.prototype.makeItems = function () {
 		{
 			type: 'dropdown',
 			name: 'theme',
+			labelAlign: 'top',
 			options: [
 				{ data: 'min', label: mw.msg( 'drawioeditor-ve-drawio-theme-minimal-label' ) },
 				{ data: 'kennedy', label: mw.msg( 'drawioeditor-ve-drawio-theme-classic-label' ) },
