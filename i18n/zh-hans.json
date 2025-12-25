@@ -2,6 +2,7 @@
 	"@metadata": {
 		"authors": [
 			"GuoPC",
+			"Peterxy12",
 			"StarrySky",
 			"沈澄心"
 		]
@@ -39,5 +40,10 @@
 	"drawioeditor-config-customshapelibraries": "自定义形状库",
 	"drawioeditor-config-customshapelibraries-help": "要在形状面板中加载的自定义形状库的URL",
 	"drawioeditor-ve-drawio-theme-label": "主题",
-	"drawioeditor-ve-drawio-theme-help": "选择您偏好的用户界面主题"
+	"drawioeditor-ve-drawio-theme-help": "选择您偏好的用户界面主题",
+	"drawioeditor-ve-drawio-theme-minimal-label": "极简",
+	"drawioeditor-ve-drawio-theme-classic-label": "标准",
+	"drawioeditor-ve-drawio-theme-sketch-label": "草图",
+	"drawioeditor-ve-drawio-theme-dark-label": "深色",
+	"drawioeditor-ve-drawio-theme-simple-label": "简易"
 }
