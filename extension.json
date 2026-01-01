@@ -151,7 +151,11 @@
 			"services": [ "DBLoadBalancer", "RepoGroup" ]
 		},
 		"hooks": {
-			"class": "\\MediaWiki\\Extension\\DrawioEditor\\Hooks"
+			"class": "\\MediaWiki\\Extension\\DrawioEditor\\Hooks",
+			"services": [
+				"LinkRenderer",
+				"DBLoadBalancer"
+			]
 		}
 	},
 	"config": {
