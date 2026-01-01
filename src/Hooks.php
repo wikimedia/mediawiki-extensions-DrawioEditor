@@ -3,11 +3,18 @@
 namespace MediaWiki\Extension\DrawioEditor;
 
 use MediaWiki\Html\Html;
-use MediaWiki\MediaWikiServices;
+use MediaWiki\Linker\LinkRenderer;
 use MediaWiki\Page\Hook\ImagePageAfterImageLinksHook;
 use MediaWiki\Title\Title;
+use Wikimedia\Rdbms\ILoadBalancer;
 
 class Hooks implements ImagePageAfterImageLinksHook {
+
+	public function __construct(
+		private readonly LinkRenderer $linkRenderer,
+		private readonly ILoadBalancer $loadBalancer,
+	) {
+	}
 
 	/**
 	 * @inheritDoc
@@ -23,8 +30,7 @@ class Hooks implements ImagePageAfterImageLinksHook {
 			return;
 		}
 
-		$services = MediaWikiServices::getInstance();
-		$dbr = $services->getDBLoadBalancer()->getConnection( DB_REPLICA );
+		$dbr = $this->loadBalancer->getConnection( DB_REPLICA );
 		$res = $dbr->newSelectQueryBuilder()
 			->table( 'page_props' )
 			->field( 'pp_page' )
@@ -36,10 +42,9 @@ class Hooks implements ImagePageAfterImageLinksHook {
 			->fetchResultSet();
 
 		$links = [];
-		$linkRenderer = $services->getLinkRenderer();
 		foreach ( $res as $row ) {
 			$title = Title::newFromID( $row->pp_page );
-			$link = $linkRenderer->makeLink( $title );
+			$link = $this->linkRenderer->makeLink( $title );
 			$liEl = Html::rawElement( 'li', [], $link );
 			$links[$title->getPrefixedDBkey()] = $liEl;
 		}
