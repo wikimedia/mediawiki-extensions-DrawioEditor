@@ -160,6 +160,29 @@ DrawioEditor.prototype.hideSpinner = function () {
 	} );
 };
 
+DrawioEditor.prototype.normalizeDataURLForDrawio = function ( dataURL ) {
+	const parts = dataURL.match( /^data:([^;]+);base64,(.+)$/ );
+	if ( !parts ) {
+		return dataURL;
+	}
+
+	const binaryString = atob( parts[ 2 ] );
+	const bytes = Uint8Array.from( binaryString, ( char ) => char.charCodeAt( 0 ) );
+	const decoder = new TextDecoder( 'utf-8' );
+	const svgText = decoder.decode( bytes );
+
+	// Convert non-ASCII characters to XML entities, as DrawIO does not handle
+	// raw UTF-8 characters (ü) well, but only escaped char references (&#xFC;)
+	const normalized = svgText.replace( /[\u0080-\uFFFF]/g, ( char ) => (
+		'&#x' + char.charCodeAt( 0 ).toString( 16 ).toUpperCase() + ';'
+	) );
+
+	const utf8Bytes = new TextEncoder().encode( normalized );
+	const newBinaryString = String.fromCharCode( ...utf8Bytes );
+	const newBase64 = btoa( newBinaryString );
+	return 'data:' + parts[ 1 ] + ';base64,' + newBase64;
+};
+
 DrawioEditor.prototype.downloadFromWiki = function () {
 	const that = this;
 	const xhr = new XMLHttpRequest();
@@ -169,7 +192,8 @@ DrawioEditor.prototype.downloadFromWiki = function () {
 				const res = this.response;
 				const fr = new FileReader();
 				fr.onload = function ( ev ) {
-					that.loadImageFromDataURL( res.type, ev.target.result );
+					const normalizedDataURL = that.normalizeDataURLForDrawio( ev.target.result );
+					that.loadImageFromDataURL( res.type, normalizedDataURL );
 				};
 				fr.readAsDataURL( res );
 			} else {
