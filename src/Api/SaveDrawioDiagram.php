@@ -96,7 +96,7 @@ class SaveDrawioDiagram extends ApiBase {
 
 		$props = $mwProps->getPropsFromPath( $tempFilePath, true );
 		if ( $props['mime'] === 'image/svg+xml' ) {
-			$this->enforceAnchorTargetTop( $tempFilePath );
+			$this->modifyImage( $tempFilePath );
 		}
 
 		// Store file in repo
@@ -133,13 +133,13 @@ class SaveDrawioDiagram extends ApiBase {
 	}
 
 	/**
-	 * Set target="_top" on SVG <a> links unless target="_blank" is set,
-	 * to prevent links opening inside the <object> and ensure
-	 * they open in the top-level window.
+	 * Used for post-processing SVG files.
 	 *
 	 * @param string $filePath
+	 *
+	 * @return void
 	 */
-	private function enforceAnchorTargetTop( string $filePath ): void {
+	private function modifyImage( string $filePath ): void {
 		$dom = new DOMDocument();
 		$dom->load( $filePath );
 
@@ -147,6 +147,20 @@ class SaveDrawioDiagram extends ApiBase {
 		$xpath->registerNamespace( 'svg', 'http://www.w3.org/2000/svg' );
 		$xpath->registerNamespace( 'xhtml', 'http://www.w3.org/1999/xhtml' );
 
+		$this->enforceAnchorTargetTop( $xpath );
+		$this->fixTransparentStyle( $xpath );
+
+		$dom->save( $filePath );
+	}
+
+	/**
+	 * Set target="_top" on SVG <a> links unless target="_blank" is set,
+	 * to prevent links opening inside the <object> and ensure
+	 * they open in the top-level window.
+	 *
+	 * @param DOMXPath $xpath
+	 */
+	private function enforceAnchorTargetTop( DOMXPath $xpath ): void {
 		$anchors = [];
 
 		$svgAnchors = $xpath->query( '//svg:a' );
@@ -167,14 +181,30 @@ class SaveDrawioDiagram extends ApiBase {
 			}
 			$anchor->setAttribute( 'target', '_top' );
 		}
+	}
 
-		$dom->save( $filePath );
+	/**
+	 * Adds fill-opacity=0 to transparent elements
+	 *
+	 * ERM45109
+	 *
+	 * @param DOMXPath $xpath
+	 *
+	 * @return void
+	 */
+	private function fixTransparentStyle( DOMXPath $xpath ): void {
+		$allElements = $xpath->query( '//*[@fill="transparent"]' );
+		foreach ( $allElements as $element ) {
+			/** @var DOMElement $element */
+			$element->setAttribute( 'fill-opacity', '0' );
+		}
 	}
 
 	/**
 	 * Check if a given file type is permitted.
 	 *
 	 * @param string $extension File type, e.g. 'svg', 'png'
+	 *
 	 * @return bool
 	 */
 	protected function isAllowedFileType( string $extension ): bool {
