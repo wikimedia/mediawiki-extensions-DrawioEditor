@@ -160,7 +160,11 @@ DrawioEditor.prototype.hideSpinner = function () {
 	} );
 };
 
-DrawioEditor.prototype.normalizeDataURLForDrawio = function ( dataURL ) {
+DrawioEditor.prototype.normalizeSvgDataURL = function ( dataURL, mimeType ) {
+	if ( mimeType !== 'image/svg+xml' ) {
+		return dataURL;
+	}
+
 	const parts = dataURL.match( /^data:([^;]+);base64,(.+)$/ );
 	if ( !parts ) {
 		return dataURL;
@@ -192,7 +196,8 @@ DrawioEditor.prototype.downloadFromWiki = function () {
 				const res = this.response;
 				const fr = new FileReader();
 				fr.onload = function ( ev ) {
-					const normalizedDataURL = that.normalizeDataURLForDrawio( ev.target.result );
+					const dataURL = ev.target.result;
+					const normalizedDataURL = that.normalizeSvgDataURL( dataURL, res.type );
 					that.loadImageFromDataURL( res.type, normalizedDataURL );
 				};
 				fr.readAsDataURL( res );
