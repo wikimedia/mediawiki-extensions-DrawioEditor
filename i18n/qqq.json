@@ -37,12 +37,5 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Label for the option to edit the diagram in fullscreen",
 	"drawioeditor-details": "Label for \"Details\"\n{{identical|Details}}",
 	"drawioeditor-config-customshapelibraries": "Label for input field to set config variable for \"Custom shape libraries\"",
-	"drawioeditor-config-customshapelibraries-help": "Help text for input field to set config variable for \"Custom shape libraries\"",
-	"drawioeditor-ve-drawio-theme-label": "Label for the theme input field",
-	"drawioeditor-ve-drawio-theme-help": "Help text for the theme input field",
-	"drawioeditor-ve-drawio-theme-minimal-label": "{{notranslate}}\nLabel for the the \"Minimal\" theme",
-	"drawioeditor-ve-drawio-theme-classic-label": "{{notranslate}}\nLabel for the the \"Classic\" theme",
-	"drawioeditor-ve-drawio-theme-sketch-label": "{{notranslate}}\nLabel for the the \"Sketch\" theme",
-	"drawioeditor-ve-drawio-theme-dark-label": "{{notranslate}}\nLabel for the the \"Dark\" theme",
-	"drawioeditor-ve-drawio-theme-simple-label": "{{notranslate}}\nLabel for the the \"Simple\" theme"
+	"drawioeditor-config-customshapelibraries-help": "Help text for input field to set config variable for \"Custom shape libraries\""
 }
