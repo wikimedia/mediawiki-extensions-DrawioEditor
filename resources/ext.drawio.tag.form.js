@@ -59,20 +59,6 @@ drawioeditor.tag.Form.prototype.makeItems = function () {
 			],
 			label: mw.msg( 'drawioeditor-ve-drawio-alignment-label' ),
 			help: mw.msg( 'drawioeditor-ve-drawio-alignment-help' )
-		},
-		{
-			type: 'dropdown',
-			name: 'theme',
-			labelAlign: 'top',
-			options: [
-				{ data: 'min', label: mw.msg( 'drawioeditor-ve-drawio-theme-minimal-label' ) },
-				{ data: 'kennedy', label: mw.msg( 'drawioeditor-ve-drawio-theme-classic-label' ) },
-				{ data: 'sketch', label: mw.msg( 'drawioeditor-ve-drawio-theme-sketch-label' ) },
-				{ data: 'dark', label: mw.msg( 'drawioeditor-ve-drawio-theme-dark-label' ) },
-				{ data: 'simple', label: mw.msg( 'drawioeditor-ve-drawio-theme-simple-label' ) }
-			],
-			label: mw.msg( 'drawioeditor-ve-drawio-theme-label' ),
-			help: mw.msg( 'drawioeditor-ve-drawio-theme-help' )
 		}
 	];
 };

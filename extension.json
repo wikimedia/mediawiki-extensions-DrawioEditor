@@ -120,9 +120,7 @@
 				"drawioeditor-ve-drawio-alt-help",
 				"drawioeditor-ve-drawio-alignment-label",
 				"drawioeditor-ve-drawio-alignment-help",
-				"drawioeditor-details",
-				"drawioeditor-ve-drawio-theme-label",
-				"drawioeditor-ve-drawio-theme-help"
+				"drawioeditor-details"
 			]
 		},
 		"ext.drawio.tag.definition": {
@@ -157,12 +155,7 @@
 				"drawioeditor-ve-drawio-alignment-label-left",
 				"drawioeditor-ve-drawio-alignment-label-right",
 				"drawioeditor-ve-drawio-alignment-label",
-				"drawioeditor-ve-drawio-alignment-help",
-				"drawioeditor-ve-drawio-theme-minimal-label",
-				"drawioeditor-ve-drawio-theme-classic-label",
-				"drawioeditor-ve-drawio-theme-sketch-label",
-				"drawioeditor-ve-drawio-theme-dark-label",
-				"drawioeditor-ve-drawio-theme-simple-label"
+				"drawioeditor-ve-drawio-alignment-help"
 			],
 			"dependencies": [
 				"ext.forms.formelements.bootstrap",
