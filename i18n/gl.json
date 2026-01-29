@@ -35,12 +35,5 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Vista de pantalla completa",
 	"drawioeditor-details": "Detalles",
 	"drawioeditor-config-customshapelibraries": "Bibliotecas de formas personalizadas",
-	"drawioeditor-config-customshapelibraries-help": "Enderezos URL de bibliotecas de formas personalizadas para cargar no panel de formas",
-	"drawioeditor-ve-drawio-theme-label": "Tema",
-	"drawioeditor-ve-drawio-theme-help": "Escolle o teu tema preferido para a interface de usuario",
-	"drawioeditor-ve-drawio-theme-minimal-label": "Mínimo",
-	"drawioeditor-ve-drawio-theme-classic-label": "Clásico",
-	"drawioeditor-ve-drawio-theme-sketch-label": "Bosquexo",
-	"drawioeditor-ve-drawio-theme-dark-label": "Escuro",
-	"drawioeditor-ve-drawio-theme-simple-label": "Simple"
+	"drawioeditor-config-customshapelibraries-help": "Enderezos URL de bibliotecas de formas personalizadas para cargar no panel de formas"
 }

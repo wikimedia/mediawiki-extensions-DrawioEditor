@@ -35,12 +35,5 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "全螢幕檢視",
 	"drawioeditor-details": "詳細資訊",
 	"drawioeditor-config-customshapelibraries": "自訂形狀庫別",
-	"drawioeditor-config-customshapelibraries-help": "在形狀面板中載入自訂形狀庫別的 URL",
-	"drawioeditor-ve-drawio-theme-label": "主題",
-	"drawioeditor-ve-drawio-theme-help": "選擇您偏好的使用者介面主題",
-	"drawioeditor-ve-drawio-theme-minimal-label": "極簡",
-	"drawioeditor-ve-drawio-theme-classic-label": "標準",
-	"drawioeditor-ve-drawio-theme-sketch-label": "草圖",
-	"drawioeditor-ve-drawio-theme-dark-label": "暗黑",
-	"drawioeditor-ve-drawio-theme-simple-label": "簡易"
+	"drawioeditor-config-customshapelibraries-help": "在形狀面板中載入自訂形狀庫別的 URL"
 }
