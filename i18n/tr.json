@@ -8,12 +8,5 @@
 	},
 	"drawioeditor-desc": "draw.io akış şeması oluşturma ve satır içi değişiklik yapma",
 	"drawioeditor-ve-drawio-editmode-label-inline": "Sayfa görünümü",
-	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Tam ekran görünümü",
-	"drawioeditor-ve-drawio-theme-label": "Tema",
-	"drawioeditor-ve-drawio-theme-help": "Kullanıcı arayüzü için tercih ettiğiniz temayı seçin",
-	"drawioeditor-ve-drawio-theme-minimal-label": "Minimum",
-	"drawioeditor-ve-drawio-theme-classic-label": "Klasik",
-	"drawioeditor-ve-drawio-theme-sketch-label": "Taslak",
-	"drawioeditor-ve-drawio-theme-dark-label": "Karanlık",
-	"drawioeditor-ve-drawio-theme-simple-label": "Basit"
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Tam ekran görünümü"
 }
