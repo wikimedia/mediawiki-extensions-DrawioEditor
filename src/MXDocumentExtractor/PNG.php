@@ -2,8 +2,6 @@
 
 namespace MediaWiki\Extension\DrawioEditor\MXDocumentExtractor;
 
-use Wikimedia\AtEase\AtEase;
-
 class PNG extends Base {
 
 	/**
@@ -36,9 +34,8 @@ class PNG extends Base {
 					$position + strlen( $type . $comment ),
 					$chunckLength - strlen( $comment )
 				);
-				AtEase::suppressWarnings();
-				$data = gzinflate( $data );
-				AtEase::restoreWarnings();
+				// phpcs:ignore Generic.PHP.NoSilencedErrors.Discouraged
+				$data = @gzinflate( $data );
 				if ( !is_string( $data ) ) {
 					$data = '';
 				}
