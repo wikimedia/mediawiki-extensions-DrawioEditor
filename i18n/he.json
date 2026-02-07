@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Amire80"
+			"Amire80",
+			"Neriah"
 		]
 	},
 	"drawioeditor-desc": "יצירה ועריכה מובנית של תרשימי זרימה של draw.io",
@@ -33,5 +34,9 @@
 	"drawioeditor-ve-drawio-alt-label": "תיאור התמונה",
 	"drawioeditor-ve-drawio-alt-help": "טקסט שמוצג כשהתמונה לא נטענת או עבור מכשירים מסייעים",
 	"drawioeditor-ve-drawio-alignment-label": "יישור תמונה",
-	"drawioeditor-ve-drawio-alignment-help": "יישור אופקי של התמונה בדף"
+	"drawioeditor-ve-drawio-alignment-help": "יישור אופקי של התמונה בדף",
+	"drawioeditor-ve-drawio-alignment-label-center": "מרכז",
+	"drawioeditor-ve-drawio-alignment-label-left": "שמאל",
+	"drawioeditor-ve-drawio-alignment-label-right": "ימין",
+	"drawioeditor-ve-drawio-editmode-label": "מצב עריכה"
 }
