@@ -31,7 +31,9 @@
 	"drawioeditor-ve-drawio-alignment-label-right": "靠右",
 	"drawioeditor-ve-drawio-editmode-label": "編輯模式",
 	"drawioeditor-ve-drawio-editmode-help": "選擇圖表編輯器的顯示方式",
-	"drawioeditor-ve-drawio-editmode-label-inline": "內聯",
-	"drawioeditor-ve-drawio-editmode-label-fullscreen": "全螢幕",
-	"drawioeditor-details": "詳細資訊"
+	"drawioeditor-ve-drawio-editmode-label-inline": "頁面檢視",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "全螢幕檢視",
+	"drawioeditor-details": "詳細資訊",
+	"drawioeditor-config-customshapelibraries": "自訂形狀庫別",
+	"drawioeditor-config-customshapelibraries-help": "在形狀面板中載入自訂形狀庫別的 URL"
 }

@@ -2,8 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"MuratTheTurkish",
-			"Rapsar"
+			"Rapsar",
+			"Sakblue"
 		]
 	},
-	"drawioeditor-desc": "draw.io akış şeması oluşturma ve satır içi değişiklik yapma"
+	"drawioeditor-desc": "draw.io akış şeması oluşturma ve satır içi değişiklik yapma",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Sayfa görünümü",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Tam ekran görünümü"
 }
