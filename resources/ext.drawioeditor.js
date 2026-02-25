@@ -196,7 +196,13 @@ DrawioEditor.prototype.normalizeSvgDataURL = function ( dataURL, mimeType ) {
 	) );
 
 	const utf8Bytes = new TextEncoder().encode( normalized );
-	const newBinaryString = String.fromCharCode( ...utf8Bytes );
+	// Convert Uint8Array to binary string in chunks to avoid call stack overflow
+	let newBinaryString = '';
+	const chunkSize = 8192;
+	for ( let i = 0; i < utf8Bytes.length; i += chunkSize ) {
+		const chunk = utf8Bytes.subarray( i, i + chunkSize );
+		newBinaryString += String.fromCharCode( ...chunk );
+	}
 	const newBase64 = btoa( newBinaryString );
 	return 'data:' + parts[ 1 ] + ';base64,' + newBase64;
 };
