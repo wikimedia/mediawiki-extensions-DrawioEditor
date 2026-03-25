@@ -1,5 +1,9 @@
 {
-	"@metadata": [],
+	"@metadata": {
+		"authors": [
+			"HalloWelt! GmbH"
+		]
+	},
 	"drawioeditor-desc": "draw.io flow chart creation and inline editing",
 	"drawioeditor-approved-editwarning": "Please note that you are now editing the latest revision of this diagram, which is not the approved one shown by default.",
 	"drawioeditor-approved-displaywarning": "This is the approved revision of the diagram and not the latest revision.",
@@ -16,5 +20,32 @@
 	"drawioconnector-ve-drawio-tag-name-help": "Name of the diagram as stored in the wiki",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
 	"drawio-droplet-name": "Diagram",
-	"drawio-droplet-description": "Editable draw.io diagram"
+	"drawio-droplet-description": "Editable draw.io diagram",
+	"apihelp-drawioeditor-save-diagram-summary": "Uploads a Drawio diagram to the wiki as a file.",
+	"apihelp-drawioeditor-save-diagram-param-file": "The file to upload, provided as a binary upload.",
+	"drawioeditor-tag-title": "draw.io",
+	"drawioeditor-usage": "Used with draw.io tag",
+	"drawioeditor-ve-drawio-title": "draw.io diagram",
+	"drawioeditor-ve-drawio-description": "Insert an editable draw.io diagram",
+	"drawioeditor-ve-drawio-tag-name": "Name",
+	"drawioeditor-ve-drawio-tag-name-help": "Name of the diagram as stored in the wiki",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagram-1",
+	"drawioeditor-droplet-name": "Diagram",
+	"drawioeditor-droplet-description": "Editable draw.io diagram",
+	"drawioeditor-ve-drawio-alt-label": "Image description",
+	"drawioeditor-ve-drawio-alt-help": "Text displayed when image doesn't load or for assistive devices",
+	"drawioeditor-config-backendurl": "Backend URL",
+	"drawioeditor-config-backendurl-help": "The base URL of the diagrams.net (formerly draw.io) backend service used for editing diagrams",
+	"drawioeditor-ve-drawio-alignment-label": "Image alignment",
+	"drawioeditor-ve-drawio-alignment-help": "Horizontal alignment of the image on the page",
+	"drawioeditor-ve-drawio-alignment-label-center": "Center",
+	"drawioeditor-ve-drawio-alignment-label-left": "Left",
+	"drawioeditor-ve-drawio-alignment-label-right": "Right",
+	"drawioeditor-ve-drawio-editmode-label": "Edit mode",
+	"drawioeditor-ve-drawio-editmode-help": "Choose how the diagram editor is displayed",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Page view",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Fullscreen view",
+	"drawioeditor-details": "Details",
+	"drawioeditor-config-customshapelibraries": "Custom shape libraries",
+	"drawioeditor-config-customshapelibraries-help": "URLs of custom shape libraries to load in the shapes panel"
 }

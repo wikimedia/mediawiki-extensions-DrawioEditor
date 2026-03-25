@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"McDutchie"
+			"McDutchie",
+			"Siebrand"
 		]
 	},
 	"drawio-usage": "Gebruikt met Drawio-tag",
@@ -13,12 +14,38 @@
 	"drawioconnector-ve-drawio-tag-name": "Naam",
 	"drawioconnector-ve-drawio-tag-name-help": "Naam van het diagram zoals in de wiki opgeslagen",
 	"drawioconnector-ve-drawio-tag-name-placeholder": "Diagram-1",
-	"drawioeditor-desc": "draw.io stroomdiagrammen maken en inline bewerken",
+	"drawioeditor-desc": "draw.io-stroomdiagrammen maken en geïntegreerd bewerken",
 	"drawioeditor-approved-editwarning": "Let op: u bewerkt nu de meest recente versie van dit diagram. Dit is niet de goedgekeurde versie die standaard wordt weergegeven.",
 	"drawioeditor-approved-displaywarning": "Dit is de goedgekeurde versie van het diagram en niet de laatste versie.",
 	"drawioeditor-noapproved": "Het diagram $1 heeft geen goedgekeurde versie.",
 	"drawioeditor-approve-link": "Klik hier om een versie goed te keuren",
 	"drawioeditor-changeapprove-link": "Klik hier om de goedgekeurde versie voor dit diagram te wijzigen",
 	"drawio-droplet-name": "Diagram",
-	"drawio-droplet-description": "Bewerkbaar draw.io-diagram"
+	"drawio-droplet-description": "Bewerkbaar draw.io-diagram",
+	"apihelp-drawioeditor-save-diagram-summary": "Uploadt een Drawio-diagram naar de wiki als een bestand.",
+	"apihelp-drawioeditor-save-diagram-param-file": "Het te uploaden bestand, aangeleverd als binaire upload.",
+	"drawioeditor-usage": "Gebruikt met draw.io-tag",
+	"drawioeditor-ve-drawio-title": "draw.io-diagram",
+	"drawioeditor-ve-drawio-description": "Een bewerkbaar draw.io-diagram invoegen",
+	"drawioeditor-ve-drawio-tag-name": "Naam",
+	"drawioeditor-ve-drawio-tag-name-help": "Naam van het diagram zoals in de wiki opgeslagen",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagram-1",
+	"drawioeditor-droplet-name": "Diagram",
+	"drawioeditor-droplet-description": "Bewerkbaar draw.io-diagram",
+	"drawioeditor-ve-drawio-alt-label": "Afbeeldingsbeschrijving",
+	"drawioeditor-ve-drawio-alt-help": "Tekst die wordt weergegeven wanneer de afbeelding niet wordt geladen of bij gebruik van assisterende apparaten",
+	"drawioeditor-config-backendurl": "Backend-URL",
+	"drawioeditor-config-backendurl-help": "De basis-URL van de backend-service diagrams.net (voorheen draw.io) die wordt gebruikt voor het bewerken van diagrammen",
+	"drawioeditor-ve-drawio-alignment-label": "Uitlijning afbeelding",
+	"drawioeditor-ve-drawio-alignment-help": "Horizontale uitlijning van de afbeelding op de pagina",
+	"drawioeditor-ve-drawio-alignment-label-center": "Midden",
+	"drawioeditor-ve-drawio-alignment-label-left": "Links",
+	"drawioeditor-ve-drawio-alignment-label-right": "Rechts",
+	"drawioeditor-ve-drawio-editmode-label": "Bewerkingsmodus",
+	"drawioeditor-ve-drawio-editmode-help": "Kies hoe de diagram-editor wordt weergegeven",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Paginaweergave",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Volledige schermweergave",
+	"drawioeditor-details": "Details",
+	"drawioeditor-config-customshapelibraries": "Aangepaste vormbibliotheken",
+	"drawioeditor-config-customshapelibraries-help": "URL’s van aangepaste vormbibliotheken om in het vormenpaneel te laden"
 }
