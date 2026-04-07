@@ -13,7 +13,7 @@
 	"require": {
 		"composer/installers": "~1.0|~2",
 		"mwstake/mediawiki-component-manifestregistry": "~3",
-		"mwstake/mediawiki-component-generictaghandler": "~1"
+		"mwstake/mediawiki-component-generictaghandler": "^2.0.0"
 	},
 	"require-dev": {
 		"mediawiki/mediawiki-codesniffer": "50.0.0",
