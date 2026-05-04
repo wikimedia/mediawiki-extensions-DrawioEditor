@@ -390,7 +390,7 @@ class DrawioEditor {
 		 * created (i.e. saved in the DrawioEditor for the first time).
 		 */
 		if ( $img ) {
-			$parser->getOutput()->addImage( $img->getTitle()->getDBkey() );
+			$parser->getOutput()->addImage( $img->getTitle()->getDBkey(), $img->getTimestamp(), $img->getSha1() );
 		}
 
 		$parser->getOutput()->addModules( [ 'ext.drawioeditor' ] );
