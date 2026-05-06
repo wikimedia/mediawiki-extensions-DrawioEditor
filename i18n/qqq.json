@@ -13,6 +13,7 @@
 	"drawioeditor-noapproved": "Displayed when $1 has no approved revision",
 	"drawioeditor-approve-link": "Link to approve a revision of the diagram",
 	"drawioeditor-changeapprove-link": "Link to change the approved revision of the diagram",
+	"drawioeditor-diagram-load-failed": "Displayed when the load of $1 fails",
 	"drawioeditor-tag-title": "{{optional}}\nTitle for tag inspector in ve to insert drawio tag",
 	"drawioeditor-usage": "Headline for list of pages which use a particular drawio image. Displayed on the image page",
 	"drawioeditor-ve-drawio-title": "Used inVisualEditor tag inspector, tag title for drawio",

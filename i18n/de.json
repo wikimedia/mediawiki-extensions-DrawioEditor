@@ -13,6 +13,7 @@
 	"drawioeditor-noapproved": "Das Diagramm $1 hat keine genehmigte Version.",
 	"drawioeditor-approve-link": "Klicke hier, um eine Version zu genehmigen",
 	"drawioeditor-changeapprove-link": "Klicke hier, um die genehmigte Version für dieses Diagramm zu ändern",
+	"drawioeditor-diagram-load-failed": "Diagramm $1 konnte nicht geladen werden.",
 	"drawio-tag-title": "Drawio",
 	"drawio-usage": "draw.io-Tag verwendet",
 	"drawioconnector-ve-drawio-title": "draw.io-Diagramm",
