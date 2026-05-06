@@ -12,6 +12,7 @@
 	"drawioeditor-noapproved": "The diagram $1 has no approved revision.",
 	"drawioeditor-approve-link": "Click here to approve a revision",
 	"drawioeditor-changeapprove-link": "Click here to change the approved revision for this diagram",
+	"drawioeditor-diagram-load-failed": "Failed to load diagram $1",
 	"drawioeditor-tag-title": "draw.io",
 	"drawioeditor-usage": "Used with draw.io tag",
 	"drawioeditor-ve-drawio-title": "draw.io diagram",
