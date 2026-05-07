@@ -56,5 +56,6 @@
 	"drawioeditor-ve-drawio-theme-classic-label": "Classic",
 	"drawioeditor-ve-drawio-theme-sketch-label": "Sketch",
 	"drawioeditor-ve-drawio-theme-dark-label": "Dark",
-	"drawioeditor-ve-drawio-theme-simple-label": "Simple"
+	"drawioeditor-ve-drawio-theme-simple-label": "Simple",
+	"drawioeditor-diagram-load-failed": "Failed to load diagram $1"
 }

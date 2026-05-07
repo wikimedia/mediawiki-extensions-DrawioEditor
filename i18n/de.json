@@ -45,5 +45,6 @@
 	"drawioeditor-ve-drawio-editmode-label-inline": "Seitenansicht",
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Vollbildansicht",
 	"drawioeditor-config-customshapelibraries": "Benutzerdefinierte Formbibliotheken",
-	"drawioeditor-config-customshapelibraries-help": "URLs von benutzerdefinierten Formbibliotheken, die in das Formenfenster geladen werden sollen"
+	"drawioeditor-config-customshapelibraries-help": "URLs von benutzerdefinierten Formbibliotheken, die in das Formenfenster geladen werden sollen",
+	"drawioeditor-diagram-load-failed": "Diagramm $1 konnte nicht geladen werden."
 }

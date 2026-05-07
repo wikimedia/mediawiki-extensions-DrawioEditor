@@ -57,5 +57,6 @@
 	"drawioeditor-ve-drawio-theme-classic-label": "{{notranslate}}\nLabel for the the \"Classic\" theme",
 	"drawioeditor-ve-drawio-theme-sketch-label": "{{notranslate}}\nLabel for the the \"Sketch\" theme",
 	"drawioeditor-ve-drawio-theme-dark-label": "{{notranslate}}\nLabel for the the \"Dark\" theme",
-	"drawioeditor-ve-drawio-theme-simple-label": "{{notranslate}}\nLabel for the the \"Simple\" theme"
+	"drawioeditor-ve-drawio-theme-simple-label": "{{notranslate}}\nLabel for the the \"Simple\" theme",
+	"drawioeditor-diagram-load-failed": "Displayed when the load of $1 fails"
 }
