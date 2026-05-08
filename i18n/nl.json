@@ -36,5 +36,6 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Volledige schermweergave",
 	"drawioeditor-details": "Details",
 	"drawioeditor-config-customshapelibraries": "Aangepaste vormbibliotheken",
-	"drawioeditor-config-customshapelibraries-help": "URL’s van aangepaste vormbibliotheken om in het vormenpaneel te laden"
+	"drawioeditor-config-customshapelibraries-help": "URL’s van aangepaste vormbibliotheken om in het vormenpaneel te laden",
+	"drawioeditor-diagram-load-failed": "Diagram $1 kon niet worden geladen"
 }

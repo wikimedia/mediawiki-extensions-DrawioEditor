@@ -35,5 +35,6 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Цел екран",
 	"drawioeditor-details": "Подробно",
 	"drawioeditor-config-customshapelibraries": "Библиотеки на прилагодени облици",
-	"drawioeditor-config-customshapelibraries-help": "URL-адреси од библиотеки на прилагодени облици за вчитување во управувачницата за облици"
+	"drawioeditor-config-customshapelibraries-help": "URL-адреси од библиотеки на прилагодени облици за вчитување во управувачницата за облици",
+	"drawioeditor-diagram-load-failed": "Не успеав да го вчитам дијаграмот $1"
 }

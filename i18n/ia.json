@@ -35,5 +35,6 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Vista de plen schermo",
 	"drawioeditor-details": "Detalios",
 	"drawioeditor-config-customshapelibraries": "Bibliothecas personalisate de formas",
-	"drawioeditor-config-customshapelibraries-help": "URLs de bibliothecas personalisate de formas a cargar in le pannello de formas"
+	"drawioeditor-config-customshapelibraries-help": "URLs de bibliothecas personalisate de formas a cargar in le pannello de formas",
+	"drawioeditor-diagram-load-failed": "Le cargamento del diagramma $1 ha fallite"
 }
