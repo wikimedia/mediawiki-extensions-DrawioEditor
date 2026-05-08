@@ -12,6 +12,7 @@
 	"drawioeditor-noapproved": "O diagrama «$1» non ten ningunha revisión aprobada.",
 	"drawioeditor-approve-link": "Fai clic aquí para aprobar unha revisión",
 	"drawioeditor-changeapprove-link": "Fai clic aquí para cambiar a revisión aprobada deste diagrama",
+	"drawioeditor-diagram-load-failed": "Non se puido cargar o diagrama «$1»",
 	"drawioeditor-usage": "Usado coa etiqueta draw.io",
 	"drawioeditor-ve-drawio-title": "Diagrama de draw.io",
 	"drawioeditor-ve-drawio-description": "Inserir un diagrama editable de draw.io",

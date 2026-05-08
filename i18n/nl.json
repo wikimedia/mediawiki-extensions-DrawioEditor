@@ -13,6 +13,7 @@
 	"drawioeditor-noapproved": "Het diagram $1 heeft geen goedgekeurde versie.",
 	"drawioeditor-approve-link": "Klik hier om een versie goed te keuren",
 	"drawioeditor-changeapprove-link": "Klik hier om de goedgekeurde versie voor dit diagram te wijzigen",
+	"drawioeditor-diagram-load-failed": "Diagram $1 kon niet worden geladen",
 	"drawioeditor-usage": "Gebruikt met draw.io-tag",
 	"drawioeditor-ve-drawio-title": "draw.io-diagram",
 	"drawioeditor-ve-drawio-description": "Een bewerkbaar draw.io-diagram invoegen",

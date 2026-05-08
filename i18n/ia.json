@@ -12,6 +12,7 @@
 	"drawioeditor-noapproved": "Le diagramma $1 non ha un version approbate.",
 	"drawioeditor-approve-link": "Clicca hic pro approbar un version",
 	"drawioeditor-changeapprove-link": "Clicca hic pro cambiar le version approbate de iste diagramma",
+	"drawioeditor-diagram-load-failed": "Le cargamento del diagramma $1 ha fallite",
 	"drawioeditor-usage": "Usate con etiquetta draw.io",
 	"drawioeditor-ve-drawio-title": "Diagramma draw.io",
 	"drawioeditor-ve-drawio-description": "Inserer un diagramma draw.io modificabile",

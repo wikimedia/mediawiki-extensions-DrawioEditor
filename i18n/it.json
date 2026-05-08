@@ -4,6 +4,7 @@
 			"Beta16"
 		]
 	},
+	"drawioeditor-diagram-load-failed": "Non è stato possibile caricare il diagramma $1",
 	"drawioeditor-ve-drawio-tag-name": "Nome",
 	"drawioeditor-droplet-name": "Diagramma",
 	"drawioeditor-ve-drawio-alt-label": "Descrizione immagine",
