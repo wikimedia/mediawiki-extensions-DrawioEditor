@@ -35,5 +35,6 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Vista de pantalla completa",
 	"drawioeditor-details": "Detalles",
 	"drawioeditor-config-customshapelibraries": "Bibliotecas de formas personalizadas",
-	"drawioeditor-config-customshapelibraries-help": "Enderezos URL de bibliotecas de formas personalizadas para cargar no panel de formas"
+	"drawioeditor-config-customshapelibraries-help": "Enderezos URL de bibliotecas de formas personalizadas para cargar no panel de formas",
+	"drawioeditor-diagram-load-failed": "Non se puido cargar o diagrama «$1»"
 }
