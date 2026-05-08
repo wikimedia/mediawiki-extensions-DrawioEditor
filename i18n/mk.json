@@ -53,5 +53,6 @@
 	"drawioeditor-ve-drawio-theme-classic-label": "Класичен",
 	"drawioeditor-ve-drawio-theme-sketch-label": "Скица",
 	"drawioeditor-ve-drawio-theme-dark-label": "Темен",
-	"drawioeditor-ve-drawio-theme-simple-label": "Прост"
+	"drawioeditor-ve-drawio-theme-simple-label": "Прост",
+	"drawioeditor-diagram-load-failed": "Не успеав да го вчитам дијаграмот $1"
 }
