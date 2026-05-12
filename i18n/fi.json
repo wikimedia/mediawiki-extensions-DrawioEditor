@@ -3,10 +3,12 @@
 		"authors": [
 			"Nike",
 			"Pyscowicz",
-			"Samoasambia"
+			"Samoasambia",
+			"Wikipeedikko"
 		]
 	},
 	"drawioeditor-usage": "Käytetty draw.io-elementin kanssa",
 	"drawioeditor-ve-drawio-title": "draw.io-kaavio",
-	"drawioeditor-ve-drawio-tag-name": "Nimi"
+	"drawioeditor-ve-drawio-tag-name": "Nimi",
+	"drawioeditor-diagram-load-failed": "Kaavion $1 lataaminen epäonnistui"
 }
