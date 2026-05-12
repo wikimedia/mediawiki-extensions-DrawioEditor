@@ -4,11 +4,11 @@
 			"Beta16"
 		]
 	},
+	"drawioeditor-diagram-load-failed": "Non è stato possibile caricare il diagramma $1",
 	"drawioeditor-ve-drawio-tag-name": "Nome",
 	"drawioeditor-droplet-name": "Diagramma",
 	"drawioeditor-ve-drawio-alt-label": "Descrizione immagine",
 	"drawioeditor-ve-drawio-alignment-help": "Allineamento orizzontale dell'immagine sulla pagina",
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Visualizzazione a schermo intero",
-	"drawioeditor-details": "Dettagli",
-	"drawioeditor-diagram-load-failed": "Non è stato possibile caricare il diagramma $1"
+	"drawioeditor-details": "Dettagli"
 }

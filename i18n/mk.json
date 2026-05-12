@@ -12,6 +12,7 @@
 	"drawioeditor-noapproved": "Дијаграмот $1 нема одобрена преработка.",
 	"drawioeditor-approve-link": "Стиснете тука за да одобрите преработка",
 	"drawioeditor-changeapprove-link": "Стискете тука за да ја смените одобрената преработка за дијаграмов",
+	"drawioeditor-diagram-load-failed": "Не успеав да го вчитам дијаграмот $1",
 	"drawioeditor-usage": "Се користи со ознаката draw.io",
 	"drawioeditor-ve-drawio-title": "Дијаграм од draw.io",
 	"drawioeditor-ve-drawio-description": "Внесете уредлив дијаграм на draw.io",
@@ -35,6 +36,5 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Цел екран",
 	"drawioeditor-details": "Подробно",
 	"drawioeditor-config-customshapelibraries": "Библиотеки на прилагодени облици",
-	"drawioeditor-config-customshapelibraries-help": "URL-адреси од библиотеки на прилагодени облици за вчитување во управувачницата за облици",
-	"drawioeditor-diagram-load-failed": "Не успеав да го вчитам дијаграмот $1"
+	"drawioeditor-config-customshapelibraries-help": "URL-адреси од библиотеки на прилагодени облици за вчитување во управувачницата за облици"
 }
