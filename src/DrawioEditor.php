@@ -176,11 +176,12 @@ class DrawioEditor {
 
 		if ( $img ) {
 			$displayImage = $img;
+			$userFactory = $this->services->getUserFactory();
 			$hookRunner = $this->services->getHookContainer();
 			$hookRunner->run( 'DrawioGetFile', [
 				&$img,
 				&$latest_is_approved,
-				$parser->getUserIdentity(),
+				$userFactory->newFromUserIdentity( $parser->getUserIdentity() ),
 				&$noApproved,
 				&$displayImage
 			] );
