@@ -15,6 +15,7 @@
 	"drawioeditor-noapproved": "图表$1没有已核准的修订。",
 	"drawioeditor-approve-link": "单击此处核准修订",
 	"drawioeditor-changeapprove-link": "单击此处更改此图表的已核准修订",
+	"drawioeditor-diagram-load-failed": "加载图表$1失败",
 	"drawioeditor-usage": "与draw.io标签一起使用",
 	"drawioeditor-ve-drawio-title": "draw.io图表",
 	"drawioeditor-ve-drawio-description": "插入可编辑的draw.io图表",
