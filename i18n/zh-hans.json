@@ -56,5 +56,6 @@
 	"drawioeditor-ve-drawio-theme-classic-label": "标准",
 	"drawioeditor-ve-drawio-theme-sketch-label": "草图",
 	"drawioeditor-ve-drawio-theme-dark-label": "深色",
-	"drawioeditor-ve-drawio-theme-simple-label": "简易"
+	"drawioeditor-ve-drawio-theme-simple-label": "简易",
+	"drawioeditor-diagram-load-failed": "加载图表$1失败"
 }
