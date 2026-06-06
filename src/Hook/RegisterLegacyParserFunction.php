@@ -11,6 +11,6 @@ class RegisterLegacyParserFunction implements ParserFirstCallInitHook {
 	public function onParserFirstCallInit( $parser ) {
 		$drawioEditor = new DrawioEditor();
 		// Add hook for Legacy Parser Function {{#drawio:filename|param=...}}
-		$parser->setFunctionHook( 'drawio', [ $drawioEditor, 'parseLegacyParserFunc' ] );
+		$parser->setFunctionHook( 'drawio', $drawioEditor->parseLegacyParserFunc( ... ) );
 	}
 }
