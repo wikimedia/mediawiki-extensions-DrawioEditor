@@ -13,6 +13,7 @@
 	"drawioeditor-noapproved": "الرسم التخطيطي $1 ليس له مراجعة معتمدة.",
 	"drawioeditor-approve-link": "انقر هنا للموافقة على المراجعة",
 	"drawioeditor-changeapprove-link": "انقر هنا لتغيير المراجعة المعتمدة لهذا الرسم التخطيطي",
+	"drawioeditor-diagram-load-failed": "فشل تحميل الرسم التخطيطي $1",
 	"drawioeditor-usage": "يستخدم مع علامة draw.io",
 	"drawioeditor-ve-drawio-title": "رسم تخطيطي لبرنامج draw.io",
 	"drawioeditor-ve-drawio-description": "إدراج رسم تخطيطي قابل للتعديل في draw.io",
