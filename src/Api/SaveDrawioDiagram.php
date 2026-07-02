@@ -64,6 +64,11 @@ class SaveDrawioDiagram extends ApiBase {
 			$this->dieWithError( 'No uploaded filename' );
 		}
 
+		$nameWithoutExt = pathinfo( $filename, PATHINFO_FILENAME );
+		if ( !preg_match( '/^[\w,\-.\s:]+$/u', $nameWithoutExt ) ) {
+			$this->dieWithError( 'Invalid filename: contains disallowed characters' );
+		}
+
 		$ext = pathinfo( $filename, PATHINFO_EXTENSION );
 		if ( !$this->isAllowedFileType( $ext ) ) {
 			$this->dieWithError( "\"$ext\" files are not permitted on this wiki" );

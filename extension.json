@@ -175,6 +175,7 @@
 	},
 	"Hooks": {
 		"DrawioGetFile": "approveRevsSetStableFile",
+		"EditFilterMergedContent": "validateDrawioFilename",
 		"ImagePageAfterImageLinks": "hooks",
 		"MWStakeGenericTagHandlerInitTags": "registerTags",
 		"ParserFirstCallInit": "registerLegacyParserFunction"
@@ -197,6 +198,9 @@
 		},
 		"registerLegacyParserFunction": {
 			"class": "MediaWiki\\Extension\\DrawioEditor\\Hook\\RegisterLegacyParserFunction"
+		},
+		"validateDrawioFilename": {
+			"class": "MediaWiki\\Extension\\DrawioEditor\\Hook\\ValidateDrawioFilename"
 		}
 	},
 	"config": {
