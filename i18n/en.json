@@ -44,5 +44,6 @@
 	"drawioeditor-ve-drawio-theme-classic-label": "Classic",
 	"drawioeditor-ve-drawio-theme-sketch-label": "Sketch",
 	"drawioeditor-ve-drawio-theme-dark-label": "Dark",
-	"drawioeditor-ve-drawio-theme-simple-label": "Simple"
+	"drawioeditor-ve-drawio-theme-simple-label": "Simple",
+	"drawioeditor-error-invalid-filename": "The diagram name \"$1\" contains characters that are not allowed."
 }

@@ -140,6 +140,7 @@
 			"MediaWiki\\Extension\\DrawioEditor\\Hook\\ParserFirstCallInit\\SetFunctionHook::callback"
 		],
 		"DrawioGetFile": "approveRevsSetStableFile",
+		"EditFilterMergedContent": "validateDrawioFilename",
 		"ImagePageAfterImageLinks": "hooks"
 	},
 	"HookHandlers": {
@@ -156,6 +157,9 @@
 				"LinkRenderer",
 				"DBLoadBalancer"
 			]
+		},
+		"validateDrawioFilename": {
+			"class": "MediaWiki\\Extension\\DrawioEditor\\Hook\\ValidateDrawioFilename"
 		}
 	},
 	"config": {
