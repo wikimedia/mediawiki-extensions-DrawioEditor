@@ -37,5 +37,6 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Fullscreen view",
 	"drawioeditor-details": "Details",
 	"drawioeditor-config-customshapelibraries": "Custom shape libraries",
-	"drawioeditor-config-customshapelibraries-help": "URLs of custom shape libraries to load in the shapes panel"
+	"drawioeditor-config-customshapelibraries-help": "URLs of custom shape libraries to load in the shapes panel",
+	"drawioeditor-error-invalid-filename": "The diagram name \"$1\" contains characters that are not allowed."
 }
