@@ -36,5 +36,6 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "عرض ملء الشاشة",
 	"drawioeditor-details": "تفاصيل",
 	"drawioeditor-config-customshapelibraries": "مكتبات الأشكال المخصصة",
-	"drawioeditor-config-customshapelibraries-help": "عناوين URL لمكتبات الأشكال المخصصة للتحميل في لوحة الأشكال"
+	"drawioeditor-config-customshapelibraries-help": "عناوين URL لمكتبات الأشكال المخصصة للتحميل في لوحة الأشكال",
+	"drawioeditor-diagram-load-failed": "فشل تحميل الرسم التخطيطي $1"
 }
