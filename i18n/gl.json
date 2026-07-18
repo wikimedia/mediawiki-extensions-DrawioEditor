@@ -43,5 +43,6 @@
 	"drawioeditor-ve-drawio-theme-sketch-label": "Bosquexo",
 	"drawioeditor-ve-drawio-theme-dark-label": "Escuro",
 	"drawioeditor-ve-drawio-theme-simple-label": "Simple",
-	"drawioeditor-diagram-load-failed": "Non se puido cargar o diagrama «$1»"
+	"drawioeditor-diagram-load-failed": "Non se puido cargar o diagrama «$1»",
+	"drawioeditor-error-invalid-filename": "O nome de diagrama «$1» contén caracteres que non están permitidos."
 }
