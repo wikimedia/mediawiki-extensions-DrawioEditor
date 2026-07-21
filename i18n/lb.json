@@ -21,5 +21,6 @@
 	"drawioeditor-ve-drawio-alignment-label-right": "Riets",
 	"drawioeditor-ve-drawio-editmode-label": "Ännerungsmodus",
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Vollbild-Modus",
-	"drawioeditor-details": "Detailer"
+	"drawioeditor-details": "Detailer",
+	"drawioeditor-error-invalid-filename": "Am Diagrammnumm „$1“ kommen Zeeche vir, déi net erlaabt sinn."
 }
