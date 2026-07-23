@@ -37,5 +37,6 @@
 	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Volledige schermweergave",
 	"drawioeditor-details": "Details",
 	"drawioeditor-config-customshapelibraries": "Aangepaste vormbibliotheken",
-	"drawioeditor-config-customshapelibraries-help": "URL’s van aangepaste vormbibliotheken om in het vormenpaneel te laden"
+	"drawioeditor-config-customshapelibraries-help": "URL’s van aangepaste vormbibliotheken om in het vormenpaneel te laden",
+	"drawioeditor-error-invalid-filename": "De diagramnaam \"$1\" bevat tekens die niet zijn toegestaan."
 }
