@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400" role="img" aria-label="Whiteboard sketch placeholder">
+  <defs>
+    <!-- roughen clean vectors so edges read as hand-drawn marker strokes -->
+    <filter id="sketchRough" x="-6%" y="-6%" width="112%" height="112%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.016" numOctaves="3" seed="5" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#sketchRough)" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- ===== yellow sticky note (top-left) ===== -->
+    <g transform="rotate(-5 130 140)">
+      <rect x="68" y="80" width="132" height="132" rx="3" fill="#33414f" opacity="0.10"/>
+      <rect x="64" y="74" width="132" height="132" rx="3" fill="#ffe07a" stroke="#e8c24a" stroke-width="2"/>
+      <g fill="none" stroke="#33414f" stroke-width="3.2">
+        <path d="M86,116 H178"/>
+        <path d="M86,142 H160"/>
+        <path d="M86,168 H172"/>
+      </g>
+    </g>
+
+    <!-- ===== teal sticky note (bottom-left) ===== -->
+    <g transform="rotate(4 128 302)">
+      <rect x="72" y="252" width="118" height="108" rx="3" fill="#33414f" opacity="0.10"/>
+      <rect x="68" y="246" width="118" height="108" rx="3" fill="#9be0d8" stroke="#5cc2b5" stroke-width="2"/>
+      <g fill="none" stroke="#33414f" stroke-width="3">
+        <path d="M86,286 H172"/>
+        <path d="M86,312 H150"/>
+      </g>
+    </g>
+
+    <!-- ===== marker arrow: sticky note -> circled title ===== -->
+    <g fill="none" stroke="#33414f" stroke-width="2.6">
+      <path d="M206,118 C248,106 272,102 296,101"/>
+      <path d="M288,93 L298,101 L287,108"/>
+    </g>
+
+    <!-- ===== title with a red-circled word ===== -->
+    <rect x="320" y="90" width="96" height="18" rx="3" fill="#ffd94a" fill-opacity="0.85"/>
+    <rect x="424" y="94" width="78" height="12" rx="6" fill="#6b7683"/>
+    <path d="M304,106 C300,78 344,66 378,70 C424,75 446,92 440,108 C434,126 392,138 350,134 C314,131 292,118 306,98"
+          fill="none" stroke="#e2574c" stroke-width="2.8"/>
+
+    <!-- ===== body text lines ===== -->
+    <g fill="none" stroke-linecap="round">
+      <path d="M320,150 H548" stroke="#6b7683" stroke-width="3.2"/>
+      <path d="M320,172 H512" stroke="#9aa5b1" stroke-width="2.8"/>
+    </g>
+
+    <!-- ===== underlined phrase ===== -->
+    <rect x="320" y="190" width="152" height="13" rx="6" fill="#6b7683"/>
+    <path d="M320,212 q10,-6 20,0 q10,6 20,0 q10,-6 20,0 q10,6 20,0 q10,-6 20,0 q10,6 20,0 q10,-6 20,0"
+          fill="none" stroke="#2f6fb0" stroke-width="2.6"/>
+
+    <!-- ===== checklist ===== -->
+    <g fill="none" stroke="#33414f">
+      <rect x="320" y="248" width="20" height="20" rx="3" stroke-width="2.4"/>
+      <path d="M325,258 l5,6 l10,-13" stroke="#3aa06a" stroke-width="3"/>
+      <path d="M352,258 H500" stroke="#9aa5b1" stroke-width="3"/>
+
+      <rect x="320" y="286" width="20" height="20" rx="3" stroke-width="2.4"/>
+      <path d="M325,296 l5,6 l10,-13" stroke="#3aa06a" stroke-width="3"/>
+      <path d="M352,296 H470" stroke="#9aa5b1" stroke-width="3"/>
+    </g>
+  </g>
+</svg>

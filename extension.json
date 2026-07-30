@@ -13,6 +13,9 @@
 			"Droplets": {
 				"drawio": {
 					"class": "\\MediaWiki\\Extension\\DrawioEditor\\ContentDroplets\\DrawioDroplet"
+				},
+				"drawio-sketch": {
+					"class": "\\MediaWiki\\Extension\\DrawioEditor\\ContentDroplets\\DrawioSketchDroplet"
 				}
 			}
 		},
@@ -111,11 +114,15 @@
 			"messages": [
 				"drawioeditor-tag-title",
 				"drawioeditor-ve-drawio-title",
+				"drawioeditor-ve-drawiosketch-title",
+				"drawioeditor-ve-drawiosketch-description",
 				"drawioeditor-ve-drawio-tag-name",
 				"drawioeditor-ve-drawio-tag-name-help",
 				"drawioeditor-usage",
 				"drawioeditor-droplet-name",
 				"drawioeditor-droplet-description",
+				"drawioeditor-sketch-droplet-name",
+				"drawioeditor-sketch-droplet-description",
 				"drawioeditor-ve-drawio-alt-label",
 				"drawioeditor-ve-drawio-alt-help",
 				"drawioeditor-ve-drawio-alignment-label",
