@@ -1,5 +1,5 @@
 function DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
-	updateMaxWidth, baseUrl, latestIsApproved, imageURL, theme ) {
+	updateMaxWidth, baseUrl, latestIsApproved, imageURL, theme, sketch ) {
 	const that = this;
 
 	this.id = id;
@@ -12,6 +12,7 @@ function DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
 	this.baseUrl = baseUrl;
 	this.latestIsApproved = latestIsApproved;
 	this.theme = theme;
+	this.sketch = sketch;
 
 	// Could be 'en', 'fr', 'de-formal', 'zh-hant', ...
 	const currentUserLanguage = mw.user.options.get( 'language', 'en' ).split( '-' );
@@ -61,6 +62,13 @@ function DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
 		configure: '1',
 		splash: '0'
 	} );
+
+	// The <drawio-sketch> tag opens the editor in draw.io's sketch UI. Force
+	// these values, overriding any other ui/sketch value carried in params.
+	if ( this.sketch ) {
+		params.set( 'ui', 'sketch' );
+		params.set( 'sketch', '1' );
+	}
 
 	// ERM43219 Deactivate clibs
 	// Append clibs manually so semicolons remain unencoded
@@ -124,8 +132,24 @@ DrawioEditor.prototype.hideOverlay = function () {
 };
 
 DrawioEditor.prototype.updateImage = function ( imageinfo ) {
+	// The cache-busting timestamp forces the browser to fetch the freshly
+	// saved diagram instead of the stale, cached version.
 	this.imageURL = imageinfo.url + '?ts=' + imageinfo.timestamp;
-	this.image.attr( 'src', this.imageURL );
+
+	// SVG diagrams are rendered as an <object> (whose source is the "data"
+	// attribute), PNG diagrams as an <img> (whose source is "src").
+	if ( this.imgType === 'svg' ) {
+		// Simply changing an <object>'s "data" attribute does not reliably
+		// reload its contents once it has already loaded something, so the old
+		// diagram would stay on screen. Replace the element with a fresh clone
+		// to force the browser to load the new file.
+		const newImage = this.image.clone();
+		newImage.attr( 'data', this.imageURL );
+		this.image.replaceWith( newImage );
+		this.image = newImage;
+	} else {
+		this.image.attr( 'src', this.imageURL );
+	}
 	this.imageHref.attr( 'href', imageinfo.descriptionurl );
 	if ( this.updateHeight ) {
 		this.image.css( 'height', imageinfo.height );
@@ -136,6 +160,15 @@ DrawioEditor.prototype.updateImage = function ( imageinfo ) {
 	if ( this.updateMaxWidth ) {
 		this.image.css( 'max-width', imageinfo.width );
 	}
+
+	// The editor is destroyed on exit and rebuilt from the edit link's data-*
+	// attributes the next time it is opened. Keep the stored image URL in sync
+	// so re-opening the editor (without a page reload) loads the latest version
+	// instead of an empty (first save) or stale diagram.
+	const editLink = $( 'a.drawioeditor-edit[data-target-id="' + this.id + '"]' );
+	editLink.attr( 'data-img-url', this.imageURL );
+	editLink.data( 'imgUrl', this.imageURL );
+
 	if ( this.placeholder ) {
 		this.placeholder.hide();
 		this.image.show();
@@ -424,11 +457,11 @@ FullscreenDialog.prototype.close = function () {
 var editor; // eslint-disable-line no-var
 
 window.editDrawio = function ( id, filename, editMode, type, updateHeight, updateWidth,
-	updateMaxWidth, baseUrl, latestIsApproved, imageURL, theme ) {
+	updateMaxWidth, baseUrl, latestIsApproved, imageURL, theme, sketch ) {
 	if ( !editor ) {
 		window.drawioEditorBaseUrl = baseUrl;
 		editor = new DrawioEditor( id, filename, editMode, type, updateHeight, updateWidth,
-			updateMaxWidth, baseUrl, latestIsApproved, imageURL, theme );
+			updateMaxWidth, baseUrl, latestIsApproved, imageURL, theme, sketch );
 	} else {
 		alert( 'Only one DrawioEditor can be open at the same time!' );
 	}
@@ -533,6 +566,7 @@ $( document ).on( 'click', '.drawioeditor-edit', function () {
 		data.baseUrl,
 		data.latestIsApproved,
 		data.imgUrl,
-		data.theme
+		data.theme,
+		data.sketch
 	);
 } );

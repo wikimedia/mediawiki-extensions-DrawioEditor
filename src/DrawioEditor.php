@@ -64,14 +64,47 @@ class DrawioEditor {
 	 */
 	public function parseLegacyParserFunc( Parser &$parser, $name = null ) {
 		/* parse named arguments */
-		$opts = [];
-		foreach ( array_slice( func_get_args(), 2 ) as $rawopt ) {
-			$opt = explode( '=', $rawopt, 2 );
-			$opts[ trim( $opt[ 0 ] ) ] = count( $opt ) === 2 ? trim( $opt[ 1 ] ) : true;
-		}
+		$opts = $this->parseLegacyOpts( array_slice( func_get_args(), 2 ) );
 
 		// Call general parse-generator routine
 		return $this->parse( $parser, $name, $opts );
+	}
+
+	/**
+	 * Parser hook handler for {{#drawio-sketch:}}
+	 *
+	 * Identical to {@see parseLegacyParserFunc}, but forces the editor into
+	 * draw.io's sketch mode.
+	 *
+	 * @param Parser &$parser Parser instance available to render
+	 *                             wikitext into html, or parser methods.
+	 * @param string|null $name File name of chart.
+	 *
+	 * @return array HTML to insert in the page.
+	 */
+	public function parseLegacyParserFuncSketch( Parser &$parser, $name = null ) {
+		/* parse named arguments */
+		$opts = $this->parseLegacyOpts( array_slice( func_get_args(), 2 ) );
+		$opts[ 'sketch' ] = true;
+
+		// Call general parse-generator routine
+		return $this->parse( $parser, $name, $opts );
+	}
+
+	/**
+	 * Parse the raw "key=value" arguments of a legacy parser function into an
+	 * associative options array.
+	 *
+	 * @param array $rawopts
+	 * @return array
+	 */
+	private function parseLegacyOpts( array $rawopts ): array {
+		$opts = [];
+		foreach ( $rawopts as $rawopt ) {
+			$opt = explode( '=', $rawopt, 2 );
+			$opts[ trim( $opt[ 0 ] ) ] = count( $opt ) === 2 ? trim( $opt[ 1 ] ) : true;
+		}
+		return $opts;
 	}
 
 	/**
@@ -102,6 +135,7 @@ class DrawioEditor {
 		$alignment = $opts[ 'alignment' ] ?? 'center';
 		$edit_mode = $opts[ 'editmode' ] ?? $this->config->get( 'DrawioEditorDefaultEditmode' );
 		$theme = $opts[ 'theme' ] ?? 'min';
+		$sketch = !empty( $opts[ 'sketch' ] );
 
 		/* process input */
 		if ( $name == null || !strlen( $name ) ) {
@@ -224,7 +258,8 @@ class DrawioEditor {
 			'data-base-url' => $base_url,
 			'data-latest-is-approved' => $latest_is_approved ? 'true' : 'false',
 			'data-img-url' => $img ? $img->getUrl() : "",
-			'data-theme' => $theme
+			'data-theme' => $theme,
+			'data-sketch' => $sketch ? 'true' : 'false'
 		];
 		$editLink = Html::element( 'a', $attribs, $editLabel );
 
@@ -320,14 +355,22 @@ class DrawioEditor {
 		];
 
 		if ( $opt_type === 'svg' ) {
-			$imgAttribs['data'] = $img_url_ts;
+			// Only set a source when there actually is one; an empty "data"
+			// would make the <object> try to load the current page. The editor
+			// fills this in on save (see updateImage() in ext.drawioeditor.js).
+			if ( $img_url_ts !== '' ) {
+				$imgAttribs['data'] = $img_url_ts;
+			}
 			$imgAttribs['type'] = 'image/svg+xml';
 			$imgAttribs['aria-label'] = $alt;
 		} elseif ( $opt_type === 'png' ) {
-			$imgAttribs['src'] = $img_url_ts;
+			if ( $img_url_ts !== '' ) {
+				$imgAttribs['src'] = $img_url_ts;
+			}
 			$imgAttribs['alt'] = $alt;
 		}
 
+		$imageMap = null;
 		if ( $img && $opt_type === 'png' ) {
 			$mxDocumentExtractor = $this->getPNGMXDocumentExtractor( $img->getRepo() );
 			$mxDocument = $mxDocumentExtractor->extractMXDocument( $img );
@@ -356,28 +399,35 @@ class DrawioEditor {
 			}
 		}
 
+		// The image/object element must always be present in the DOM so the
+		// editor can fill it in right after the first save, without requiring a
+		// page reload. It stays hidden (display:none, see $img_style) until it
+		// has content.
+		$imgContainer = Html::rawElement( 'div',
+			[ 'class' => "drawio-img-container drawio-align-$alignment" ],
+			$img_html
+		);
+
 		/* output image and optionally a placeholder if the image does not exist yet */
+		$placeholderClass = 'DrawioEditorInfoBox' . ( $sketch ? ' DrawioEditorInfoBox--sketch' : '' );
 		if ( !$img && !$noApproved ) {
-			// show placeholder
+			// show placeholder next to the (still hidden) image element
 			$output .= Html::rawElement( 'div', [
 				'id' => "drawio-placeholder-$id",
-				'class' => 'DrawioEditorInfoBox'
+				'class' => $placeholderClass
 			], Html::element( 'b', [], $dispname ) );
+			$output .= $imgContainer;
 		} elseif ( $img && $displayImage === false ) {
-			// show placeholder with failure message
+			// show placeholder with failure message next to the hidden image element
 			$output .= Html::rawElement( 'div', [
 				'id' => "drawio-placeholder-$id",
-				'class' => 'DrawioEditorInfoBox'
+				'class' => $placeholderClass
 			], Html::element( 'b', [], Message::newFromKey(
 				'drawioeditor-diagram-load-failed', $dispname
 			)->text() ) );
+			$output .= $imgContainer;
 		} else {
-			// the image or object element must be there in any case
-			// (it's hidden as long as there is no content.)
-			$output .= Html::rawElement( 'div',
-				[ 'class' => "drawio-img-container drawio-align-$alignment" ],
-				$img_html
-			);
+			$output .= $imgContainer;
 		}
 
 		$output .= Html::closeElement( 'div' );

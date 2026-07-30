@@ -19,11 +19,16 @@
 	padding-top: 20px;
 	text-align: center;
 	/* @embed */
-	background-image: url( ./placeholder.svg );
+	background-image: url( ./placeholder-diagram.svg );
 	background-repeat: no-repeat;
 	background-position: center;
 	min-width: 600px;
 	min-height: 400px;
+}
+
+.DrawioEditorInfoBox--sketch {
+	/* @embed */
+	background-image: url( ./placeholder-sketch.svg );
 }
 
 html.ve-active .mw-editdrawio-wrapper {
