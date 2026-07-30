@@ -2,6 +2,10 @@
 	background-image: url( contentdroplets-drawio-icon.svg );
 }
 
+.droplet .icon-droplet.droplet-drawio-sketch {
+	background-image: url( contentdroplets-drawio-sketch-icon.svg );
+}
+
 .oo-ui-icon-drawio {
 	background-image: url( ./drawio-icon-greyscale.svg );
 }
