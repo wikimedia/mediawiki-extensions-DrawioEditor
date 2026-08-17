@@ -4,6 +4,13 @@
 			"شاه زمان پټان"
 		]
 	},
+	"drawioeditor-ve-drawio-tag-name": "نوم",
 	"drawioeditor-ve-drawio-alignment-label": "انځور اوډنه",
+	"drawioeditor-ve-drawio-alignment-label-center": "منځ",
+	"drawioeditor-ve-drawio-alignment-label-left": "کيڼ",
+	"drawioeditor-ve-drawio-alignment-label-right": "ښي",
+	"drawioeditor-ve-drawio-editmode-label": "سمونگر ونگ‌ډول",
+	"drawioeditor-ve-drawio-editmode-label-inline": "د مخ کتل",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "ډکه پرده کتل",
 	"drawioeditor-details": "سپيناوي"
 }
