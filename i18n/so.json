@@ -1,0 +1,41 @@
+{
+	"@metadata": {
+		"authors": [
+			"AhmedG612"
+		]
+	},
+	"drawioeditor-desc": "Abuurista jaantus socodka draw.io iyo wax ka beddelka dhex dhexaadka ah",
+	"apihelp-drawioeditor-save-diagram-summary": "Ku soo geli jaantuska Drawio wiki-ga isagoo ah fayl",
+	"apihelp-drawioeditor-save-diagram-param-file": "Faylka la soo gelinayo, oo loo bixiyey qaab soo gelin laba geesood ah.",
+	"drawioeditor-approved-editwarning": "Fadlan ogow inaad hadda wax ka beddelayso dib u eegistii ugu dambaysay ee jaantuskan, taas oo aan ahayn tii la ansixiyey ee sida caadiga ah la muujiyo.",
+	"drawioeditor-approved-displaywarning": "Tani waa dib u eegista la ansixiyey ee jaantuska ee ma aha dib u eegistii ugu dambaysay.",
+	"drawioeditor-noapproved": "Jaantuska $1 ma laha dib u eegis la ansixiyey.",
+	"drawioeditor-approve-link": "Halkan guji si aad u ansixiso dib u eegis",
+	"drawioeditor-changeapprove-link": "Halkan guji si aad u beddesho dib u eegista la ansixiyey ee jaantuskan",
+	"drawioeditor-diagram-load-failed": "Fashilantay in la soo raro jaantuska $1",
+	"drawioeditor-usage": "Waxaa loo adeegsadaa summadda draw.io",
+	"drawioeditor-ve-drawio-title": "Jaantuska draw.io",
+	"drawioeditor-ve-drawio-description": "Geli jaantuska draw.io oo wax laga beddeli karo",
+	"drawioeditor-ve-drawio-tag-name": "Magaca",
+	"drawioeditor-ve-drawio-tag-name-help": "Magaca jaantuska sida uu ugu kaydsan yahay wiki-ga",
+	"drawioeditor-ve-drawio-tag-name-placeholder": "Jaantuska-1",
+	"drawioeditor-droplet-name": "Jaantus",
+	"drawioeditor-droplet-description": "Jaantuska draw.io oo wax laga beddeli karo",
+	"drawioeditor-ve-drawio-alt-label": "Sharaxaadda sawirka",
+	"drawioeditor-ve-drawio-alt-help": "Qoraalka la muujiyo marka sawirku aanu soo xirmayn ama qalabka caawinta",
+	"drawioeditor-config-backendurl": "URL-ka adeegga dambe",
+	"drawioeditor-config-backendurl-help": "URL-ka aasaasiga ah ee adeegga dambe ee diagrams.net (oo hore loo oran jiray draw.io) ee loo isticmaalo wax-ka-beddelka jaantusyada",
+	"drawioeditor-ve-drawio-alignment-label": "Isu aaddinta sawirka",
+	"drawioeditor-ve-drawio-alignment-help": "Isu aaddinta jiifka ah ee sawirka ee bogga",
+	"drawioeditor-ve-drawio-alignment-label-center": "Dhexda",
+	"drawioeditor-ve-drawio-alignment-label-left": "Bidix",
+	"drawioeditor-ve-drawio-alignment-label-right": "Midig",
+	"drawioeditor-ve-drawio-editmode-label": "Habka wax ka beddelka",
+	"drawioeditor-ve-drawio-editmode-help": "Dooro sida tifaftiraha jaantuska loo muujiyo",
+	"drawioeditor-ve-drawio-editmode-label-inline": "Aragtida bogga",
+	"drawioeditor-ve-drawio-editmode-label-fullscreen": "Aragtida shaashadda oo dhan",
+	"drawioeditor-details": "Faahfaahinta",
+	"drawioeditor-config-customshapelibraries": "Maktabadaha qaababka gaarka ah",
+	"drawioeditor-config-customshapelibraries-help": "URL-yada maktabadaha qaababka gaarka ah ee lagu soo gelinayo guddiga qaababka",
+	"drawioeditor-error-invalid-filename": "Magaca jaantuska \"$1\" wuxuu ka kooban yahay xarfo aan la oggolayn."
+}
