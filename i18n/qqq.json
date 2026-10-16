@@ -39,5 +39,9 @@
 	"drawioeditor-details": "Label for \"Details\"\n{{identical|Details}}",
 	"drawioeditor-config-customshapelibraries": "Label for input field to set config variable for \"Custom shape libraries\"",
 	"drawioeditor-config-customshapelibraries-help": "Help text for input field to set config variable for \"Custom shape libraries\"",
-	"drawioeditor-error-invalid-filename": "Error message shown when a diagram name contains disallowed characters. $1 is the invalid filename."
+	"drawioeditor-error-invalid-filename": "Error message shown when a diagram name contains disallowed characters. $1 is the invalid filename.",
+	"drawioeditor-ve-drawiosketch-title": "Used in VisualEditor tag inspector, tag title for the drawio sketch tag",
+	"drawioeditor-ve-drawiosketch-description": "Description shown in VisualEditor tag inspector for the drawio sketch tag",
+	"drawioeditor-sketch-droplet-name": "Title of droplet for tag drawio-sketch",
+	"drawioeditor-sketch-droplet-description": "Description of droplet for tag drawio-sketch"
 }
