@@ -37,5 +37,9 @@
 	"drawioeditor-details": "Detalles",
 	"drawioeditor-config-customshapelibraries": "Bibliotecas de formas personalizadas",
 	"drawioeditor-config-customshapelibraries-help": "Enderezos URL de bibliotecas de formas personalizadas para cargar no panel de formas",
-	"drawioeditor-error-invalid-filename": "O nome de diagrama «$1» contén caracteres que non están permitidos."
+	"drawioeditor-error-invalid-filename": "O nome de diagrama «$1» contén caracteres que non están permitidos.",
+	"drawioeditor-ve-drawiosketch-title": "Bosquexo de draw.io",
+	"drawioeditor-ve-drawiosketch-description": "Inserir un bosquexo editable de draw.io",
+	"drawioeditor-sketch-droplet-name": "Bosquexo",
+	"drawioeditor-sketch-droplet-description": "Bosquexo de encerado editable de draw.io"
 }

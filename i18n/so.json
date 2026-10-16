@@ -37,5 +37,9 @@
 	"drawioeditor-details": "Faahfaahinta",
 	"drawioeditor-config-customshapelibraries": "Maktabadaha qaababka gaarka ah",
 	"drawioeditor-config-customshapelibraries-help": "URL-yada maktabadaha qaababka gaarka ah ee lagu soo gelinayo guddiga qaababka",
-	"drawioeditor-error-invalid-filename": "Magaca jaantuska \"$1\" wuxuu ka kooban yahay xarfo aan la oggolayn."
+	"drawioeditor-error-invalid-filename": "Magaca jaantuska \"$1\" wuxuu ka kooban yahay xarfo aan la oggolayn.",
+	"drawioeditor-ve-drawiosketch-title": "Sawir gacmeedka draw.io",
+	"drawioeditor-ve-drawiosketch-description": "Geli sawir gacmeed draw.io ah oo wax laga beddeli karo",
+	"drawioeditor-sketch-droplet-name": "Sawir gacmeed",
+	"drawioeditor-sketch-droplet-description": "Sawir gacmeed sabuurad cad oo draw.io ah oo wax laga beddeli karo"
 }
