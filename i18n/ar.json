@@ -57,5 +57,6 @@
 	"drawioeditor-ve-drawio-theme-sketch-label": "Sketch",
 	"drawioeditor-ve-drawio-theme-dark-label": "Dark",
 	"drawioeditor-ve-drawio-theme-simple-label": "Simple",
-	"drawioeditor-diagram-load-failed": "فشل تحميل الرسم التخطيطي $1"
+	"drawioeditor-diagram-load-failed": "فشل تحميل الرسم التخطيطي $1",
+	"drawioeditor-error-invalid-filename": "اسم الرسم التخطيطي \" $1 \" يحتوي على أحرف غير مسموح بها."
 }

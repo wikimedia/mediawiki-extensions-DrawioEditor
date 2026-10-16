@@ -45,5 +45,9 @@
 	"drawioeditor-ve-drawio-theme-sketch-label": "Sketch",
 	"drawioeditor-ve-drawio-theme-dark-label": "Dark",
 	"drawioeditor-ve-drawio-theme-simple-label": "Simple",
-	"drawioeditor-error-invalid-filename": "The diagram name \"$1\" contains characters that are not allowed."
+	"drawioeditor-error-invalid-filename": "The diagram name \"$1\" contains characters that are not allowed.",
+	"drawioeditor-ve-drawiosketch-title": "draw.io sketch",
+	"drawioeditor-ve-drawiosketch-description": "Insert an editable draw.io sketch",
+	"drawioeditor-sketch-droplet-name": "Sketch",
+	"drawioeditor-sketch-droplet-description": "Editable draw.io whiteboard sketch"
 }
