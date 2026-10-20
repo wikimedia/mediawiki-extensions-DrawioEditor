@@ -16,11 +16,15 @@
 	"drawioeditor-usage": "Се користи со ознаката draw.io",
 	"drawioeditor-ve-drawio-title": "Дијаграм од draw.io",
 	"drawioeditor-ve-drawio-description": "Внесете уредлив дијаграм на draw.io",
+	"drawioeditor-ve-drawiosketch-title": "скица со draw.io",
+	"drawioeditor-ve-drawiosketch-description": "Внеси уредлива скица со draw.io",
 	"drawioeditor-ve-drawio-tag-name": "Име",
 	"drawioeditor-ve-drawio-tag-name-help": "Име на дијаграмот како што е складиран на викито",
 	"drawioeditor-ve-drawio-tag-name-placeholder": "Дијаграм-1",
 	"drawioeditor-droplet-name": "Дијаграм",
 	"drawioeditor-droplet-description": "Уредлив draw.io-дијаграм",
+	"drawioeditor-sketch-droplet-name": "Скица",
+	"drawioeditor-sketch-droplet-description": "Уредлива скица на табла со draw.io",
 	"drawioeditor-ve-drawio-alt-label": "Опис на сликата",
 	"drawioeditor-ve-drawio-alt-help": "Текстот што се прикажува кога сликата не се вчитува или за помошни уреди",
 	"drawioeditor-config-backendurl": "URL на заднината",
@@ -37,9 +41,5 @@
 	"drawioeditor-details": "Подробно",
 	"drawioeditor-config-customshapelibraries": "Библиотеки на прилагодени облици",
 	"drawioeditor-config-customshapelibraries-help": "URL-адреси од библиотеки на прилагодени облици за вчитување во управувачницата за облици",
-	"drawioeditor-error-invalid-filename": "Името „$1“ содржи недозволени знаци.",
-	"drawioeditor-ve-drawiosketch-title": "скица со draw.io",
-	"drawioeditor-ve-drawiosketch-description": "Внеси уредлива скица со draw.io",
-	"drawioeditor-sketch-droplet-name": "Скица",
-	"drawioeditor-sketch-droplet-description": "Уредлива скица на табла со draw.io"
+	"drawioeditor-error-invalid-filename": "Името „$1“ содржи недозволени знаци."
 }

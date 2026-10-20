@@ -19,11 +19,15 @@
 	"drawioeditor-usage": "与draw.io标签一起使用",
 	"drawioeditor-ve-drawio-title": "draw.io图表",
 	"drawioeditor-ve-drawio-description": "插入可编辑的draw.io图表",
+	"drawioeditor-ve-drawiosketch-title": "draw.io草图",
+	"drawioeditor-ve-drawiosketch-description": "插入可编辑的draw.io草图",
 	"drawioeditor-ve-drawio-tag-name": "名称",
 	"drawioeditor-ve-drawio-tag-name-help": "存储在wiki中的图表名称",
 	"drawioeditor-ve-drawio-tag-name-placeholder": "Diagram-1",
 	"drawioeditor-droplet-name": "图表",
 	"drawioeditor-droplet-description": "可编辑的draw.io图表",
+	"drawioeditor-sketch-droplet-name": "草图",
+	"drawioeditor-sketch-droplet-description": "可编辑的draw.io白板草图",
 	"drawioeditor-ve-drawio-alt-label": "图像描述",
 	"drawioeditor-ve-drawio-alt-help": "图像未加载或使用辅助设备时显示的文本",
 	"drawioeditor-config-backendurl": "后端URL",
@@ -40,9 +44,5 @@
 	"drawioeditor-details": "详细信息",
 	"drawioeditor-config-customshapelibraries": "自定义形状库",
 	"drawioeditor-config-customshapelibraries-help": "要在形状面板中加载的自定义形状库的URL",
-	"drawioeditor-error-invalid-filename": "图表名称“$1”包含不允许的字符。",
-	"drawioeditor-ve-drawiosketch-title": "draw.io草图",
-	"drawioeditor-ve-drawiosketch-description": "插入可编辑的draw.io草图",
-	"drawioeditor-sketch-droplet-name": "草图",
-	"drawioeditor-sketch-droplet-description": "可编辑的draw.io白板草图"
+	"drawioeditor-error-invalid-filename": "图表名称“$1”包含不允许的字符。"
 }
