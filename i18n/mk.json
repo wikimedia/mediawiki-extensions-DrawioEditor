@@ -57,5 +57,9 @@
 	"drawioeditor-ve-drawio-theme-dark-label": "Темен",
 	"drawioeditor-ve-drawio-theme-simple-label": "Прост",
 	"drawioeditor-diagram-load-failed": "Не успеав да го вчитам дијаграмот $1",
-	"drawioeditor-error-invalid-filename": "Името „$1“ содржи недозволени знаци."
+	"drawioeditor-error-invalid-filename": "Името „$1“ содржи недозволени знаци.",
+	"drawioeditor-ve-drawiosketch-title": "скица со draw.io",
+	"drawioeditor-ve-drawiosketch-description": "Внеси уредлива скица со draw.io",
+	"drawioeditor-sketch-droplet-name": "Скица",
+	"drawioeditor-sketch-droplet-description": "Уредлива скица на табла со draw.io"
 }
