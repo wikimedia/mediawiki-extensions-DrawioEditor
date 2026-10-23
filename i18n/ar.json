@@ -38,5 +38,9 @@
 	"drawioeditor-details": "تفاصيل",
 	"drawioeditor-config-customshapelibraries": "مكتبات الأشكال المخصصة",
 	"drawioeditor-config-customshapelibraries-help": "عناوين URL لمكتبات الأشكال المخصصة للتحميل في لوحة الأشكال",
-	"drawioeditor-error-invalid-filename": "اسم الرسم التخطيطي \" $1 \" يحتوي على أحرف غير مسموح بها."
+	"drawioeditor-error-invalid-filename": "اسم الرسم التخطيطي \" $1 \" يحتوي على أحرف غير مسموح بها.",
+	"drawioeditor-ve-drawiosketch-title": "رسم تخطيطي باستخدام draw.io",
+	"drawioeditor-ve-drawiosketch-description": "أدرج رسمًا تخطيطيًا قابلًا للتعديل باستخدام draw.io",
+	"drawioeditor-sketch-droplet-name": "رسم",
+	"drawioeditor-sketch-droplet-description": "رسم تخطيطي قابل للتعديل على السبورة البيضاء باستخدام draw.io"
 }
