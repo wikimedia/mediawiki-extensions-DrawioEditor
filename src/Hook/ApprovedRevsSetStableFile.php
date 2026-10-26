@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\DrawioEditor\Hook;
 
 use File;
+use MediaWiki\FileRepo\RepoGroup;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use RepoGroup;
 use Wikimedia\Rdbms\ILoadBalancer;
 
 class ApprovedRevsSetStableFile implements DrawioGetFileHook {
