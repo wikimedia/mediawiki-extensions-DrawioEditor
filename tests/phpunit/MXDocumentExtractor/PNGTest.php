@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\DrawioEditor\Tests\MXDocumentExtractor;
 
 use File;
-use FileBackend;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\PNG;
 use PHPUnit\Framework\TestCase;
+use Wikimedia\FileBackend\FileBackend;
 
 class PNGTest extends TestCase {
 

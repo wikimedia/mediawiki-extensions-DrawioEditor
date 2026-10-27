@@ -3,9 +3,9 @@
 namespace MediaWiki\Extension\DrawioEditor\Tests\MXDocumentExtractor;
 
 use File;
-use FileBackend;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\SVG;
 use PHPUnit\Framework\TestCase;
+use Wikimedia\FileBackend\FileBackend;
 
 class SVGTest extends TestCase {
 
