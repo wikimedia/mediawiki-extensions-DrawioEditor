@@ -2,10 +2,10 @@
 
 namespace MediaWiki\Extension\DrawioEditor\Tests\MXDocumentExtractor;
 
-use FileBackend;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\SVG;
 use MediaWiki\FileRepo\File\File;
 use PHPUnit\Framework\TestCase;
+use Wikimedia\FileBackend\FileBackend;
 
 class SVGTest extends TestCase {
 
