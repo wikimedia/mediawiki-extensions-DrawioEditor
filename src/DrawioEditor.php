@@ -3,10 +3,10 @@
 namespace MediaWiki\Extension\DrawioEditor;
 
 use File;
-use FileRepo;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Extension\DrawioEditor\MXDocumentExtractor\PNG;
+use MediaWiki\FileRepo\FileRepo;
 use MediaWiki\Html\Html;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\Message\Message;
