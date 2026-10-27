@@ -3,7 +3,7 @@
 namespace MediaWiki\Extension\DrawioEditor;
 
 use DOMDocument;
-use File;
+use MediaWiki\FileRepo\File\File;
 
 interface IMXDocumentExtractor {
 
