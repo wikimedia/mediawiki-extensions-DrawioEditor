@@ -11,7 +11,7 @@ use MediaWiki\FileRepo\RepoGroup;
 use MediaWiki\Message\Message;
 use MediaWiki\Specials\SpecialUpload;
 use MediaWiki\Title\Title;
-use MWFileProps;
+use MediaWiki\Utils\MWFileProps;
 use RuntimeException;
 use Wikimedia\Mime\MimeAnalyzer;
 use Wikimedia\ParamValidator\ParamValidator;
